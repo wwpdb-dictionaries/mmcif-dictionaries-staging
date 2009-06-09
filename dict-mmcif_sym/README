@@ -1,0 +1,23 @@
+This directory contains the text files required to build the:
+
+               Symmetry mmCIF Dictionary
+
+This dictionary is designed to provide the data names
+required to describe crystallographic symmetry.
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_sym.PARTS.
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_sym
+
+ or 
+
+    make compile
+##
+
+
+
+
+

@@ -1,0 +1,42 @@
+
+###########################################################################
+#
+# File:  mmcif_emx-header.dic                                             
+#
+#        mmCIF version of EM3D Exchange Dictionary
+#
+#        Originally based on the BSOFT (V1.3.0) program dictionary  
+#        J. Bernard Heymann. 2001. Bsoft: Image and molecular 
+#        processing in electron microscopy. Journal of Structural 
+#        Biology. 133. 2/3. 156 - 169.                            
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_emx.dic
+
+    _datablock.id                          mmcif_emx.dic
+    _datablock.description
+;
+     This data block holds data definitions data exchange in 
+     3-dimensional electron microscopy.
+;
+
+    _dictionary.title           mmcif_emx.dic
+    _dictionary.datablock_id    mmcif_emx.dic
+    _dictionary.version         0.001
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.001  2005-10-14
+;
+ Changes (J.Westbrook)
+        Initial version for items extracted from BSOFT V1.3.0
+        J. Bernard Heymann. 2001. Bsoft: Image and molecular 
+        processing in electron microscopy. Journal of Structural 
+        Biology. 133. 2/3. 156 - 169.                            
+;
+### EOF mmcif_iims-header.dic

@@ -1,0 +1,4406 @@
+##########################################################################
+#
+# File:  mmcif_emx-def-1.dic                                             
+#
+#        mmCIF version of EM3D Exchange Dictionary
+#
+#        Originally based on the BSOFT (V1.3.0) program dictionary 
+#        J. Bernard Heymann. 2001. Bsoft: Image and molecular 
+#        processing in electron microscopy. Journal of Structural 
+#        Biology. 133. 2/3. 156 - 169.                            
+#                                                                        
+###########################################################################
+
+
+save_emx_angle_type
+    _category.description
+;        Data items in the angle_type category describe ...
+;
+    _category.id                emx_angle_type
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_emx_angle_type.symbol1'                      
+     '_emx_angle_type.symbol2'                      
+     '_emx_angle_type.symbol3'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'
+                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ... 
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__emx_angle_type.angle
+    _item_description.description
+;    _angle_type.angle describes the ...
+;
+    _item.name                   '_emx_angle_type.angle'
+    _item.category_id             emx_angle_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_angle_type.angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_angle_type.symbol1
+    _item_description.description
+;    _angle_type.symbol1 describes the ...
+;
+    _item.name                   '_emx_angle_type.symbol1'
+    _item.category_id             emx_angle_type
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_angle_type.symbol1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_angle_type.symbol2
+    _item_description.description
+;    _angle_type.symbol2 describes the ...
+;
+    _item.name                   '_emx_angle_type.symbol2'
+    _item.category_id             emx_angle_type
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_angle_type.symbol2'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_angle_type.symbol3
+    _item_description.description
+;    _angle_type.symbol3 describes the ...
+;
+    _item.name                   '_emx_angle_type.symbol3'
+    _item.category_id             emx_angle_type
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_angle_type.symbol3'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_atom_site
+    _category.description
+;        Data items in the atom_site category describe ...
+;
+    _category.id                atom_site
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_atom_site.id'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__atom_site.B_iso_or_equiv
+    _item_description.description
+;    _atom_site.B_iso_or_equiv describes the ...
+;
+    _item.name                   '_atom_site.B_iso_or_equiv'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.B_iso_or_equiv'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.Cartn_x
+    _item_description.description
+;    _atom_site.Cartn_x describes the ...
+;
+    _item.name                   '_atom_site.Cartn_x'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.Cartn_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.Cartn_y
+    _item_description.description
+;    _atom_site.Cartn_y describes the ...
+;
+    _item.name                   '_atom_site.Cartn_y'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.Cartn_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.Cartn_z
+    _item_description.description
+;    _atom_site.Cartn_z describes the ...
+;
+    _item.name                   '_atom_site.Cartn_z'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.Cartn_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.auth_asym_id
+    _item_description.description
+;    _atom_site.auth_asym_id describes the ...
+;
+    _item.name                   '_atom_site.auth_asym_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.auth_asym_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.charge
+    _item_description.description
+;    _atom_site.charge describes the ...
+;
+    _item.name                   '_atom_site.charge'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.charge'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.footnote_id
+    _item_description.description
+;    _atom_site.footnote_id describes the ...
+;
+    _item.name                   '_atom_site.footnote_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.footnote_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.group_PDB
+    _item_description.description
+;    _atom_site.group_PDB describes the ...
+;
+    _item.name                   '_atom_site.group_PDB'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.group_PDB'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.id
+    _item_description.description
+;    _atom_site.id describes the ...
+;
+    _item.name                   '_atom_site.id'
+    _item.category_id             atom_site
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.label_asym_id
+    _item_description.description
+;    _atom_site.label_asym_id describes the ...
+;
+    _item.name                   '_atom_site.label_asym_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.label_asym_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.label_atom_id
+    _item_description.description
+;    _atom_site.label_atom_id describes the ...
+;
+    _item.name                   '_atom_site.label_atom_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.label_atom_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.label_comp_id
+    _item_description.description
+;    _atom_site.label_comp_id describes the ...
+;
+    _item.name                   '_atom_site.label_comp_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.label_comp_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.label_seq_id
+    _item_description.description
+;    _atom_site.label_seq_id describes the ...
+;
+    _item.name                   '_atom_site.label_seq_id'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.label_seq_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.occupancy
+    _item_description.description
+;    _atom_site.occupancy describes the ...
+;
+    _item.name                   '_atom_site.occupancy'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_site.occupancy'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_site.pdbx_PDB_ins_code
+    _item_description.description
+;    _atom_site.pdbx_PDB_ins_code describes the ...
+;
+    _item.name                   '_atom_site.pdbx_PDB_ins_code'
+    _item.category_id             atom_site
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.pdbx_PDB_ins_code'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_atom_type
+    _category.description
+;        Data items in the atom_type category describe ...
+;
+    _category.id                atom_type
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+	'_atom_site.type_symbol'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__atom_site.type_symbol
+    _item_description.description
+;    _atom_site.type_symbol describes the ...
+;
+    _item.name                   '_atom_site.type_symbol'
+    _item.category_id             atom_site
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_atom_site.type_symbol'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save__atom_type.atom_number
+    _item_description.description
+;    _atom_type.atom_number describes the ...
+;
+    _item.name                   '_atom_type.atom_number'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_atom_type.atom_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.mass
+    _item_description.description
+;    _atom_type.mass describes the ...
+;
+    _item.name                   '_atom_type.mass'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.mass'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.oxidation_number
+    _item_description.description
+;    _atom_type.oxidation_number describes the ...
+;
+    _item.name                   '_atom_type.oxidation_number'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_atom_type.oxidation_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.radius_bond
+    _item_description.description
+;    _atom_type.radius_bond describes the ...
+;
+    _item.name                   '_atom_type.radius_bond'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.radius_bond'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.radius_contact
+    _item_description.description
+;    _atom_type.radius_contact describes the ...
+;
+    _item.name                   '_atom_type.radius_contact'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.radius_contact'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_a1
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_a1 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_a1'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_a1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_a2
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_a2 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_a2'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_a2'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_a3
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_a3 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_a3'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_a3'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_a4
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_a4 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_a4'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_a4'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_a5
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_a5 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_a5'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_a5'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_b1
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_b1 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_b1'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_b1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_b2
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_b2 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_b2'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_b2'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_b3
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_b3 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_b3'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_b3'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_b4
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_b4 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_b4'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_b4'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_b5
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_b5 describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_b5'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_b5'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.scat_Cromer_Mann_c
+    _item_description.description
+;    _atom_type.scat_Cromer_Mann_c describes the ...
+;
+    _item.name                   '_atom_type.scat_Cromer_Mann_c'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.scat_Cromer_Mann_c'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__atom_type.symbol
+    _item_description.description
+;    _atom_type.symbol describes the ...
+;
+    _item.name                   '_atom_type.symbol'
+    _item.category_id             atom_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_atom_type.symbol'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+## 
+save_emx_bond_rule
+    _category.description
+;        Data items in the bond_rule category describe ...
+;
+    _category.id                emx_bond_rule
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_bond_rule.symbol'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_bond_rule.bonds
+    _item_description.description
+;    _bond_rule.bonds describes the ...
+;
+    _item.name                   '_emx_bond_rule.bonds'
+    _item.category_id             emx_bond_rule
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_aliases.alias_name     '_bond_rule.bonds'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_bond_rule.symbol
+    _item_description.description
+;    _bond_rule.symbol describes the ...
+;
+    _item.name                   '_emx_bond_rule.symbol'
+    _item.category_id             emx_bond_rule
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_bond_rule.symbol'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_emx_bond_type
+    _category.description
+;        Data items in the bond_type category describe ...
+;
+    _category.id                emx_bond_type
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_bond_type.symbol1'                      
+    '_emx_bond_type.symbol2'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_bond_type.VdW_distance
+    _item_description.description
+;    _bond_type.VdW_distance describes the ...
+;
+    _item.name                   '_emx_bond_type.VdW_distance'
+    _item.category_id             emx_bond_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_bond_type.VdW_distance'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_bond_type.length
+    _item_description.description
+;    _bond_type.length describes the ...
+;
+    _item.name                   '_emx_bond_type.length'
+    _item.category_id             emx_bond_type
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_bond_type.length'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_bond_type.symbol1
+    _item_description.description
+;    _bond_type.symbol1 describes the ...
+;
+    _item.name                   '_emx_bond_type.symbol1'
+    _item.category_id             emx_bond_type
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_bond_type.symbol1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_bond_type.symbol2
+    _item_description.description
+;    _bond_type.symbol2 describes the ...
+;
+    _item.name                   '_emx_bond_type.symbol2'
+    _item.category_id             emx_bond_type
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_bond_type.symbol2'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_cell
+    _category.description
+;        Data items in the cell category describe crystallographic 
+                cell constants ...
+;
+    _category.id                cell
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+         '_cell.emx_global_id'             
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__cell.emx_global_id
+    _item_description.description
+;    _cell.emx_global_id synthetic key pointing to the dataset identifier
+          _emx_global.id.
+;
+    _item.name                   '_cell.emx_global_id'
+    _item.category_id             cell
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_cell.global_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+    _item_linked.child_name      '_cell.emx_global_id'
+    _item_linked.parent_name     '_emx_global.id'
+     save_
+ 
+save__cell.angle_alpha
+    _item_description.description
+;    _cell.angle_alpha describes the ...
+;
+    _item.name                   '_cell.angle_alpha'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.angle_alpha'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__cell.angle_beta
+    _item_description.description
+;    _cell.angle_beta describes the ...
+;
+    _item.name                   '_cell.angle_beta'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.angle_beta'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__cell.angle_gamma
+    _item_description.description
+;    _cell.angle_gamma describes the ...
+;
+    _item.name                   '_cell.angle_gamma'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.angle_gamma'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__cell.length_a
+    _item_description.description
+;    _cell.length_a describes the ...
+;
+    _item.name                   '_cell.length_a'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.length_a'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__cell.length_b
+    _item_description.description
+;    _cell.length_b describes the ...
+;
+    _item.name                   '_cell.length_b'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.length_b'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__cell.length_c
+    _item_description.description
+;    _cell.length_c describes the ...
+;
+    _item.name                   '_cell.length_c'
+    _item.category_id             cell
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_cell.length_c'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_emx_em3dr
+    _category.description
+;        Data items in the em3dr category describe ...
+;
+    _category.id                emx_em3dr
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+	'_emx_em3dr.map_dimension'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_em3dr.map_dimension
+    _item_description.description
+;    _emx_em3dr.map_dimension describes the ...
+;
+    _item.name                   '_emx_em3dr.map_dimension'
+    _item.category_id             emx_em3dr
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_em3dr.map_dimension'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_em3dr.resolution_high
+    _item_description.description
+;    _emx_em3dr.resolution_high describes the ...
+;
+    _item.name                   '_emx_em3dr.resolution_high'
+    _item.category_id             emx_em3dr
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_em3dr.resolution_high'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_em3dr.resolution_output
+    _item_description.description
+;    _emx_em3dr.resolution_output describes the ...
+;
+    _item.name                   '_emx_em3dr.resolution_output'
+    _item.category_id             emx_em3dr
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_em3dr.resolution_output'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_emx_filament
+    _category.description
+;        Data items in the emx_filament category describe ...
+;
+    _category.id                emx_filament
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_filament.id'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_filament.file_name
+    _item_description.description
+;    _emx_filament.file_name describes the ...
+;
+    _item.name                   '_emx_filament.file_name'
+    _item.category_id             emx_filament
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_filament.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_filament.id
+    _item_description.description
+;    _emx_filament.id describes the ...
+;
+    _item.name                   '_emx_filament.id'
+    _item.category_id             emx_filament
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_filament.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_filament.micrograph_x
+    _item_description.description
+;    _emx_filament.micrograph_x describes the ...
+;
+    _item.name                   '_emx_filament.micrograph_x'
+    _item.category_id             emx_filament
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_filament.micrograph_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_filament.micrograph_y
+    _item_description.description
+;    _emx_filament.micrograph_y describes the ...
+;
+    _item.name                   '_emx_filament.micrograph_y'
+    _item.category_id             emx_filament
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_filament.micrograph_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_filament.micrograph_z
+    _item_description.description
+;    _emx_filament.micrograph_z describes the ...
+;
+    _item.name                   '_emx_filament.micrograph_z'
+    _item.category_id             emx_filament
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_filament.micrograph_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_filament.node_id
+    _item_description.description
+;    _emx_filament.node_id describes the ...
+;
+    _item.name                   '_emx_filament.node_id'
+    _item.category_id             emx_filament
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_filament.node_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_emx_general
+    _category.description
+;        Data items in the emx_general category describe ...
+;
+    _category.id                emx_general
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_general.global_id'                  
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+
+save__emx_general.global_id
+    _item_description.description
+;    _emx_general.global_id uniquely uniquely identifies a bsoft data set
+     and is a point to _global.id. 
+;
+    _item.name                   '_emx_general.global_id'
+    _item.category_id             emx_general
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_general.global_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save__emx_general.angle_unit
+    _item_description.description
+;    _emx_general.angle_unit describes the ...
+;
+    _item.name                   '_emx_general.angle_unit'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.angle_unit'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.bin_factor
+    _item_description.description
+;    _emx_general.bin_factor describes the ...
+;
+    _item.name                   '_emx_general.bin_factor'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.bin_factor'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.length_unit
+    _item_description.description
+;    _emx_general.length_unit describes the ...
+;
+    _item.name                   '_emx_general.length_unit'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.length_unit'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.magnification
+    _item_description.description
+;    _emx_general.magnification describes the ...
+;
+    _item.name                   '_emx_general.magnification'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.magnification'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.mass_unit
+    _item_description.description
+;    _emx_general.mass_unit describes the ...
+;
+    _item.name                   '_emx_general.mass_unit'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.mass_unit'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.resolution_high
+    _item_description.description
+;    _emx_general.resolution_high describes the ...
+;
+    _item.name                   '_emx_general.resolution_high'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.resolution_high'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.resolution_low
+    _item_description.description
+;    _emx_general.resolution_low describes the ...
+;
+    _item.name                   '_emx_general.resolution_low'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.resolution_low'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.symmetry
+    _item_description.description
+;    _emx_general.symmetry describes the ...
+;
+    _item.name                   '_emx_general.symmetry'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.symmetry'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.temperature_factor
+    _item_description.description
+;    _emx_general.temperature_factor describes the ...
+;
+    _item.name                   '_emx_general.temperature_factor'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.temperature_factor'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.time_unit
+    _item_description.description
+;    _emx_general.time_unit describes the ...
+;
+    _item.name                   '_emx_general.time_unit'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.time_unit'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_general.wiener_factor
+    _item_description.description
+;    _emx_general.wiener_factor describes the ...
+;
+    _item.name                   '_emx_general.wiener_factor'
+    _item.category_id             emx_general
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_general.wiener_factor'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_emx_global
+    _category.description
+;        Data items in the emx_global category describe ...
+;
+    _category.id                emx_global
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_global.id'
+                     
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+
+save__emx_global.id
+    _item_description.description
+;    _emx_global.id uniquely identifies a bsoft data set. 
+;
+    _item.name                   '_emx_global.id'
+    _item.category_id             emx_global
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_global.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_global.comment
+    _item_description.description
+;    _emx_global.comment describes the ...
+;
+    _item.name                   '_emx_global.comment'
+    _item.category_id             emx_global
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_global.comment'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_global.select
+    _item_description.description
+;    _emx_global.select describes the ...
+;
+    _item.name                   '_emx_global.select'
+    _item.category_id             emx_global
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_global.select'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_image
+    _category.description
+;        Data items in the emx_image category describe ...
+;
+    _category.id                emx_image
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_image.number'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_image.amplitude
+    _item_description.description
+;    _emx_image.amplitude describes the ...
+;
+    _item.name                   '_emx_image.amplitude'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.amplitude'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.background
+    _item_description.description
+;    _emx_image.background describes the ...
+;
+    _item.name                   '_emx_image.background'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.background'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.cartn_x
+    _item_description.description
+;    _emx_image.cartn_x describes the ...
+;
+    _item.name                   '_emx_image.cartn_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.cartn_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.cartn_y
+    _item_description.description
+;    _emx_image.cartn_y describes the ...
+;
+    _item.name                   '_emx_image.cartn_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.cartn_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.cartn_z
+    _item_description.description
+;    _emx_image.cartn_z describes the ...
+;
+    _item.name                   '_emx_image.cartn_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.cartn_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.channel
+    _item_description.description
+;    _emx_image.channel describes the ...
+;
+    _item.name                   '_emx_image.channel'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.channel'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.color_model
+    _item_description.description
+;    _emx_image.color_model describes the ...
+;
+    _item.name                   '_emx_image.color_model'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_aliases.alias_name     '_image.color_model'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.data_type
+    _item_description.description
+;    _emx_image.data_type describes the ...
+;
+    _item.name                   '_emx_image.data_type'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_image.data_type'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.file_name
+    _item_description.description
+;    _emx_image.file_name describes the ...
+;
+    _item.name                   '_emx_image.file_name'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_image.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.fom
+    _item_description.description
+;    _emx_image.fom describes the ...
+;
+    _item.name                   '_emx_image.fom'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.imaginary
+    _item_description.description
+;    _emx_image.imaginary describes the ...
+;
+    _item.name                   '_emx_image.imaginary'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.imaginary'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.label
+    _item_description.description
+;    _emx_image.label describes the ...
+;
+    _item.name                   '_emx_image.label'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_image.label'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.linker_end
+    _item_description.description
+;    _emx_image.linker_end describes the ...
+;
+    _item.name                   '_emx_image.linker_end'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.linker_end'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.linker_start
+    _item_description.description
+;    _emx_image.linker_start describes the ...
+;
+    _item.name                   '_emx_image.linker_start'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.linker_start'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_fom
+    _item_description.description
+;    _emx_image.marker_fom describes the ...
+;
+    _item.name                   '_emx_image.marker_fom'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.marker_fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_id
+    _item_description.description
+;    _emx_image.marker_id describes the ...
+;
+    _item.name                   '_emx_image.marker_id'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_image.marker_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_image_number
+    _item_description.description
+;    _emx_image.marker_image_number describes the ...
+;
+    _item.name                   '_emx_image.marker_image_number'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_image.marker_image_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_radius
+    _item_description.description
+;    _emx_image.marker_radius describes the ...
+;
+    _item.name                   '_emx_image.marker_radius'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.marker_radius'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_x
+    _item_description.description
+;    _emx_image.marker_x describes the ...
+;
+    _item.name                   '_emx_image.marker_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.marker_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_y
+    _item_description.description
+;    _emx_image.marker_y describes the ...
+;
+    _item.name                   '_emx_image.marker_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.marker_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.marker_z
+    _item_description.description
+;    _emx_image.marker_z describes the ...
+;
+    _item.name                   '_emx_image.marker_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.marker_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.number
+    _item_description.description
+;    _emx_image.number describes the ...
+;
+    _item.name                   '_emx_image.number'
+    _item.category_id             emx_image
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_aliases.alias_name     '_image.number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.origin_x
+    _item_description.description
+;    _emx_image.origin_x describes the ...
+;
+    _item.name                   '_emx_image.origin_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.origin_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.origin_y
+    _item_description.description
+;    _emx_image.origin_y describes the ...
+;
+    _item.name                   '_emx_image.origin_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.origin_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.origin_z
+    _item_description.description
+;    _emx_image.origin_z describes the ...
+;
+    _item.name                   '_emx_image.origin_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.origin_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.phase
+    _item_description.description
+;    _emx_image.phase describes the ...
+;
+    _item.name                   '_emx_image.phase'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.phase'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.real
+    _item_description.description
+;    _emx_image.real describes the ...
+;
+    _item.name                   '_emx_image.real'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.real'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.size_channels
+    _item_description.description
+;    _emx_image.size_channels describes the ...
+;
+    _item.name                   '_emx_image.size_channels'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.size_channels'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.size_number
+    _item_description.description
+;    _emx_image.size_number describes the ...
+;
+    _item.name                   '_emx_image.size_number'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_image.size_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.size_x
+    _item_description.description
+;    _emx_image.size_x describes the ...
+;
+    _item.name                   '_emx_image.size_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.size_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.size_y
+    _item_description.description
+;    _emx_image.size_y describes the ...
+;
+    _item.name                   '_emx_image.size_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.size_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.size_z
+    _item_description.description
+;    _emx_image.size_z describes the ...
+;
+    _item.name                   '_emx_image.size_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.size_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.transform_type
+    _item_description.description
+;    _emx_image.transform_type describes the ...
+;
+    _item.name                   '_emx_image.transform_type'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_image.transform_type'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.unit_x
+    _item_description.description
+;    _emx_image.unit_x describes the ...
+;
+    _item.name                   '_emx_image.unit_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.unit_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.unit_y
+    _item_description.description
+;    _emx_image.unit_y describes the ...
+;
+    _item.name                   '_emx_image.unit_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.unit_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.unit_z
+    _item_description.description
+;    _emx_image.unit_z describes the ...
+;
+    _item.name                   '_emx_image.unit_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.unit_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.view_angle
+    _item_description.description
+;    _emx_image.view_angle describes the ...
+;
+    _item.name                   '_emx_image.view_angle'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.view_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.view_x
+    _item_description.description
+;    _emx_image.view_x describes the ...
+;
+    _item.name                   '_emx_image.view_x'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.view_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.view_y
+    _item_description.description
+;    _emx_image.view_y describes the ...
+;
+    _item.name                   '_emx_image.view_y'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.view_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_image.view_z
+    _item_description.description
+;    _emx_image.view_z describes the ...
+;
+    _item.name                   '_emx_image.view_z'
+    _item.category_id             emx_image
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_image.view_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_map
+    _category.description
+;        Data items in the emx_map category describe ...
+;
+    _category.id                emx_map
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_map.3D_reconstruction_file_name'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_map.3D_reconstruction_file_name
+    _item_description.description
+;    _emx_map.3D_reconstruction.file_name describes the ...
+;
+    _item.name                   '_emx_map.3D_reconstruction_file_name'
+    _item.category_id             emx_map
+    _item.mandatory_code          yes
+    _item_type.code               line
+    _item_aliases.alias_name     '_map.3D_reconstruction.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.3D_reconstruction_size_x
+    _item_description.description
+;    _emx_map.3D_reconstruction_size_x describes the ...
+;
+    _item.name                   '_emx_map.3D_reconstruction_size_x'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.3D_reconstruction_size_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.3D_reconstruction_size_y
+    _item_description.description
+;    _emx_map.3D_reconstruction_size_y describes the ...
+;
+    _item.name                   '_emx_map.3D_reconstruction_size_y'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.3D_reconstruction_size_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.3D_reconstruction_size_z
+    _item_description.description
+;    _emx_map.3D_reconstruction_size_z describes the ...
+;
+    _item.name                   '_emx_map.3D_reconstruction_size_z'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.3D_reconstruction_size_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.3D_reconstruction_voxel_size
+    _item_description.description
+;    _emx_map.3D_reconstruction_voxel_size describes the ...
+;
+    _item.name                   '_emx_map.3D_reconstruction_voxel_size'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.3D_reconstruction_voxel_size'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.back_projection_rweight
+    _item_description.description
+;    _emx_map.back_projection.rweight describes the ...
+;
+    _item.name                   '_emx_map.back_projection_rweight'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.back_projection.rweight'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.magnification
+    _item_description.description
+;    _emx_map.magnification describes the ...
+;
+    _item.name                   '_emx_map.magnification'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_map.magnification'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_map.reference_file_name
+    _item_description.description
+;    _emx_map.reference.file_name describes the ...
+;
+    _item.name                   '_emx_map.reference_file_name'
+    _item.category_id             emx_map
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_map.reference.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_micrograph
+    _category.description
+;        Data items in the emx_micrograph category describe ...
+;
+    _category.id                emx_micrograph
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_emx_micrograph.id'
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_micrograph.bad_radius
+    _item_description.description
+;    _emx_micrograph.bad_radius describes the ...
+;
+    _item.name                   '_emx_micrograph.bad_radius'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.bad_radius'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.bad_x
+    _item_description.description
+;    _emx_micrograph.bad_x describes the ...
+;
+    _item.name                   '_emx_micrograph.bad_x'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.bad_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.bad_y
+    _item_description.description
+;    _emx_micrograph.bad_y describes the ...
+;
+    _item.name                   '_emx_micrograph.bad_y'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.bad_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.bad_z
+    _item_description.description
+;    _emx_micrograph.bad_z describes the ...
+;
+    _item.name                   '_emx_micrograph.bad_z'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.bad_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.box_radius
+    _item_description.description
+;    _emx_micrograph.box_radius describes the ...
+;
+    _item.name                   '_emx_micrograph.box_radius'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.box_radius'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.box_radius_x
+    _item_description.description
+;    _emx_micrograph.box_radius_x describes the ...
+;
+    _item.name                   '_emx_micrograph.box_radius_x'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.box_radius_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.box_radius_y
+    _item_description.description
+;    _emx_micrograph.box_radius_y describes the ...
+;
+    _item.name                   '_emx_micrograph.box_radius_y'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.box_radius_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.box_radius_z
+    _item_description.description
+;    _emx_micrograph.box_radius_z describes the ...
+;
+    _item.name                   '_emx_micrograph.box_radius_z'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.box_radius_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_Cc
+    _item_description.description
+;    _emx_micrograph.ctf.Cc describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_Cc'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.Cc'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_Cs
+    _item_description.description
+;    _emx_micrograph.ctf.Cs describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_Cs'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.Cs'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_alpha
+    _item_description.description
+;    _emx_micrograph.ctf.alpha describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_alpha'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.alpha'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_amp_contrast
+    _item_description.description
+;    _emx_micrograph.ctf.amp_contrast describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_amp_contrast'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.amp_contrast'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_astigmatism_angle
+    _item_description.description
+;    _emx_micrograph.ctf.astigmatism_angle describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_astigmatism_angle'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.astigmatism_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_baseline
+    _item_description.description
+;    _emx_micrograph.ctf.baseline describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_baseline'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.baseline'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_defocus_average
+    _item_description.description
+;    _emx_micrograph.ctf.defocus_average describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_defocus_average'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.defocus_average'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_defocus_deviation
+    _item_description.description
+;    _emx_micrograph.ctf.defocus_deviation describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_defocus_deviation'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.defocus_deviation'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_defocus_max
+    _item_description.description
+;    _emx_micrograph.ctf.defocus_max describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_defocus_max'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.defocus_max'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_defocus_min
+    _item_description.description
+;    _emx_micrograph.ctf.defocus_min describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_defocus_min'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.defocus_min'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_energy_spread
+    _item_description.description
+;    _emx_micrograph.ctf.energy_spread describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_energy_spread'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.energy_spread'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_envelope
+    _item_description.description
+;    _emx_micrograph.ctf.envelope describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_envelope'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.envelope'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.ctf_first_zero
+    _item_description.description
+;    _emx_micrograph.ctf.first_zero describes the ...
+;
+    _item.name                   '_emx_micrograph.ctf_first_zero'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.ctf.first_zero'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.electron_dose
+    _item_description.description
+;    _emx_micrograph.electron_dose describes the ...
+;
+    _item.name                   '_emx_micrograph.electron_dose'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.electron_dose'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.field_id
+    _item_description.description
+;    _emx_micrograph.field_id describes the ...
+;
+    _item.name                   '_emx_micrograph.field_id'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_micrograph.field_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.filament_node_radius
+    _item_description.description
+;    _emx_micrograph.filament_node_radius describes the ...
+;
+    _item.name                   '_emx_micrograph.filament_node_radius'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.filament_node_radius'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.filament_width
+    _item_description.description
+;    _emx_micrograph.filament_width describes the ...
+;
+    _item.name                   '_emx_micrograph.filament_width'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.filament_width'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.file_name
+    _item_description.description
+;    _emx_micrograph.file_name describes the ...
+;
+    _item.name                   '_emx_micrograph.file_name'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_micrograph.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.id
+    _item_description.description
+;    _emx_micrograph.id describes the ...
+;
+    _item.name                   '_emx_micrograph.id'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_micrograph.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.magnification
+    _item_description.description
+;    _emx_micrograph.magnification describes the ...
+;
+    _item.name                   '_emx_micrograph.magnification'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.magnification'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_fom
+    _item_description.description
+;    _emx_micrograph.marker_fom describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_fom'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.marker_fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_id
+    _item_description.description
+;    _emx_micrograph.marker_id describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_id'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_micrograph.marker_id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_radius
+    _item_description.description
+;    _emx_micrograph.marker_radius describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_radius'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.marker_radius'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_x
+    _item_description.description
+;    _emx_micrograph.marker_x describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_x'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.marker_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_y
+    _item_description.description
+;    _emx_micrograph.marker_y describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_y'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.marker_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.marker_z
+    _item_description.description
+;    _emx_micrograph.marker_z describes the ...
+;
+    _item.name                   '_emx_micrograph.marker_z'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.marker_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save__emx_micrograph.matrix[1][1]
+    _item_description.description
+;    _emx_micrograph.matrix[1][1] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[1][1]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[1][1]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[1][2]
+    _item_description.description
+;    _emx_micrograph.matrix[1][2] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[1][2]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[1][2]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[1][3]
+    _item_description.description
+;    _emx_micrograph.matrix[1][3] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[1][3]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[1][3]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[2][1]
+    _item_description.description
+;    _emx_micrograph.matrix[2][1] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[2][1]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[2][1]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[2][2]
+    _item_description.description
+;    _emx_micrograph.matrix[2][2] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[2][2]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[2][2]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[2][3]
+    _item_description.description
+;    _emx_micrograph.matrix[2][3] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[2][3]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[2][3]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[3][1]
+    _item_description.description
+;    _emx_micrograph.matrix[3][1] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[3][1]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[3][1]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[3][2]
+    _item_description.description
+;    _emx_micrograph.matrix[3][2] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[3][2]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[3][2]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.matrix[3][3]
+    _item_description.description
+;    _emx_micrograph.matrix[3][3] describes the ...
+;
+    _item.name                   '_emx_micrograph.matrix[3][3]'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.matrix[3][3]'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.number
+    _item_description.description
+;    _emx_micrograph.number describes the ...
+;
+    _item.name                   '_emx_micrograph.number'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_micrograph.number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.pixel_size
+    _item_description.description
+;    _emx_micrograph.pixel_size describes the ...
+;
+    _item.name                   '_emx_micrograph.pixel_size'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.pixel_size'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.rotation_angle
+    _item_description.description
+;    _emx_micrograph.rotation_angle describes the ...
+;
+    _item.name                   '_emx_micrograph.rotation_angle'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.rotation_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.sampling
+    _item_description.description
+;    _emx_micrograph.sampling describes the ...
+;
+    _item.name                   '_emx_micrograph.sampling'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.sampling'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.tilt_angle
+    _item_description.description
+;    _emx_micrograph.tilt_angle describes the ...
+;
+    _item.name                   '_emx_micrograph.tilt_angle'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.tilt_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.tilt_axis
+    _item_description.description
+;    _emx_micrograph.tilt_axis describes the ...
+;
+    _item.name                   '_emx_micrograph.tilt_axis'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.tilt_axis'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.units
+    _item_description.description
+;    _emx_micrograph.units describes the ...
+;
+    _item.name                   '_emx_micrograph.units'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_micrograph.units'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.voltage
+    _item_description.description
+;    _emx_micrograph.voltage describes the ...
+;
+    _item.name                   '_emx_micrograph.voltage'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.voltage'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.x_origin
+    _item_description.description
+;    _emx_micrograph.x_origin describes the ...
+;
+    _item.name                   '_emx_micrograph.x_origin'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.x_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.x_scale
+    _item_description.description
+;    _emx_micrograph.x_scale describes the ...
+;
+    _item.name                   '_emx_micrograph.x_scale'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.x_scale'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.x_shift
+    _item_description.description
+;    _emx_micrograph.x_shift describes the ...
+;
+    _item.name                   '_emx_micrograph.x_shift'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.x_shift'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.y_origin
+    _item_description.description
+;    _emx_micrograph.y_origin describes the ...
+;
+    _item.name                   '_emx_micrograph.y_origin'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.y_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.y_scale
+    _item_description.description
+;    _emx_micrograph.y_scale describes the ...
+;
+    _item.name                   '_emx_micrograph.y_scale'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.y_scale'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.y_shift
+    _item_description.description
+;    _emx_micrograph.y_shift describes the ...
+;
+    _item.name                   '_emx_micrograph.y_shift'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.y_shift'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.z_origin
+    _item_description.description
+;    _emx_micrograph.z_origin describes the ...
+;
+    _item.name                   '_emx_micrograph.z_origin'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.z_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.z_scale
+    _item_description.description
+;    _emx_micrograph.z_scale describes the ...
+;
+    _item.name                   '_emx_micrograph.z_scale'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.z_scale'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.z_shift
+    _item_description.description
+;    _emx_micrograph.z_shift describes the ...
+;
+    _item.name                   '_emx_micrograph.z_shift'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_micrograph.z_shift'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.filament_file_name
+    _item_description.description
+;    _emx_micrograph_filament.file_name describes the ...
+;
+    _item.name                   '_emx_micrograph.filament_file_name'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_micrograph_filament.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.particle_file_name
+    _item_description.description
+;    _emx_micrograph_particle.file_name describes the ...
+;
+    _item.name                   '_emx_micrograph.particle_file_name'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_micrograph_particle.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_micrograph.powerspectrum_file_name
+    _item_description.description
+;    _emx_micrograph_powerspectrum.file_name describes the ...
+;
+    _item.name                   '_emx_micrograph.powerspectrum_file_name'
+    _item.category_id             emx_micrograph
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_micrograph_powerspectrum.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_molecule
+    _category.description
+;        Data items in the emx_molecule category describe ...
+;
+    _category.id                emx_molecule
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+	'_emx_molecule.name'
+                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_molecule.length
+    _item_description.description
+;    _emx_molecule.length describes the ...
+;
+    _item.name                   '_emx_molecule.length'
+    _item.category_id             emx_molecule
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_molecule.length'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_molecule.name
+    _item_description.description
+;    _emx_molecule.name describes the ...
+;
+    _item.name                   '_emx_molecule.name'
+    _item.category_id             emx_molecule
+    _item.mandatory_code          yes
+    _item_type.code               line
+    _item_aliases.alias_name     '_molecule.name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_molecule.sequence
+    _item_description.description
+;    _emx_molecule.sequence describes the ...
+;
+    _item.name                   '_emx_molecule.sequence'
+    _item.category_id             emx_molecule
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_aliases.alias_name     '_molecule.sequence'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_emx_orient
+    _category.description
+;        Data items in the emx_orient category describe ...
+;
+    _category.id                emx_orient
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_emx_orient.id'
+                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...  
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_orient.fom
+    _item_description.description
+;    _emx_orient.fom describes the ...
+;
+    _item.name                   '_emx_orient.fom'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.id
+    _item_description.description
+;    _emx_orient.id describes the ...
+;
+    _item.name                   '_emx_orient.id'
+    _item.category_id             emx_orient
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_orient.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.shift_x
+    _item_description.description
+;    _emx_orient.shift_x describes the ...
+;
+    _item.name                   '_emx_orient.shift_x'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.shift_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.shift_y
+    _item_description.description
+;    _emx_orient.shift_y describes the ...
+;
+    _item.name                   '_emx_orient.shift_y'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.shift_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.shift_z
+    _item_description.description
+;    _emx_orient.shift_z describes the ...
+;
+    _item.name                   '_emx_orient.shift_z'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.shift_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.view_angle
+    _item_description.description
+;    _emx_orient.view_angle describes the ...
+;
+    _item.name                   '_emx_orient.view_angle'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.view_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.view_x
+    _item_description.description
+;    _emx_orient.view_x describes the ...
+;
+    _item.name                   '_emx_orient.view_x'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.view_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.view_y
+    _item_description.description
+;    _emx_orient.view_y describes the ...
+;
+    _item.name                   '_emx_orient.view_y'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.view_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_orient.view_z
+    _item_description.description
+;    _emx_orient.view_z describes the ...
+;
+    _item.name                   '_emx_orient.view_z'
+    _item.category_id             emx_orient
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_orient.view_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_particle
+    _category.description
+;        Data items in the emx_particle category describe ...
+;
+    _category.id                emx_particle
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+      '_emx_particle.id'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_particle.cc
+    _item_description.description
+;    _emx_particle.cc describes the ...
+;
+    _item.name                   '_emx_particle.cc'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.cc'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.cmp_cc
+    _item_description.description
+;    _emx_particle.cmp_cc describes the ...
+;
+    _item.name                   '_emx_particle.cmp_cc'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.cmp_cc'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.file_name
+    _item_description.description
+;    _emx_particle.file_name describes the ...
+;
+    _item.name                   '_emx_particle.file_name'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_particle.file_name'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.fom
+    _item_description.description
+;    _emx_particle.fom describes the ...
+;
+    _item.name                   '_emx_particle.fom'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.fom_crossvalidation
+    _item_description.description
+;    _emx_particle.fom_crossvalidation describes the ...
+;
+    _item.name                   '_emx_particle.fom_crossvalidation'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.fom_crossvalidation'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.handa_fom
+    _item_description.description
+;    _emx_particle.handa_fom describes the ...
+;
+    _item.name                   '_emx_particle.handa_fom'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.handa_fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.handb_fom
+    _item_description.description
+;    _emx_particle.handb_fom describes the ...
+;
+    _item.name                   '_emx_particle.handb_fom'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.handb_fom'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.id
+    _item_description.description
+;    _emx_particle.id describes the ...
+;
+    _item.name                   '_emx_particle.id'
+    _item.category_id             emx_particle
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_particle.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.magnification
+    _item_description.description
+;    _emx_particle.magnification describes the ...
+;
+    _item.name                   '_emx_particle.magnification'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.magnification'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.micrograph_x
+    _item_description.description
+;    _emx_particle.micrograph_x describes the ...
+;
+    _item.name                   '_emx_particle.micrograph_x'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.micrograph_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.micrograph_y
+    _item_description.description
+;    _emx_particle.micrograph_y describes the ...
+;
+    _item.name                   '_emx_particle.micrograph_y'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.micrograph_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.micrograph_z
+    _item_description.description
+;    _emx_particle.micrograph_z describes the ...
+;
+    _item.name                   '_emx_particle.micrograph_z'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.micrograph_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.number
+    _item_description.description
+;    _emx_particle.number describes the ...
+;
+    _item.name                   '_emx_particle.number'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_particle.number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.omega
+    _item_description.description
+;    _emx_particle.omega describes the ...
+;
+    _item.name                   '_emx_particle.omega'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.omega'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.pft_cc
+    _item_description.description
+;    _emx_particle.pft_cc describes the ...
+;
+    _item.name                   '_emx_particle.pft_cc'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.pft_cc'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.phi
+    _item_description.description
+;    _emx_particle.phi describes the ...
+;
+    _item.name                   '_emx_particle.phi'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.phi'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.pixel_size
+    _item_description.description
+;    _emx_particle.pixel_size describes the ...
+;
+    _item.name                   '_emx_particle.pixel_size'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.pixel_size'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.prj_cc
+    _item_description.description
+;    _emx_particle.prj_cc describes the ...
+;
+    _item.name                   '_emx_particle.prj_cc'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.prj_cc'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.psi
+    _item_description.description
+;    _emx_particle.psi describes the ...
+;
+    _item.name                   '_emx_particle.psi'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.psi'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.rfactorab
+    _item_description.description
+;    _emx_particle.rfactorab describes the ...
+;
+    _item.name                   '_emx_particle.rfactorab'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.rfactorab'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.select
+    _item_description.description
+;    _emx_particle.select describes the ...
+;
+    _item.name                   '_emx_particle.select'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_particle.select'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.theta
+    _item_description.description
+;    _emx_particle.theta describes the ...
+;
+    _item.name                   '_emx_particle.theta'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.theta'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.view_angle
+    _item_description.description
+;    _emx_particle.view_angle describes the ...
+;
+    _item.name                   '_emx_particle.view_angle'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.view_angle'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.view_x
+    _item_description.description
+;    _emx_particle.view_x describes the ...
+;
+    _item.name                   '_emx_particle.view_x'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.view_x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.view_y
+    _item_description.description
+;    _emx_particle.view_y describes the ...
+;
+    _item.name                   '_emx_particle.view_y'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.view_y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.view_z
+    _item_description.description
+;    _emx_particle.view_z describes the ...
+;
+    _item.name                   '_emx_particle.view_z'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.view_z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.x_origin
+    _item_description.description
+;    _emx_particle.x_origin describes the ...
+;
+    _item.name                   '_emx_particle.x_origin'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.x_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.y_origin
+    _item_description.description
+;    _emx_particle.y_origin describes the ...
+;
+    _item.name                   '_emx_particle.y_origin'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.y_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_particle.z_origin
+    _item_description.description
+;    _emx_particle.z_origin describes the ...
+;
+    _item.name                   '_emx_particle.z_origin'
+    _item.category_id             emx_particle
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_particle.z_origin'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_emx_pft
+    _category.description
+;        Data items in the emx_pft category describe ...
+;
+    _category.id                emx_pft
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_pft.id'
+                     
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__emx_pft.id
+    _item_description.description
+;    _emx_pft.id uniquely identifies a record in the emx_pft table ...
+;
+    _item.name                   '_emx_pft.id'
+    _item.category_id             emx_pft
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+ 
+save__emx_pft.angle_step_size
+    _item_description.description
+;    _emx_pft.angle_step_size describes the ...
+;
+    _item.name                   '_emx_pft.angle_step_size'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.angle_step_size'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.annulus_max
+    _item_description.description
+;    _emx_pft.annulus_max describes the ...
+;
+    _item.name                   '_emx_pft.annulus_max'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.annulus_max'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.annulus_min
+    _item_description.description
+;    _emx_pft.annulus_min describes the ...
+;
+    _item.name                   '_emx_pft.annulus_min'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.annulus_min'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.bessel_min
+    _item_description.description
+;    _emx_pft.bessel_min describes the ...
+;
+    _item.name                   '_emx_pft.bessel_min'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.bessel_min'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.file_data
+    _item_description.description
+;    _emx_pft.file.data describes the ...
+;
+    _item.name                   '_emx_pft.file_data'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_pft.file.data'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.file_model_image
+    _item_description.description
+;    _emx_pft.file.model_image describes the ...
+;
+    _item.name                   '_emx_pft.file_model_image'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_pft.file.model_image'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.file_pft_data
+    _item_description.description
+;    _emx_pft.file.pft_data describes the ...
+;
+    _item.name                   '_emx_pft.file_pft_data'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_pft.file.pft_data'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.file_projection_data
+    _item_description.description
+;    _emx_pft.file.projection_data describes the ...
+;
+    _item.name                   '_emx_pft.file_projection_data'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_pft.file.projection_data'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.magnification_center
+    _item_description.description
+;    _emx_pft.magnification_center describes the ...
+;
+    _item.name                   '_emx_pft.magnification_center'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.magnification_center'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.magnification_norm
+    _item_description.description
+;    _emx_pft.magnification_norm describes the ...
+;
+    _item.name                   '_emx_pft.magnification_norm'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.magnification_norm'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.magnification_number
+    _item_description.description
+;    _emx_pft.magnification_number describes the ...
+;
+    _item.name                   '_emx_pft.magnification_number'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.magnification_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.magnification_step
+    _item_description.description
+;    _emx_pft.magnification_step describes the ...
+;
+    _item.name                   '_emx_pft.magnification_step'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.magnification_step'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.mask_sigma
+    _item_description.description
+;    _emx_pft.mask_sigma describes the ...
+;
+    _item.name                   '_emx_pft.mask_sigma'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.mask_sigma'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.radius_max
+    _item_description.description
+;    _emx_pft.radius_max describes the ...
+;
+    _item.name                   '_emx_pft.radius_max'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.radius_max'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.radius_min
+    _item_description.description
+;    _emx_pft.radius_min describes the ...
+;
+    _item.name                   '_emx_pft.radius_min'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.radius_min'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.radius_step
+    _item_description.description
+;    _emx_pft.radius_step describes the ...
+;
+    _item.name                   '_emx_pft.radius_step'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.radius_step'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.resolution_high
+    _item_description.description
+;    _emx_pft.resolution_high describes the ...
+;
+    _item.name                   '_emx_pft.resolution_high'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.resolution_high'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_pft.resolution_low
+    _item_description.description
+;    _emx_pft.resolution_low describes the ...
+;
+    _item.name                   '_emx_pft.resolution_low'
+    _item.category_id             emx_pft
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_pft.resolution_low'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+  
+save_refln
+    _category.description
+;        Data items in the refln category describe ...
+;
+    _category.id                refln
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_refln.index_h'                      
+     '_refln.index_k'                      
+     '_refln.index_l'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__refln.F_meas_au
+    _item_description.description
+;    _refln.F_meas_au describes the ...
+;
+    _item.name                   '_refln.F_meas_au'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.F_meas_au'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.F_meas_sigma_au
+    _item_description.description
+;    _refln.F_meas_sigma_au describes the ...
+;
+    _item.name                   '_refln.F_meas_sigma_au'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.F_meas_sigma_au'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.F_sigma
+    _item_description.description
+;    _refln.F_sigma describes the ...
+;
+    _item.name                   '_refln.F_sigma'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.F_sigma'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.index_h
+    _item_description.description
+;    _refln.index_h describes the ...
+;
+    _item.name                   '_refln.index_h'
+    _item.category_id             refln
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_aliases.alias_name     '_refln.index_h'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.index_k
+    _item_description.description
+;    _refln.index_k describes the ...
+;
+    _item.name                   '_refln.index_k'
+    _item.category_id             refln
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_aliases.alias_name     '_refln.index_k'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.index_l
+    _item_description.description
+;    _refln.index_l describes the ...
+;
+    _item.name                   '_refln.index_l'
+    _item.category_id             refln
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_aliases.alias_name     '_refln.index_l'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.phase_meas
+    _item_description.description
+;    _refln.phase_meas describes the ...
+;
+    _item.name                   '_refln.phase_meas'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.phase_meas'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.phase_sigma
+    _item_description.description
+;    _refln.phase_sigma describes the ...
+;
+    _item.name                   '_refln.phase_sigma'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.phase_sigma'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.status
+    _item_description.description
+;    _refln.status describes the ...
+;
+    _item.name                   '_refln.status'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_refln.status'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__refln.weight
+    _item_description.description
+;    _refln.weight describes the ...
+;
+    _item.name                   '_refln.weight'
+    _item.category_id             refln
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_refln.weight'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_residue1_matrix
+    _category.description
+;        Data items in the emx_residue1_matrix category describe ...
+;
+    _category.id                emx_residue1_matrix
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+    '_emx_residue1_matrix.code1'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_residue1_matrix.code1
+    _item_description.description
+;    _emx_residue1_matrix.code1 describes the ...
+;
+    _item.name                   '_emx_residue1_matrix.code1'
+    _item.category_id             emx_residue1_matrix
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue1_matrix.code1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_residue2_matrix
+    _category.description
+;        Data items in the emx_residue2_matrix category describe ...
+;
+    _category.id                emx_residue2_matrix
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_emx_residue2_matrix.code1'                 
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_residue2_matrix.code1
+    _item_description.description
+;    _emx_residue2_matrix.code1 describes the ...
+;
+    _item.name                   '_emx_residue2_matrix.code1'
+    _item.category_id             emx_residue2_matrix
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue2_matrix.code1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+## 
+save_emx_residue_coil
+    _category.description
+;        Data items in the emx_residue_coil category describe ...
+;
+    _category.id                emx_residue_coil
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+      '_emx_residue_coil.code1'                
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_residue_coil.code1
+    _item_description.description
+;    _emx_residue_coil.code1 describes the ...
+;
+    _item.name                   '_emx_residue_coil.code1'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue_coil.code1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_a
+    _item_description.description
+;    _emx_residue_coil.position_a describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_a'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_a'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_b
+    _item_description.description
+;    _emx_residue_coil.position_b describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_b'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_b'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_c
+    _item_description.description
+;    _emx_residue_coil.position_c describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_c'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_c'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_d
+    _item_description.description
+;    _emx_residue_coil.position_d describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_d'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_d'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_e
+    _item_description.description
+;    _emx_residue_coil.position_e describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_e'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_e'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_f
+    _item_description.description
+;    _emx_residue_coil.position_f describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_f'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_f'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_coil.position_g
+    _item_description.description
+;    _emx_residue_coil.position_g describes the ...
+;
+    _item.name                   '_emx_residue_coil.position_g'
+    _item.category_id             emx_residue_coil
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_coil.position_g'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_residue_matrix
+    _category.description
+;        Data items in the emx_residue_matrix category describe ...
+;
+    _category.id                emx_residue_matrix
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_emx_residue_matrix.substitution'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_residue_matrix.substitution
+    _item_description.description
+;    _emx_residue_matrix.substitution describes the ...
+;
+    _item.name                   '_emx_residue_matrix.substitution'
+    _item.category_id             emx_residue_matrix
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue_matrix.substitution'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_emx_residue_property
+    _category.description
+;        Data items in the emx_residue_property category describe ...
+;
+    _category.id                emx_residue_property
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+      '_emx_residue_property.code1'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__emx_residue_property.charge
+    _item_description.description
+;    _emx_residue_property.charge describes the ...
+;
+    _item.name                   '_emx_residue_property.charge'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.charge'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.code1
+    _item_description.description
+;    _emx_residue_property.code1 describes the ...
+;
+    _item.name                   '_emx_residue_property.code1'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue_property.code1'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.code3
+    _item_description.description
+;    _emx_residue_property.code3 describes the ...
+;
+    _item.name                   '_emx_residue_property.code3'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue_property.code3'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.codon
+    _item_description.description
+;    _emx_residue_property.codon describes the ...
+;
+    _item.name                   '_emx_residue_property.codon'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_residue_property.codon'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.extension
+    _item_description.description
+;    _emx_residue_property.extension describes the ...
+;
+    _item.name                   '_emx_residue_property.extension'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.extension'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.extstdev
+    _item_description.description
+;    _emx_residue_property.extstdev describes the ...
+;
+    _item.name                   '_emx_residue_property.extstdev'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.extstdev'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.hydrophobicity
+    _item_description.description
+;    _emx_residue_property.hydrophobicity describes the ...
+;
+    _item.name                   '_emx_residue_property.hydrophobicity'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.hydrophobicity'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.mass
+    _item_description.description
+;    _emx_residue_property.mass describes the ...
+;
+    _item.name                   '_emx_residue_property.mass'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.mass'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_residue_property.volume
+    _item_description.description
+;    _emx_residue_property.volume describes the ...
+;
+    _item.name                   '_emx_residue_property.volume'
+    _item.category_id             emx_residue_property
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_residue_property.volume'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save_symmetry
+    _category.description
+;        Data items in the symmetry category describe ...
+;
+    _category.id                symmetry
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_symmetry.Int_Tables_number'                 
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+save__symmetry.Int_Tables_number
+    _item_description.description
+;    _symmetry.Int_Tables_number describes the ...
+;
+    _item.name                   '_symmetry.Int_Tables_number'
+    _item.category_id             symmetry
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_symmetry.Int_Tables_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__symmetry.cell_setting
+    _item_description.description
+;    _symmetry.cell_setting describes the ...
+;
+    _item.name                   '_symmetry.cell_setting'
+    _item.category_id             symmetry
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_aliases.alias_name     '_symmetry.cell_setting'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__symmetry.point_group
+    _item_description.description
+;    _symmetry.point_group describes the ...
+;
+    _item.name                   '_symmetry.point_group'
+    _item.category_id             symmetry
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_symmetry.point_group'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__symmetry.point_group_number
+    _item_description.description
+;    _symmetry.point_group_number describes the ...
+;
+    _item.name                   '_symmetry.point_group_number'
+    _item.category_id             symmetry
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_symmetry.point_group_number'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__symmetry.space_group_name_H-M
+    _item_description.description
+;    _symmetry.space_group_name_H-M describes the ...
+;
+    _item.name                   '_symmetry.space_group_name_H-M'
+    _item.category_id             symmetry
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_symmetry.space_group_name_H-M'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+ 
+save_emx_symmetry_axis
+    _category.description
+;        Data items in the emx_symmetry_axis category describe ...
+;
+    _category.id                emx_symmetry_axis
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+        '_emx_symmetry_axis.order'                      
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+ 
+save__emx_symmetry_axis.order
+    _item_description.description
+;    _emx_symmetry_axis.order describes the ...
+;
+    _item.name                   '_emx_symmetry_axis.order'
+    _item.category_id             emx_symmetry_axis
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_aliases.alias_name     '_symmetry_axis.order'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_symmetry_axis.x
+    _item_description.description
+;    _emx_symmetry_axis.x describes the ...
+;
+    _item.name                   '_emx_symmetry_axis.x'
+    _item.category_id             emx_symmetry_axis
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_symmetry_axis.x'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_symmetry_axis.y
+    _item_description.description
+;    _emx_symmetry_axis.y describes the ...
+;
+    _item.name                   '_emx_symmetry_axis.y'
+    _item.category_id             emx_symmetry_axis
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_symmetry_axis.y'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__emx_symmetry_axis.z
+    _item_description.description
+;    _emx_symmetry_axis.z describes the ...
+;
+    _item.name                   '_emx_symmetry_axis.z'
+    _item.category_id             emx_symmetry_axis
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_aliases.alias_name     '_symmetry_axis.z'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+
+save_symmetry_equiv
+    _category.description
+;        Data items in the symmetry_equiv category describe ...
+;
+    _category.id                symmetry_equiv
+    _category.mandatory_code    no
+    loop_
+    _category_key.name
+     '_symmetry_equiv.id'                 
+    loop_
+    _category_group.id        'inclusive_group'
+                              'bsoft_group'                               
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - based on ...
+;
+;
+# insert example here ...   
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+ 
+ 
+save__symmetry_equiv.id
+    _item_description.description
+;    _symmetry_equiv.id describes the ...
+;
+    _item.name                   '_symmetry_equiv.id'
+    _item.category_id             symmetry_equiv
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_aliases.alias_name     '_symmetry_equiv.id'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_
+ 
+save__symmetry_equiv.pos_as_xyz
+    _item_description.description
+;    _symmetry_equiv.pos_as_xyz describes the ...
+;
+    _item.name                   '_symmetry_equiv.pos_as_xyz'
+    _item.category_id             symmetry_equiv
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_aliases.alias_name     '_symmetry_equiv.pos_as_xyz'
+    _item_aliases.dictionary     'bsoft-program-dictionary'
+    _item_aliases.version         1.3.0
+     save_

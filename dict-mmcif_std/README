@@ -1,0 +1,21 @@
+This directory contains the text files required to build the:
+
+            mmCIF data dictionary (standard definitions)
+
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_std.PARTS.
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_std
+
+ or 
+
+    make compile
+##
+
+
+
+
+

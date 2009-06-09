@@ -1,0 +1,302 @@
+
+################################
+## EM_PARTICLE_PICKING_LIST   ##
+################################
+
+save_em_particle_picking_list
+    _category.description
+;   Data items in the EM_PARTICLE_PICKING_LIST category record details
+    about the picked particles 
+;
+    _category.id                  em_particle_picking_list
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           
+                                 '_em_particle_picking_list.id'
+                                 '_em_particle_picking_list.class_id'
+                                 '_em_particle_picking_list.entry_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_image_selection_group'
+     save_
+  
+save__em_particle_picking_list.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_particle_picking_list.entry_id'
+    _item.category_id            em_particle_picking_list
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_particle_picking_list.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_particle_picking_list.id
+    _item_description.description
+;    The value of _em_particle_picking_list.id must uniquely identify
+     a particle.
+;
+    _item.name                   '_em_particle_picking_list.id'
+    _item.category_id            em_particle_picking_list
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_particle_picking_list.class_id
+    _item_description.description
+;     This data item is a pointer to _em_class.id in the EM_CLASS category.
+;
+    _item.name                   '_em_particle_picking_list.class_id'
+    _item.category_id            em_particle_picking_list
+    _item.mandatory_code         yes
+    _item_type.code              code
+#    _item_linked.child_name      '_em_particle_picking_list.class_id'
+#    _item_linked.parent_name     '_em_class.id'
+      save_
+
+
+########################
+## EM_PARTICLE_LIST   ##
+########################
+
+save_em_particle_picking_list
+    _category.description
+;   Data items in the EM_PARTICLE_LIST category record details
+    about the picked particles 
+;
+    _category.id                  em_particle_list
+    _category.mandatory_code      no
+
+##JDW probably not the correct category key
+     loop_
+    _category_key.name           
+                                 '_em_particle_list.entry_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_image_selection_group'
+     save_
+
+save__em_particle_list.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_particle_list.entry_id'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_particle_list.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_particle_list.used_in_map_flag
+    _item_description.description
+; A flag for Y or N  for particles used in 3d reconstruction refinement
+;
+   _item.name                   '_em_particle_list.used_in_map_flag'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               ucode
+   loop_
+   _item_enumeration.value    N NO Y YES
+   save_
+
+
+save__em_particle_list.pixel_x_origin
+    _item_description.description
+; The particle pixel X origin in the micrograph
+;
+   _item.name                   '_em_particle_list.pixel_x_origin'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.pixel_y_origin
+    _item_description.description
+; The particle pixel Y origin in the micrograph
+;
+   _item.name                   '_em_particle_list.pixel_y_origin'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.radius
+    _item_description.description
+; The particle radius in the micrograph
+;
+   _item.name                   '_em_particle_list.radius'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+
+save__em_particle_list.alignment_shift_x
+    _item_description.description
+; The particle alignment shift in X in the micrograph
+;
+   _item.name                   '_em_particle_list.alignment_shift_x'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.alignment_shift_y
+    _item_description.description
+; The particle alignment shift in Y in the micrograph
+;
+   _item.name                   '_em_particle_list.alignment_shift_y'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.alignment_rotation_phi
+    _item_description.description
+; The particle alignment rotation in phi in the micrograph
+;
+   _item.name                   '_em_particle_list.alignment_rotation_phi'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.correlation_flag
+    _item_description.description
+;  The method for calculating similarities used to determine the [x,y,f] 
+   parameters. The correlation can be done either between images in the data 
+   set (CC) or by comparing an image to itself (AC).
+;
+   _item.name                   '_em_particle_list.correlation_flag'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               ucode
+   loop_
+   _item_enumeration.value    
+   _item_enumeration.detail
+      C    crosscorrelation
+      A    autocorrelation
+
+   save_
+
+save__em_particle_list.noise_image_flag
+    _item_description.description
+; Y or N a noise image used to normalize the images as per histogram
+;
+    _item.name                   '_em_particle_list.noise_image_flag'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+    _item_type.code               ucode
+   loop_
+   _item_enumeration.value    N NO Y YES
+   save_
+
+save__em_particle_list.particle_template_flag
+    _item_description.description
+;  Y or N windowed particle template
+;
+   _item.name                   '_em_particle_list.particle_template_flag'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               ucode
+   loop_
+   _item_enumeration.value    N NO Y YES
+   save_
+
+save__em_particle_list.symmetric_mask_flag
+    _item_description.description
+;  Y or N if used
+;
+   _item.name                   '_em_particle_list.symmetric_mask_flag'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               ucode
+   loop_
+   _item_enumeration.value    N NO Y YES
+   save_
+
+save__em_particle_list.3d_volume
+    _item_description.description
+;   3d volume of the particle
+;
+   _item.name                   '_em_particle_list.3d_volume'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.interpolation_factor
+    _item_description.description
+;   interpolation factor of the particle
+;
+   _item.name                   '_em_particle_list.interpolation_factor'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.peak_separation_distance
+    _item_description.description
+;   peak separation distance of the particle (its size)
+;
+   _item.name                   '_em_particle_list.peak_separation_distance'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.phi
+    _item_description.description
+;   phi rotational alignment on the untilted-specimen images
+    tilt_untilted_pairs  angles between the two micrographs
+     theta  the tilt angle
+     gamma  angle between the tilt axis and the image y-axis 
+            in the untilted micrograph
+     phi    angle between the tilt axis and the image y-axis 
+            in the tilted micrograph
+;
+   _item.name                   '_em_particle_list.phi'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+
+save__em_particle_list.theta
+    _item_description.description
+;   theta rotational alignment on the untilted-specimen images
+    tilt_untilted_pairs  angles between the two micrographs
+     theta  the tilt angle
+     gamma  angle between the tilt axis and the image y-axis 
+            in the untilted micrograph
+     phi    angle between the tilt axis and the image y-axis 
+            in the tilted micrograph
+;
+   _item.name                   '_em_particle_list.theta'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+
+save__em_particle_list.psi
+    _item_description.description
+;   psi rotational alignment on the untilted-specimen images
+    tilt_untilted_pairs  angles between the two micrographs
+     theta  the tilt angle
+     gamma  angle between the tilt axis and the image y-axis 
+            in the untilted micrograph
+     phi    angle between the tilt axis and the image y-axis 
+            in the tilted micrograph
+;
+   _item.name                   '_em_particle_list.psi'
+    _item.category_id            em_particle_list
+    _item.mandatory_code         no
+   _item_type.code               float
+   save_
+

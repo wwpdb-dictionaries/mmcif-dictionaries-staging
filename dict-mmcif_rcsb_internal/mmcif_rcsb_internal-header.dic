@@ -1,0 +1,57 @@
+###########################################################################
+#
+# File:  mmcif_rcsb_internal-header.dic                                        
+# 
+#                       RCSB PDB Internal Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items that may be required to store all of the   
+#     information currently included a Protein Data Bank (PDB) format data  
+#     file.  Additional data items describing internal processing status    
+#     are also defined here.                                                
+#                                                                           
+#     The mmCIF dictionary and this supplement provide are used by 
+#     the RCSB PDB for internal data processing.  
+#                                                                           
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_rcsb_internal.dic
+
+    _datablock.id                          mmcif_rcsb_internal.dic
+    _datablock.description
+;
+     This data block holds the Internal RCSB PDB Internal Data dictionary.
+ 
+     This dictionary tracks the content of the X-ray and NMR internal 
+     dictionaries.  Content descriptions can be found there. 
+;
+
+    _dictionary.title           mmcif_rcsb_internal.dic
+    _dictionary.datablock_id    mmcif_rcsb_internal.dic
+    _dictionary.version         1.004
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   1.001  2006-09-09
+;
+	Internal RCSB dictionary all definitions.
+;
+   1.002  2006-09-25
+;
+	Added definition parts 10 & 11 from from the X-ray dictionary.
+;
+   1.003  2006-10-04
+;
+	Rollup update.
+;
+   1.004  2007-08-24
+;
+	Rollup update.
+;
+
+### EOF mmcif_rcsb_internal-header.dic 

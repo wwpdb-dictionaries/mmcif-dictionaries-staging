@@ -1,0 +1,152 @@
+
+###########################################################################
+#
+# File:  mmcif_std-data.dic                                             
+# 
+#                      mmCIF Data Dictionary (standard defintions)
+#
+# This data dictionary contains the standard mmCIF data definitions.  
+#
+#                           Data Section 
+# 
+#                                                                        
+###########################################################################
+
+
+
+##################
+## SUB_CATEGORY ##
+##################
+
+     loop_
+    _sub_category.id
+    _sub_category.description
+              'cartesian_coordinate'
+;              The collection of x, y, and z components of a position specified
+               with reference to a Cartesian (orthogonal angstrom) coordinate
+               system.
+;
+              'cartesian_coordinate_esd'
+;              The collection of estimated standard deviations of the x, y, and
+               z components of a position specified with reference to a
+               Cartesian (orthogonal angstrom) coordinate system.
+;
+              'fractional_coordinate'
+;              The collection of x, y, and z components of a position specified
+               with reference to unit cell directions.
+;
+              'fractional_coordinate_esd'
+;              The collection of estimated standard deviations of the x, y, and
+               z components of a position specified with reference to unit cell
+               directions.
+;
+              'matrix'
+;              The collection of elements of a matrix.
+;
+               miller_index
+;              The collection of h, k, and l components of the Miller index of
+               a reflection.
+;
+              'cell_length'
+;              The collection of a, b, and c axis lengths of a unit cell.
+;
+              'cell_length_esd'
+;              The collection of estimated standard deviations of the a, b, and
+               c axis lengths of a unit cell.
+;
+              'cell_angle'
+;              The collection of alpha, beta, and gamma angles of a unit cell.
+;
+              'cell_angle_esd'
+;              The collection of estimated standard deviations of the alpha,
+               beta, and gamma angles of a unit cell.
+;
+              'mm_atom_site_auth_label'
+;              The collection of asym id, atom id, comp id and seq id
+               components of an author's alternative specification for 
+               a macromolecular atom site.
+;
+              'mm_atom_site_label'
+;              The collection of alt id, asym id, atom id, comp id and seq id
+               components of the label for a macromolecular atom site.
+;
+              'vector'
+;              The collection of elements of a vector.
+;
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+
+     loop_
+    _category_group_list.id
+    _category_group_list.parent_id
+    _category_group_list.description
+              'inclusive_group'   .
+;              Categories that belong to the macromolecular dictionary.
+;
+              'symmetry_group'
+              'inclusive_group'
+;              Categories that describe symmetry information.
+;
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+#
+#
+#  The regular expressions defined here are not compliant
+#  with the POSIX 1003.2 standard as they include the 
+#  '\n' and '\t' special characters. These regular expressions
+#  have been tested using the version 0.12 of Richard Stallman's
+#  GNU regular expression libary in POSIX mode. 
+#
+#                                                                            
+# For some data items, a standard syntax is assumed. The syntax is           
+#   described for each data item in the dictionary, but is summarized here:  
+#                                                                            
+#   Names:     The family name(s) followed by a comma, precedes the first    
+#              name(s) or initial(s).                                        
+#                                                                            
+#   Telephone numbers:                                                       
+#              The international code is given in brackets and any extension 
+#              number is preceded by 'ext'.                                  
+#                                                                            
+#   Dates:     In the form yyyy-mm-dd.                                       
+#                                                                            
+##############################################################################
+
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               char      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items ...
+;
+               numb       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative 
+               or positive integers.
+;
+               symop    char
+               '([1-9]|[1-9][0-9]|1[0-8][0-9]|19[0-2])(_[1-9][1-9][1-9])?'
+;              symop item types take the form n_klm, where n refers to the
+               symmetry operation that is applied to the coordinates in the
+               ATOM_SITE category identified by _atom_site_label.  It must
+               match a number given in _symmetry_equiv_pos_site_id.
+
+               k, l, and m refer to the translations that are subsequently
+               applied to the symmetry transformed coordinates to generate
+               the atom used.  These translations (x,y,z) are related to
+               (k,l,m) by
+                     k = 5 + x
+                     l = 5 + y
+                     m = 5 + z
+               By adding 5 to the translations, the use of negative numbers
+               is avoided.
+;
+
+ 
+### EOF mmcif_std-data.dic

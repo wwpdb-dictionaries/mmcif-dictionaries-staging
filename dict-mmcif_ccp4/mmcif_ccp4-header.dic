@@ -1,0 +1,42 @@
+###########################################################################
+#
+# File:  mmcif_ccp4-header.dic                                             
+# 
+#                       CCP4 Extension Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items required to describe the details of the
+#     structure determination using the CCP4 program system.
+#
+#     This supplement was created by Kim Henrick at Molecular Structure 
+#     Database (MSD) Group/EBI and the CCP4 development group.
+#                                                                           
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_ccp4.dic
+
+    _datablock.id                          mmcif_ccp4.dic
+    _datablock.description
+;
+     This data block holds the CCP4 Extension Data Dictionary
+;
+
+    _dictionary.title           mmcif_ccp4.dic
+    _dictionary.version         1.00
+    _dictionary.datablock_id    mmcif_ccp4.dic
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   1.00   2001-04-18   'Initial version'
+
+
+### EOF mmcif_ccp4-header.dic

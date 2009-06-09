@@ -1,0 +1,21 @@
+This directory contains the text files required to build the:
+
+     3-Dimensional Electron Microscopy Exchange Dictionary
+
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_emx.PARTS.   
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_emx
+
+ or 
+
+    make compile
+##
+
+
+
+
+

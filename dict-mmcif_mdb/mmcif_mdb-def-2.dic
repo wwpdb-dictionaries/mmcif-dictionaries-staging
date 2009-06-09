@@ -1,0 +1,5096 @@
+###########################################################################
+#
+# File:  mmcif_mdb-def-2.dic                                             
+# 
+#            Model Database Extension to the mmCIF Data Dictionary   
+#
+#
+#                           Definition Section 2
+#                            
+#                                                                        
+###########################################################################
+
+
+
+save__entity.id
+    _item_description.description
+;              The value of _entity.id must uniquely identify a record in the
+               ENTITY list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+              '_entity.id'                         entity                  yes
+              '_mdb_entity_seq_cd.entity_id'       mdb_entity_seq_cd       yes
+              '_mdb_entity_seq_mon.entity_id'      mdb_entity_seq_mon      yes
+              '_mdb_entity_seq_relate.entity_id'   mdb_entity_seq_relate   yes
+              '_mdb_entity_seq_motif.entity_id'    mdb_entity_seq_motif    yes
+              '_mdb_model.entity_id'               mdb_model               yes
+              '_mdb_align_search_param.entity_id'  mdb_align_search_param  no
+              '_mdb_align_thread_param.entity_id'  mdb_align_thread_param  no
+              '_mdb_align_templates.entity_id'     mdb_align_templates     no
+              '_mdb_multalign.entity_id'           mdb_multalign           no
+              '_mdb_multalign_matrix.entity_id'    mdb_multalign_matrix    no
+              '_mdb_model_proc_seg.entity_id'      mdb_model_proc_seg      no
+              '_mdb_energy_min.entity_id'          mdb_energy_min          no
+              '_mdb_dynamics.entity_id'            mdb_dynamics            no
+              '_mdb_model_struct.entity_id'        mdb_model_struct        no
+              '_mdb_model_struct_src.entity_id'    mdb_model_struct_src    no
+              '_mdb_model_struct_ss.entity_id'     mdb_model_struct_ss     no
+              '_mdb_model_struct_asa.entity_id'    mdb_model_struct_asa    no
+              '_mdb_model_struct_fold.entity_id'   mdb_model_struct_fold   no
+              '_mdb_model_eval.entity_id'          mdb_model_eval          no
+              '_mdb_solved_structure.entity_id'    mdb_solved_structure    no
+              '_mdb_swp_data.entity_id'            mdb_swp_data            yes
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+              '_mdb_entity_seq_cd.entity_id'       '_entity.id'
+              '_mdb_entity_seq_mon.entity_id'      '_entity.id'
+              '_mdb_entity_seq_relate.entity_id'   '_entity.id'
+              '_mdb_entity_seq_motif.entity_id'    '_entity.id'
+              '_mdb_model.entity_id'               '_entity.id'
+              '_mdb_align_search_param.entity_id'  '_entity.id'
+              '_mdb_align_thread_param.entity_id'  '_entity.id'
+              '_mdb_align_templates.entity_id'     '_entity.id'
+              '_mdb_multalign.entity_id'           '_entity.id'
+              '_mdb_multalign_matrix.entity_id'    '_entity.id'
+              '_mdb_model_proc_seg.entity_id'      '_entity.id'
+              '_mdb_energy_min.entity_id'          '_entity.id'
+              '_mdb_dynamics.entity_id'            '_entity.id'
+              '_mdb_model_struct.entity_id'        '_entity.id'
+              '_mdb_model_struct_src.entity_id'    '_entity.id'
+              '_mdb_model_struct_ss.entity_id'     '_entity.id'
+              '_mdb_model_struct_asa.entity_id'    '_entity.id'
+              '_mdb_model_struct_fold.entity_id'   '_entity.id'
+              '_mdb_model_eval.entity_id'          '_entity.id'
+              '_mdb_solved_structure.entity_id'    '_entity.id'
+              '_mdb_swp_data.entity_id'            '_entity.id'
+     save_ 
+
+save__entity_poly_seq.num
+    _item_description.description
+;             The value of _entity_poly_seq.num must uniquely and sequentially
+              identify a record in the ENTITY_POLY_SEQ list.
+
+              Note that this item must be a number, and that the sequence
+              numbers must progress in increasing numerical order.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_entity_poly_seq.num'                      entity_poly_seq       yes
+       '_mdb_entity_seq_motif.beg_mon_num'         mdb_entity_seq_motif  yes
+       '_mdb_entity_seq_motif.end_mon_num'         mdb_entity_seq_motif  yes
+       '_mdb_model_struct.entity_mon_num'          mdb_model_struct      yes
+    _item_type.code               int       
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+       '_mdb_entity_seq_motif.beg_mon_num'           '_entity_poly_seq.num'
+       '_mdb_entity_seq_motif.end_mon_num'           '_entity_poly_seq.num'
+       '_mdb_model_struct.entity_mon_num'            '_entity_poly_seq.num'
+     save_
+
+save__chem_comp.id
+    _item_description.description
+;              The value of _chem_comp.id must uniquely identify each item in
+               the CHEM_COMP list.
+
+               For protein polymer entities, this is the three-letter code for
+               amino acids.
+
+               For nucleic acid polymer entities, this is the one-letter code
+               for the bases.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+        '_chem_comp.id'                             chem_comp            yes
+        '_mdb_model_struct.mon_id'                  mdb_model_struct     yes
+    _item_type.code               ucode
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+         '_mdb_model_struct.mon_id'                 '_chem_comp.id' 
+     save_
+
+####################
+## MDB_SUBMISSION ##
+####################
+
+save_mdb_submission
+    _category.description
+;              The category mdb_submission serves to bind entry_id for each
+               model submission to an integer key used to identify separate
+               submissions (entries) in the data stored in other categories.
+               The category also stores flat CIF file location for each entry.
+;
+    _category.id	          mdb_submission
+    _category.mandatory_code      yes
+    _category_key.name            '_mdb_submission.entry_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'mdb_group'
+                                  'mdb_deposition_group'
+     save_
+
+save__mdb_submission.entry_id
+    _item_description.description
+;              This item is a pointer to _entry.id in the category entry.
+;
+    _item.name                    '_mdb_submission.entry_id'
+    _item.category_id             mdb_submission
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_submission.file_spec
+    _item_description.description
+;              This item holds CIF flat file location for entry_id.
+;
+    _item.name                    '_mdb_submission.file_spec'
+    _item.category_id             mdb_submission
+    _item.mandatory_code          yes
+    _item_type.code               line
+# implemented as bfile in oracle 04.07.00
+     save_
+
+####################
+## MDB_DEPOSITION ##
+####################
+
+save_mdb_deposition
+    _category.description
+;              Data items in the MDB_DEPOSITION category record details about
+               deposition source.
+;
+    _category.id                  mdb_deposition
+    _category.mandatory_code      yes
+    _category_key.name            '_mdb_deposition.entry_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'mdb_group'
+                                  'mdb_deposition_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_deposition.entry_id
+    _item_description.description
+;              This data is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                    '_mdb_deposition.entry_id'
+    _item.category_id             mdb_deposition
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_deposition.src
+    _item_description.description
+;              Flag indicating external (ext) or internal (int) deposition.
+;
+    _item.name                    '_mdb_deposition.src'
+    _item.category_id             mdb_deposition
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      ext
+                                  'external deposition'
+                                  int
+                                  'internal deposition'
+     save_
+# modification
+# Alexei -- 04/07/00
+# removed   _item_default.value           ext
+
+save__mdb_deposition.auto
+    _item_description.description
+;              Flag indicating automatic deposition.
+;
+    _item.name                    '_mdb_deposition.auto'
+    _item.category_id             mdb_deposition
+    _item.mandatory_code          yes
+    _item_type.code               uchar1
+    _item_default.value           no
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      y    'abbreviation for "yes"'
+                                  n    'abbreviation for "no"'
+     save_
+# modification Alexei -- 21/09/00
+# removed
+# _item_enumeration.value	yes
+# _item_enumeration.value	no
+# changed from
+# _item_type.code               ucode
+# to
+# _item_type.code               uchar1
+
+save__mdb_deposition.db
+    _item_description.description
+;              Flag indicating to which database the entry belongs.
+               This item is a child of _mdb_db_list.db_id.
+;
+    _item.name                    '_mdb_deposition.db'
+    _item.category_id             mdb_deposition
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      asd  'active site database'
+                                  mdb  'model database'
+                                  pdb  'protein database'
+                                  asdm 'active site database models'
+     save_
+# modification Alexei - 10/01/01
+# added enumeration value asdm
+# Alexei 16/01/01 changed "_item_type.code               uchar3" to "code"
+# assign VARCHAR2(5) to _mdb_deposition.db in the DB
+
+save__mdb_deposition.title
+    _item_description.description
+;              Short description of the source or origin of the entry.
+;
+    _item.name                    '_mdb_deposition.title'
+    _item.category_id             mdb_deposition
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case     'SWISS-MODEL (Automated Protein Modelling Server)'
+     save_
+# Alexei -- 21/09/00
+# for data loading with the mdbLoader the following conventions are implemented
+# mdb_deposition.title holds "headers+remarks" or "full data"
+# to indicate data completeness for mdb_audit.revision_level 0 and higher
+
+#save__mdb_deposition.software_name
+#    _item_description.description
+#;              Name of the software used to load entry.
+#;
+#    _item.name                    '_mdb_deposition.software_name'
+#    _item.category_id             mdb_deposition
+#    _item.mandatory_code          no
+#    _item_type.code               line
+#    _item_examples.case           'mdbloaderv013.pl'
+#     save_
+# _mdb_deposition.software_name added 04.07.00 -- em96794
+# Alexei 19/01/01 -- .software_name moved to category mdb_audit
+# to allow multiple data per entry id
+
+#########################
+## MDB_ENTITY_NAME_SWP ## different table: mdb_swp_data
+#########################
+
+#save_MDB_ENTITY_NAME_SWP
+#    _category.description
+#;              Data items in MDB_ENTITY_NAME_SWP category enforce direct
+#               compatibility with Swiss-Prot Database.
+#;
+#    _category.id                 mdb_entity_name_swp
+#    _category.mandatory_code     no
+#    _category_key.name           '_mdb_entity_name_swp.entity_id'
+#     loop_
+#    _category_group.id           'inclusive_group'
+#                                 'mdb_group'
+#                                 'entity_group'
+#     loop_
+#    _category_examples.detail
+#    _category_examples.case
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#;
+#    Example 1 - 
+#                
+#;
+#;
+#     loop_
+#    
+#    
+#;
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#     save_
+
+#save__mdb_entity_name_swp.entity_id
+#    _item_description.description
+#;              This data item is a pointer to _entity.id in the ENTITY
+#               category.
+#;
+#    _item.name                    '_mdb_entity_name_swp.entity_id'
+#   _item.category_id             mdb_entity_name_swp
+#   _item.mandatory_code          yes
+#   _item_type.code               code
+#    save_
+
+#save__mdb_entity_name_swp.id
+#   _item_description.description
+#              Identification code (entry name) in Swiss-Prot database.
+#;
+#    _item.name                    '_mdb_entity_name_swp.id'
+#    _item.category_id             mdb_entity_name_swp
+#    _item.mandatory_code          no
+#    _item_type.code               ucode
+#     loop_
+#    _item_examples.case           KPBG_RABIT
+#                                  KGPA_BOVIN
+#     save_
+
+#save__mdb_entity_name_swp.ac
+#    _item_description.description
+#;              Primary accession number in Swiss-Prot database.
+#;
+#    _item.name                    '_mdb_entity_name_swp.ac'
+#    _item.category_id             mdb_entity_name_swp
+#    _item.mandatory_code          yes
+#    _item_type.code               ucode
+#     loop_
+#    _item_examples.case           P00518
+#                                  P00516
+#     save_
+
+#save__mdb_entity_name_swp.de
+#    _item_description.description
+#;              Short description as in Swiss-Prot database.
+#;
+#    _item.name                    '_mdb_entity_name_swp.de'
+#    _item.category_id             mdb_entity_name_swp
+#    _item.mandatory_code          no
+#    _item_type.code               text
+#    _item_examples.case
+#;               CGMP-DEPENDENT PROTEIN KINASE, ALPHA ISOZYME (CGK) 
+#                (EC 2.7.1.37)
+#;
+#     save_
+
+#save__mdb_entity_name_swp.creation_date
+#    _item_description.description
+#;              Creation date of the entry in Swiss-Prot database.
+#;
+#    _item.name                    '_mdb_entity_name_swp.date'
+#    _item.category_id             mdb_entity_name_swp
+#    _item.mandatory_code          no
+#    _item_type.code               yyyy-mm-dd
+#     loop_
+#    _item_examples.case           1998-12-24
+#                                  1996-01-06
+#     save_
+
+#######################
+## MDB_ENTITY_SEQ_CD ##
+#######################
+
+save_mdb_entity_seq_cd
+    _category.description
+;              Data items in the category MDB_ENTITY_SEQ_CD record details
+               about the codon sequence such as reference to the original
+               gene, the database containing the sequence, the identification
+               code, the accession code and the URL of the database.
+;
+    _category.id                 mdb_entity_seq_cd
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_entity_seq_cd.entity_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'entity_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_entity_seq_cd.data_scr
+    _item_description.description
+;              Flag to indicate if the codon sequence was submitted by the
+               author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_entity_seq_cd.data_scr'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          yes
+
+    _item_type.code               code
+
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_entity_seq_cd.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_entity_seq_cd.entity_id'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_entity_seq_cd.ref_id
+    _item_description.description
+;              Identification code of the gene encoding the amino acid
+               sequence of an entity.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_id'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_cd.ref_ac
+    _item_description.description
+;              Accession number of the gene encoding the amino acid
+               sequence of an entity.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_ac'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_cd.ref_de
+    _item_description.description
+;              Short description of the gene encoding the amino acid
+               sequence of an entity.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_de'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_entity_seq_cd.ref_creation_date
+    _item_description.description
+;              This data item holds the creation date of reference file.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_creation_date'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+     save_
+
+save__mdb_entity_seq_cd.ref_db
+    _item_description.description
+;              Database containing the gene  encoding the amino acid
+               sequence of an entity.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_db'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           
+    _item_examples.detail         Genbank
+;                                 Genbank
+;
+                                  NDB
+;                                 Nucleic Acid Database
+;
+     save_
+
+save__mdb_entity_seq_cd.ref_URL
+    _item_description.description
+;              URL of the database containing the gene encoding the amino acid
+               sequence of an entity.
+;
+    _item.name                    '_mdb_entity_seq_cd.ref_URL'
+    _item.category_id             mdb_entity_seq_cd
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+########################
+## MDB_ENTITY_SEQ_MON ##
+########################
+
+save_mdb_entity_seq_mon
+    _category.description
+;              Data items in the category MDB_ENTITY_SEQ_MON record details 
+               about the monomer sequence such as reference to the original 
+               name, the database containing the sequence, the identification
+               code, the accession code and the URL.
+;
+    _category.id                 mdb_entity_seq_mon
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_entity_seq_mon.ref_id'
+                                 '_mdb_entity_seq_mon.ref_db'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'entity_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_entity_seq_mon.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_entity_seq_mon.entity_id'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_entity_seq_mon.ref_id
+    _item_description.description
+;              Identification code of the polymeric entity.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_id'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_mon.ref_ac
+    _item_description.description
+;              Accession number of the polymeric entity.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_ac'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_mon.ref_de
+    _item_description.description
+;              Short description of the polymeric entity.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_de'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_entity_seq_mon.ref_creation_date
+    _item_description.description
+;              This data item refers to the creation date of reference file.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_creation_date'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+     save_
+
+save__mdb_entity_seq_mon.ref_db
+    _item_description.description
+;              Database containing the polymeric entity.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_db'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           
+    _item_examples.detail         SWP
+;                                 Swiss Prot
+;
+                                  NDB
+;                                 Nucleic Acid Database
+;
+                                  PDB
+;                                 Protein Data Bank
+;
+     save_
+
+save__mdb_entity_seq_mon.ref_URL
+    _item_description.description
+;              URL of the database containing the polymeric entity.
+;
+    _item.name                    '_mdb_entity_seq_mon.ref_URL'
+    _item.category_id             mdb_entity_seq_mon
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+###########################
+## MDB_ENTITY_SEQ_RELATE ##
+###########################
+
+save_mdb_entity_seq_relate
+    _category.description
+;              Data items in the MDB_ENTITY_SEQ_RELATE category record
+               references to closely related polymeric entities and/or to the
+               wild polymeric entity in case of a mutated sequence.
+;
+    _category.id                 mdb_entity_seq_relate
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_entity_seq_relate.ref_id'
+                                 '_mdb_entity_seq_relate.ref_db'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'entity_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_entity_seq_relate.data_src
+    _item_description.description
+;              Flag to indicate if the codon sequence was submitted by the
+               author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_entity_seq_relate.data_src'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_default.value           SD
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_entity_seq_relate.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_entity_seq_relate.entity_id'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_entity_seq_relate.ref_id
+    _item_description.description
+;              Identification code of a sequence/entity closely related to the
+               main entity(ies) described in entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_id'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_relate.ref_ac
+    _item_description.description
+;              Accession number of a sequence/entity closely related
+               to the main entity(ies) described in entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_ac'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_relate.ref_de
+    _item_description.description
+;            Short description of a sequence/entity closely related to the main
+             entity(ies) described in entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_de'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_entity_seq_relate.ref_creation_date
+    _item_description.description
+;              Entry creation date of a sequence/entity closely related to the
+               main entity(ies) described in entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_creation_date'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+     save_
+
+save__mdb_entity_seq_relate.ref_db
+    _item_description.description
+;              Database containing the sequence/entity closely related to the 
+               main entity(ies) described in entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_db'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           
+    _item_examples.detail         SWP
+;                                 Swiss Prot
+;
+                                  NDB
+;                                 Nucleic Acid Database
+;
+                                  PDB
+;                                 Protein Data Bank
+;
+     save_
+
+save__mdb_entity_seq_relate.ref_URL
+    _item_description.description
+;              URL of the database containing the entity closely related to
+               the entity described in _mdb_entity_seq_relate.entity_id.
+;
+    _item.name                    '_mdb_entity_seq_relate.ref_URL'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+
+save__mdb_entity_seq_relate.comparison
+    _item_description.description
+;              Short description of the differences between related entities.
+;
+    _item.name                    '_mdb_entity_seq_relate.comparison'
+    _item.category_id             mdb_entity_seq_relate
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+##########################
+## MDB_ENTITY_SEQ_MOTIF ##
+##########################
+
+save_mdb_entity_seq_motif
+    _category.description
+;              Data items in the category MDB_ENTITY_SEQ_MOTIF record details
+               about the motif(s) and motif identification method(s).
+
+;
+    _category.id                  mdb_entity_seq_motif
+    _category.mandatory_code      no
+    _category_key.name            '_mdb_entity_seq_motif.id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'mdb_group'
+                                  'entity_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_entity_seq_motif.id
+    _item_description.description
+;              The value of _mdb_entity_seq_motif.id must uniquely identify a 
+               record in the MDB_ENTITY_SEQ_MOTIF list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+    _item.name                    '_mdb_entity_seq_motif.id'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_entity_seq_motif.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_entity_seq_motif.entity_id'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_entity_seq_motif.method
+    _item_description.description
+;              Method used to identify a motif.
+;
+    _item.name                    '_mdb_entity_seq_motif.method'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__mdb_entity_seq_motif.library
+    _item_description.description
+;              Library of motifs or patterns on which the search was done.
+;
+    _item.name                    '_mdb_entity_seq_motif.library'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_entity_seq_motif.motif_seq
+    _item_description.description
+;              Monomer sequence of the motif.
+;
+    _item.name                    '_mdb_entity_seq_motif.motif_seq'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          yes
+    _item_type.code               line
+     save_
+
+save__mdb_entity_seq_motif.beg_mon_num
+    _item_description.description
+;              This data item defines the residue number with which
+               the motif begins in the entity, according to the full 
+               sequence of _entity_poly_seq.num.
+
+               This data item is a pointer to _entity_poly_seq.num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_entity_seq_motif.beg_mon_num'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          yes
+     save_
+
+save__mdb_entity_seq_motif.end_mon_num
+    _item_description.description
+;              This data item defines the residue number with which
+               the motif ends in the entity, according to the full 
+               sequence of _entity_poly_seq.num.
+
+               This data item is a pointer to _sequence.mon_num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_entity_seq_motif.end_mon_num'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          yes
+     save_
+
+save__mdb_entity_seq_motif.detail
+    _item_description.description
+;              Short description of the motif.
+;
+    _item.name                    '_mdb_entity_seq_motif.detail'
+    _item.category_id             mdb_entity_seq_motif
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+###############
+## MDB_MODEL ##
+###############
+
+save_mdb_model
+    _category.description
+;              Data items in the MDB_MODEL category give details (such as 
+               the first and the end residue, etc.) about each model.
+;
+    _category.id                  mdb_model
+    _category.mandatory_code      yes
+    _category_key.name            '_mdb_model.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model.id
+    _item_description.description
+;              The value of _mdb_model.id must uniquely identify a record in 
+               the MDB_MODEL list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+              '_mdb_model.id'                     mdb_model                 yes
+              '_mdb_align_search_param.mod_id'    mdb_align_search_param    yes
+              '_mdb_align_thread_param.mod_id'    mdb_align_thread_param    yes
+              '_mdb_align_templates.mod_id'       mdb_align_templates       yes
+              '_mdb_multalign.mod_id'             mdb_multalign             yes
+              '_mdb_multalign_align.mod_id'       mdb_multalign_align       no
+              '_mdb_multalign_matrix.mod_id'      mdb_multalign_matrix      yes
+              '_mdb_model_proc_seg.mod_id'        mdb_model_proc_seg        yes
+              '_mdb_energy_min.mod_id'            mdb_energy_min            yes
+              '_mdb_dynamics.mod_id'              mdb_dynamics              yes
+              '_mdb_model_struct.mod_id'          mdb_model_struct          yes
+              '_mdb_model_struct_src.mod_id'      mdb_model_struct_src      yes
+              '_mdb_model_struct_ss.mod_id'       mdb_model_struct_ss       yes
+              '_mdb_model_struct_asa.mod_id'      mdb_model_struct_asa      yes
+              '_mdb_model_struct_fold.mod_id'     mdb_model_struct_fold     yes
+              '_mdb_model_eval.mod_id'            mdb_model_eval            yes
+              '_mdb_solved_structure.mod_id'      mdb_solved_structure      yes
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_mdb_align_search_param.mod_id'          '_mdb_model.id'
+               '_mdb_align_thread_param.mod_id'          '_mdb_model.id'
+               '_mdb_align_templates.mod_id'             '_mdb_model.id'
+               '_mdb_multalign.mod_id'                   '_mdb_model.id'
+               '_mdb_multalign_align.mod_id'             '_mdb_model.id'
+               '_mdb_multalign_matrix.mod_id'            '_mdb_model.id'
+               '_mdb_model_proc_seg.mod_id'              '_mdb_model.id'
+               '_mdb_energy_min.mod_id'                  '_mdb_model.id'
+               '_mdb_dynamics.mod_id'                    '_mdb_model.id'
+               '_mdb_model_struct.mod_id'                '_mdb_model.id'
+               '_mdb_model_struct_src.mod_id'            '_mdb_model.id'
+               '_mdb_model_struct_ss.mod_id'             '_mdb_model.id'
+               '_mdb_model_struct_asa.mod_id'            '_mdb_model.id'
+               '_mdb_model_struct_fold.mod_id'           '_mdb_model.id'
+               '_mdb_model_eval.mod_id'                  '_mdb_model.id'
+               '_mdb_solved_structure.mod_id'            '_mdb_model.id'
+save_
+
+save__mdb_model.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                  '_mdb_model.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model.beg_mon_num
+    _item_description.description
+;              This data item defines a residue number with which the
+               model begins, according to the full sequence numbering as in
+               _entity_poly_seq.num.
+
+               This data item is a pointer to _sequence.mon_num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_model.beg_mon_num'
+    _item.category_id             mdb_model
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__mdb_model.end_mon_num
+    _item_description.description
+;              This data item defines the residue number with which model ends,
+               according to the full sequence numbering (according to
+               _entity_poly_seq.num).
+
+               This data item is a pointer to _sequence.mon_num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_model.end_mon_num'
+    _item.category_id             mdb_model
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__mdb_model.method
+    _item_description.description
+;              A method used to produce the model.
+;
+    _item.name                    '_mdb_model.method'
+    _item.category_id             mdb_model
+    _item.mandatory_code          yes
+    _item_type.code               uline
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail  'comparative modelling'
+;                             model generated by homology from the 
+                              experimentaly determined structure of one or more 
+                              homologues
+;
+                              'threading'
+;                             fold prediction generated according to the 
+                              sequence / fold search by threading
+;
+                              'de novo folding'
+;                             model generated in absence of any parent
+                              structure for prediction
+;
+     save_
+
+save__mdb_model.method_details
+    _item_description.description
+;              This item holds description of a method or software used
+               in modelling.
+;
+    _item.name                    '_mdb_model.method_details'
+    _item.category_id             mdb_model
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+###########################
+## MDB_LIST_ALIGN_METHOD ##
+###########################
+
+save_mdb_list_align_method
+    _category.description
+;              In the MDB_LIST_ALIGN_METHOD category contains a list of all the 
+               methods used to find templates.
+;
+    _category.id                 mdb_list_align_method
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_list_align_method.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+# modification 21.02.00 _category.id
+# from MDB_ALIGN_METHOD_LIST to MDB_LIST_ALIGN_METHOD
+
+save__mdb_list_align_method.id
+    _item_description.description
+;             The value of _mdb_align_method.id must uniquely identify a method
+              used to find templates.
+
+              Note that this item need not be a number, it can be any unique
+              identifier.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+              '_mdb_list_align_method.id'          mdb_list_align_method    yes
+              '_mdb_align_search_param.method_id'  mdb_align_search_param   yes
+              '_mdb_align_thread_param.method_id'  mdb_align_thread_param   yes
+              '_mdb_align_templates.method_id'     mdb_align_templates      yes
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+              '_mdb_align_search_param.method_id'   '_mdb_list_align_method.id'
+              '_mdb_align_thread_param.method_id'   '_mdb_list_align_method.id'
+              '_mdb_align_templates.method_id'      '_mdb_list_align_method.id'             
+    save_
+
+save__mdb_list_align_method.alg
+    _item_description.description
+;              Procedure used to find templates.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+             '_mdb_list_align_method.alg'          mdb_list_align_method    yes
+    _item_type.code               ucode
+    _item_examples.case           FASTA
+    save_
+
+save__mdb_list_align_method.alg_ref
+    _item_description.description
+;              Reference or additional information for the threading algorithm.
+;
+    _item.name                    '_mdb_list_align_method.alg_ref'
+    _item.category_id             mdb_list_align_method
+    _item.mandatory_code          no
+    _item_type.code               uline
+    save_
+
+save__mdb_list_align_method.details
+    _item_description.description
+;              Supplementary information on procedures used to find templates.
+;
+    _item.name                    '_mdb_list_align_method.details'
+    _item.category_id             mdb_list_align_method
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+############################
+## MDB_ALIGN_SEARCH_PARAM ##
+############################
+
+save_mdb_align_search_param
+    _category.description
+;              Data items in the MDB_ALIGN_SEARCH_PARAM category give details
+               of template search.
+;
+    _category.id                 mdb_align_search_param
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_align_search_param.mod_id'
+                                 '_mdb_align_search_param.method_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_align_search_param.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_align_search_param.entity_id'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_search_param.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the
+               MDB_MODEL category.
+;
+    _item.name                    '_mdb_align_search_param.mod_id'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_search_param.method_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_align_method.id in the
+               MDB_LIST_ALIGN_METHOD category.
+;
+    _item.name                    '_mdb_align_search_param.method_id'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_search_param.score_ref
+    _item_description.description
+;              Short description of the alignment scoring techinque used to 
+               compare sequences.
+;
+    _item.name                    '_mdb_align_search_param.score_ref'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               uline
+    _item_examples.case           'blastp high score'
+     save_
+
+save__mdb_align_search_param.subst_mtx
+    _item_description.description
+;              Substitution matrix used for sequence comparison.
+;
+    _item.name                    '_mdb_align_search_param.subst_mtx'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_examples.case           BLOSUM62
+     save_
+
+save__mdb_align_search_param.filter_flag
+    _item_description.description
+;              A flag to indicate whether a filter was used during database
+               searches.
+;
+    _item.name                    '_mdb_align_search_param.filter_flag'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_default.value           no
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      no   'no filter was used'
+                                  n    'abbreviation for "no"'
+                                  yes  'filter was used'
+                                  y    'abbreviation for "yes"'
+     save_
+
+save__mdb_align_search_param.filter_ref
+    _item_description.description
+;              Reference to the filter used during database searches.
+;
+    _item.name                    '_mdb_align_search_param.filter_ref'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_examples.case           DUST
+    _item_examples.detail         'blast default filter'
+     save_
+
+save__mdb_align_search_param.suppl_data
+    _item_description.description
+;              Supplementary information about parameters used during template
+               searches.
+;
+    _item.name                    '_mdb_align_search_param.suppl_data'
+    _item.category_id             mdb_align_search_param
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+############################
+## MDB_ALIGN_THREAD_PARAM ##
+############################
+
+save_mdb_align_thread_param
+    _category.description
+;              Data items in the MDB_ALIGN_THREAD_PARAM category give details
+               of template search.
+;
+    _category.id                 mdb_align_thread_param
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_align_thread_param.mod_id'
+                                 '_mdb_align_thread_param.method_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_align_thread_param.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY 
+               category.
+;
+    _item.name                    '_mdb_align_thread_param.entity_id'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_thread_param.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the
+               MDB_MODEL category.
+;
+    _item.name                    '_mdb_align_thread_param.mod_id'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_thread_param.method_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_align_method.id in the
+               MDB_LIST_ALIGN_METHOD category.
+;
+    _item.name                    '_mdb_align_thread_param.method_id'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_thread_param.fold_lib
+    _item_description.description
+;              Fold library.
+;
+    _item.name                    '_mdb_align_thread_param.fold_lib'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_align_thread_param.align_type
+    _item_description.description
+;              Type of alignement: global or local used to compare different
+               sequences.
+;
+    _item.name                    '_mdb_align_thread_param.align_type'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      global
+                                  'global alignment algorithm was applied'
+                                  local
+                                  'local alignment algorithm was applied'
+     save_
+
+save__mdb_align_thread_param.score_ref
+    _item_description.description
+;              Alignment score technique.
+;
+    _item.name                    '_mdb_align_thread_param.score_ref'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          yes
+    _item_type.code               uline
+    _item_examples.case           'blastp high score'
+     save_
+
+save__mdb_align_thread_param.seq_weight
+    _item_description.description
+;              Sequence weight term in the fold match.
+;
+    _item.name                    '_mdb_align_thread_param.seq_weight'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_thread_param.ss_weight
+    _item_description.description
+;              Scondary structure weight term in the fold match.
+;
+    _item.name                    '_mdb_align_thread_param.ss_weight'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_thread_param.param
+    _item_description.description
+;             Any additional parameter used in the evaluation of the fold (e.g.
+              contact potential).
+;
+    _item.name                    '_mdb_align_thread_param.param'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               uline
+    save_
+
+save__mdb_align_thread_param.param_weight
+    _item_description.description
+;              Weight term in the fold match for the paramater in 
+               _mdb_align_thread_param.param.
+;
+    _item.name                    '_mdb_align_thread_param.param_weight'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_thread_param.gap
+    _item_description.description
+;              Gap introduction penality.
+;
+    _item.name                    '_mdb_align_thread_param.gap'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_thread_param.gapext
+    _item_description.description
+;              Gap extention penality.
+;
+    _item.name                    '_mdb_align_thread_param.gapext'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_thread_param.suppl_data
+    _item_description.description
+;              Supplementary information about parameters used during template
+               searches.
+;
+    _item.name                    '_mdb_align_thread_param.suppl_data'
+    _item.category_id             mdb_align_thread_param
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+#######################
+## MDB_LIST_TEMPLATE ##
+#######################
+
+save_mdb_list_template
+    _category.description
+;             Data items in MDB_LIST_TEMPLATE category store a complete list of
+              all templates identified for all models. Some templates can
+              be not applied for modelling.
+;
+    _category.id                 mdb_list_template
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_list_template.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+# modification 21.02.00 _category.id
+# from MDB_TEMPLATE_LIST to MDB_LIST_TEMPLATE
+
+save__mdb_list_template.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_list_template.entity_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_list_template.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_list_template.mod_id'
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_list_template.id
+    _item_description.description
+;              The value of _mdb_list_template.id must uniquely identify a 
+               template.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+         '_mdb_list_template.id'                    mdb_list_template       yes
+         '_mdb_align_templates.template_id'         mdb_align_templates     yes
+         '_mdb_multalign_align.template_id'         mdb_multalign_align     no
+         '_mdb_multalign_matrix.template_id'        mdb_multalign_matrix    yes
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+       '_mdb_align_templates.template_id'      '_mdb_list_template.id'
+       '_mdb_multalign_align.template_id'      '_mdb_list_template.id'
+       '_mdb_multalign_matrix.template_id'     '_mdb_list_template.id'
+     save_
+
+#        '_mdb_template_atom_site.label_templ_id'   mdb_template_atom_site  yes
+#        '_mdb_template_atom_site.template_id'   '_mdb_list_template.id'
+
+save__mdb_list_template.ref_id
+    _item_description.description
+;              Identification code of the template in the reference database.
+;
+    _item.name                    '_mdb_list_template.ref_id'
+    _item.category_id             mdb_list_template
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           1ABC
+                                  1PHK
+     save_
+
+save__mdb_list_template.ref_swp_ac
+    _item_description.description
+;              Accession code of the template in the Swiss-Prot database.
+;
+    _item.name                    '_mdb_list_template.ref_swp_ac'
+    _item.category_id             mdb_list_template
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           Q02145
+                                  POO212
+     save_
+
+save__mdb_list_template.ref_de
+    _item_description.description
+;              Short description of the template in the reference database.
+;
+    _item.name                    '_mdb_list_template.ref_de'
+    _item.category_id             mdb_list_template
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_list_template.ref_creation_date
+    _item_description.description
+;              Creation date date of the template entry in the reference 
+               database.
+;
+    _item.name                    '_mdb_list_template.ref_creation_date'
+    _item.category_id             mdb_list_template
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+     loop_
+    _item_examples.case           1998-12-24
+                                  1996-01-06
+     save_
+
+save__mdb_list_template.ref_db
+    _item_description.description
+;              Name of the database containing the template entry.
+;
+    _item.name                    '_mdb_list_template.ref_db'
+    _item.category_id             mdb_list_template
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_examples.case          'PDB'
+                                 'CSD'
+                                 'Genbank'
+     save_
+
+#########################
+## MDB_ALIGN_TEMPLATES ##
+#########################
+
+save_mdb_align_templates
+    _category.description
+;            Data items in MDB_ALIGN_TEMPLATES category store information about
+             all templates identified for all models using different methods.
+;
+    _category.id                 mdb_align_templates
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_align_templates.template_id'
+                                 '_mdb_align_templates.method_id'
+                                 '_mdb_align_templates.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_align_templates.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_align_templates.entity_id'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_templates.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the
+               MDB_MODEL category.
+;
+    _item.name                    '_mdb_align_templates.mod_id'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_templates.template_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_template.id in the 
+               MDB_LIST_TEMPLATE category.
+;
+    _item.name                    '_mdb_align_templates.template_id'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_templates.method_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_align_method.id in the
+               MDB_LIST_ALIGN_METHOD category.
+;
+    _item.name                    '_mdb_align_templates.method_id'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_align_templates.apply
+    _item_description.description
+;              'yes' indicates that this template was used in the modelling
+               procedure, 'no' that it was not utilized to build the model.
+;
+    _item.name                    '_mdb_align_templates.apply'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+            no   'not applied'
+            n    'abbreviation for "no"'
+            yes  'applied in the modelling procedure'
+            y    'abbreviation for "yes"'
+     save_
+
+save__mdb_align_templates.score
+    _item_description.description
+;        Score value for the alignement template-target in accordance to
+         _mdb_align_search_param.score_ref or _mdb_align_thread_param.score_ref
+         data items.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+         '_mdb_align_templates.score'                 mdb_align_templates        yes
+    _item_type.code               float
+#     loop_
+#    _item_linked.child_name
+#    _item_linked.parent_name
+#       '_mdb_align_templates.score'             '_mdb_align_templates.score'
+     save_
+
+save__mdb_align_templates.probability
+    _item_description.description
+;              Probability value for the alignment template-target.
+;
+    _item.name                    '_mdb_align_templates.probability'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_templates.pc_identity
+    _item_description.description
+;         Percentage of identity between the template (_mdb_align_templates.id)
+          and the target (_mdb_align_templates.mod_id) sequences.
+;
+    _item.name                    '_mdb_align_templates.pc_identity'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_align_templates.refine_ls_d_res_high
+    _item_description.description
+;              The highest resolution in angstroms for the interplanar spacing
+               in the reflection data used in refinement. This is the smallest
+               d value.
+;
+    _item.name                    '_mdb_align_templates.refine_ls_d_res_high'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+     loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+                                  0.0   0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_align_templates.refine_ls_d_res_low
+    _item_description.description
+;             The lowest resolution in ansgtroms for the interplanar spacing in
+              the reflection data used in refinement. This is the largest d
+              value.
+;
+    _item.name                    '_mdb_align_templates.refine_ls_d_res_low'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          yes
+     loop_
+    _item_range.maximum
+    _item_range.minimum            .    0.0
+                                  0.0   0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_align_templates.refine_ls_R_factor_all
+    _item_description.description
+;             Residual factor R for all reflections that satisfy the resolution
+              limits established by _refine.ls_d_res_high and
+              _refine.ls_d_res_low.
+
+                  sum|F~obs~ - F~calc~|
+              R = ---------------------
+                       sum|F~obs~|
+
+              F~obs~  = the observed structure factor amplitudes
+              F~calc~ = the calculated structure factor amplitudes
+
+              sum is taken over the specified reflections
+;
+    _item.name                    '_mdb_align_templates.refine_ls_R_factor_all'
+    _item.category_id             mdb_align_templates
+    _item.mandatory_code          no
+     loop_
+    _item_range.maximum          
+    _item_range.minimum            .    0.0
+                                  0.0   0.0
+    _item_type.code               float
+     save_
+
+save__mdb_align_templates.refine_ls_R_factor_R_free
+    _item_description.description
+;              Residual factor R for reflections that satisfy the resolution
+               limits established by _refine.ls_d_res_high and
+               _refine.ls_d_res_low and the observation limit established by
+               _reflns.observed_criterion, and that were used as the test
+               (i.e., excluded from refinement) reflections when refinement
+               included calculation of a "free" R factor. Details of how
+               reflections were assigned to the working and test sets are
+               given in _reflns.R_free_details.
+
+                   sum|F~obs~ - F~calc~|
+               R = ---------------------
+                        sum|F~obs~|
+
+               F~obs~  = the observed structure factor amplitudes
+               F~calc~ = the calculated structure factor amplitudes
+
+               sum is taken over the specified reflections
+;
+    _item.name                 '_mdb_align_templates.refine_ls_R_factor_R_free'
+    _item.category_id          mdb_align_templates
+    _item.mandatory_code       no
+     loop_
+    _item_range.maximum           
+    _item_range.minimum         .    0.0
+                               0.0   0.0
+    _item_type.code            float
+     save_
+
+save__mdb_align_templates.refine_ls_R_factor_R_work
+    _item_description.description
+;              Residual factor R for reflections that satisfy the resolution
+               limits established by _refine.ls_d_res_high and
+               _refine.ls_d_res_low and the observation limit established by
+               _reflns.observed_criterion, and that were used as the working
+               (i.e., included in refinement) reflections when refinement
+               included calculation of a "free" R factor. Details of how
+               reflections were assigned to the working and test sets are
+               given in _reflns.R_free_details.
+
+               _refine.ls_R_factor_obs should not be confused with
+               _refine.ls_R_factor_R_work, the former reports the results of a
+               refinement in which all observed reflections were used, the
+               latter a refinement in which a subset of the observed
+               reflections were excluded from refinement for the calculation
+               of a "free" R factor. However, it would be meaningful to quote
+               both values if a "free" R factor were calculated for most of
+               the refinement, but all of the observed reflections were used
+               in the final rounds of refinement, such a protocol should be
+               explained in _refine.details.
+
+                   sum|F~obs~ - F~calc~|
+               R = ---------------------
+                        sum|F~obs~|
+
+               F~obs~  = the observed structure factor amplitudes
+               F~calc~ = the calculated structure factor amplitudes
+
+               sum is taken over the specified reflections
+;
+    _item.name                 '_mdb_align_templates.refine_ls_R_factor_R_work'
+    _item.category_id          mdb_align_templates
+    _item.mandatory_code       no
+     loop_
+    _item_range.maximum     
+    _item_range.minimum         .    0.0
+                               0.0   0.0
+    _item_type.code            float
+     save_
+
+###################
+## MDB_MULTALIGN ##
+###################
+
+save_mdb_multalign
+    _category.description
+;              Data items in this category store information on multiple
+               alignments of templates and targets.
+;
+    _category.id                 mdb_multalign
+    _category.mandatory_code     yes
+    _category_key.name           '_mdb_multalign.align_num'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_multalign.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_multalign.entity_id'
+    _item.category_id             mdb_multalign
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_multalign.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the
+               MDB_MODEL category.
+;
+    _item.name                    '_mdb_multalign.mod_id'
+    _item.category_id             mdb_multalign
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_multalign.align_num
+    _item_description.description
+;            The value of _mdb_multalign.align_num must uniquely identify a 
+             record in the MDB_MULTALIGN category. It is the number identifying
+             each alignement.
+
+             Note that this item needs to be a number.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_multalign.align_num'           mdb_multalign           yes
+               '_mdb_multalign_align.num'           mdb_multalign_align     yes
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_mdb_multalign_align.num'           '_mdb_multalign.align_num'
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           .   1
+                                  1   1
+    _item_type.code               int
+     save_
+
+save__mdb_multalign.nseq
+    _item_description.description
+;             Total number of aligned sequences (target and templates) for each
+              model.
+;
+    _item.name                    '_mdb_multalign.nseq'
+    _item.category_id             mdb_multalign
+    _item.mandatory_code          yes
+    _item_type.code               int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           .   1
+                                  1   1
+     save_
+
+save__mdb_multalign.length
+    _item_description.description
+;              Number of positions in the alignment (length) including gaps for 
+               each model.
+;
+    _item.name                    '_mdb_multalign.length'
+    _item.category_id             mdb_multalign
+    _item.mandatory_code          yes
+    _item_type.code               int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           .   1
+                                  1   1
+     save_
+
+save__mdb_multalign.view
+    _item_description.description
+;              Visual representation of the multiple alignment including gaps
+               for each model.
+;
+    _item.name                    '_mdb_multalign.view'
+    _item.category_id             mdb_multalign
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+#########################
+## MDB_MULTALIGN_ALIGN ##
+#########################
+
+save_mdb_multalign_align
+    _category.description
+;            Data items in the MDB_MULTALIGN_ALIGN category contain the aligned
+             sequences.
+;
+    _category.id                 mdb_multalign_align
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_multalign_align.num'
+                                 '_mdb_multalign_align.seq_pos'
+                                 '_mdb_multalign_align.mon_pos'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_multalign_align.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_multalign_align.mod_id'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_align.template_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_template.id in the
+               MDB_LIST_TEMPLATE category.
+;
+    _item.name                    '_mdb_multalign_align.template_id'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_align.mon_id
+    _item_description.description
+;              Monomer sequence for target and template(s) including gaps
+               which are identified as '-'.
+;
+    _item.name                    '_mdb_multalign_align.mon_id'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_align.num
+    _item_description.description
+;              This data item is a pointer to _mdb_multalign.align_num in the 
+               MDB_MULTALIGN category.
+;
+    _item.name                    '_mdb_multalign_align.num'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__mdb_multalign_align.seq_pos
+    _item_description.description
+;              This data item must uniquely and sequentially (target, first
+               template, second template, ect.) identify the target
+               and template sequences for each alignment.
+;
+    _item.name                    '_mdb_multalign_align.seq_pos'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          yes
+    _item_type.code               int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           .   1
+                                  1   1
+     save_
+
+save__mdb_multalign_align.mon_pos
+   _item_description.description
+;              This data item must uniquely and sequentially identify the
+               monomer and gap positions for each alignment.
+;
+    _item.name                    '_mdb_multalign_align.mon_pos'
+    _item.category_id             mdb_multalign_align
+    _item.mandatory_code          yes
+    _item_type.code               int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           .   1
+                                  1   1
+     save_
+
+##########################
+## MDB_MULTALIGN_MATRIX ##
+##########################
+
+save_mdb_multalign_matrix
+    _category.description
+;              The MDB_MULTALIGN_MATRIX category provides placeholders for
+               transformation matrices and vectors of each template, describing 
+               transformations from initial coordinates to final coordinates in 
+               the multiple alignment superposition.
+;
+    _category.id                 mdb_multalign_matrix
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_multalign_matrix.mod_id'
+                                 '_mdb_multalign_matrix.template_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_align_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_multalign_matrix.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_multalign_matrix.entity_id'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_matrix.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_multalign_matrix.mod_id'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_matrix.template_id
+    _item_description.description
+;              This data item is a pointer to _mdb_list_template.id in the
+               MDB_LIST_TEMPLATE category.
+;
+    _item.name                    '_mdb_multalign_matrix.template_id'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_multalign_matrix.trans[1][1]
+    _item_description.description
+;              The [1][1] element of the transformation matrix.
+;
+
+    _item.name                    '_mdb_multalign_matrix.trans[1][1]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           1.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[1][2]
+    _item_description.description
+;              The [1][2] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[1][2]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[1][3]
+    _item_description.description
+;              The [1][3] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[1][3]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[2][1]
+    _item_description.description
+;              The [2][1] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[2][1]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[2][2]
+    _item_description.description
+;              The [2][2] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[2][2]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           1.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[2][3]
+    _item_description.description
+;              The [2][3] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[2][3]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[3][1]
+    _item_description.description
+;              The [3][1] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[3][1]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[3][2]
+    _item_description.description
+;              The [3][2] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[3][2]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans[3][3]
+    _item_description.description
+;              The [3][3] element of the transformation matrix. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans[3][3]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           1.0
+    _item_sub_category.id         matrix
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans_vector[1]
+    _item_description.description
+;              The [1] element of the transformation vector. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans_vector[1]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans_vector[2]
+    _item_description.description
+;              The [2] element of the transformation vector. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans_vector[2]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+save__mdb_multalign_matrix.trans_vector[3]
+    _item_description.description
+;              The [3] element of the transformation vector. 
+;
+    _item.name                  '_mdb_multalign_matrix.trans_vector[3]'
+    _item.category_id             mdb_multalign_matrix
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+########################
+## MDB_MODEL_PROC_SEG ##
+########################
+
+save_mdb_model_proc_seg
+    _category.description
+;              Model building procedure for segments in models, there can be 
+               more than one segment per model.
+;
+    _category.id                 mdb_model_proc_seg
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_model_proc_seg.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_group'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_proc_seg.id
+    _item_description.description
+;              The value of _mdb_model_proc_seg.id must uniquely identify a
+               record in the MDB_MODEL_PROC_SEG list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+    _item.name                    '_mdb_model_proc_seg.id'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_proc_seg.entity_id'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_model_proc_seg.mod_id'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.method_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model_param.method_id in the 
+               MDB_MODEL_PARAM category.
+;
+    _item.name                    '_mdb_model_proc_seg.method_id'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.beg_mon_num
+    _item_description.description
+;              This data item defines the residue number with which the
+               segment begins, according to the full sequence numbering
+               _entity_poly_seq.num.
+
+               This data item is a pointer to _entity_poly_seq.num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_model_proc_seg.beg_mon_num'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.end_mon_num
+    _item_description.description
+;              This data item defines the residue number with which the
+               segment ends, according to the full sequence numbering
+               _entity_poly_seq.num.
+
+               This data item is a pointer to _entity_poly_seq.num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_model_proc_seg.end_mon_num'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_proc_seg.conservation
+    _item_description.description
+;              This data item shows if the segment is defined as a structurally
+               conserved or variable region, or undefined.
+;
+    _item.name                    '_mdb_model_proc_seg.conservation'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value       conserved
+                                  variable
+                                  undefined
+     save_
+
+save__mdb_model_proc_seg.type
+    _item_description.description
+;            This data item shows the segment attribution i.e. backbone or side
+             chains or both.
+;
+    _item.name                    '_mdb_model_proc_seg.type'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_enumeration.value       backbone
+                                  side_chains
+                                  back_side_ch
+     save_
+
+save__mdb_model_proc_seg.template
+    _item_description.description
+;              This data item shows the type of template used for the segment
+               single template, multiple templates, or averaged from multiple 
+               template structure.
+;
+    _item.name                    '_mdb_model_proc_seg.template'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      single_template
+                                  'single template from parent structure(s)'
+                                  multiple_template
+                                  'multiple templates from parent structures'
+                                  avarage_template
+                                  'averaged template from parent structures'
+     save_
+
+save__mdb_model_proc_seg.build
+    _item_description.description
+;              This data item shows if the segement is modelled from a parent 
+               structure(s), databse search, or generated de novo.
+;
+    _item.name                    '_mdb_model_proc_seg.build'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value       
+    _item_enumeration.detail      parent_template
+                                  'template generated'
+                                  db_search
+                                  'database search generated'
+                                  de_novo
+                                  'de novo generated'
+     save_
+
+save__mdb_model_proc_seg.details
+    _item_description.description
+;              This data item gives details of the model building.
+;
+    _item.name                    '_mdb_model_proc_seg.details'
+    _item.category_id             mdb_model_proc_seg
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+#####################
+## MDB_FORCE_FIELD ##
+#####################
+
+save_mdb_force_field
+    _category.description
+;            Data items in the MDB_FORCE_FIELD category specify the force field
+             used for energy calculations, the version and the possible
+             modifications.
+;
+    _category.id                 mdb_force_field
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_force_field.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_calc_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_force_field.id
+    _item_description.description
+;              The value of _mdb_force_field.id must uniquely identify a record
+               in the MDB_FORCE_FIELD list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+           '_mdb_force_field.id'          mdb_force_field          yes
+           '_mdb_energy_min.ff_id'        mdb_energy_min           no
+           '_mdb_dynamics.ff_id'          mdb_dynamics             no
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+           '_mdb_energy_min.ff_id'                      '_mdb_force_field.id'
+           '_mdb_dynamics.ff_id'                        '_mdb_force_field.id'
+     save_
+
+save__mdb_force_field.name
+    _item_description.description
+;              Force field name.
+;
+    _item.name                    '_mdb_force_field.name'
+    _item.category_id             mdb_force_field
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_examples.case          'AMBER'
+                                 'GROMOS'
+                                 'CHARMM'
+     save_
+
+save__mdb_force_field.version
+    _item_description.description
+;              Force field version.
+;
+    _item.name                   '_mdb_force_field.version'
+    _item.category_id            mdb_force_field
+    _item.mandatory_code         yes
+    _item_type.code              code
+     loop_
+    _item_examples.case           '1.4'
+                                  '23'
+     save_
+
+save__mdb_force_field.modified
+    _item_description.description
+;              'yes' indicates that modifications were applied to the original
+               force field, 'no' that no modifications were applied.
+;
+    _item.name                    '_mdb_force_field.modified'
+    _item.category_id             mdb_force_field
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_default.value           no
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+          no   'no modification'
+          n    'abbreviation for "no"'
+          yes  'some modifications were introduced in the original force field'
+          y    'abbreviation for "yes"'
+     save_
+
+save__mdb_force_field.non_std_param
+    _item_description.description
+;              Short description of the modified or added parameters.
+;
+    _item.name                    '_mdb_force_field.non_std_param'
+    _item.category_id             mdb_force_field
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+#################
+## MDB_SOLVENT ##
+#################
+
+save_mdb_solvent
+    _category.description
+;              Data items in the MDB_SOLVENT category store information on the 
+               solvent.
+;
+    _category.id                 mdb_solvent
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_solvent.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_calc_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_solvent.id
+    _item_description.description
+;              The value of _mdb_model.id must uniquely identify a record in 
+               the MDB_SOLVENT list.
+
+               Note that this item need not be a number, it can be any unique
+               identifier.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_solvent.id'                 mdb_solvent             yes
+               '_mdb_energy_min.solv_id'         mdb_energy_min          no
+               '_mdb_dynamics.solv_id'           mdb_dynamics            no
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_mdb_energy_min.solv_id'         '_mdb_solvent.id'
+               '_mdb_dynamics.solv_id'           '_mdb_solvent.id'
+     save_
+
+save__mdb_solvent.solv_type
+    _item_description.description
+;              Type of solvent used (e.g. water).
+;
+    _item.name                    '_mdb_solvent.solv_type'
+    _item.category_id             mdb_solvent
+    _item.mandatory_code          no
+    _item_type.code               uline
+    save_
+
+save__mdb_solvent.solv_model
+    _item_description.description
+;              Model used to simulate the solvent: explicit or continuum.
+;
+    _item.name                    '_mdb_solvent.solv_model'
+    _item.category_id             mdb_solvent
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      explicit
+;              Each molecule of solvent is explicitally taken into account.
+;
+                                  continuum
+;              No explicit solvent molecules are considered.
+;
+    save_
+
+save__mdb_solvent.solv_model_spec
+    _item_description.description
+;              Specific model used to simulate the solvent.
+;
+    _item.name                    '_mdb_solvent.solv_model_spec'
+    _item.category_id             mdb_solvent
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'SPC'
+                                  'TIP3P'
+                                  'TIP4P'
+                                  'ST2'
+    save_
+
+save__mdb_solvent.solv_model_ref
+    _item_description.description
+;              Short description or publication reference for the used model.
+;
+    _item.name                    '_mdb_solvent.solv_model_ref'
+    _item.category_id             mdb_solvent
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+####################
+## MDB_ENERGY_MIN ##
+####################
+
+save_mdb_energy_min
+    _category.description
+;              Data items in the MDB_ENERGY_MIN category specify parameters
+               used during the energy minimisation.
+;
+    _category.id                 mdb_energy_min
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_energy_min.step_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_calc_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_energy_min.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_energy_min.entity_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_energy_min.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_energy_min.mod_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_energy_min.seg_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model_struc_seg.id in the 
+               MDB_MODEL_STRUC_SEG category.
+;
+    _item.name                    '_mdb_energy_min.seg_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_energy_min.step_id
+    _item_description.description
+;              The value of _mdb_energy_min.step_id must uniquely identify each 
+               minimisation step for each _mdb_energy_min.seg_id.
+
+               Note that this item need not be a number it can be any unique
+               identifier of each minimisation event.
+;
+    _item.name                    '_mdb_energy_min.step_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     save_
+
+save__mdb_energy_min.ff_id
+    _item_description.description
+;            This data item is a pointer to _mdb_force_field.id in the category
+             MDB_FORCE_FIELD.
+;
+    _item.name                    '_mdb_energy_min.ff_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_energy_min.method
+    _item_description.description
+;              Minimisation technique.
+;
+    _item.name                    '_mdb_energy_min.method'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          yes
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'steepest descent'
+                                  'conjugate gradient'
+                                  'Newton-Raphson'
+     save_
+
+save__mdb_energy_min.cycle_num
+    _item_description.description
+;              Number of minimisation cycles allowed.
+;
+    _item.name                    '_mdb_energy_min.cycle_num'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+save__mdb_energy_min.grms_conv
+    _item_description.description
+;              Root mean square gradient convergence criterion.
+;
+    _item.name                    '_mdb_energy_min.grms_conv'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kilocalories_per_mole_angstroms
+     save_
+
+save__mdb_energy_min.en_conv
+    _item_description.description
+;              Convergence criterion based on the energy difference between
+               successive steps.
+;
+    _item.name                    '_mdb_energy_min.en_conv'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kilocalories_per_moles
+     save_
+
+save__mdb_energy_min.coord_conv
+    _item_description.description
+;              Convergence criterion based on the change in coordinates 
+               (displacement) between successive steps.
+;
+    _item.name                    '_mdb_energy_min.coord_conv'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_energy_min.atom_def
+    _item_description.description
+;            This data item shows if the energy minimisation is conducted using
+             the united atom approximation or all atoms.
+;
+    _item.name                    '_mdb_energy_min.atom_def'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value                    all_atom
+                                               united_atom
+     save_
+
+save__mdb_energy_min.charge
+    _item_description.description
+;              Type of charges.
+;
+    _item.name                    '_mdb_energy_min.charge'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__mdb_energy_min.pH
+    _item_description.description
+;              pH value used to protonate residues.
+;
+    _item.name                    '_mdb_energy_min.pH'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_energy_min.dielectr_const
+    _item_description.description
+;              Dielectric constant.
+;
+    _item.name                    '_mdb_energy_min.dielectr_const'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__mdb_energy_min.dielectr_func
+    _item_description.description
+;              Dielectric function.
+;
+    _item.name                    '_mdb_energy_min.dielectr_func'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__mdb_energy_min.nbi_cutoff
+    _item_description.description
+;              Distance cutoff for non bonded interaction.
+;
+    _item.name                    '_mdb_energy_min.nbi_cutoff'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_energy_min.constr
+    _item_description.description
+;              Constraints applied during energy minimisation.
+;
+    _item.name                    '_mdb_energy_min.constr'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value                    fixed
+                                               relaxed
+                                               function
+     save_
+
+save__mdb_energy_min.constr_func
+    _item_description.description
+;             Type of function used to define constraints applied during energy 
+              minimisation.
+;
+    _item.name                    '_mdb_energy_min.constr_func'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__mdb_energy_min.constr_suppl_data
+    _item_description.description
+;              Additional information on the applied constraints.
+;
+    _item.name                    '_mdb_energy_min.constr_suppl_data'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__mdb_energy_min.solv_flag
+    _item_description.description
+;              Flag indicating if a solvent model was used.
+;
+    _item.name                    '_mdb_energy_min.solv_flag'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      yes  'solvent model used'
+                                  y    'abbreviation for "yes"'
+                                  no   'no solvent model used'
+                                  n    'abbreviation for "no"'
+     save_
+
+save__mdb_energy_min.solv_id
+    _item_description.description
+;             This data item is a pointer to _mdb_solvent.id in the MDB_SOLVENT
+              category.
+;
+    _item.name                    '_mdb_energy_min.solv_id'
+    _item.category_id             mdb_energy_min
+    _item.mandatory_code          no
+     save_
+
+##################
+## MDB_DYNAMICS ##
+##################
+
+save_mdb_dynamics
+    _category.description
+;              Data items in the MDB_DYNAMICS category store information about 
+               the application of molecular dynamics simulations for each step.
+;
+    _category.id                 mdb_dynamics
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_dynamics.step_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_calc_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_dynamics.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_dynamics.entity_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_dynamics.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_dynamics.mod_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_dynamics.seg_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model_struc_seg.id in the 
+               MDB_MODEL_STRUC_SEG category.
+;
+    _item.name                    '_mdb_dynamics.seg_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_dynamics.step_id
+    _item_description.description
+;              The value of _mdb_dynamics.step_id must uniquely identify each 
+               step of molecular dynamics for each _mdb_dynamics.seg_id.
+
+               Note that this item need not be a number it can be any unique
+               identifier of each molecular dynamics step.
+;
+    _item.name                    '_mdb_dynamics.step_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     save_
+
+save__mdb_dynamics.method
+    _item_description.description
+;              Dynammics technique.
+;
+    _item.name                    '_mdb_dynamics.method'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          yes
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'Langevin'
+                                  'constant temperature'
+                                  'constant pressure'
+     save_
+
+save__mdb_dynamics.temp_control
+    _item_description.description
+;              Temperature control model.
+;
+    _item.name                    '_mdb_dynamics.temp_control'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'velocity scaling'
+                                  'Berendsen temperature bath'
+                                  'Nose-Hoover dynamics'
+     save_
+
+save__mdb_dynamics.temp_start
+    _item_description.description
+;              Starting temperature.
+;
+    _item.name                    '_mdb_dynamics.temp_start'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kelvins
+     save_
+
+save__mdb_dynamics.temp_stop
+    _item_description.description
+;              Ending temperature.
+;
+    _item.name                    '_mdb_dynamics.temp_stop'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kelvins
+     save_
+
+save__mdb_dynamics.simulation_time
+    _item_description.description
+;              Length of the simulation.
+;
+    _item.name                    '_mdb_dynamics.simulation_time'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              picoseconds
+     save_
+
+save__mdb_dynamics.time_step
+    _item_description.description
+;              Integration time step for the simulation (dt).
+;
+    _item.name                    '_mdb_dynamics.time_step'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              femtoseconds
+     save_
+
+save__mdb_dynamics.constr
+    _item_description.description
+;              Constraints applied during dynamics simulation.
+;
+    _item.name                    '_mdb_dynamics.constr'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value                    fixed
+                                               relaxed
+                                               function
+     save_
+
+save__mdb_dynamics.constr_func
+    _item_description.description
+;              Type of function used to define constraints applied during
+               dynamics simulation.
+;
+    _item.name                    '_mdb_dynamics.constr_func'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               line
+     save_
+
+save__mdb_dynamics.suppl_data
+    _item_description.description
+;              Additional information on the applied constraints.
+;
+    _item.name                    '_mdb_dynamics.suppl_data'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__mdb_dynamics.boundary_cond_x
+    _item_description.description
+;             Boundary extention from the furthermost dimension of the modelled 
+              molecule in the X direction.
+;
+    _item.name                    '_mdb_dynamics.boundary_cond_x'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_dynamics.boundary_cond_y
+    _item_description.description
+;             Boundary extention from the furthermost dimension of the modelled 
+              molecule in the Y direction.
+;
+    _item.name                    '_mdb_dynamics.boundary_cond_y'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_dynamics.boundary_cond_z
+    _item_description.description
+;            Boundary extention from the furthermost dimension of the modelled 
+             molecule in the Z direction.
+;
+    _item.name                    '_mdb_dynamics.boundary_cond_z'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__mdb_dynamics.boundary_cond_details
+    _item_description.description
+;            Boundary condition details.
+;
+    _item.name                    '_mdb_dynamics.boundary_cond_details'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__mdb_dynamics.ff_id
+    _item_description.description
+;            This data item is a pointer to _mdb_force_field.id in the category
+             MDB_FORCE_FIELD.
+;
+    _item.name                    '_mdb_dynamics.ff_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_dynamics.charge
+    _item_description.description
+;              Type of charges used.
+;
+    _item.name                    '_mdb_dynamics.charge'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_dynamics.solv_flag
+    _item_description.description
+;              Flag indicating if a solvent model was used.
+;
+    _item.name                    '_mdb_dynamics.solv_flag'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      yes  'solvent model used'
+                                  y    'abbreviation for "yes"'
+                                  no   'no solvent model used'
+                                  n    'abbreviation for "no"'
+     save_
+
+save__mdb_dynamics.solv_id
+    _item_description.description
+;             This data item is a pointer to _mdb_solvent.id in the MDB_SOLVENT
+              category.
+;
+    _item.name                    '_mdb_dynamics.solv_id'
+    _item.category_id             mdb_dynamics
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+######################
+## MDB_MODEL_STRUCT ##
+######################
+
+save_mdb_model_struct
+    _category.description
+;              Date items in the MDB_MODEL_STRUCT category record details of
+               definition, description and quality for each model on a residue
+               basis level.
+;
+    _category.id                   mdb_model_struct
+    _category.mandatory_code       yes
+     loop_
+    _category_key.name             '_mdb_model_struct.mod_id'
+                                   '_mdb_model_struct.entity_mon_num'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_struct.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_struct.entity_id'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct.mod_id
+    _item_description.description
+;             This data item is a pointer to _mdb_model.id in the MDB_MODEL
+              category.
+;
+    _item.name                    '_mdb_model_struct.mod_id'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct.mon_id
+    _item_description.description
+;              This data item is a pointer to _chem_comp.id in the CHEM_COMP
+               category.
+;
+    _item.name                  '_mdb_model_struct.mon_id'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          yes
+     save_
+
+save__mdb_model_struct.entity_mon_num
+    _item_description.description
+;              This data item is a pointer to _entity_poly_seq.num in the
+               ENTITY_POLY_SEQ category.
+;
+    _item.name                    '_mdb_model_struct.entity_mon_num'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          yes
+     save_
+
+save__mdb_model_struct.align_match
+    _item_description.description
+;              Type of alignment match for each residue in the alignment with
+               template(s).
+;
+    _item.name                    '_mdb_model_struct.align_match'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      F         'full'
+                                  P         'partial'
+                                  N         'no'
+    save_
+
+save__mdb_model_struct.align_consens_id
+    _item_description.description
+;              Consensus sequence for the alignment with template(s) (at a
+               monomer level).
+;
+    _item.name                    '_mdb_model_struct.align_consens_id'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    save_
+
+save__mdb_model_struct.align_cons_probability
+    _item_description.description
+;              Conservation probability in the alignment (at a monomer level).
+;
+    _item.name                    '_mdb_model_struct.align_cons_probability'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_
+
+save__mdb_model_struct.ss
+    _item_description.description
+;              Secondary structure associated with each residue.
+               
+               More information on secondary structure (criteria and 
+               model) can be found in the category MDB_MODEL_STRUCT_SS.
+;
+    _item.name                    '_mdb_model_struct.ss'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+
+    _item_type.code               ucode
+    save_
+
+save__mdb_model_struct.asa
+    _item_description.description
+;              Solvent accessibility associated with each residue.
+               
+               More information on solvent accessibility (used criteria and
+               model) are found in the category MDB_MODEL_STRUCT_ASA.
+;
+    _item.name                    '_mdb_model_struct.asa'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+     _item_type.code              ucode
+     save_
+
+save__mdb_model_struct.accuracy_bond_length
+    _item_description.description
+;              Estimation of the bonds accuracy on a residue level.
+               
+               #need to revise, dummy range values used!
+;
+    _item.name                    '_mdb_model_struct.accuracy_bond_length'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+     _item_type.code              int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           10   10
+                                  10    1
+                                   1    1
+     save_
+
+save__mdb_model_struct.accuracy_bond_angle
+    _item_description.description
+;              Estimation of the bond angles accuracy on a residue level.
+               
+               #need to revise, dummy range values used!
+;
+    _item.name                    '_mdb_model_struct.accuracy_bond_angle'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+     _item_type.code              int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           10   10
+                                  10    1
+                                   1    1
+     save_
+
+save__mdb_model_struct.accuracy_tors_angle
+    _item_description.description
+;              Estimation of the torsion angles accuracy on a residue level
+               residue.
+               #need to revise, dummy range values used!
+;
+    _item.name                    '_mdb_model_struct.accuracy_tors_angle'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+     _item_type.code              int
+     loop_
+    _item_range.maximum           
+    _item_range.minimum           10   10
+                                  10    1
+                                   1    1
+     save_
+
+save__mdb_model_struct.C_factor
+    _item_description.description
+;              Confidence factor per residue.
+               The Model C-factor is computed as:
+               50.0 * (1/ number selected templates)
+               and
+               100.0 for all atoms added during loop and side-chain building.
+               
+               #need to revise!
+;
+    _item.name                    '_mdb_model_struct.C_factor'
+    _item.category_id             mdb_model_struct
+    _item.mandatory_code          no
+     loop_
+    _item_range.maximum          
+    _item_range.minimum             0.0      0.0
+                                  100.0      0.0
+                                  100.0    100.0
+    _item_type.code               float
+     save_
+
+##########################
+## MDB_MODEL_STRUCT_SRC ##
+##########################
+
+save_mdb_model_struct_src
+    _category.description
+;            Data items in the MDB_MODEL_STRUCT_SRC category specify the source
+             of some data items present in the MDB_MODEL_STRUCT category. These
+             data items can be submitted by the author(s) of the model/entry or
+             generated automatically by MDB.
+               
+             SD stands for submitted data and GD for generated data.
+;
+    _category.id                 mdb_model_struct_src
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_model_struct_src.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_struct_src.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_struct_src.entity_id'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_src.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the MDB_MODEL
+               category.
+;
+    _item.name                    '_mdb_model_struct_src.mod_id'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_src.align_match
+    _item_description.description
+;              Flag indicating if the alignment match value was submitted
+               by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.align_match'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.align_consensus
+    _item_description.description
+;              Flag indicating if the consensus sequence was
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.align_consensus'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.align_probability
+    _item_description.description
+;              Flag indicating if the alignment probability values were
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.align_probability'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.accuracy_bond_length
+    _item_description.description
+;              Flag indicating if the bond length accuracy values were
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.accuracy_bond_length'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.accuracy_bond_angle
+    _item_description.description
+;              Flag indicating if the bond angle accuracy values were
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.accuracy_bond_angle'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.accuracy_torsion_angle
+    _item_description.description
+;              Flag indicating if the torsion angle accuracy values were
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                   '_mdb_model_struct_src.accuracy_torsion_angle'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.ss
+    _item_description.description
+;              Flag indicating if the secondary structure prediction was
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.ss'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_struct_src.asa
+    _item_description.description
+;              Flag indicating if the solvent accessibility prediction was
+               submitted by the author(s) or genereted by MDB.
+;
+    _item.name                    '_mdb_model_struct_src.asa'
+    _item.category_id             mdb_model_struct_src
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+#########################
+## MDB_MODEL_STRUCT_SS ##
+#########################
+
+save_mdb_model_struct_ss
+    _category.description
+;              Data items in the mdb_model_struct_ss category specify secondary
+               structure assignement details.
+;
+    _category.id                 mdb_model_struct_ss
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_model_struct_ss.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_struct_ss.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_struct_ss.entity_id'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_ss.mod_id
+    _item_description.description
+;             This data item is a pointer to _mdb_model.id in the MDB_MODEL
+              category.
+;
+    _item.name                    '_mdb_model_struct_ss.mod_id'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_ss.criteria
+    _item_description.description
+;              This data item defines if the secondary structure was assigned
+               from the three dimensional structure or predicted.
+;
+    _item.name                    '_mdb_model_struct_ss.criteria'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          yes
+    _item_type.code               code
+
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      assigned
+                                  'assigned from 3D structure'
+                                  predicted
+                                  'predicted'
+     save_
+
+save__mdb_model_struct_ss.criteria_method
+    _item_description.description
+;              Algorithm used to predict / assign the secondary structure.
+;
+    _item.name                    '_mdb_model_struct_ss.criteria_method'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_model_struct_ss.model_ss
+    _item_description.description
+;              Assignment / prediction model.
+;
+    _item.name                    '_mdb_model_struct_ss.model_ss'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          no
+    _item_type.code               uline
+    loop_
+    _item_examples.case           'HEX'
+                                  'HETX'
+     save_
+
+save__mdb_model_struct_ss.details
+    _item_description.description
+;              Short description of the model and technique used to assign / 
+               predict secondary structure.
+;
+    _item.name                    '_mdb_model_struct_ss.details'
+    _item.category_id             mdb_model_struct_ss
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+##########################
+## MDB_MODEL_STRUCT_ASA ##
+##########################
+
+save_mdb_model_struct_asa
+    _category.description
+;              Data items in the mdb_model_struct_asa category specify 
+               accessibility calculations / prediction details.
+;
+    _category.id                 mdb_model_struct_asa
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_model_struct_asa.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_struct_asa.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+    _item.name                    '_mdb_model_struct_asa.entity_id'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_asa.mod_id
+    _item_description.description
+;              This data item is a pointer to _mdb_model.id in the
+               MDB_MODEL category.
+;
+    _item.name                    '_mdb_model_struct_asa.mod_id'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_asa.criteria
+    _item_description.description
+;              This data item defines if the accessibility was assigned
+               from the three dimensional structure or predicted.
+;
+    _item.name                    '_mdb_model_struct_asa.criteria'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          yes
+    _item_type.code               code
+
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      assigned
+                                  'assigned from 3D strucure'
+                                  predicted
+                                  'predicted'
+     save_
+
+save__mdb_model_struct_asa.criteria_method
+    _item_description.description
+;              Algorithm used to assign / predict the solvent accssibility.
+;
+    _item.name                    '_mdb_model_struct_asa.criteria_method'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_model_struct_asa.model_asa
+    _item_description.description
+;              Model used to assign / predict the solvent accessibility.
+;
+    _item.name                    '_mdb_model_struct_asa.model_asa'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_model_struct_asa.details
+    _item_description.description
+;              Short description of the model and technique used to assign / 
+               predict accessibility.
+;
+    _item.name                    '_mdb_model_struct_asa.details'
+    _item.category_id             mdb_model_struct_asa
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+###########################
+## MDB_MODEL_STRUCT_FOLD ##
+###########################
+
+save_mdb_model_struct_fold
+    _category.description
+;              Data items in the mdb_model_struct_fold category record details 
+               about the model fold.
+;
+    _category.id                 mdb_model_struct_fold
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_model_struct_fold.mod_id'
+                                 '_mdb_model_struct_fold.ref_db'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_struct_fold.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_struct_fold.entity_id'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+
+save__mdb_model_struct_fold.mod_id
+    _item_description.description
+;             This data item is a pointer to _mdb_model.id in the MDB_MODEL
+              category.
+;
+    _item.name                    '_mdb_model_struct_fold.mod_id'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_struct_fold.fold_class
+    _item_description.description
+;              Fold class of the model.
+;
+    _item.name                    '_mdb_model_struct_fold.fold_class'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'all beta proteins'
+                                  'all alpha proteins'
+                                  'alpha plus beta proteins'
+     save_
+
+save__mdb_model_struct_fold.fold_type
+    _item_description.description
+;              The topology of folding adopted by the model.
+;
+    _item.name                    '_mdb_model_struct_fold.fold_type'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'thioredoxin fold'
+                                  'beta barrel'
+                                  'beta sandwich'
+     save_
+
+save__mdb_model_struct_fold.fold_sfam
+    _item_description.description
+;              Superfamily to which the fold of the model belongs.
+;
+    _item.name                    '_mdb_model_struct_fold.fold_sfam'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'protein kinases'
+                                  'hemopexin-like domain'
+                                  'HMG-box'
+     save_
+
+save__mdb_model_struct_fold.fold_fam
+    _item_description.description
+;              Family to which the fold of the model belongs.
+;
+    _item.name                    '_mdb_model_struct_fold.fold_fam'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               uline
+     loop_
+    _item_examples.case           'serine/threonin kinases'
+                                  'hemopexin-like domain'
+                                  'HMG-box'
+     save_
+
+save__mdb_model_struct_fold.ref_db
+    _item_description.description
+;              An abbreviation that identifies the reference database.
+;
+    _item.name                    '_mdb_model_struct_fold.ref_db'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+
+     loop_
+    _item_examples.case           
+    _item_examples.detail         SCOP
+;                                 Structural Classification of Proteins
+;
+     save_
+
+save__mdb_model_struct_fold.ref_URL
+    _item_description.description
+;              The URL that localizes the reference database.
+;
+    _item.name                    '_mdb_model_struct_fold.ref_URL'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          yes
+    _item_type.code               line
+    _item_examples.case           'pdb.ccdc.cam.ac.uk'
+     save_
+
+save__mdb_model_struct_fold.criteria
+    _item_description.description
+;              Fold identification mode: predicted or
+               assigned.
+;
+    _item.name                    '_mdb_model_struct_fold.criteria'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      assigned
+                                  'assigned from 3D structure'
+                                  predicted
+                                  'predicted'
+     save_
+
+save__mdb_model_struct_fold.criteria_method
+    _item_description.description
+;              The algorithm used to characterise the folding.
+;
+    _item.name                    '_mdb_model_struct_fold.criteria_method'
+    _item.category_id             mdb_model_struct_fold
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+####################
+## MDB_MODEL_EVAL ##
+####################
+
+save_mdb_model_eval
+    _category.description
+;              The category mdb_model_eval stores evaluation data of the 
+               reliability (accuracy) of the model structure.
+;
+    _category.id                 mdb_model_eval
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_model_eval.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_model_eval.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_model_eval.entity_id'
+    _item.category_id             mdb_model_eval
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_eval.mod_id
+    _item_description.description
+;             This data item is a pointer to _mdb_model.id in the MDB_MODEL
+              category.
+;
+    _item.name                    '_mdb_model_eval.mod_id'
+    _item.category_id             mdb_model_eval
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_model_eval.data_src
+    _item_description.description
+;              Flag to indicate if data items in the category MDB_MODEL_EVAL
+               are submitted by the author(s) of this datablock or genereted by
+               MDB.
+;
+    _item.name                    '_mdb_model_eval.data_src'
+    _item.category_id             mdb_model_eval
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_model_eval.value
+    _item_description.description
+;              This data item is a genereted parameter based on a probability
+               function.
+               The evaluation of the model is computed as:
+               
+               #need to be revised, dummy range values used!
+;
+    _item.name                    '_mdb_model_eval.value'
+    _item.category_id             mdb_model_eval
+    _item.mandatory_code          no
+     loop_
+    _item_range.maximum          
+    _item_range.minimum             0.0      0.0
+                                  100.0      0.0
+                                  100.0    100.0
+    _item_type.code               float
+     save_
+
+##########################
+## MDB_SOLVED_STRUCTURE ##
+##########################
+
+save_mdb_solved_structure
+    _category.description
+;              Data items in the category MDB_SOLVED_STRUCTURE hold details of
+               structures solved experimentally corresponding to models in MDB.
+;
+    _category.id                 mdb_solved_structure
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_solved_structure.mod_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_model_struct_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_solved_structure.entity_id
+    _item_description.description
+;             This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                    '_mdb_solved_structure.entity_id'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_solved_structure.mod_id
+    _item_description.description
+;             This data item is a pointer to _mdb_model.id in the MDB_MODEL
+              category.
+;
+    _item.name                    '_mdb_solved_structure.mod_id'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__mdb_solved_structure.data_src
+    _item_description.description
+;           Flag to indicate if data items in the category MDB_SOLVED_STRUCTURE
+            are submitted by the author(s) of this datablock or genereted by
+            MDB.
+;
+    _item.name                    '_mdb_solved_structure.data_src'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      SD
+                                  'submitted data'
+                                  GD
+                                  'generated data'
+     save_
+
+save__mdb_solved_structure.flag
+    _item_description.description
+;              'yes' indicates that there is a experimentally solved structure, 
+               'no' that there is no experimentally solved structure.
+;
+    _item.name                  '_mdb_solved_structure.flag'
+    _item.category_id           mdb_solved_structure
+    _item.mandatory_code        yes
+    _item_type.code             ucode
+    _item_default.value         no
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail    no   'no experimentally solved structure'
+                                n    'abbreviation for "no"'
+                                yes  'there is experimentally solved structure'
+                                y    'abbreviation for "yes"'
+     save_
+
+save__mdb_solved_structure.submission_flag
+    _item_description.description
+;              Time flag related to model submission.
+;
+    _item.name                    '_mdb_solved_structure.submission_flag'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail  concurrent
+;                             The reference to experimentally solved structure 
+                              and the model have been submitted simultaneously.
+;
+                              subsequent
+;                             The reference to experimentally solved structure 
+                              was submitted after the model.
+;
+     save_
+
+save__mdb_solved_structure.ref_id
+    _item_description.description
+;              Identification code of the solved structure.
+;
+    _item.name                    '_mdb_solved_structure.ref_id'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_solved_structure.ref_swp_ac
+    _item_description.description
+;              Swiss Prot accession code of the polymeric entity of the
+               solved structure.
+;
+    _item.name                    '_mdb_solved_structure.ref_swp_ac'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     save_
+
+save__mdb_solved_structure.ref_de
+    _item_description.description
+;              Short description.
+;
+    _item.name                    '_mdb_solved_structure.ref_de'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          no
+    _item_type.code               uline
+     save_
+
+save__mdb_solved_structure.ref_creation_date
+    _item_description.description
+;              Entry creation date of the solved structure.
+;
+    _item.name                    '_mdb_solved_structure.ref_creation_date'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               yyyy-mm-dd
+     save_
+
+save__mdb_solved_structure.ref_db
+    _item_description.description
+;              Database containing the solved structure.
+;
+    _item.name                    '_mdb_solved_structure.ref_db'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           
+    _item_examples.detail         NDB
+;                                 Nucleic Acid Database
+;                                  
+                                  PDB
+;                                 Protein Data Bank
+;
+     save_
+
+save__mdb_solved_structure.ref_URL
+    _item_description.description
+;              URL of the database containing the solved structure.
+;
+    _item.name                    '_mdb_solved_structure.ref_URL'
+    _item.category_id             mdb_solved_structure
+    _item.mandatory_code          yes
+    _item_type.code               line
+     save_
+
+#####################
+## MDB_SWP_ID_LIST ##
+#####################
+
+save_mdb_swp_id_list
+    _category.description
+;              Category MDB_SWP_ID_LIST holds the identification line
+               of Swiss Prot database.
+;
+    _category.id                 mdb_swp_id_list
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_swp_id_list.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_swp_group'
+
+    save_
+
+save__mdb_swp_id_list.id
+    _item_description.description
+;              Swiss Prot entry name of the sequence. First item of the
+               identification line.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_id_list.id'                     mdb_swp_id_list         yes
+       '_mdb_swp_data.id'                        mdb_swp_data            yes
+       '_mdb_swp_ac_list.id'                     mdb_swp_ac_list         yes
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+       '_mdb_swp_data.id'                           '_mdb_swp_id_list.id'
+       '_mdb_swp_ac_list.id'                        '_mdb_swp_id_list.id'
+    _item_type.code               code
+    _item_examples.case           'VPR_HV1N5'
+     save_
+
+#####################
+## MDB_SWP_AC_LIST ##
+#####################
+
+save_mdb_swp_ac_list
+    _category.description
+;              Category MDB_SWP_AC_LIST holds the accession code
+               of Swiss Prot database.
+;
+    _category.id                 mdb_swp_ac_list
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_swp_ac_list.ac'
+                                 '_mdb_swp_ac_list.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_swp_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_swp_ac_list.ac
+    _item_description.description
+;              Swiss Prot accession code.It provides a stable way of
+               identifying Swiss Prot entries from release to release.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_ac_list.ac'                     mdb_swp_ac_list         yes
+       '_mdb_swp_data.ac'                        mdb_swp_data            yes
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+       '_mdb_swp_data.ac'                           '_mdb_swp_ac_list.ac'
+    _item_type.code               code
+    _item_examples.case           'P12520'
+     save_
+
+save__mdb_swp_ac_list.id
+    _item_description.description
+;              This data item is a pointer to _mdb_swp_id_list.id in the
+
+               MDB_SWP_ID_LIST category.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_ac_list.id'                     mdb_swp_ac_list         yes
+     save_
+
+save__mdb_swp_ac_list.primary
+    _item_description.description
+;              Flag that identifies the primary Swiss Prot accession code.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_ac_list.primary'                mdb_swp_ac_list         yes
+    _item_type.code               code
+
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail   y
+                               'yes, primary AC'
+                               n
+                               'no, non-prymary AC'
+     save_
+
+##################
+## MDB_SWP_DATA ##
+##################
+
+save_mdb_swp_data
+    _category.description
+;              Category MDB_SWP_DATA holds some fields of Swiss Prot database
+               in relation to the PDB/MDB entry.
+;
+    _category.id                 mdb_swp_data
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_swp_data.id'
+                                 '_mdb_swp_data.entity_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_swp_group'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_swp_data.id
+    _item_description.description
+;              This data item is a pointer to _mdb_swp_id_list.id in the
+               MDB_SWP_DATA category.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_data.id'                        mdb_swp_data            yes
+    _item_type.code               code
+     save_
+
+save__mdb_swp_data.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY
+               category.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_swp_data.entity_id'                  mdb_swp_data            yes
+    _item_type.code               code
+     save_
+
+save__mdb_swp_data.de
+    _item_description.description
+;              Short description of the stored sequence.
+;
+    _item.name                    '_mdb_swp_data.de'
+    _item.category_id             mdb_swp_data
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__mdb_swp_data.os
+    _item_description.description
+;              Organism(s) which was the source of the stored sequence.
+;
+    _item.name                    '_mdb_swp_data.os'
+    _item.category_id             mdb_swp_data
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__mdb_swp_data.pc_identity
+    _item_description.description
+;         Percentage of identity between the sequence stored in the category
+          entity_poly_seq and the sequence stored in Swiss Prot database.
+;
+    _item.name                    '_mdb_swp_data.pc_identity'
+    _item.category_id             mdb_swp_data
+    _item.mandatory_code          no
+    _item_type.code               int
+     loop_
+    _item_range.maximum
+    _item_range.minimum           100   100
+                                  100   90
+                                   90   90
+     save_
+
+save__mdb_swp_data.swp_ec
+    _item_description.description
+;              EC code for the sequence stored in Swiss Prot database.
+               This data item is a pointer to _mdb_mpw_ec_list.ec_code
+               in the MDB_MPW_EC_LIST category.
+;
+    _item.name                    '_mdb_swp_data.swp_ec'
+    _item.category_id             mdb_swp_data
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+########################
+## MDB_BIOL_PDB_CMP   ##
+########################
+
+save_mdb_biol_PDB_cmp
+    _category.description
+;              Category MDB_BIOL_PDB_CMP holds data from the PDB COMPND
+               record. Introduced for direct compatibility with PDB and
+               should be used only for data converted from the PDB format.
+;
+    _category.id                 mdb_biol_PDB_cmp
+    _category.mandatory_code     no
+     loop_
+    _category_key.name           '_mdb_biol_PDB_cmp.biol_id' 
+                                 '_mdb_biol_PDB_cmp.ec'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_biol_PDB_cmp.biol_id
+    _item_description.description
+;             This data item is a pointer to _struct_biol.id in STRUCT_BIOL
+              category.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_biol_PDB_cmp.biol_id'        mdb_biol_PDB_cmp         yes
+    _item_type.code               code
+     save_
+
+save__mdb_biol_PDB_cmp.mol_name
+    _item_description.description
+;              MOLECULE   Name of the macromolecule.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.mol_name'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+save__mdb_biol_PDB_cmp.chain
+    _item_description.description
+;              CHAIN   Comma-separated list of chain identifier(s).
+                       "NULL" is used to indicate a blank chain identifier.
+
+;
+    _item.name                    '_mdb_biol_PDB_cmp.chain'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               line 
+    save_
+
+save__mdb_biol_PDB_cmp.fragment
+    _item_description.description
+;              FRAGMENT   Specifies a domain or region of the molecule.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.fragment'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_cmp.syn_name
+    _item_description.description
+;              SYNONYM   Comma-separated list of synonyms for the MOLECULE.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.syn_name'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_cmp.ec
+    _item_description.description
+;              EC   The Enzyme Commission number associated with the
+                    molecule.
+               _mdb_biol_PDB_cmp.ec is a pointer to _mdb_mpw_ec_list.ec_code
+;
+    _item.name                    '_mdb_biol_PDB_cmp.ec'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+save__mdb_biol_PDB_cmp.engineered
+    _item_description.description
+;             ENGINEERED   Indicates that the molecule was produced using
+                           recombinant technology or by purely chemical 
+                           synthesis.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.engineered'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+save__mdb_biol_PDB_cmp.mutation
+    _item_description.description
+;              MUTATION   Describes mutations from the wild type molecule.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.mutation'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+save__mdb_biol_PDB_cmp.biol_unit
+    _item_description.description
+;              BIOLOGICAL_UNIT   If the MOLECULE functions as part of a larger
+                                 biological unit, the entire functional unit 
+                                 may be described.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.biol_unit'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+save__mdb_biol_PDB_cmp.details
+    _item_description.description
+;              OTHER_DETAILS   Additional comments.
+;
+    _item.name                    '_mdb_biol_PDB_cmp.details'
+    _item.category_id             mdb_biol_PDB_cmp
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+# MDB modification 25.09.00
+# modified data type from line to text
+# for columns: mol_name, mutation, biol_unit
+
+########################
+## MDB_BIOL_PDB_SRC   ##
+########################
+
+save_mdb_biol_PDB_src
+    _category.description
+;              Category MDB_BIOL_PDB_SRC holds data from the PDB SOURCE
+               record. Introduced for direct compatibility with PDB and
+               should be used only for data converted from the PDB format.
+;
+    _category.id                 mdb_biol_PDB_src
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_biol_PDB_src.biol_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_biol_PDB_src.biol_id
+    _item_description.description
+;             This data item is a pointer to _struct_biol.id in STRUCT_BIOL
+              category.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+       '_mdb_biol_PDB_src.biol_id'        mdb_biol_PDB_src         yes
+    _item_type.code               code
+     save_
+
+save__mdb_biol_PDB_src.synthetic
+    _item_description.description
+;              SYNTHETIC   Indicates a chemically-synthesized source.
+;
+    _item.name                    '_mdb_biol_PDB_src.synthetic'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+save__mdb_biol_PDB_src.fragment
+    _item_description.description
+;              FRAGMENT   A domain or fragment of the molecule may be
+                          specified.
+;
+    _item.name                    '_mdb_biol_PDB_src.fragment'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.scient_name
+    _item_description.description
+;              ORGANISM_SCIENTIFIC   Scientific name of the organism.
+;
+    _item.name                    '_mdb_biol_PDB_src.scient_name'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.comm_name
+    _item_description.description
+;              ORGANISM_COMMON   Common name of the organism.
+;
+    _item.name                    '_mdb_biol_PDB_src.comm_name'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.strain
+    _item_description.description
+;              STRAIN   Identifies the strain.
+;
+    _item.name                    '_mdb_biol_PDB_src.strain'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.variant
+    _item_description.description
+;              VARIANT   Identifies the variant.
+;
+    _item.name                    '_mdb_biol_PDB_src.variant'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.cell_line
+    _item_description.description
+;             CELL_LINE   The specific line of cells used in the
+                          experiment.
+;
+    _item.name                    '_mdb_biol_PDB_src.cell_line'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.atcc
+    _item_description.description
+;             ATCC   American Type Culture Collection tissue
+                     culture number.
+;
+    _item.name                    '_mdb_biol_PDB_src.atcc'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+save__mdb_biol_PDB_src.organ
+    _item_description.description
+;             ORGAN   Organized group of tissues that carries on
+                      a specialized function.
+;
+    _item.name                    '_mdb_biol_PDB_src.organ'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.tissue
+    _item_description.description
+;             TISSUE   Organized group of cells with a common
+                       function and structure.
+;
+    _item.name                    '_mdb_biol_PDB_src.tissue'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.cell
+    _item_description.description
+;             CELL   Identifies the particular cell type.
+;
+    _item.name                    '_mdb_biol_PDB_src.cell'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.organelle
+    _item_description.description
+;             ORGANELLE   Organized structure within a cell.
+;
+    _item.name                    '_mdb_biol_PDB_src.organelle'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.secretion
+    _item_description.description
+;             SECRETION   Identifies the secretion, such as saliva,
+                          urine, or venom, from which the molecule was
+                          isolated.
+;
+    _item.name                    '_mdb_biol_PDB_src.secretion'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.cell_loc
+    _item_description.description
+;             CELLULAR_LOCATION   Identifies the location inside (or
+                                  outside) the cell.
+;
+    _item.name                    '_mdb_biol_PDB_src.cell_loc'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.plasmid
+    _item_description.description
+;             PLASMID   Identifies the plasmid containing the gene.
+;
+    _item.name                    '_mdb_biol_PDB_src.plasmid'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.gene
+    _item_description.description
+;             GENE   Identifies the gene.
+;
+    _item.name                    '_mdb_biol_PDB_src.gene'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs
+    _item_description.description
+;            EXPRESSION_SYSTEM   System used to express recombinant
+                                 macromolecules.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_strain
+    _item_description.description
+;            EXPRESSION_SYSTEM_STRAIN   Strain of the organism in which
+                                        the molecule was expressed.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_strain'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_variant
+    _item_description.description
+;            EXPRESSION_SYSTEM_VARIANT   Variant of the organism used as the
+                                         expression system.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_variant'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_cell_line
+    _item_description.description
+;            EXPRESSION_SYSTEM_CELL_LINE   The specific line of cells
+                                           used as the expression system.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_cell_line'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_atcc
+    _item_description.description
+;            EXPRESSION_SYSTEM_ATCC_NUMBER   Identifies the ATCC number
+                                             of the expression system
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_atcc'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               code
+    save_
+
+save__mdb_biol_PDB_src.exs_organ
+    _item_description.description
+;            EXPRESSION_SYSTEM_ORGAN   Specific organ which expressed 
+                                       the molecule.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_organ'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_tissue
+    _item_description.description
+;            EXPRESSION_SYSTEM_TISSUE   Specific tissue which expressed
+                                        the molecule.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_tissue'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_cell
+    _item_description.description
+;            EXPRESSION_SYSTEM_CELL   Specific cell type which expressed the
+                                      molecule.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_cell'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_organelle
+    _item_description.description
+;            EXPRESSION_SYSTEM_ORGANELLE   Specific organelle which 
+                                           expressed the molecule.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_organelle'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_cell_loc
+    _item_description.description
+;            EXPRESSION_SYSTEM_CELLULAR_LOCATION  Identifies the location 
+                                                  inside or outside the cell 
+                                                  which expressed the molecule.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_cell_loc'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_vector_type
+    _item_description.description
+;            EXPRESSION_SYSTEM_VECTOR_TYPE  Identifies the type of vector used,
+                                            i.e., plasmid, virus, or cosmid.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_vector_type'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_vector
+    _item_description.description
+;            EXPRESSION_SYSTEM_VECTOR   Identifies the vector used.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_vector'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_plasmid
+    _item_description.description
+;            EXPRESSION_SYSTEM_PLASMID   Plasmid used in the 
+                                         recombinant experiment.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_plasmid'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.exs_gene
+    _item_description.description
+;            EXPRESSION_SYSTEM_GENE   Name of the gene used in recombinant
+                                      experiment.
+;
+    _item.name                    '_mdb_biol_PDB_src.exs_gene'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_
+
+save__mdb_biol_PDB_src.details
+    _item_description.description
+;            OTHER_DETAILS   Used to present information on the source
+                             which is not given elsewhere.
+;
+    _item.name                    '_mdb_biol_PDB_src.details'
+    _item.category_id             mdb_biol_PDB_src
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+################
+## MDB_MPW_EC ##
+################
+
+save_mdb_mpw_ec
+    _category.description
+;              Data items in the category MDB_MPW_EC hold data of the 
+               MPW charts classified by EC numbers.
+;
+    _category.id                 mdb_mpw_ec
+    _category.mandatory_code     no
+    _category_key.name           '_mdb_mpw_ec.ec_code'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mpw_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_mpw_ec.ec_code
+    _item_description.description
+;              EC code of enzyme.
+               _mdb_mpw_ec.ec_code is a pointer to _mdb_mpw_ec_list.ec_code
+;
+    _item.name                    '_mdb_mpw_ec.ec_code'
+    _item.category_id             mdb_mpw_ec
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_examples.case           
+    _item_examples.detail         1.1.1.1
+;                                 AGLSETL.CAT
+;                                  
+     save_
+
+save__mdb_mpw_ec.reaction_id
+    _item_description.description
+;              Reaction id in chart.
+;
+    _item.name                    '_mdb_mpw_ec.reaction_id'
+    _item.category_id             mdb_mpw_ec
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case           
+    _item_examples.detail         R1
+;                                 AGLSETL.CAT
+;                                  
+     save_
+
+save__mdb_mpw_ec.chart_file_name
+    _item_description.description
+;              Chart file name.
+;
+    _item.name                    '_mdb_mpw_ec.chart_file_name'
+    _item.category_id             mdb_mpw_ec
+    _item.mandatory_code          yes
+    _item_type.code               line
+     loop_
+    _item_examples.case           
+    _item_examples.detail         XYLXOL.CAT
+;                                 1.1.1.21
+;                                  
+     save_
+
+##########################
+## MDB_MPW_EC_LIST      ##
+##########################
+
+save_mdb_mpw_ec_list
+    _category.description
+;              Category MDB_MPW_EC_LIST holds Enzyme Committee
+               Nomenclature EC numbers.
+;
+    _category.id                 mdb_mpw_ec_list
+    _category.mandatory_code     yes
+    _category_key.name           '_mdb_mpw_ec_list.ec_code'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mpw_group'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__mdb_mpw_ec_list.ec_code
+    _item_description.description
+;              Enzyme Committee Nomenclature EC code.
+               The value of _mdb_mpw_ec_list.ec_code is a unique identifier.
+;
+    loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_mpw_ec_list.ec_code'           mdb_mpw_ec_list         yes
+               '_mdb_mpw_ec.ec_code'                mdb_mpw_ec              yes
+               '_entity_name_sys.mdb_ec'            entity_name_sys         no
+               '_mdb_biol_PDB_cmp.ec'               mdb_biol_PDB_cmp        no
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_mdb_mpw_ec.ec_code'            '_mdb_mpw_ec_list.ec_code'
+               '_entity_name_sys.mdb_ec'        '_mdb_mpw_ec_list.ec_code'
+               '_mdb_biol_PDB_cmp.ec'           '_mdb_mpw_ec_list.ec_code'
+     save_
+
+# _mdb_biol_PDB_cmp.ec added 01/03/00 -- Alexei
+
+save__mdb_mpw_ec_list.sys_name
+    _item_description.description
+;              Systematic name of enzyme.
+;
+    _item.name                    '_mdb_mpw_ec_list.sys_name'
+    _item.category_id             mdb_mpw_ec_list
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case           
+    _item_examples.detail         'Alcohol dehydrogenase'
+;                                 1.1.1.1
+;                                  
+     save_
+
+###############
+## MDB_AUDIT ##
+###############
+
+save_mdb_audit
+    _category.description
+;              Data items in the MDB_AUDIT category record details about the
+               creation and subsequent revisions of the data block.
+;
+    _category.id                  mdb_audit
+    _category.mandatory_code      no
+    _category_key.name          '_mdb_audit.revision_level'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'audit_group'
+     save_
+
+save__mdb_audit.revision_level
+    _item_description.description
+;         The value of _mdb_audit.revision_level must uniquely identify a 
+          record in the MDB_AUDIT list.
+          _mdb_audit.revision_level equal to 0 corresponds to the initial 
+          version of the data while _mdb_audit.revision_level greater than 0
+          corresponds to the subsequent revisions.
+;
+    _item.name                  '_mdb_audit.revision_level'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          yes
+    _item_type.code               int
+     loop_
+    _item_range.maximum
+    _item_range.minimum           .    0
+                                  0    0
+    _item_examples.case          '0'
+
+     save_
+
+save__mdb_audit.dbtimestamp
+    _item_description.description
+;        Date at which the data block is created (corresponding to 
+         _mdb_audit.revision_level equal to 0) or modified (corresponding to
+         _mdb_audit.revision_level greater than 0).
+;
+    _item.name                  '_mdb_audit.dbtimestamp'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          yes
+    _item_type.code               yyyy-mm-dd
+    _item_examples.case          '1999-12-08'
+     save_
+
+save__mdb_audit.userstamp
+    _item_description.description
+;         User name.
+;
+    _item.name                  '_mdb_audit.userstamp'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'dataloader'
+     save_
+
+save__mdb_audit.namestamp
+    _item_description.description
+;         Name identifying the curator.
+;
+    _item.name                  '_mdb_audit.namestamp'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          yes
+    _item_type.code               line
+    _item_examples.case          'em333'
+     save_
+
+save__mdb_audit.revision_record
+    _item_description.description
+;              A record of any changes in the data block.
+;
+    _item.name                  '_mdb_audit.revision_record'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          no
+    _item_type.code               text 
+     save_
+# Alexei 21/09/00
+# for data loading with the mdbLoader the following conventions are implemented
+# if revision_level=0 then mdb_audit.revision_record
+# "headers+remarks" if loading headers only
+# and "full data" if default
+# change at revision_level > 0
+# see also mdb_deposition.title
+
+save__mdb_audit.software_name
+    _item_description.description
+;              Name of the software used to load entry.
+;
+    _item.name                    '_mdb_audit.software_name'
+    _item.category_id             mdb_audit
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'mdbloaderv013.pl'
+     save_
+# Alexei 19/01/01 -- .software_name moved to category mdb_audit 
+# from mdb_deposition to allow multiple data per entry id
+
+#####################
+## MDB_DB_LIST     ##
+#####################
+
+save_mdb_db_list 
+    _category.description
+;              Data items in the MDB_DB_LIST category store information on
+               the database modules corresponding to specific dictinaries or
+               dictionary extensions.
+;
+    _category.id                  mdb_db_list
+    _category.mandatory_code      yes
+    _category_key.name          '_mdb_db_list.db_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_deposition_group'
+     save_
+# Alexei 15/01/01
+# Alexei 16/01/01 changed "_category.mandatory_code      no" to "yes"
+# since it provides parent values to other categories
+
+save__mdb_db_list.db_id
+    _item_description.description
+;              Database module / dictionary extension identifier.
+               This is a unique identifier.
+               Note that this item need not be a number.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_db_list.db_id'          mdb_db_list          yes
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_mdb_ext_loc_list.db_id'    '_mdb_db_list.db_id'
+               '_mdb_deposition.db'         '_mdb_db_list.db_id'
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      asd       'active site database'
+                                  asdm      'active site database models'
+                                  mdb       'model database'
+                                  pdb       'protein database'
+     save_
+# Alexei 16/01/01 -- assign VARCHAR2(5) to _mdb_db_list.db_id in the DB
+
+save__mdb_db_list.details
+    _item_description.description
+;              Information on the database module / dictionary extension.
+;
+    _item.name                    '_mdb_db_list.details'
+    _item.category_id             mdb_db_list
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+######################
+## MDB_EXT_LOC_LIST ##
+######################
+
+save_mdb_ext_loc_list 
+    _category.description
+;              Data items in the MDB_EXT_LOC_LIST category hold locations
+               of the database objects stored outside of the tablespaces,
+               e.g. BFILES.
+;
+    _category.id                  mdb_ext_loc_list
+    _category.mandatory_code      no
+     loop_
+    _category_key.name           '_mdb_ext_loc_list.db_id'
+                                 '_mdb_ext_loc_list.ext_alias'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'mdb_group'
+                                 'mdb_deposition_group'
+     save_
+# Alexei 15/01/01
+# item '_mdb_ext_loc_list.ext_id' is an alternative unique key
+# in category MDB_EXT_LOC_LIST
+
+save__mdb_ext_loc_list.ext_id
+    _item_description.description
+;              External storage identifier.
+               This is a unique identifier.
+               Note that this item need not be a number.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_ext_loc_list.ext_id'     mdb_ext_loc_list     yes
+    _item_type.code               line
+     save_
+# Alexei 16/01/01 changed "_item_type.code               code" to "line"
+
+save__mdb_ext_loc_list.db_id
+    _item_description.description
+;              Database module / dictionary extension identifier.
+               This item is a child of _mdb_db_list.db_id.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_ext_loc_list.db_id'     mdb_ext_loc_list     yes
+    _item_type.code               code
+     save_
+# Alexei 16/01/01 -- assign VARCHAR2(5) to _mdb_ext_loc_list.db_id in the DB
+
+save__mdb_ext_loc_list.ext_alias
+    _item_description.description
+;              External storage directory alias.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_ext_loc_list.ext_alias'   mdb_ext_loc_list     yes
+    _item_type.code               line
+     save_
+# Alexei 16/01/01 changed "_item_type.code               code" to "line"
+
+save__mdb_ext_loc_list.ext_loc
+    _item_description.description
+;              External storage file name.
+;
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+               '_mdb_ext_loc_list.ext_loc'   mdb_ext_loc_list     yes
+    _item_type.code               line
+     save_
+# Alexei 16/01/01 changed "_item_type.code               code" to "line"
+
+save__mdb_ext_loc_list.details
+    _item_description.description
+;              Information on the external object.
+;
+    _item.name                    '_mdb_ext_loc_list.details'
+    _item.category_id             mdb_ext_loc_list
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_
+
+### EOF mmcif_mdb-def-2.dic

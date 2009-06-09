@@ -1,0 +1,1335 @@
+
+###############################################################################
+#
+# File:  mmcif_iims-def-6.dic
+#    
+#        - This file contains the categories copied from mmcif_em.dic.
+#        - The entire categories were copied for the following categories,
+#            em_array_formation
+#            em_helical_entity
+#            em_stain
+#        - For other categories, usually only the required items were copied.  
+#        - New items were inserted if they belong to certain categories.  
+###############################################################################
+
+###############################
+## EM_ENTITY_ASSEMBLY_MOL_WT ##
+###############################
+
+save_em_entity_assembly_mol_wt
+    _category.description
+;    Data items in the  EM_ENTITY_ASSEMBLY_MOL_WT category record details
+     of the molecular weight of structural elements in each component.
+;
+    _category.id                  em_entity_assembly_mol_wt
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_em_entity_assembly_mol_wt.id'
+                                '_em_entity_assembly_mol_wt.entity_assembly_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+#                                 'em_sample_description_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - microtubule
+;
+;
+   loop_
+   _em_entity_assembly_mol_wt.id
+   _em_entity_assembly_mol_wt.entity_assembly_id
+   _em_entity_assembly_mol_wt.mol_wt
+   _em_entity_assembly_mol_wt.mol_wt_method
+   _em_entity_assembly_mol_wt.details
+    1  1 12000 Calculated 'predicted from gene sequence'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__em_entity_assembly_mol_wt.entity_assembly_id
+    _item_description.description
+;    The value of _em_entity_assembly_mol_wt.entity_assembly_id identifies
+     a component defined in the EM_ENTITY_ASSEMBLY category.  This is a pointer to _em_entity_assembly.id.
+;
+    _item.name                   '_em_entity_assembly_mol_wt.entity_assembly_id'
+    _item.category_id             em_entity_assembly_mol_wt
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_em_entity_assembly_mol_wt.entity_assembly_id'
+    _item_linked.parent_name    '_em_entity_assembly.id'
+     save_
+
+save__em_entity_assembly_mol_wt.id
+    _item_description.description
+;    The value of _em_entity_assembly_mol_wt.id must uniquely identify
+     the molecular weight value provided for each component.
+;
+    _item.name                '_em_entity_assembly_mol_wt.id'
+    _item.category_id             em_entity_assembly_mol_wt
+    _item.mandatory_code          yes
+    _item_type.code               code
+#    _item_linked.child_name     '_em_entity_assembly_mol_wt.id'
+#    _item_linked.parent_name    '_em_entity_assembly_list.id'
+     save_
+
+save__em_entity_assembly_mol_wt.mol_wt
+    _item_description.description
+;    The value (in megadaltons) of the experimentally
+     determined molecular weight of each component
+     of the assembly.
+;
+    _item.name                   '_em_entity_assembly_mol_wt.mol_wt'
+    _item.category_id            em_entity_assembly_mol_wt
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             megadaltons
+      save_
+
+#########################################################
+# new item
+#   _em_entity_assembly_mol_wt.theo_mol_wt
+
+save__em_entity_assembly_mol_wt.theo_mol_wt
+    _item_description.description
+;   theo mol weight
+;
+        _item.name                  '_em_entity_assembly_mol_wt.theo_mol_wt'
+        _item.category_id           em_entity_assembly_mol_wt
+        _item.mandatory_code        no
+        _item_type.code             float
+# chunxiao: xsd abbr. unit is MDa
+# shall we add MDa
+        _item_units.code            megadaltons   
+        save_
+
+save__em_entity_assembly_mol_wt.details
+    _item_description.description
+;    Details of the method used to determine the molecular weight.
+;
+    _item.name                   '_em_entity_assembly_mol_wt.details'
+    _item.category_id            em_entity_assembly_mol_wt
+    _item.mandatory_code         no
+    _item_type.code              text
+   _item_examples.case
+; Scanning Transmission Electron Microscopy Mass Measurement-- PM28
+  isoforms solubilized in OTG were adsorbed for 1 min to glow discharged
+  thin carbon films supported by a thick fenestrated carbon layer (directly
+  after cation-exchange chromatography). The gold-plated copper grids were
+  then washed on 8 drops of quartz double-distilled water and were
+  freeze-dried at -80C overnight in the microscope. For mass analysis,
+  annular dark-field images were recorded in a STEM (VG-HB5) at 80 kV
+  and doses of 325 +/- 35 electrons/nm2. Digital acquisition of the images
+  and microscope parameters, system calibration, and mass analysis were
+  carried out as described previously. The total experimental error was
+  calculated as the standard error of the mean, plus 5% of the measured
+  particle mass to account for the absolute calibration uncertainty.
+;
+    save_
+
+
+#####################################################################
+# copied from mmcif_em.dic
+# 
+
+##############
+## EM_MAP   ##
+##############
+
+save_em_map
+    _category.description
+;   Data items in the EM_MAP category record details
+    about the type of the 3d-em map. The map is represented
+    logically as a three-dimensional array of data-values
+    of the same data-type. To interpret the contents of of a 3d-map file
+    it is necessary to know the data-type of the array and the size of the
+    array in three dimensions (i.e.the number of columns, rows and sections).
+    In a 1d-array representation columns are the fastest changing, followed by
+    rows and sections. The first element of the array will have index 0.
+    The 3d-em map is in a defined orientation/position in Universal 3D Space.
+    This space is described by a right-handed cartesian coordinate system
+    (and is the same coordinate system as that used for structures deposited
+    in the PDB).
+;
+    _category.id                  em_map
+    _category.mandatory_code      yes
+    loop_
+    _category_key.name
+                                 '_em_map.id'
+                                 '_em_map.entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+#                                 'em_map_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; _em_map.id                   1
+  _em_map.pdb_entry_id         1DYL
+  _em_map.entry_id          EM9999
+  _em_map.num_columns          100
+  _em_map.num_rows             100
+  _em_map.num_sections         100
+  _em_map.num_spacing_x        2.0
+  _em_map.num_spacing_y        2.0
+  _em_map.num_spacing_z        2.0
+  _em_map.details              .
+  _em_map.value_density_max    .
+  _em_map.value_density_min    .
+  _em_map.value_density_mean   .
+;
+     save_
+
+save__em_map.id
+    _item_description.description
+;     Unique identifier of the volume map.
+;
+    _item.name                   '_em_map.id'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+      save_
+
+save__em_map.entry_id
+    _item_description.description
+;   This data item is a pointer to the ENTRY category.
+;
+    _item.name                   '_em_map.entry_id'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_map.entry_id'
+    _item_linked.parent_name    '_entry.id'
+      save_
+########################################################
+# five new items in _em_map category
+#   _em_map.annotation_details
+#   _em_map.format
+#   _em_map.name
+#   _em_map.sizeKb
+#   _em_map.type
+
+save__em_map.annotation_details
+    _item_description.description
+;   annotation details
+;
+    _item.name                  '_em_map.annotation_details'
+    _item.category_id           em_map
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_map.name
+    _item_description.description
+;   map name
+;
+    _item.name                  '_em_map.name'
+    _item.category_id           em_map
+    _item.mandatory_code        yes 
+    _item_type.code             text
+     save_
+
+save__em_map.format
+    _item_description.description
+;   map format
+;
+    _item.name                  '_em_map.format'
+    _item.category_id           em_map
+    _item.mandatory_code        yes
+    _item_type.code             text
+     loop_
+    _item_enumeration.value
+         CCP4
+     save_
+
+save__em_map.sizeKb
+    _item_description.description
+;   map size
+;
+    _item.name                  '_em_map.sizeKb'
+    _item.category_id           em_map
+    _item.mandatory_code        yes
+    _item_type.code             int
+     save_
+
+save__em_map.type
+    _item_description.description
+;   type: map, slice, or mask
+;
+    _item.name                  '_em_map.type'
+    _item.category_id           em_map
+    _item.mandatory_code        yes
+    _item_type.code             text
+     loop_
+    _item_enumeration.value
+         MAP
+         MASK
+         SLICE
+     save_
+
+save__em_map.axisOrderFast
+    _item_description.description
+;    The map axis order fast
+;
+    _item.name                   '_em_map.axisOrderFast'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                line
+      save_
+
+save__em_map.axisOrderMedium
+    _item_description.description
+;    The map axis order fast
+;
+    _item.name                   '_em_map.axisOrderMedium'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                line
+      save_
+
+save__em_map.axisOrderSlow
+    _item_description.description
+;    The map axis order slow
+;
+    _item.name                   '_em_map.axisOrderSlow'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                line
+      save_
+
+save__em_map.cell_angle_alpha
+    _item_description.description
+;      Value of unit cell angle alpha in degrees.
+;
+    _item.name                   '_em_map.cell_angle_alpha'
+    _item.category_id              em_map
+    _item.mandatory_code           no 
+    _item_type.code                float
+   _item_units.code               degrees
+      save_
+
+save__em_map.cell_angle_beta
+    _item_description.description
+;      Value of unit cell angle beta in degrees.
+;
+    _item.name                   '_em_map.cell_angle_beta'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+   _item_units.code               degrees
+      save_
+
+save__em_map.cell_angle_gamma
+    _item_description.description
+;      Value of unit cell angle gamma in degrees.
+;
+    _item.name                   '_em_map.cell_angle_gamma'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+   _item_units.code               degrees
+      save_
+
+save__em_map.cell_length_a
+    _item_description.description
+;     Unit cell length a.
+;
+    _item.name                   '_em_map.cell_length_a'
+    _item.category_id              em_map
+    _item.mandatory_code           no 
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_map.cell_length_b
+    _item_description.description
+;     Unit cell length b.
+;
+    _item.name                   '_em_map.cell_length_b'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_map.cell_length_c
+    _item_description.description
+;     Unit cell length c.
+;
+    _item.name                   '_em_map.cell_length_c'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_map.cell_length_a_esd
+    _item_description.description
+;    Error standard deviation of unit cell length a.
+;
+    _item.name                   '_em_map.cell_length_a_esd'
+    _item.category_id              em_map
+    _item.mandatory_code           no 
+    _item_type.code                float
+      save_
+
+save__em_map.cell_length_b_esd
+    _item_description.description
+;     Error standard deviation of unit cell length b.
+;
+    _item.name                   '_em_map.cell_length_b_esd'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.cell_length_c_esd
+    _item_description.description
+;      Error standard deviation of unit cell length c.
+;
+    _item.name                   '_em_map.cell_length_c_esd'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.row_limit
+    _item_description.description
+;    The limit in row size
+;
+    _item.name                   '_em_map.row_limit'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_map.col_limit
+    _item_description.description
+;    The limit in column size
+;
+    _item.name                   '_em_map.col_limit'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+
+      save_
+
+save__em_map.sec_limit
+    _item_description.description
+;    The limit in section size
+;
+    _item.name                   '_em_map.sec_limit'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_map.data_type
+    _item_description.description
+;   The map data_type describes the types of data in the map.
+    Mode defines the data structure on disc.
+    Mode 0=integer*1;mode 1=integer*2;mode 2=real*4. Mode 2 is the normal
+    mode used in CCP4 programs.
+;
+    _item.name                   '_em_map.data_type'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+
+# chunxiao: discussed with Cathy a long time ago. 
+#      <xs:enumeration value="signed byte"/>
+#      <xs:enumeration value="int"/>
+#      <xs:enumeration value="float (32-bit)"/>
+#      <xs:enumeration value="integer (16-bit)"/>
+      save_
+
+save__em_map.details
+    _item_description.description
+;    Any additional details about the map.
+;
+    _item.name                   '_em_map.details'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                text
+      save_
+
+save__em_map.num_columns
+    _item_description.description
+;     The number of columns of the map.
+;
+    _item.name                   '_em_map.num_columns'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__em_map.num_rows
+    _item_description.description
+;     The number of rows of the map.
+;
+    _item.name                   '_em_map.num_rows'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__em_map.num_sections
+    _item_description.description
+;     The number of sections of the map.
+;
+    _item.name                   '_em_map.num_sections'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__em_map.origin_x
+    _item_description.description
+;    The x origin of the map.
+;
+    _item.name                   '_em_map.origin_x'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float 
+      save_
+
+save__em_map.origin_y
+    _item_description.description
+;    The y origin of the map.
+;
+    _item.name                   '_em_map.origin_y'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+      save_
+
+save__em_map.origin_z
+    _item_description.description
+;    The z origin of the map.
+;
+    _item.name                   '_em_map.origin_z'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float 
+      save_
+
+save__em_map.pixel_x
+    _item_description.description
+;    The x pixel size
+;
+    _item.name                   '_em_map.pixel_x'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.pixel_y
+    _item_description.description
+;    The y pixel size
+;
+    _item.name                   '_em_map.pixel_y'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.pixel_z
+    _item_description.description
+;    The z pixel size
+;
+    _item.name                   '_em_map.pixel_z'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.spaceGroupNumber
+    _item_description.description
+;    The space group number for the map
+;
+    _item.name                   '_em_map.spaceGroupNumber'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                line
+      save_
+
+save__em_map.spacing_x
+    _item_description.description
+;    The length of the x interval in microns.
+;
+    _item.name                   '_em_map.spacing_x'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+      save_
+
+save__em_map.spacing_y
+    _item_description.description
+;    The length of the y interval in microns.
+;
+    _item.name                   '_em_map.spacing_y'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+      save_
+
+save__em_map.spacing_z
+    _item_description.description
+;    The length of the z interval in microns.
+;
+    _item.name                   '_em_map.spacing_z'
+    _item.category_id              em_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+      save_
+
+save__em_map.value_density_min
+    _item_description.description
+;    Minimum density value in the map.
+;
+    _item.name                   '_em_map.value_density_min'
+    _item.category_id              em_map
+    _item.mandatory_code           no 
+    _item_type.code                float
+      save_
+
+save__em_map.value_density_max
+    _item_description.description
+;    Maximum density value in the map.
+;
+    _item.name                   '_em_map.value_density_max'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.value_density_mean
+    _item_description.description
+;    Mean (average) density value of the map.
+;
+    _item.name                   '_em_map.value_density_mean'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_map.value_density_std
+    _item_description.description
+;    The standard deviation density value of the map.
+;
+    _item.name                   '_em_map.value_density_std'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+
+#########################################################################
+# copied from mmcif_em.dic
+# 
+
+##########################
+## EM_MICROSCOPE        ##
+##########################
+
+save_em_microscope
+    _category.description
+;   Data items in the EM_MICROSCOPE category record details
+    about the microscope
+;
+    _category.id                  em_microscope
+    _category.mandatory_code      no
+    _category_key.name            '_em_microscope.id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+#                                'em_data_collection_group'
+     save_
+
+save__em_microscope.id
+    _item_description.description
+;    The value of _em_microscope.id must uniquely identify
+     a microscope used in the em experiments.
+;
+    _item.name                   '_em_microscope.id'
+    _item.category_id            em_microscope
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_microscope.model
+    _item_description.description
+;    The microscope model
+;
+    _item.name                   '_em_microscope.model'
+    _item.category_id            em_microscope
+    _item.mandatory_code         yes
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+         'HITACHI H8100'
+         'HITACHI HF2000'
+         'HITACHI HF2000-UHR'
+         'HITACHI H9000-UHR'
+         'HITACHI H9000-NAR'
+         'HITACHI 300KEV FEG'
+         'HITACHI HU1250'
+         'HITACHI H-1500'
+         'JEOL 2000EX'
+         'JEOL 2000EXII'
+         'JEOL 2010HT'
+         'JEOL 2010UHR'
+         'JEOL 2010F'
+         'JEOL 3010HT'
+         'JEOL 3010UHR'
+         'JEOL KYOTO-3000SFF'
+         'JEOL 4000EX'
+         'JEOL HAREM'
+         'JEOL ARM-1000'
+         'FEI/PHILIPS CM120T'
+         'FEI/PHILIPS CM200T'
+         'FEI/PHILIPS CM20/ST'
+         'FEI/PHILIPS CM20/SOPHIE'
+         'FEI/PHILIPS CM200FEG/ST'
+         'FEI/PHILIPS CM20/UT'
+         'FEI/PHILIPS CM200FEG/UT'
+         'FEI/PHILIPS CM30/T'
+         'FEI/PHILIPS CM300FEG/T'
+         'FEI/PHILIPS CM300FEG/HE'
+         'FEI/PHILIPS CM30/ST'
+         'FEI/PHILIPS CM300FEG/ST'
+         'FEI/PHILIPS CM300FEG/UT'
+         'FEI TECNAI 12'
+         'FEI TECNAI 20'
+         'FEI TECNAI F20'
+         'FEI TECNAI F30'
+         'FEI TECNAI G20'
+         'FEI MORGAGNI'
+'JEOL 1200'
+'JEOL 1200EX II'
+'JEOL 1210'
+'JEOL 1010'
+'JEOL 2500SE'
+'JEOL 1230'
+'JEOL ARM1300'
+'JEOL 4010'
+'JEOL 2010'
+'JEOL 3000F'
+'JEOL 3010'
+'JEOL 3010F'
+'JEOL 3100'
+'JEOL 3200FS'
+'JEOL 2200FS'
+'JEOL 2100'
+'JEOL 2100F'
+'JEM2200FS'
+'JEM3200FSC'
+'FEI TECNAI SPHERA'
+'FEI TECNAI POLORA'
+'FEI TECNAI 30'
+'FEI TECNAI SPIRIT TWIN'
+'FEI TECNAI SPIRIT BIOTWIN'
+'ZEISS LIBRA EFTEM 120'
+'ZEISS LIBRA EFTEM 200FE'
+'ZEISS LEO 912'
+         'JEOL 2010HC'
+         'JEOL 3000SFF'
+         'FEI/PHILIPS CM200 FEG'
+         'FEI/PHILIPS 420'
+         #'FEI MORGAGNI'       #in the list already
+         'FEI POLARA 300'
+         'PHILIPS EM400'
+         'PHILIPS EM420'
+         'TECNAI G2'
+         OTHER 
+     save_
+
+save__em_microscope.electron_source
+    _item_description.description
+; The source of electrons. The electron gun.
+;
+    _item.name                  '_em_microscope.electron_source'
+    _item.category_id             em_microscope
+    _item.mandatory_code          yes
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+              'FIELD EMISSION GUN'
+              LAB6
+              'TUNGSTEN HAIRPIN'
+              OTHER
+     save_
+
+save__em_microscope.nominal_cs
+    _item_description.description
+; The spherical aberration coefficient (Cs) in millimetres,
+  of the objective lens.
+;
+    _item.name                  '_em_microscope.nominal_cs'
+    _item.category_id             em_microscope
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               millimetres
+    _item_examples.case           1.4
+     save_
+
+#save__em_microscope.details
+#    _item_description.description
+#;   details
+#;
+#    _item.name                  '_em_microscope.details'
+#    _item.category_id             em_microscope
+#    _item.mandatory_code          no
+#    _item_type.code               text
+#     save_
+
+
+#####################################################################
+# copied from mmcif_em.dic 
+#
+
+##############
+#  EM_STAIN  #
+##############
+
+save_em_stain
+    _category.description
+;   Data items in the EM_STAIN category record details
+    about the staining techniques used.
+;
+    _category.id                  em_stain
+    _category.mandatory_code      no 
+    loop_
+    _category_key.name
+                                 '_em_stain.id'
+                                 '_em_stain.entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+#                                 'em_specimen_preparation_group'
+
+     save_
+
+save__em_stain.id
+    _item_description.description
+;    The value of _em_stain.id must uniquely identify
+     set of stain parameters
+;
+    _item.name                   '_em_stain.id'
+    _item.category_id            em_stain
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_stain.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id
+     in the ENTRY category.
+;
+    _item.name                   '_em_stain.entry_id'
+    _item.category_id            em_stain
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_stain.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_stain.details
+    _item_description.description
+;    General details on the staining techniques used
+;
+    _item.name                   '_em_stain.details'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.citation
+    _item_description.description
+;    Text describing a reference citation
+     on the staining techniques used
+;
+    _item.name                   '_em_stain.citation'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.protocol
+    _item_description.description
+;    Text describing the protocol for the staining techniques used
+;
+    _item.name                   '_em_stain.protocol'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.time_resolved_state
+    _item_description.description
+;    Text giving details on the time factors
+     involved in the staining techniques used
+;
+    _item.name                   '_em_stain.time_resolved_state'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.temperature
+    _item_description.description
+;    The staining technique temperature used
+;
+    _item.name                   '_em_stain.temperature'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.humidity
+    _item_description.description
+;    The humidity at which the staining technique was used
+;
+    _item.name                   '_em_stain.humidity'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.type
+    _item_description.description
+;    The general class or type of the staining technique
+     used
+;
+    _item.name                   '_em_stain.type'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+save__em_stain.sample_preparation_id
+    _item_description.description
+;    A pointer to _em_sample_preparation.id in the
+     EM_SAMPLE_PREPARATION category
+;
+    _item.name                   '_em_stain.sample_preparation_id'
+    _item.category_id            em_stain
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_stain.sample_preparation_id'
+    _item_linked.parent_name     '_em_sample_preparation.id'
+      save_
+
+#####################################################################
+# copied from mmcif_em.dic
+# 
+
+#####################
+### EM_TOMOGRAPHY  ##
+#####################
+
+save_em_tomography
+    _category.description
+;   Electron tomography allows the structural organisation of individual
+    cells and organelles and bacterial cells to be studied at nanometre
+    resolution. The samples are unique objects which precludes averaging
+    over many copies so that tomograms are built from images of a  tilt
+    series taken from a single copy of the object.
+;
+    _category.id                  em_tomography
+    _category.mandatory_code      no
+    _category_key.name           '_em_tomography.id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+#                                'em_tomography_group'
+     save_
+
+save__em_tomography.id
+    _item_description.description
+;    The value of _em_tomography.id must uniquely identify
+     a collection of observed complexes.
+;
+    _item.name                   '_em_tomography.id'
+    _item.category_id            em_tomography
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_tomography.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_tomography.entry_id'
+    _item.category_id            em_tomography
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_tomography.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_tomography.tilt_angle_incr
+    _item_description.description
+;     Tilt angle increment in (degrees) used in reconstruction of
+      tomographic map.
+;
+    _item.name                   '_em_tomography.tilt_angle_incr'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_tomography.num_sections
+    _item_description.description
+;     Number of sections used in reconstruction of tomographic map.
+;
+    _item.name                   '_em_tomography.num_sections'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                int
+      save_
+
+save__em_tomography.details
+    _item_description.description
+;     General details on the tomographic experiment
+;
+    _item.name                   '_em_tomography.details'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                text
+      save_
+
+#####################################################################
+# copied from mmcif_em.dic
+#
+
+#####################
+## EM_VIRUS_SHELLS ##
+#####################
+
+save_em_virus_shells
+    _category.description
+;   Data items in the EM_VIRUS_SHELLS category record details
+    of the viral shell number, diameter of each shell and triangulation
+    number of an icoshedral virus.
+;
+    _category.id                  em_virus_shells
+    _category.mandatory_code      no
+     loop_
+    _category_key.name
+                                '_em_virus_shells.virus_entity_id'
+                                '_em_virus_shells.id'
+     loop_
+    _category_group.id
+                             'inclusive_group'
+                             'em_group'
+#                             'em_sample_description_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 1DYL and laboratory records for the
+             structure corresponding to PDB entry 1DYL
+;
+;  loop_
+   _em_virus_shells.virus_entity_id
+   _em_virus_shells.id
+   _em_virus_shells.shell_diameter
+   _em_virus_shells.triangulation_num
+     1 1 400 4
+;
+     save_
+
+save__em_virus_shells.virus_entity_id
+    _item_description.description
+;    The value of _em_virus_shells.virus_entity_id is
+     a pointer to _em_virus_entity.id in the VIRUS_ENTITY
+     category.
+;
+    _item.name                   '_em_virus_shells.virus_entity_id'
+    _item.category_id              em_virus_shells
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name       '_em_virus_shells.virus_entity_id'
+    _item_linked.parent_name      '_em_virus_entity.id'
+      save_
+
+save__em_virus_shells.id
+    _item_description.description
+;    The value of _em_em_virus_shells.id must uniquely identify
+     the number and diameter of each virus protein shell and its
+     triangulation number.
+;
+    _item.name                   '_em_virus_shells.id'
+    _item.category_id              em_virus_shells
+    _item.mandatory_code           yes
+    _item_type.code                code
+      save_
+
+save__em_virus_shells.shell_diameter
+    _item_description.description
+;   The value of the diameter (in angstroms) for each
+    protein shell of the virus.
+;
+    _item.name                   '_em_virus_shells.shell_diameter'
+    _item.category_id              em_virus_shells
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_virus_shells.triangulation_num
+    _item_description.description
+;   The triangulation number (T number) refers to the organisation
+    of the virus geometry. figure.
+
+    It is given by the following relationship:
+    T= h*2 + hk +k*2,  where h and k are positive integers that
+    define the position of the five-fold vertex on the original
+    hexagonal net.
+;
+    _item.name                   '_em_virus_shells.triangulation_num'
+    _item.category_id              em_virus_shells
+    _item.mandatory_code           no
+    _item_type.code                int
+     loop_
+    _item_examples.case            4 131 1
+
+   save_
+
+##################################################
+# new item for _em_virus_shells category
+# _em_virus_shells.name
+
+save__em_virus_shells.name
+    _item_description.description
+;   virus shells name
+;
+        _item.name                  '_em_virus_shells.name'
+        _item.category_id           em_virus_shells
+        _item.mandatory_code        no
+        _item_type.code             text
+        save_
+
+##################################################
+# copied from mmcif_em.dic
+#
+
+########################
+## EM_ARRAY_FORMATION ##
+########################
+
+save_em_array_formation
+    _category.description
+;   Data items in the EM_ARRAY_FORMATION category
+    record details of growth conditions for the array
+    samples.
+;
+    _category.id                  em_array_formation
+    _category.mandatory_code      no
+     loop_
+    _category_key.name
+                                  '_em_array_formation.id'
+                                  '_em_array_formation.type'
+
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                            #     'em_biochemical_preparation_group'
+                            #     'em_2D_crystal_group'
+                            #     'em_helical_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1AT9 and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; _em_array_formation.id              1
+  _em_array_formation.type            "2D-CRYSTAL"
+  _em_array_formation.method          .
+  _em_array_formation.apparatus       .
+  _em_array_formation.atmosphere      'room air'
+  _em_array_formation.pH              5.2
+  _em_array_formation.temp            18
+  _em_array_formation.time            .
+  _em_array_formation.buffer_id       2
+  _em_array_formation.details         'on grid'
+  _em_array_formation.citation_id       2
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__em_array_formation.id
+    _item_description.description
+;  The value of _em_array_formation.id
+   must uniquely identify the sample.
+;
+    _item.name                  '_em_array_formation.id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_array_formation.type
+    _item_description.description
+;  The value of _em_array_formation.type
+   must identifies the type of array studied.
+;
+    _item.name                  '_em_array_formation.type'
+    _item.category_id             em_array_formation
+    _item.mandatory_code         yes
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+       'FILAMENT'
+#       'TUBE'
+       '2D-CRYSTAL'
+       '3D-CRYSTAL'
+       'ICOSAHEDRON'
+#       '2D-ARRAY'
+#       '3D-ARRAY'
+       'OTHER'
+      save_
+
+save__em_array_formation.method
+    _item_description.description
+;   The method used for growing the array.
+;
+    _item.name                  '_em_array_formation.method'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'lipid monolayer'
+     save_
+
+save__em_array_formation.apparatus
+    _item_description.description
+;  The type of the apparatus used for growing the array.
+;
+    _item.name                  '_em_array_formation.apparatus'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'Langmuir trough'
+     save_
+
+save__em_array_formation.atmosphere
+    _item_description.description
+;  The type of atmosphere in which arrays were grown.
+;
+    _item.name                  '_em_array_formation.atmosphere'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'room air'
+     save_
+
+save__em_array_formation.pH
+    _item_description.description
+;   the pH value used for growing the array.
+;
+    _item.name                  '_em_array_formation.pH'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_examples.case           4.7
+     save_
+
+save__em_array_formation.temp
+    _item_description.description
+;  The value of the temperature in degrees Kelvin used for
+   growing the arrays.
+;
+    _item.name                  '_em_array_formation.temp'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kelvins
+    _item_examples.case           293
+     save_
+
+save__em_array_formation.time
+    _item_description.description
+;   The length of time required to grow the array.
+;
+    _item.name                  '_em_array_formation.time'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'approximately 2 days'
+     save_
+
+save__em_array_formation.solution_id
+    _item_description.description
+;   This data item is a pointer to _em_solution_composition.id in the
+    EM_SOLUTION_COMPOSITION category.
+;
+    _item.name                  '_em_array_formation.solution_id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__em_array_formation.details
+    _item_description.description
+;   Any additional items concerning array growth.
+;
+    _item.name                  '_em_array_formation.details'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case
+; Two-dimensional Crystallization-- Purified protein (2 mg/ml) was mixed
+  with E. coli lipids solubilized in OTG (mixed micelles stock solution,
+  4 mg/ml E. coli lipids in 20 mM Mes-NaOH (pH 6), 5% OTG, 0.01% NaN3)
+  to achieve a lipid to protein ratio of 1 (w/w). The final protein
+  concentration was adjusted to 1.33 mg/ml, and the final OTG content
+  was adjusted to 1.93%. The reconstitution mixture (60 microliters)
+  was preincubated at room temperature for 30 min and dialyzed against
+  1.5 liters of 10 mM Mes-NaOH (pH 6), 100 mM NaCl, 100 mM MgCl2,
+  2 mM dithiothreitol, 0.01% NaN3 for 24 h at room temperature,
+  24 h at 37 C, and another 24 h at room temperature.
+;
+    save_
+
+save__em_array_formation.citation_id
+    _item_description.description
+;   This data item is a pointer to _citation.id
+    in the CITATION category.
+;
+    _item.name                  '_em_array_formation.citation_id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_linked.child_name     '_em_array_formation.citation_id'
+    _item_linked.parent_name    '_citation.id'
+    _item_type.code               code
+     save_
+
+
+save__em_array_formation.buffer_id
+    _item_description.description
+;   This data item is a pointer to _em_solution_composition.id.
+;
+    _item.name                  '_em_array_formation.buffer_id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               code
+# chunxiao commented it out since we don't have EM_SOLUTION_COMPOSITION
+# category in pdbx
+#    _item_linked.child_name     '_em_array_formation.buffer_id'
+#    _item_linked.parent_name    '_em_solution_composition.id'
+     save_
+
+
+#### EOF NewCatFromEM.dic
+

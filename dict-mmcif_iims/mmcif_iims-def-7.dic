@@ -1,0 +1,638 @@
+###########################################################################
+#
+# File:  mmcif_iims-def-7.dic
+#        This file includes all the new categories and their items
+#        required by emdb.
+###########################################################################
+
+###############
+# EM_ADMIN    #
+###############
+# _em_admin.entry_id
+# _em_admin.last_update
+
+save_em_admin
+    _category.description
+;  Information relevant for Administration purposes. Not for public release
+;
+    _category.id                em_admin
+    _category.mandatory_code    no
+    _category_key.name         '_em_admin.entry_id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'em_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+    _em_admin.entry_id    EMD-5001   
+    _em_admin.last_update 2008-12-01    
+;
+    save_
+
+save__em_admin.entry_id
+    _item_description.description
+;   This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                 '_em_admin.entry_id'
+    _item.category_id          em_admin
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__em_admin.last_update
+     _item_description.description
+;    time of last update
+;
+     _item.name                  '_em_admin.last_update'
+     _item.category_id           em_admin
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+
+####################
+# EM_DEPOSITION    #
+####################
+# _em_deposition.citation_published
+# _em_deposition.entry_id
+# _em_deposition.ll_release_date
+# _em_deposition.map_release_date
+# _em_deposition.replace_existing_entry
+# _em_deposition.sf_release_date
+
+save_em_deposition
+    _category.description
+;  Information relevant for Administration purposes. Not for public release
+;
+    _category.id                em_deposition
+    _category.mandatory_code    no
+    _category_key.name         '_em_deposition.entry_id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'em_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+ _em_deposition.entry_id           EMD-5001
+ _em_deposition.ll_release_date    2008-12-01
+ _em_deposition.map_release_date   2008-12-01
+ _em_deposition.citation_published     YES
+ _em_deposition.replace_existing_entry  NO
+;
+    save_
+
+save__em_deposition.entry_id
+    _item_description.description
+;   This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                 '_em_deposition.entry_id'
+    _item.category_id          em_deposition
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__em_deposition.ll_release_date
+        _item_description.description
+;   ll release date
+;
+        _item.name                  '_em_deposition.ll_release_date'
+        _item.category_id           em_deposition
+        _item.mandatory_code        no
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__em_deposition.map_release_date
+        _item_description.description
+;   map release date
+;
+        _item.name                  '_em_deposition.map_release_date'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes 
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__em_deposition.replace_existing_entry
+        _item_description.description
+;   whether replace existing entry
+;
+        _item.name                  '_em_deposition.replace_existing_entry'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes
+        _item_type.code             line
+         loop_
+        _item_enumeration.value
+                YES 
+                NO
+         save_
+
+save__em_deposition.sf_release_date
+    _item_description.description
+;   sf release date
+;
+        _item.name                  '_em_deposition.sf_release_date'
+        _item.category_id           em_deposition
+        _item.mandatory_code        no
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__em_deposition.citation_published
+    _item_description.description
+;   whether citation published
+;
+        _item.name                  '_em_deposition.citation_published'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes 
+        _item_type.code             line
+         loop_
+        _item_enumeration.value
+                YES 
+                NO
+        save_
+
+###################
+# EM_NA_ENTITY    #
+###################
+#_em_na_entity.class
+#_em_na_entity.entity_assembly_id
+#_em_na_entity.id
+#_em_na_entity.sequence
+#_em_na_entity.structure
+
+save_em_na_entity
+    _category.description
+;   Data items in the EM_NA_ENTITY category record details
+    of the nucleic-acid component.
+;
+    _category.id                  em_na_entity
+    _category.mandatory_code      no
+     loop_
+    _category_key.name
+                                  '_em_na_entity.id'
+                                  '_em_na_entity.entity_assembly_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+
+     save_
+
+
+save__em_na_entity.id
+    _item_description.description
+;   Is the unique identifier for EM_NA_ENTITY category.
+;
+    _item.name                    '_em_na_entity.id'
+    _item.category_id             em_na_entity
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+save__em_na_entity.entity_assembly_id
+    _item_description.description
+;   This data item is a pointer to _em_entity_assembly.id in the
+    EM_ENTITY_ASSEMBLY category.
+;
+    _item.name                   '_em_na_entity.entity_assembly_id'
+    _item.category_id            em_na_entity
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_na_entity.class
+    _item_description.description
+;   class
+;
+    _item.name                  '_em_na_entity.class'
+    _item.category_id           em_na_entity
+    _item.mandatory_code        no
+    _item_type.code             text
+     loop_
+    _item_enumeration.value
+                  'DNA'
+                  'DNA/RNA'
+                  'PEPTIDE NUCLEIC ACID'
+                  'PEPTIDE NUCLEIC ACID/DNA'
+                  'RIBOZYME'
+                  'RNA'
+                  'T-RNA'
+                  'OTHER'
+      save_
+
+save__em_na_entity.sequence
+    _item_description.description
+;   sequence
+;
+      _item.name                  '_em_na_entity.sequence'
+      _item.category_id           em_na_entity
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_na_entity.structure
+    _item_description.description
+;   structure
+;
+    _item.name                  '_em_na_entity.structure'
+    _item.category_id           em_na_entity
+    _item.mandatory_code        no
+    _item_type.code             text
+     loop_
+    _item_enumeration.value
+                  'SINGLE STRANDED'
+                  'DOUBLE HELIX'
+                  'TRIPLE HELIX'
+                  'QUADRUPLE HELIX'
+                  'OTHER'
+      save_
+
+
+##################
+# EM_RIBOSOME    #
+##################
+#_em_ribosome.details
+#_em_ribosome.entity_assembly_id
+#_em_ribosome.id
+#_em_ribosome.type
+
+save_em_ribosome
+    _category.description
+;   Data items in the EM_RIBOSOME category record details
+    of the ribosome.
+;
+    _category.id                  em_ribosome
+    _category.mandatory_code      no
+     loop_
+    _category_key.name
+                                  '_em_ribosome.id'
+                                  '_em_ribosome.entity_assembly_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+     save_
+
+save__em_ribosome.id
+    _item_description.description
+;   Is the unique identifier for EM_RIBOSOME category.
+;
+    _item.name                    '_em_ribosome.id'
+    _item.category_id             em_ribosome
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+save__em_ribosome.entity_assembly_id
+    _item_description.description
+;   This data item is a pointer to _em_entity_assembly.id in the
+    EM_ENTITY_ASSEMBLY category.
+;
+    _item.name                   '_em_ribosome.entity_assembly_id'
+    _item.category_id            em_ribosome
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_ribosome.type
+    _item_description.description
+;   ribosome type:  eukaryote, prokaryote, and chimera
+;
+    _item.name                  '_em_ribosome.type'
+    _item.category_id           em_ribosome
+    _item.mandatory_code        no
+    _item_type.code             text
+     loop_
+    _item_enumeration.value     
+                 'EUKARYOTE'
+                 'PROKARYOTE'
+                 'CHIMERA'
+     save_
+
+save__em_ribosome.details
+    _item_description.description
+;   some descriptions
+;
+    _item.name                  '_em_ribosome.details'
+    _item.category_id           em_ribosome
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+##################
+# EM_SUPPLEMENT  #
+##################
+#_em_supplement.entry_id
+
+save_em_supplement
+    _category.description
+;   Contains information on supplemental data items and material to the 3D-E M map
+;
+    _category.id                em_supplement
+    _category.mandatory_code    no
+    _category_key.name         '_em_supplement.entry_id'
+     loop_
+     _category_group.id         'inclusive_group'
+                                'em_group'
+
+     save_
+
+save__em_supplement.entry_id
+    _item_description.description
+;   This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                '_em_supplement.entry_id'
+    _item.category_id          em_supplement
+    _item.mandatory_code       yes
+    _item_type.code            code
+     save_
+
+
+################
+# EM_FIGURE    #
+################
+#_em_figure.details
+#_em_figure.file
+#_em_figure.id
+
+save_em_figure
+    _category.description
+;   figure
+;
+    _category.id                  em_figure
+    _category.mandatory_code      no
+    _category_key.name            '_em_figure.id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+     save_
+
+save__em_figure.id
+   _item_description.description
+;  unique identify figure
+;
+   _item.name                     '_em_figure.id'
+   _item.category_id              em_figure
+   _item.mandatory_code           yes
+   _item_type.code                code
+    save_
+
+save__em_figure.file
+    _item_description.description
+;   file name
+;
+    _item.name                    '_em_figure.file'
+    _item.category_id             em_figure
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__em_figure.details
+    _item_description.description
+;   details
+;
+    _item.name                    '_em_figure.details'
+    _item.category_id             em_figure
+    _item.mandatory_code          no
+    _item_type.code               text 
+     save_
+ 
+
+#############
+# EM_FSC    #
+#############
+#_em_fsc.details
+#_em_fsc.file
+#_em_fsc.id
+
+save_em_fsc
+    _category.description
+;   fsc
+;
+    _category.id                  em_fsc
+    _category.mandatory_code      no
+    _category_key.name            '_em_fsc.id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+     save_
+
+save__em_fsc.id
+   _item_description.description
+;  unique identify fsc in a fsc set
+;
+   _item.name                     '_em_fsc.id'
+   _item.category_id              em_fsc
+   _item.mandatory_code           yes
+   _item_type.code                code
+    save_
+
+save__em_fsc.file
+    _item_description.description
+;   file name
+;
+    _item.name                    '_em_fsc.file'
+    _item.category_id             em_fsc
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__em_fsc.details
+    _item_description.description
+;   details
+;
+    _item.name                    '_em_fsc.details'
+    _item.category_id             em_fsc
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
+##############
+# EM_MASK    #
+##############
+#_em_mask.id
+#_em_mask.entry_id
+
+save_em_mask
+    _category.description
+;  mask, this category use EM_MAP items for data presentation 
+;
+    _category.id                  em_mask
+    _category.mandatory_code      no
+    loop_
+    _category_key.name
+                                 '_em_mask.id'
+                                 '_em_mask.entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+     save_
+
+save__em_mask.id
+    _item_description.description
+;     Unique identifier of the mask.
+;
+    _item.name                   '_em_mask.id'
+    _item.category_id            em_mask
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_mask.entry_id
+   _item_description.description
+;  This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_mask.entry_id'
+    _item.category_id            em_mask
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+
+##############
+# EM_SLICE   #
+##############
+#_em_slice.id
+#_em_slice.entry_id
+
+save_em_slice
+    _category.description
+;  slice, this category use EM_MAP items for data presentation
+;
+    _category.id                  em_slice
+    _category.mandatory_code      no
+    loop_
+    _category_key.name
+                                 '_em_slice.id'
+                                 '_em_slice.entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+     save_
+
+save__em_slice.id
+    _item_description.description
+;     Unique identifier of the slice.
+;
+    _item.name                   '_em_slice.id'
+    _item.category_id            em_slice
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_slice.entry_id
+   _item_description.description
+;  This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_slice.entry_id'
+    _item.category_id            em_slice
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+
+################################
+# EM_2D_CRYSTAL_LAYER_LINES    #
+################################
+#_em_2d_crystal_layer_lines.details
+#_em_2d_crystal_layer_lines.file
+#_em_2d_crystal_layer_lines.id
+
+save_em_2d_crystal_layer_lines
+    _category.description
+;  em 2d crystal layer lines
+;
+    _category.id                  em_2d_crystal_layer_lines
+    _category.mandatory_code      no
+    _category_key.name            '_em_2d_crystal_layer_lines.id'
+     loop_
+    _category_group.id
+                                  'inclusive_group'
+                                  'em_group'
+     save_
+
+save__em_2d_crystal_layer_lines.id
+    _item_description.description
+;    identifier.
+;
+    _item.name                   '_em_2d_crystal_layer_lines.id'
+    _item.category_id            em_2d_crystal_layer_lines
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_2d_crystal_layer_lines.details
+    _item_description.description
+;   layer line details
+;
+    _item.name                  '_em_2d_crystal_layer_lines.details'
+    _item.category_id           em_2d_crystal_layer_lines
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_2d_crystal_layer_lines.file
+    _item_description.description
+;   layer line file
+;
+    _item.name                  '_em_2d_crystal_layer_lines.file'        
+    _item.category_id           em_2d_crystal_layer_lines
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+
+##########################
+# EM_STRUCTURE_FACTOR    #
+##########################
+#_em_structure_factor.details
+#_em_structure_factor.file
+#_em_structure_factor.id
+
+save_em_structure_factor
+    _category.description
+;  em structure factor
+;
+    _category.id                  em_structure_factor
+    _category.mandatory_code      no
+    _category_key.name            '_em_structure_factor.id'
+     loop_
+    _category_group.id
+                                  'inclusive_group'
+                                  'em_group'
+     save_
+
+save__em_structure_factor.id
+    _item_description.description
+;    identifier.
+;
+    _item.name                   '_em_structure_factor.id'
+    _item.category_id            em_structure_factor
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_structure_factor.details
+    _item_description.description
+;   structure factor details
+;
+    _item.name                  '_em_structure_factor.details'
+    _item.category_id           em_structure_factor
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_structure_factor.file
+    _item_description.description
+;   structure factor file
+;
+    _item.name                  '_em_structure_factor.file'
+    _item.category_id           em_structure_factor
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+#### EOF BrandNewCat.dic 

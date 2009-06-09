@@ -1,0 +1,2131 @@
+###########################################################################
+#
+# File:  mmcif_std-header.dic
+#
+#                          mmCIF Data Dictionary
+#
+# This data dictionary contains the standard mmCIF data definitions.
+#
+#                           Header Section
+#
+#
+###########################################################################
+
+##############################################################################
+#                                                                            #
+#                       Macromolecular CIF Dictionary                        #
+#                                                                            #
+#          Paula Fitzgerald, Helen Berman, Phil Bourne, Brian McMahon,       #
+#                       Keith Watenpaugh, John Westbrook                     #
+#                         and many other contributors                        #
+#                                                                            #
+#                                                                            #
+#                                                                            #
+#        The review and extension process on this dictionary is is being     #
+#        administered through a discussion on a the mmCIF List Server being  #
+#        run out of Rutgers University.                                      #
+#                                                                            #
+#        To subscribe to the mmCIF List Server, send a one line message      #
+#        containing the text:                                                #
+#                                                                            #
+#            subscribe mmciflist Your Name                                   #
+#                                                                            #
+#        to the email address:                                               #
+#                                                                            #
+#            requests@ndbserver.rutgers.edu                                  #
+#                                                                            #
+#        To post to the list, send messages to the email address:            #
+#                                                                            #
+#            mmciflist@ndbserver.rutgers.edu                                 #
+#                                                                            #
+#        Please use the list server for all questions, comments, and         #
+#        corrections that you may have concerning the draft dictionary.      #
+#                                                                            #
+#        Should you have a question that you do not feel is appropriate      #
+#        for posting to the list, please feel free to contact one of         #
+#        Co-chairs of the IUCr mmCIF dictionary maintenance working group:   #
+#                                                                            #
+#        Paula Fitzgerald                                                    #
+#        Merck Research Laboratories                                         #
+#        P.O. Box 2000, Ry50-105                                             #
+#        Rahway, New Jersey, 07065 USA (paula_fitzgerald@merck.com).         #
+#                                                                            #
+#        Helen M. Berman                                                     #
+#        Department of Chemistry                                             #
+#        Rutgers the State University of New Jersey                          #
+#        610 Taylor Road                                                     #
+#        Piscataway, New Jersey 08854-8087  USA (berman@rcsb.rutgers.edu)    #
+#                                                                            #
+#        Questions concerning the process of review and approval of the      #
+#        CIF dictionaries by the International Union of Crystallography      #
+#        should be addressed to the Coordinating Secretary of the IUCr       #
+#        Committee for the Maintenance of the CIF Standard, Brian McMahon,   #
+#        IUCr, 5 Abbey Square, Chester CH1 2HU, England (bm@iucr.org).       #
+#                                                                            #
+#        Copyright 2005 International Union of Crystallography               #
+##############################################################################
+#                                                                            #
+#        This dictionary is compliant with DDL v2.1. As such, it looks       #
+#        substantially different from the previously approved and released   #
+#        versions of the CIF core dictionary. This dictionary contains all   #
+#        data items that were present in the CIF core dictionary. To those   #
+#        data items have been added the large number of data items needed to #
+#        describe the macromolecular crystallographic experiment and its     #
+#        results.                                                            #
+#                                                                            #
+##############################################################################
+
+data_mmcif_std.dic
+
+    _datablock.id                          mmcif_std.dic
+    _datablock.description
+;
+     This data block holds the mmCIF data dictionary, standard definitions.
+;
+
+    _dictionary.title           mmcif_std.dic
+    _dictionary.version         2.0.11
+    _dictionary.datablock_id    mmcif_std.dic
+
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+    loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.1.1  1993-02-11
+;
+   Highlighted all notes with # %%%%% surrounds.
+;
+   0.1.2  1993-02-11
+;
+   Started moving examples to *_appendix data items.
+;
+   0.1.3  1993-02-11
+;
+   Started moving core data names to the *_appendix data items
+;
+   0.1.4  1993-02-11
+;
+   Added example for _symmetry_
+;
+   0.1.5  1993-03-24
+;
+   Finished moving examples to *_appendix data items
+;
+   0.1.6  1993-03-24
+;
+   Dealt with many issues raised by SR Hall.
+   Some were merely typographical.
+   Changed temp to B_iso
+   Changed occ to occupancy
+   Changed special_details to details.
+   Changed asl to label everywhere.
+   Shuffled data names in _struct_conf_ and _struct_conn_
+;
+   0.1.7  1993-03-24
+;
+   Tested for Cyclops compliance - most problems are names that
+   are too long.
+   Changed crystal_preparation to crystal_prep
+   Changed d_resolution to d_res
+   Many other such changes
+;
+   0.1.8  1993-03-25
+;
+   Still testing for Cyclops compliance - reveal many additional
+   syntax problems
+   Also verified with new tool by RG Ball - still more errors fixed
+   Dealt with issue raised by PE Bourne - amongst changes
+   Rewrote _database_ section completely
+   Changed _audit_contact_author_  to
+           _audit_contact_author_name
+           _audit_contact_author_address
+;
+   0.1.9  1993-03-26
+;
+   Removed _struct_topol_ section until it gets straightened out
+;
+   0.1.10 1993-03-28
+;
+   Filled in examples for several data categories
+;
+   0.1.11 1993-04-03
+;
+   Syntax checked using tools of Peter Murray-Rust - many problems fixed
+;
+   0.1.12 1993-04-06
+;
+   More syntax problems fixed a la Peter Murray-Rust
+;
+   0.1.13 1993-04-07
+;
+   Introduced _exptl_crystal_grow_ data names
+;
+   0.1.14 1993-04-07
+;
+   Experiment with refers_to, category and part_of_key in
+   entity_conn_atom_ and entity_conn_bond_ sections.
+   Discovered horror show with nonconcurrent versions on different
+   computers - not yet resolved.
+;
+   0.1.15 1993-05-09
+;
+   Reconciled nonconcurrent versions
+   Removed trailing blanks
+   Made corrections based on email suggestions from P. Bourne
+;
+   0.1.16 1993-05-10
+;
+   Made corrections based on written comments from K. Watenpaugh
+   Made corrections/additions based on discussions at Rutgers
+;
+   0.1.17 1993-05-11
+;
+   Changed _atom_site_label_component_? to new nomenclature
+   Introduced category DDL throughout
+   Introduced refers_to DDL throughout
+   Introduced part_of_key DDL throughout
+   Mandated that _list must be in each data definition
+   Standardized 'need not be unique' statements
+   Standardized example headers
+;
+   1.1.18 1993-05-12
+;
+   Looped out authors and editors in citation list
+   Verified with RGB tools
+   Some style consistency imposed
+   Fleshed out category definitions and imposed style
+   Updated "sets of data item" at beginning of document
+   Checked alphabetical order of data names - moved id's
+;
+   0.2.1  1993-05-13
+;
+   Major rethinking of _entity_ data based following discussions
+   of 1993-05-10 meeting
+;
+   0.2.2  1993-05-18
+;
+   Style consistency and proof reading changes throughout
+   Make page numbers general to articles and chapters in citation
+   Added *_method to all phasing categories
+   Looped out keywords from _struct_site_ list
+   Added _atom_site_label_ definitions as per H. Berman
+   Added _struct_biol_view_ and struct_site_view_ items as per P. Bourne
+   Added _atom_sites_alt_ data items to formally handle alternative
+   conformations
+   Verified with Cyclops and RGB tools
+;
+   0.2.3  1993-05-19
+;
+   Fixed based on problems unearthed by Peter Murray-Rust and Brian McMahon
+;
+   0.2.4  1993-05-20
+;
+   DDL adjustment from down under ):-(>
+;
+   0.2.5  1993-05-20
+;
+   A general merging of updates from PMR, BMcM and SRH
+   Fixed typographical and stylistic problems a la BMcM
+;
+   0.2.6  1993-06-02
+;
+   Fixed _atom_site_ example (_entity_poly_seq_num)
+   Removed _list_link_parent from _entity_mon_atom_atom_id a
+   _entity_nonp_atom_atom_id
+   Added real APS coordinates to _atom_site_ example
+   Rewrote _atom_sites_footnote_ example
+;
+   0.2.7  1993-08-01
+;
+   Redesigned phasing_MIR definitions
+;
+   0.2.8  1993-08-03
+;
+   More work on phasing_MIR
+   Created phasing_MIR_der and phasing_MIR_der_shell categories
+;
+   0.3.1  1993-08-08
+;
+   Began implementing DDL v0.7
+;
+   0.3.2  1993-08-11
+;
+   Cleaning up of stray notes
+;
+   0.3.3  1993-08-12
+;
+   Syntax and consistency checks - SRH
+   Added _type of null for appendix items.
+;
+   0.3.4  1993-09-01
+;
+   Added _struct_conn_ptnr1_label_alt_id and
+   _struct_conn_ptnr2_label_alt_id
+   Corrected definitions for _struct_conn_ptnr2_ items
+   Added _struct_site_gen_label_alt_id
+   Fixed Cullis reference in _phasing_MIR_der_shell_R_Cullis
+   Change _database_PDB_rev_ example to _loop construction
+   Added _PDB_remark category (data items _PDB_remark_num and
+   _PDB_remark_text)
+   Added 'obsolete' to enumeration list for _database_PDB_rev_status
+   Added _database_PDB_rev_replaces data item
+;
+   0.3.5  1993-09-08
+;
+   Added missing _diffrn_orient_matrix_UB_33 (in appendix)
+   Added missing _phasing_MIR_der_shell_der_id to appropriate example
+;
+   0.3.6  1993-10-10
+;
+   Changed *_appendix to *_[mm] throughout
+   Removed 'Need example here' from _chemical_[mm]
+   Removed 'Need example here' from _chemical_conn_atom_[mm]
+   Removed 'Need example here' from _chemical_conn_bond_[mm]
+   Moved _PDB to end of all relevant data names (except _[mm])
+   Added _database_rev_record_details_PDB data name
+   Changed _refine_occupancy_limit_high to _refine_occupancy_max
+   Changed _refine_occupancy_limit_low to _refine_occupancy_min
+   Changed _refine_B_iso_limit_high to _refine_B_iso_max
+   Changed _refine_B_iso_limit_low to _refine_B_iso_min
+   Changed all definitions and examples in _refine_iso_B_ category
+   to _refine_B_iso_ equivalents
+;
+   0.3.7  1993-11-16
+;
+   Changed form of dates in _update_history to CIF style
+   Changed ? to . in examples, where appropriate
+   Added _example_detail to _refine_ls_restr_type
+   Expanded definition of _refine_ls_restr_type
+;
+   0.3.8  1993-11-30
+;
+    Moved _audit_author_, _citation_ categories to CIF core
+    Definitions and small-molecule examples removed from *_[mm]
+    sections that don't extend core categories - BMcM
+;
+   0.3.9  1993-12-02
+;
+   Deleted section summarizing categories  - PMDF
+   Returned definitions for most *_[mm] sections - PMDF
+   Added _list and  _list_level to global - PMDF
+   Changed form of dates from yy-mm-dd to yyyy-mm-dd - PMDF
+   Checked lists of data items in core, fixing some problems
+   with missing names and alphabetization - PMDF
+   Resorted some categories to correct alphabetization - PMDF
+   Changed form and definitions of _database_remark_num_PDB and
+   _database_remark_text_PDB - PMDF
+   Added data item _database_rev_replaced_by_PDB - PMDF
+   Reordered data items in _citation example - PMDF
+   Added data item _exptl_crystal_density_%_sol - PMDF
+;
+   0.3.10  1993-12-15
+;
+   Various changes following suggestions from BMcM
+   Refined definition of _atoms_site_label_atom_id - PMDF
+   Removed _atom_sites_fract_tran (moved to core) - PMDF
+   Changed _diffrn_crystal_physical_device to
+           _diffrn_crystal_support - PMDF
+   Changed _diffrn_measure_device_part to
+           _diffrn_measure_device_specific - PMDF
+   Changed _diffrn_rad_detector_part to
+           _diffrn_rad_detector_specific - PMDF
+   Changed _diffrn_rad_source_part to
+           _diffrn_rad_source_specific - PMDF
+   Changed *_par1* and *_par2* to *_ptnr* in _struct_conn* - PMDF
+   Fixed several occurrences of \&A instead of \%A - PMDF
+;
+   0.3.11  1993-12-22
+;
+   Made a number of fixes relayed by PEB from MS AND RH
+   _type of _atom_site_footnote_id (numb->char) - PMDF
+   _type of _database_rev_record_rev_num_PDB (char->numb) - PMDF
+   _type of _phasing_MIR_der_number_of_sites (char->numb) - PMDF
+     _atom_sites_fract_tran_matrx to _matrix - PMDF
+   _type of _phasing_MIR_site_details (numb->char) - PMDF
+   _example of _struct_conf_type_reference - PMDF
+;
+   0.3.12  1993-12-23
+;
+   Broke out examples from intro sections to loop_  _item_examples.case
+   _example_detail construction - BMcM
+;
+   0.3.13  1994-01-13
+;
+   Rationalization of categories between mm and core dicts - BMcM
+   Deleted _diffrn_crystal_environment (same as core
+           _diffrn_ambient_environment) and moved other _diffrn_crystal
+           items to core - BMcM
+   Fixed typos, removed hyphenation ("be kind to ciftex") - BMcM
+   Some re-alphabetization - BMcM
+;
+   0.3.14  1994-01-26
+;
+   Lots more re-alphabetization - PMDF
+   Changed non_s to nstd throughout - PMDF
+   Changed nonp to npol throughout - PMDF
+   Removed all multiple spaces - PMDF
+   Fixed a couple of alignment problems - PMDF
+;
+   0.4.1  1994-02-04
+;
+    Major modifications of _entity_ subcategories - PMDF
+    Added angles, planes, torsion angles and chiral centers to
+    _entity_mon_ and _entity_npol_
+    Added many missing definitions
+    Added many missing examples
+;
+   0.4.2  1994-02-25
+;
+   Corrected spelling errors found by BMcM - PMDF
+;
+   0.4.3  1994-03-28
+;
+   Various changes following suggestions by IDB - PMDF
+   Changed _entity_mon_angle_value to
+           _entity_mon_angle_value_angle in example
+   Changed _entity_npol_bond_value to
+           _entity_npol_bond_value_dist
+   Changed nonp to npol in _entity_npol_tor_value category
+   Reworded angle _enumeration_details in _refine_ls_restr_type
+   Reworded definitions in _struct_asym_[mm] and _struct_biol_[mm]
+   Reworded definitions of _struct_conn_symmetry_*
+                           _struct_site_gen_symmetry
+                           _struct_biol_gen_symmetry
+   Split _struct_conn_symmetry_* into
+         _struct_conn_ptnr1_symmetry and
+         _struct_conn_ptnr2_symmetry
+   Split _struct_conn_role_* into
+         _struct_conn_ptnr1_role and
+         _struct_conn_ptnr2_role
+   Removed _list_link_child from _struct_conn_conn_type_id
+   Added _list_link_child to _struct_conn_type_id
+;
+   0.5.1   1994-10-10
+;
+   Implementation of Treaty of Brussels - PMDF
+   Merged CIF core dated 1994-03-01 (from BMcM) with mm dictionary
+   dated 1994-05-20.
+
+   The history records for the core dictionary are included here
+   to identify the version of the core that was merged:
+
+    _dictionary_name            cifdic.c94
+    _dictionary_version         2.0
+    _dictionary_update          1994-03-01
+    _dictionary_history
+
+      1991-05-27  Created from CIF Dictionary text. SRH
+      1991-05-30  Validated with CYCLOPS & CIF ms. SRH
+      1991-06-03  Adjustments to some definitions. SRH
+      1991-06-06  Adjustments a la B. McMahon. SRH
+      1991-06-18  Additions & some redefinitions. SRH
+      1991-07-04  Corrected 90:0 in *_detect_slit_. SRH
+      1991-09-20  Additions & some redefinitions. SRH
+      1991-09-20  Final published version. IUCr
+      1991-11-12  Add _diffrn_ambient_environment. SRH
+      1991-11-12  Allow 'c' for _atom_site_calc_flag. SRH
+      1993-02-23  Apply global_ and 'unknown' -> '?' SRH
+      1993-03-05  Changes resulting from MM dictionary. SRH
+      1993-05-20  Changes arising from new DDL commands. SRH
+      1993-08-05  Additional fine tuning pre-Beijing. SRH
+      1993-12-22  Introductory sections added to categories. BMcM
+      1993-12-22  Additional categories from mm work: _audit_author,
+                  _citation, _atom_sites_fract_tran_matrix. BMcM
+      1994-03-01  Add 'undef' to _refine_ls_hydrogen_treatment. BMcM
+      1994-03-01  Add '_publ_section_exptl_prep' and '*_refinement'. BMcM
+      1994-03-01  Add 'atom_site_aniso_ratio'. BMcM
+                          --------------
+
+   Removed all mm sections that enumeration items present in core
+   but not present in mm dictionary.
+   Fixed errors with missing trailing _'s in some category headers
+   Also unbalanced ##'s in same place
+   Removed "End of Example" statement everywhere
+   Standardized syntax for missing examples
+   Standardized syntax and style for category _definition data
+   items. Added a bunch of ending dashed lines where they were missing.
+   <Saved Brussels_airplane_1 at this point and began new file.>
+   Merged [] and [mm] category explanation sections. Made HIV
+   example always example 1, moved examples from core (where
+   they were different from the HIV example) to higher numbers.
+   <Saved Bussels_airplane_2 at this point - [] and [mm] sections
+   not yet completely merged..
+;
+   0.5.2  1994-11-09
+;
+   Implementation of DDL 2.0.7 in CITATION category - PMDF & JW
+;
+   0.5.3  1994-11-13
+;
+   Implementation of DDL 2.0.7 dictionary wide - PMDF
+   Finished merging [] and [mm] sections
+   <Saved newddl_all_1 at this point>
+   Changed data_ to save_ everywhere
+   Changed _name to _item.name everywhere
+   Added _item.mandatory_code  everywhere
+   Added save_ everywhere
+   Moved _description to top of _save frame everywhere
+   Changed _example to _item_examples.case everywhere
+   Changed _example_detail to _item_examples.detail everywhere
+   Changed _description to _item.description.description
+           everywhere
+   Removed _list yes everywhere
+   Removed _list_reference everywhere
+   Changed _enumeration_range to enumeration_limit.minimum and
+           enumeration_limit.maximum everywhere
+   <saved newddl_all_2 at this point>
+;
+   0.5.4  1994-11-14
+;
+   Implementation of DDL 2.0.7 dictionary wide - PMDF
+   Changed _enumeration to _enumeration.code
+   Changed _enumeration_detail to _enumeration.code_detail
+   Changed _enumeration_default to _enumeration_default.code
+   Put .'s in item names (incomplete)
+   Moved _PDB back to appropriate place in item names in the
+    _database_remark_PDB_ and _database_rev_PDB_ and
+    _database_rev_record_PDB_ categories
+   Changed database_rev_PDB to database_PDB_rev
+   Changed database_remark_PDB to database_PDB_remark
+   Changed database_rev_record_PDB to database_PDB_rev_record
+   Changed category items from item to category
+   Began getting rid of *_whatever construction in category
+       and item descriptions
+   <saved newddl_all_3 at this point>
+;
+   0.5.5   1994-11-15
+;
+   Implementation of DDL 2.0.7 dictionary wide - PMDF
+   Finished putting .'s in itme names
+   Changed _diffrn_measure_ to _diffrn_measurement.
+   Changed _diffrn_rad_ to _diffrn_radiation.
+   <saved newddl_all_4 at this point>
+   Implemented category and ID pointers for entity category.
+   Found all sorts of errors while doing this, and attempted
+   to fix them consistently. Did not remove child data
+   Items, even though they don't have to be specified - they
+   should help keep all of this straight during the transition.
+   Some silly reformatting to ensure that data values always
+   have the first alphabetic character in column 33.
+   More silly reformatting to put each example in an example
+   loop on a separate line.
+   <saved newddl_all_4 at this point and sent copy to JW>
+;
+  0.6.1  1994-11-21
+;
+  Changes (JDW):
+  +  Converted dictionary and dictionary_history categories.
+     Incorporated core dictionary history list into the new
+     history list in the revision 0.5.1 where the dictionary
+     merger is firsted discussed.
+;
+  0.6.2  1994-11-28
+;
+  Changes (PMDF):
+  +  Made loop_ _item.name data items into separate data items
+       This involved rewriting the definitions of most of them.
+       In doing so I continued to eliminate the a.b_* construction.
+     Added unit type of degrees.
+     Added unit type of minutes.
+     Added unit type of electrons.
+;
+  0.6.3  1994-11-30
+;
+  Changes (PMDF):
+  +  Finished conversion of units data items
+       Added a number of unit types to the table
+       Conversation table still need to be fleshed out
+     Removed _list_mandatory and changed _item_mandatory.code to yes for
+       those data items
+;
+  0.6.4  1994-12-01
+;
+  Changes (PMDF):
+  +  Began conversion of _list_link_parent items to appropriate new DDL
+       relationships
+;
+  0.6.5  1994-12-02
+;
+  Changes (PMDF):
+  +  Began implementation of new scheme for relationships in the entity
+       category
+       All entities will be treated as polymers - non-polymers will have
+         a number of monomers of 1
+       All data items in ENTITY_NPOL categories are eliminated
+       All data items in ENTITY_POLY category are moved to ENTITY
+;
+  0.6.6  1994-12-06
+;
+  Changes (PMDF):
+  +  Finished conversion of _list_link_parent items to appropriate new DDL
+       relationships
+     Filled out category_key.id items in each category
+       Had to add diffrn_refln.id item, as cannot use h k l in that category
+         (perfectly valid to measure same reflection more than once).
+       Used _diffrn_standard_refln.code in that category - this may cause a
+         problem with old files, as example file did not give this data item
+       Moved _entity_poly items back to _entity category
+       Moved _entity_poly.formula_weight to entity.formula_weight
+       Used _exptl_crystal.id in that category - this may cause a
+         problem with old files, as example file did not give this data item
+       Added _exptl_crystal_grow.crystal_id in that category
+       Added _symmetry_equiv.id in that category - this may cause a
+         problem with old files, as this is a new data item
+;
+  0.6.7  1994-12-07
+;
+  Changes (PMDF):
+  +  Created DATABASE_NEW category to solve logical problems with old DATABASE
+       category. Need to think some more about how old data items are handled.
+     Added aliases for remaining c91 data items
+     Changed geom_angle to geom_angle.value (aliased to original name)
+     Changed geom_torsion to geom_torsion.value (aliased to original name)
+     Returned ATOM_SITE items taken out during ATOM_SITE_MM transition
+;
+  0.6.8  1994-12-08
+;
+  Changes (PMDF):
+  +  Created ATOM_SITE_ANISOTROP category to provide for ability to have
+       anisotropic data is a separate loop, if desired.
+     Checked and fixed a bunch of style things
+     Added item_units.code of degrees in data items with degrees in the
+       description but not in the ddl
+     Added item_units.code of kelvin in data items with kelvin in the
+       description but not in the ddl (and added 'in degrees kelvin' to the
+       description of those with item_units.code of kelvin but no corresponding
+       phrase in the description)
+     Added item_units.code of microseconds to _diffrn_radiation.detector_dtime
+       (added to units list at same time)
+     Added 'in minutes' to description of _diffrn_refln.elapsed_time
+     Added 'in kilopascals' to to the description of those with item_units.code
+       of kilopascals but no corresponding phrase in the description
+     Added BLOCK category
+       Added appropriate pointers (in category key, and with a data item
+         pointing to _data_block.id) in all categories that needed them
+;
+  0.6.9  1994-12-09
+;
+  Changes (PMDF):
+  +  Added _esd data items where needed
+     Rationalized descriptions for all of the coordinate data items
+;
+  0.6.10  1994-12-13
+;
+  Changes (PMDF):
+  +  Established check-list for unfinished tasks and began dealing with them
+     Added enumeration limits of 0 and 1 and enumeration default of 1.0 to
+       occupancy data items
+       Left heavy-atom maximum with an enumeration of ?
+     Added enumeration default of 1_555 to all _symmetry data items where it was
+       missing
+     Changed 'connect type' to 'interaction' in _struct_conn_type data items.
+     Filled out sub_category ddl items for cartesian coordinates, fractional
+       coordinates, cartesian coordinates esds, and Miller indices.
+;
+  0.6.11 1994-12-14
+;
+  Changes (PMDF):
+  +  Fixed R-Kraut reference
+     Changed _reflns_shell.possible_&_all to _reflns_shell.percent_possible_all
+     Changed _reflns_shell.possible_&_obs to _reflns_shell.percent_possible_obs
+     Changed _exptl_crystal.density_%_sol to _exptl_crystal.density_percent_sol
+       Included full formula for this calculation in description
+     Changed _refine_ls_restr.model _refine_ls_restr.dev_ideal
+     Changed _refine_ls_restr.target _refine_ls_restr.dev_ideal_target
+     Improved wording of all definitions in REFINE_LS_RESTR
+     Explained sums in _reflns_shell.Rmerge_I_obs and related data items
+;
+  0.6.12 1994-12-15
+;
+  Changes (PMDF):
+  +  Changed _enumeration_default.code to _item_default.value
+     Changed _enumeration_default.value to _item_default.value
+     Changed _enumeration.code to _item_enumeration.value
+     Changed _enumeration.detail to _item_enumeration.detail
+     Changed _enumeration.case to _item_enumeration.value
+     Changed _enumeration_limit.maximum to _item_range.maximum
+     Changed _enumeration_limit.minimum to _item_range.minimum
+     Checked that matrix were properly labeled as either rw_rowwise or just
+       plan rowwise.
+     Reworded matrix descriptions for consistency.
+     Got rid of the last of the a.b_* constructions in descriptions
+     Added cell_length, cell_length_esd, cell_angle and cell_angle_esd
+       subcategories
+     Changed special_details to details for core items - original names retained
+       in aliases
+     Added atom_site.id
+     Added mm_atom_site_label subcategory
+     Commented out _atom_site.label_component until it can be dealt with
+       properly
+     Changed 'SIF' to 'data block' in a number of descriptions.
+;
+  0.6.13 1994-12-16
+;
+  Changes (PMDF):
+  +  Added data item _refln.R_free_status
+     Added data item _reflns.R_free_details
+     Changed _refine_ls_shell.reflns to refine_ls_shell.number_obs
+     Added _refine_ls_shell.number_R_free
+     Added _refine_ls_shell.number_all
+     Added _refine_ls_shell.R_factor_R_free
+     Added _refine_ls_shell.wR_factor_R_free
+     Tidied up the count and R-factor descriptions in REFINE_LS_SHELL
+     Added appropriate item_related names to the R-factors in REFINE_LS_SHELL
+     Changed 'count' to 'number' in several data names
+     Changed _reflns.number_total to _reflns.number_all
+     Changed _reflns.number_observed to _reflns.number.obs
+     Added _refine.ls_R_factor_R_free
+     Added _refine.ls_wR_factor_R_free
+     Edited descriptions of the other R-factor data items in the REFINE
+       category to conform to the style in REFINE_LS_SHELL
+     Re-alphabetized the things I changed yesterday from special_details to
+       details - I had forgotten to do that yesterday
+;
+  0.6.14 1994-12-19
+;
+  Changes (PMDF):
+  +  Changed refine.ls_number_reflns to refine.ls_number_reflns_obs
+     Added refine.ls_number_reflns_all
+     Added refine.ls_number_reflns_R_free
+     Changed _refln.observed_status to refln.status
+       Expanded enumeration list to include resolution limits and R-free flag
+       Rewrote definition
+       Eliminated refln.R_free_status
+     Changed _refine_ls_shell.number_all to _refine_ls_shell.number_reflns_all
+     Changed _refine_ls_shell.number_obs to _refine_ls_shell.number_reflns_obs
+     Changed _refine_ls_shell.number_R_free to
+             _refine_ls_shell.number_reflns_R_free
+     Added PHASING category
+     Filled in and reformatted units conversion table
+;
+  0.7.1 1994-12-19
+;
+  Changes (JDW):
+  +  First pass through SIFLIB checking tools. Corrected syntax errors and
+     missing parent references.
+;
+  0.7.2 1994-12-20
+;
+  Changes (PMDF):
+  +  Merged JDW changes with version 0.6.12
+       Changed _item_type.code of numb to either int or float
+       Changed _item_description.description to category.description where
+         appropriate
+       Fixed a bunch of pure syntax errors
+       Removed 'refln_scale_group' from list of category groups.
+       Changed _refln_scale_group_code to _refln.scale_group_code somewhere
+       Changed REFLN_SCALE_GROUP_CODE to _refln.scale_group_code somewhere
+       Reformatted CATEGORY_GROUP_LIST items to match style of other
+         header categories
+       Ensures that all _category data items obey they rule of first
+         alphabetic character is column 34 (most didn't before this check)
+       Removed _item_related stuff from _atom_site.aniso_U[1][1] (at the
+         rest) data items, and added wording to description that these
+         items are only there for compliance via the alias (but left in
+         the one _item_related thing that made the matrix element data item
+         alternate exclusive to the full matrix data item
+       Added language about compliance to _atom_sites.Cartn_tran_matrix
+       Added language about compliance to _diffrn_orient_matrix.UB
+       Added language about compliance to _diffrn_reflns.transf_matrix
+       Removed matrix element data items for _atom_sites.fract_tran_matrix -
+         this wasn't in c91 and so doesn't need aliasing
+;
+  0.7.3 1994-12-22
+;
+  Changes (PMDF):
+  +  Fixed things turned up by JDW checking of 0.7.2
+       Couple of small typos
+       Added angstroms_cubed to units list and conversion tables
+     Added _phasing_MIR_site.atom_type_symbol and added this reference to the
+       table until _atom_type.symbol
+     Added _entity_mon_atom.substruct_code
+     Began adding STRUCT_MON_PROT, but this is not yet complete
+;
+  0.7.4 1995-01-12
+;
+  Changes (PMDF):
+  +  Finished working on STRUCT_MON_PROT category
+     Added STRUCT_MON_DETAILS category
+     Added STRUCT_MON_PROT_CIS category
+     Added STRUCT_NCS_ENS category
+     Added STRUCT_NCS_ENS_OPER category
+     Added STRUCT_NCS_DOM category
+     Added STRUCT_NCS_DOM_GEN category
+     Added equations to definitions of _phasing_MIR_der_shell.fom and
+       _phasing_MIR_shell.fom
+     Added REFINE_HIST category
+;
+  0.7.5 1995-01-13
+;
+  Changes (PMDF):
+  +  Provided for sequence microheterogeneity by making _entity_poly_seq.mon_id
+       part of the category key and by adding the data item
+       _entity_poly_seq.hetero as a flag
+     Added ENTITY_POLY_SEQ_DIF category - this meant adjusting some pointer
+       in referenced data items.
+     Added _entity_mon_atom.alt_atom_id.
+     Added COMP_PROG category
+     Removed non-c91 COMPUTING data items (phasing averaging, MAD, MIR and MR)
+;
+  0.7.6 1995-01-17
+;
+  Changes (PMDF):
+  +  Added ENTITY_SRC_NAT category
+     Added ENTITY_SRC_GEN category
+     Added ENTITY_NAM_COM category
+     Added ENTITY_NAM_SYS category
+     Added _entity.src_method data item
+     Moved other entity data items to new categories as appropriate
+;
+  0.7.7 1995-01-18
+;
+  Changes (PMDF):
+  +  Added PHASING_MIR_REFLN category
+;
+  0.7.8 1995-01-25
+;
+  Changes (PMDF):
+  +  Added _entity_mon.type, _entity_mon.number_atoms_all,
+       _entity_mon.number_atoms_nh, _entity_mon.one_letter_code
+     Added _entity_mon_angle.value_angle_esd, _entity_mon_angle.value_dist_esd,
+       _entity_mon_bond.value_dist_esd
+     Added _entity_mon_atom.type_energy, but since this is intended to be a
+       pointer to a category (_atom_type_energy) that doesn't exist yet, have
+       left it commented out
+     Added _entity_mon_chir.volume_three, _entity_mon_chir.volume_three_esd and
+       _entity_mon_chir.volume_flag
+     Added _entity_mon_plane.number_atoms_all, _entity_mon_plane.number_atoms_nh
+     Added _entity_mon_chir.number_atoms_all, _entity_mon_chir.number_atoms_nh
+     Added _entity_mon_chir_atom.dev
+     Added _entity_mon_tor_value.angle_esd, _entity_mon_tor_value.dist_esd
+     Added ENTITY_LINK category
+     Added ENTITY_LINK_ANGLE category
+     Added ENTITY_LINK_BOND category
+  Changes (HB et al.):
+  +  Added STRUCT_MON_NUCL category
+  Changes (PMDF):
+  +  Added label links from STRUCT_MON_NUCL to rest of dictionary
+     Added label links from STRUCT_MON_PROT as well (forget them initially)
+;
+  0.7.9 1995-01-30
+;
+  Changes (PMDF):
+  +  Fixed syntax errors unearthed by checking of JW and PDB
+;
+  0.7.10 1995-02-03
+;
+  Changes (PMDF):
+  +  Removed loop_ construction from loop_ or order one, except not for
+       category examples and not for parent/child loops
+     Standardized style of yes/no enumeration lists
+     Made style of all enumeration lists more standard (still not happy here)
+     Standardized style of examples
+     Standardized style of references in definitions
+     Began standardizing style of equations in definitions
+;
+  0.7.11 1995-02-07
+;
+  Changes (PMDF):
+  +  Finished standardizing style of equations in definitions
+     Moved ITEM_TYPE_LIST to bottom of dictionary
+     Moved ITEM_UNITS_LIST to bottom of dictionary
+     Moved ITEM_STRUCTURE_LIST to bottom of dictionary
+     Moved DICTIONARY_HISTORY to bottom of dictionary (it will come back up
+       to the top with version 1.0.0)
+     Rewrote dictionary header comments to reflect this dictionary
+;
+  0.7.12 1995-02-09
+;
+  Changes (JDW):
+  +  Changed _atom_site.label_res_id to _atom_site.label_comp_id which is
+     a child of _chem_comp.id.
+  +  Changed all children items named label_res_id to label_comp_id
+  +  Changed descriptions of many label_comp_id to reference correct
+     parent item. (_atom_site.label_comp_id rather than comp_comp.id).
+  +  Changed ENTITY_MON to CHEM_COMP and removed polymer component specific
+     terminology.
+  +  Changed ENTITY_LINK to CHEM_LINK and removed polymer component specific
+     terminology.
+  +  Added data type for yyyy-mm-dd and applied this where appropriate.
+  +  Added chem_comp_group and chem_link_group to the category group list.
+  +  Added '_' prefix to all data item save frame names.
+;
+  0.7.13 1995-04-20
+;
+  Changes (PMDF):
+  +  Changed all matrices back to element by element representation.
+  +  Reworded definitions of B and U matrices to clarify alternate exclusive
+       relationship
+  +  Changed 'miller' to 'Miller' in some definitions, but left it 'miller' in
+       data values.
+  +  Changed 'CIF' to 'data bock' where appropriate.
+  +  Made changes according to notes from last Rutgers meeting. Mostly this is
+       clearer wording of definitions.
+       Made formal Ref: for scattering factors.
+       Changed atom_site.description to atom_site.details
+       Expanded definitions for the components of the atom site label.
+       Added disclaimer to some records in ATOM_SITE and ATOM_SITES categories.
+       Changed _atom_type.analytical_mass_% to
+         _atom_type.analytical_mass_percent
+       Expanded definition of AUDIT category
+       Added separate esd data items to examples in CELL category
+       Added real formula in definition of _cell.volume
+       Moved disclaimer to the top in CHEMICAL categories
+       Changed enumeration to example in _chem_comp.one_letter_code
+       Changed _phasing_MIR_refln.F_sigma to _phasing_MIR_refln.F_meas_sigma
+         and adjusted definition to style of other esd definitions. Added type
+         condition esd to _phasing_MIR_refln.F_meas
+       Changed refln.observed_status to refln.status in example
+       Changed _refln.F_sigma to _refln.F_meas_sigma and adjusted definition to
+         style of other esd definitions. Added type condition esd to
+         _refln.F_meas
+;
+  0.7.14 1995-05-03
+;
+  Changes (PMDF):
+  +  Fixed definitions of _phasing_MIR_refln.index_k and
+       _phasing_MIR_refln.index_l
+;
+  0.7.15 1995-05-18
+;
+  Changes (PMDF):
+  +  Added DDL linking data names that are value to the data names that are
+       esds of those values
+     Changed _geom_bond.distance to _geom_bond.dist and _geom_bond.distance_esd
+       to _geom_bond.dist_esd
+     Changed _geom_contact.distance to _geom_contact.dist and
+       _geom_contact.distance_esd to _geom_contact.dist_esd
+     Changed _cell_measurement.temperature to _cell_measurement.temp and
+       _cell_measurement.temperature_esd to _cell_measurement.temp_esd
+     Changed _diffrn.ambient_temperature to _diffrn.ambient_temp and
+       _diffrn.ambient_temperature_esd to _diffrn.ambient_temp_esd
+;
+  0.7.16 1995-05-18
+;
+  Changes (PMDF):
+  +  Added _item.name DDL to those data items that didn't have it
+     Wrote program to check that the added names were all correct
+       Fixed problems that turned up (including one missing . in
+       _diffrn_radiation_detector_details
+;
+  0.7.17 1995-05-22
+;
+  Changes (PMDF):
+  +  Added _phasing_MIR_refln.F_meas_au and _phasing_MIR_refln.F_meas_au_sigma
+       and adjusted appropriate _item.related DDL
+     Added _refln.F_meas_au and _refln.F_meas_au_sigma and adjusted as above
+     Added _phasing_MIR_refln.F_calc_au and adjusted as above
+     Added _refln.F_calc_au and adjusted as above
+     Added _refln.A_calc_au and adjusted as above
+     Added _refln.B_calc_au and adjusted as above
+     Added _refln.A_meas_au and adjusted as above
+     Added _refln.B_meas_au and adjusted as above
+     Changed _item_related.function_code from 'replace' to
+        'alternate_exclusive' in database_2 data items
+     Added _item_related DDL to appropriate _database data items
+;
+  0.7.18 1995-07-20
+;
+  Changes (JDW):
+    + Added '_struct_biol_gen.symmetry' to the key on struct_biol_gen.
+    + Changed category block to entry.
+    + Added     _dictionary.datablock_id
+    + Replace publ_group and journal_group with category group named iucr_group
+    + Added category group named pdb_group
+    + Removed all the _atom_site.label references and repointed any
+      references to this item to _atom_site.id.
+    + Added optional atom identifiers to all of the GEOM categories.
+    + Added translation vector to transformations in ATOM_SITES
+    + Created subcategories for matrices and vectors
+    + Moved _struct.keywords to a new category STRUCT_KEYWORDS
+    + Added pointer to exptl_crystal.id as part of key in
+      category EXPTL_CRYSTAL_GROW_COMP.
+    + Restructured DATABASE_PDB_REMARK category
+    + Changed alternate_exclusive to replaces and replacedby in
+      DATABASE and DATABASE_2
+    + Restructured examples in _chem_comp.one_letter_code ...
+    + Added data item _chem_comp.three_letter_code
+    + Made atom_site.label_alt_id and its children an optional item
+    + Changed item names _atom_sites.frac_tran_* _atom_site.frac_transf_*
+      and _atom_sites.Cartn_tran_* _atom_site.Cartn_transf_*
+    + Changed the key of ATOM_SITE_ANISOTROP to _atom_site_anisotrop.id
+    + Added all of the GEOM category atom label items to their appropriate
+      parent data items.
+    + 'arbitrary' added to list of item_units_list.code's
+    + Fixed conflicting mandatory codes...
+;
+  0.7.19 1995-07-23
+;
+  Changes (JDW & PMDF):
+    + Minor corrections in sheet example and version update.
+    + Removed illegal characters from data item names.
+      Changed any "/" in data item names to "_over_".
+;
+  0.7.20 1995-08-02
+;
+  Changes (PMDF):
+    + Enforced 80 character per line limit throughout.
+    + Realphabetized _geom_angle.value and _geom_angle.value_esd.
+    + Realphabetized _geom_torsion.value and _geom_torsion.value_esd.
+    + Removed trailing blanks.
+    + Fixed a couple of problems with missing terminal '.
+;
+  0.7.21 1995-08-08
+;
+  Changes (PMDF):
+    + Added _citation_author.ordinal and updated examples to reflect this
+        addition.
+    + Changed _item.mandatory_code for _citation_author.name to 'yes'.
+    + First pass at checking the dictionary for spelling - lots of little
+        changes in lots of places.
+    + Removed many occurrences of 'with with' in definitions.
+;
+  0.7.22 1995-08-09
+;
+  Changes (PMDF):
+    + Added definitions for _chem_link_angle.link_id and
+        _chem_link_bond.link_id
+    + Straighted out spacing inconsistencies with _item.mandatory_code
+    + Another quick pass at spell checking
+;
+  0.7.23 1995-08-10
+;
+  Changes (PMDF):
+    + Changed _struct_sheet_gen.label_seq_id to _struct_site_gen.label_seq_id
+        in _atom_site.label_seq_id tree
+    + Removed duplicate entry of _phasing_MIR.entry_id in _entry.id tree
+    + Removed alias in definitionof _refln.A_meas_au
+    + Removed _item.category_id from
+        _chem_link.type_comp_1
+        _chem_link.type_comp_2
+        _phasing_mad_clust.expt_id
+        _phasing_mad_set.clust_id
+        _phasing_mad_set.expt_id
+        _phasing_mad_set.set_id
+        _phasing_mad_ratio.expt_id
+        _phasing_mad_ratio.clust_id
+        _phasing_mad_ratio.wavelength_1
+        _phasing_mad_ratio.wavelength_2
+    + Removed _item_type.code from most of the above (it wasn't there in all
+        of them).
+    + Added _item.mandatory_code to _phasing_mir_der.der_set_id
+    + Corrected _item.name for _phasing_mad_ratio.wavelength_2
+;
+  0.7.24 1995-08-21
+;
+  Changes (PMDF):
+    + Corrected category.id for data items in the DIFFRN_STANDARDS category
+    + Corrected category.id for data items in the PHASING_MAD_EXPT category
+    + Corrected category.id for selected data items in the PHASING_SET
+        category
+    + Corrected alias for _atom_site.thermal_displace_type
+    + Introduced alias of _atom_site_aniso_label for _atom_site_anistrop.id
+    + Introduced alias of _atom_site_aniso_type_symbol for
+        _atom_site_anisotrop.type_symbol
+;
+  0.7.25 1995-08-31
+;
+  Changes (PMDF):
+    + Eliminated duplicate line in _entry_id parent/child table
+    + Changed the three occurrences of _item_type.code text to char
+        _atom_sites_alt.details
+        _atom_sites_alt_ens.details
+        _database_PDB_remark.text
+    + Fixed Klyne and Prelog reference in GEOM_TORSION category description
+    + Added data item _chem_comp_chir.atom_config
+    + Added hyphen in non-crystallographic in definition sof
+         _struct_ncs_ens.point_group
+    + Changed Data Base to Database when referring to the CSD
+    + Fixed four occurrances of 'the the' in definitions
+    + Added _item_range.maximum and _item_range.minimum DDL items to
+         _refine.ls_abs_structure_Flack and removed discussion of limits from
+         the definition.
+    + Changed two occurances of 'will be' to 'are' in the definition of
+         _entity.type.
+    + Changed ENTITY_NPOL to CHEM_COMP in definition of _entity.type.
+    + Changes ATOM to HETATM for APS coordinates in Example 1 for the
+          ATOM_SITE category
+    + Corrected _item.category_id for _struct_mon_details.prot_cis.
+    + Corrected _item.category_id for _refine_hist.details.
+    + Rewrote header comments to emphasize use of the mmCIF listserver as the
+      forum for the dictionary review process.
+;
+  0.7.26 1995-09-25
+;
+  Changes (PMDF):
+    + Put single quotes around 5HVP in those examples where they were missing.
+    + Fixed registration of '5VHP' in examples.
+    + Fixed typos in definition of _diffrn_measurement.device_specific.
+    + Added _item.name loop and parent-child tree to _chem_comp.type
+    + Fixed _item.name for _phasing_mir_der.der_set_id
+    + Fixed _item.name for _phasing_mir_der.native_set_id
+    + Added _phasing_mir_der_refln.set_id to _item.name loops and parent-child
+        tree of _phasing_set.id
+    + Fixed two misspellings of reference (refence).
+;
+  0.7.27 1995-09-27
+;
+  Changes (JDW & SH):
+    + Added _item_aliases.dictionary and _item_aliases.version to all
+      alias items.
+    + Added several missing aliases from cifdic.C94.
+    + Added a few missing data type codes in chem_link_*
+    + Modified all _item_range items to reflect the correction in
+      DDL 2.1.1. Checked all of the boundary conditions on ranges.
+    + Made corrections in virtually all of the regular expressions.
+    + Added data types 'ucode' and 'uchar'. These are case insensitive
+      character types for words and single line strings, respectively.
+      The regular expressions for these items will match characters
+      of upper and lower case but the primitive type is uchar so
+      all comparisons are performed in upper case. This avoids
+      problems with case, where case is really not important.
+    + Reviewed all items with character data types and made the following
+      changes (hopefully uniformly):
+       -  Data items with single word enumerates were set to type 'ucode'.
+       -  Data items with multi word enumerates were set to type 'uchar'.
+       -  Any item which could potentially exceed 80 characters was
+          set to type text.
+       -  Items which are restricted to single words were set to type 'code'.
+       -  Items which are short strings which may not span lines were
+          set to type 'char'.
+    + Moved aliases for anisotropic temperature factors from category
+      ATOM_SITE to ATOM_SITE_ANISOTROP
+    + Added category DATABASE_PDB_MATRIX to hold the SCALE and ORIGX
+      matrices/vectors.
+    + Modified the defintions of data types 'char1' and 'char3' to
+      permit leading '+' to indicate a modification.
+    + Checked dictionary with SIFLIB and returned to Paula ...
+;
+  0.7.28 1995-10-06
+;
+  Changes (PMDF):
+    + Removed loop from category example for DATABASE_2
+    + Fixed data names in category example for STRUCT_KEYWORDS
+    + Rewrote enumeration list for _struct_conf_type.id
+    + Removed references to chemical_formula.appendix and replaced them with
+      reference to the CHEMICAL_FORMULA category description
+    + Added data items _chem_comp.formula and _chem_comp.formula_weight
+    + Changed _chem_link_angle.atom_1_atom_id to _chem_link_angle.atom_id_1
+    + Changed _chem_link_angle.atom_2_atom_id to _chem_link_angle.atom_id_2
+    + Changed _chem_link_angle.atom_3_atom_id to _chem_link_angle.atom_id_3
+    + Changed _chem_link_bond.atom_1_atom_id to _chem_link_bond.atom_id_1
+    + Changed _chem_link_bond.atom_2_atom_id to _chem_link_bond.atom_id_2
+    + Realphabetized to accomodation the above changes
+    + Added CHEM_LINK_CHIR category
+    + Added CHEM_LINK_CHIR_ATOM category
+    + Added CHEM_LINK_PLANE category
+    + Added CHEM_LINK_PLANE_ATOM category
+    + Added CHEM_LINK_TOR category
+    + Added CHEM_LINK_TOR_VALUE category
+    + Added entries to parent/child table for _chem_link.id for reflect the
+        addition of the new categories.
+    + Added Engh and Huber/Priestle examples to CHEM_LINK_BOND and
+        CHEM_LINK_ANGLE
+    + Realphabetized categories in PHASING_MAD section
+  Changes (JDW):
+    + Added _item_type.code's for _chem_link_chir*.atom_id and
+      _chem_link_tor.atom_id_*.
+;
+  0.7.29 1995-12-11
+;
+  Changes (PMDF):
+    + Changes to my title and Brian's in header information.
+    + Enhanced description of the 'Hill system' of element ordering in
+        the definition of _chem_comp.formula.
+    + Added _item.mandatory_code to _phasing_mir_der.native_set_id
+    + Added DATABASE_PDB_CAVEAT category.
+    + Changed supercedes to superseded in DATABASE category description.
+    + Changed DATABASE_NEW to DATABASE_2 in category description.
+    + Changed SRUCT_SHEET_TOPOLOGY to STRUCT_SHEET_TOPOLOGY in category
+        description.
+    + Changed examples for STRUCT_SHEET_RANGE to contain only
+        _struct_sheet_range.symmetry, not _struct_sheet_range.beg_symmetry and
+        _struct_sheet_range.end_symmetry
+    + Added cell.Z_PDB data item
+    + Changed _atoms_sites.Cartn_tran_matrix to atom_sites.Cartn_transf_matrix
+        in definition of _atom_sites.Cartn_transform_axes
+    + Changed _chem_comp.nstd_class to _chem_comp.mon_nstd_class in
+        definition of _chem_comp.mon_nstd_flag
+    + Added data items for _chem_link_bond.value_angle and
+        _chem_link_bond.value_angle_esd
+    + Changed reference to _chemical_formula.appendix to CHEMICAL_FORMULA
+        category description in definition of _chemical_formula.moiety
+    + Changed _comp.prog.version to _comp_prog.version and
+        _comp.prog.citation_id to _comp_prog.citation_id in COMP_PROG example
+    + Changed reference to _computing.phasing_mir in _phasing_mir.method to
+        a reference to the COMP_PROG category.
+        Similarly with _computing.phasing_averaging in
+        _phasing_averaging.method and _computing.phasing_mad in
+        _phasing_mad.method and _computing.save_reduction in
+        _reflns.data_reduction_method
+    + Changed _entity.name_com.name to _entity_name_com.name in
+        ENTITY_NAME_COM example
+    + Changed reference to _exptl_crystal.face_ to data items in the
+        EXPTL_CRYSTAL_FACE category in the definition of
+        _exptl_crystal.description.
+    + Changed _diffrn.attenuator_code to _diffrn_attenuator.code in
+        the definition of _diffrn_refln.attenuator_code
+    + Changed _exptl.crystal_preparation to _exptl_crystal.preparation in the
+        definition of _exptl.details
+    + Changed _geom_bond.distance to _geom_bond.dist in the definition of
+        _geom_bond.dist_esd
+    + Added data items for _refine.ls_d_res_high and _refine.ls_d_res_low
+    + Changed _refine.d_res_high to _refine.ls_d_res_high and
+        _refine.d_res_low to _refine.ls_d_res_low in the definition of
+        _refln.status
+    + Changed _reflns_scale_group.code to _reflns_scale.group_code in the
+        definition of _refln.scale_group_code
+    + Changed _struct_site_view_details to _struct_biol_view.details in the
+        rotation matrix element definitions in the STRUCT_BIOL_VIEW
+        category (even though I realize that this isn't really correct in
+        terms of the definition of _struct_biol_view.details)
+    + Changed _symmetry.equiv_pos_as_xyz to _symmetry_equiv.pos_as_xyz in
+        the definition of _symmetry.space_group_name_H-M
+    + Changed _struct_mon.details_RSSR to _struct_mon_details.RSSR and
+        _struct_mon.details_RSR to _struct_mon_details.RSR in a number of
+        definitions in the STRUCT_MON_PROT and STRUCT_MON_NUCL categories
+    + Changed _reflns_shell.possible_%_obs to _reflns_shell.percent_possible_obs
+        in the REFLNS_SHELL example
+    + Corrected alphabetical order of data items in the REFLNS_SHELL category
+    + Changed _struct_sheet.number_details to _struct_sheet.details in the
+        STRUCT_SHEET examples
+    + Replaced _struct_sheet_range.beg_symmetry and
+        _struct_sheet_range.end_symmetry with _struct_sheet_range.symmetry
+        in the STRUCT_SHEET_RANGE category and fixed example itself
+    + Changed _refine.ls_number_reflns to _refine.ls_number_reflns_obs in the
+        definitions of _refine.ls_restrained_S_all and
+        _refine.ls_restrained_S_obs
+    + Changed _refine_ls_shell.reflns to _refine_ls_shell.number_reflns_obs in
+        the REFINE_LS_SHELL example
+    + Removed example from DATABASE category as it was not longer valid
+;
+  0.7.30 1996-01-29
+;
+  Changes (PMDF, HB, JDW):
+    + Added data items for pseudorotation in STRUCT_MON_NUCL.
+    + Globally changed future tense usage to present tense (eg. will be -> is)
+    + Added _citation.book_publisher_city.
+    + Changed _citation.journal_coden_PDB to _citation.journal_coden_CSD.
+    + Added _citation.journal_coden_CAS.
+    + Generalized the defintion of _atom_site.calc_flag.
+    + Corrections to definitions defining beginning and ends of ranges in
+      category STRUCT_SHEET_HBOND.
+    + Added data items _diffrn_refln.scan_rate and
+       _diffrn_refln.scan_time_backgd
+    + Added HELX_LH_27_P and HELX_RH_27_P helix enumeration types.
+    + Added figure of merit data item _refln.fom.
+;
+  0.7.31 1996-02-12
+;
+  Changes (JDW):
+    + Added data items for _database_pdb_matrix.tvect_matrix[][] and
+      _database_pdb_matrix.tvect_vector[].
+    + Generalized category CHEM_LINK to handle descriptions of a
+      any type of linkage. Created CHEM_COMP_LINK to describe
+      linkages between components, and ENTITY_LINK to describe
+      linkages between entities (and within entities between
+      nonsequential components). Both CHEM_COMP_LINK and ENTITY_LINK
+      reference the linkage description in the CHEM_LINK_* categories.
+;
+  0.7.32 1996-02-17
+;
+  Changes (JDW):
+    + atom_site.entity_id renamed atom_site.label_entity_id.
+    + atom_site.entity_seq_num deleted.
+    + added items _atom_site.auth_asym_id, _atom_site.auth_atom_id,
+      _atom_site.auth_comp_id, and _atom_site.auth_seq_id. These
+      items provide placeholders for alternative nomenclature that
+      may be used by the author.
+    + Set the parentage for _atom_site.label_seq_id to
+      _entity_poly_seq.num. All components of the atom site label
+      (_atom_site.label_*) are now linked to the mmCIF hierarchical
+      description of structure. The data items in _atom_site.auth_*
+      may be used by authors to provide alternative identifiers
+      in the atom site which conform with the  scheme that is used in
+      the publication of the structure.
+    + added category group mm_atom_site_auth_label
+    + added auth_asym_id, auth_atom_id, auth_comp_id, and auth_seq_id
+      child data items to the categories:  GEOM_ANGLE,GEOM_BOND,
+      GEOM_CONTACT, STRUCT_CONF, STRUCT_CONN, STRUCT_MON_NUCL,
+      STRUCT_PROT, STRUCT_PROT_CIS, STRUCT_NCS_DOM_GEN,
+      STRUCT_SHEET_HBOND, STRUCT_SHEET_RANGE, and STRUCT_SITE_GEN.
+;
+  0.7.33 1996-02-19
+;
+  Changes (JDW):
+    + Replaced category COMP_PROG with category SOFTWARE supplied by
+      P. Bourne.
+    + Fine tuned some values of _item_type.code. Fixed regular expression
+      for code and ucode.
+;
+  0.7.34 1996-02-20
+;
+  Changes (JDW):
+    + Integrated STRUCT_REF, STRUCT_REF_SEQ and STRUCT_REF_SEQ_DIF from
+      PMDF.
+    + Removed ENTITY_REFERENCE and ENTITY_POLY_SEQ_DIF.
+    + Integrated modified categories STRUCT_NCS_DOM, STRUCT_NCS_DOM_LIM,
+      STRUCT_NCS_ENS, STRUCT_NCS_ENS_GEN, and STRUCT_NCS_OPER from PMDF.
+    + changed _item_type.code's 'char' and 'uchar' to 'line' and 'uline'.
+;
+  0.8.0 1996-03-06
+;
+  Changes (PMDF, HB, JDW):
+    + Added unit type 8pi2_angstroms_squared B anisotropic temperature factors,
+      and added conversion factor for this new unit type in the
+      ITEM_UNITS_CONVERSION category.
+    + Changed _item_type.code for _symmetry_equiv.id to 'code'
+    + Added default value 'no' to _chem_comp.mon_nstd_flag.
+;
+  0.8.01 1996-03-12
+;
+  Changes (PMDF):
+    + Added missing circumflex to definition of
+      _exptl_crystal.density_percent_sol.
+    + Fixed erroneous reference to _atom_site.entity_seq_num in definition
+      of _atom_site.auth_seq_id.
+    + Changed _chem_comp_link.id to _chem_link.id in definition of
+     _chem_comp_link.link_id.
+    + Changed _citation.journal_coden_PDB to _citation.journal_coden_CSD in
+      citation category example
+    + Changed _entity_link.id to _chem_link.id in definition of
+      _entity_link.link_id.
+    + Changed _chem_link.type_comp_1 to _chem_comp_link.type_comp_1 in
+      _item_name and parent/child tables for _chem_comp.type. The same change
+      was made for component 2.
+;
+  0.8.02 1996-03-18
+;
+  Changes (PMDF):
+    + Changed category from chem_comp to chem_comp_link for data items
+      _chem_comp_link.type_comp_1 and _chem_comp_link.type_comp_1 in the
+      parent/child tree for the chem_comp.type data item.
+    + Added _struct_ref_seq.seq_align_beg and _struct_ref_seq.seq_aling_end
+      to the mandatory code table for _entity_poly_seq.num.
+    + Added _struct_ref_seq_dif.seq_num to both the parent/child and mandatory
+      code tables for _entity_poly_seq.num.
+    + Added data item _struct_ncs_oper.code.
+    + Changed units type to 8pi2_angstroms_squares for
+      _atom_site.B_iso_or_equiv and _atom_site.B_iso_or_equiv_esd.
+    + Moved TVECT vector from DATABASE_PDB_MATRIX to
+      a new category DATABASE_PDB_TVECT and added a identifier
+      and details item to this new category. The matrix component of
+      TVECT has been removed.
+;
+  0.8.03 1996-04-03
+;
+  Changes (PMDF):
+    + Began implementing changes to bring this dictionary into alignment
+      with the current version of the CIF core dictionary. These differences
+      were provided by Brian McMahon and I. David Brown. As most of these
+      changes are matters of style and not substance, they will not be noted
+      individually here. Anything that does involve substance will be.
+    + Changed specification of the format of names to included that provision
+      for a dynanastic modifier.
+;
+  0.8.04 1996-11-04
+;
+  Changes (PMDF):
+    + Changed format of references in data item definitions to match style of
+      extended core.
+    + Changed format of matrices in data item definitions to match style of
+      extended core, with the addition of more rigorous definition of style
+      agreed to by PMDF, JDW and HB.
+    + Changed format of equivations in data item definitions to match style of
+      extended core, with the addition of more rigorous definition of style
+      agreed to by PMDF, JDW and HB.
+    + Added aliases to data items where they were missing to establish
+      correspondence with extended core.
+    + Changed frac to fract in _atom_site.frac... data items.
+    + Added _citation_editor_ordinal.
+    + Added JOURNAL_INDEX data items, as well as _journal.language and
+      _journal.paper_category.
+    + Added _diffrn_measurement_specimen_support
+            _diffrn_orient_refln_angle_omega
+            _diffrn_orient_refln_angle_theta
+    + Added PUBL_BODY category and data items.
+    + Added _publ.contact_author_address
+            _publ.contact_author_name
+    + Added _publ.section_exptl_solution
+            _publ.section_synopsis
+            _publ.section_title_footnote
+    + Added AUDIT_CONFORM category and data items.
+    + Added GEOM_HBOND category and data items.
+;
+  0.8.05 1996-11-11
+;
+  Changes (PMDF):
+    + More changes to bring this dictionary into alignement with the extended
+        core
+    + Added _chemical_forumula.iupac
+    + Added _atom_site.B_equiv_geom_mean (and its esd)
+    + Added _atom_site.U_equiv_geom_mean (and its esd)
+    + Added _atom_type.scat_length_neutron
+;
+  0.8.06 1996-11-13
+;
+  Changes (JDW):
+    + Reorganized categories in the DIFFRN group to formally support
+      multiple diffraction data sets.
+;
+  0.8.07 1996-12-18
+;
+  Changes (PMDF):
+    + Removed single quote from value of DDL items where they were not needed
+    + Cleaned up style of range minimum/maximum data value
+    + Cleaned up alignment of various DDL items
+    + Deleted _chem_link_bond.value_angle and _chem_link_bond.value_angle_esd
+;
+  0.8.08 1997-01-06
+;
+  Changes (PMDF):
+    + Added R_work data items to the various REFINE categories
+    + Rewrote definitions for existing R-factor definitions to distinguish
+      between R_work, R_free and conventional R
+  Changes (JDW) (retrieved from earlier, misplaced version):
+    + Added data item _chem_comp.mon_nstd_parent_comp_id to provide explicit
+      reference between a nonstandard component and the parent component.
+    + Changed _item_type.code for _chem_comp.id and all of its children
+      to 'ucode'.
+    + Changed char3 and char1 to uchar3 and uchar1 to be consistent with
+      other case insensitive data type codes. Corrected the regular
+      expressions and primitive codes for these data types.
+    + Added _chem_comp_atom.partial_charge.
+    + Corrected the descriptions for _chem_comp_tor.comp_id,
+      _chem_comp_bond.comp_id and _chem_comp_angle.comp_id.
+    + Added _chem_comp_tor_value.comp_id as a key for category
+      CHEM_COMP_TOR_VALUE.
+    + Added _chem_comp_plane_atom.comp_id as a key in category
+      CHEM_COMP_PLANE_ATOM.
+    + Miscellaneous corrections in item descriptions in CHEM_COMP_GROUP
+      categories.
+    + Added item _chem_comp_plane_atom.dist_esd
+;
+  0.8.09 1997-01-07
+;
+  Changes (PMDF):
+    + More changes to align with new core:
+      Changed _citation.book_coden_ISBN to _citation.book_id_ISBN
+      Changed _citation.journal_coden_ASTM to _citation.journal_id_ASTM
+      Changed _citation.journal_coden_CAS  to _citation.abstract_id_ASTM
+      Changed _citation.journal_coden_CSD  to _citation.journal_id_CSD
+      Changed _citation.journal_coden_ISSN to _citation.journal_id_ISSN
+      Changed _citation.medline_AN         to _citation.database_id_Medline
+      Added _publ.requested_category
+      Corrected alias for _atom_type.scat_length_neutron
+      Added _journal.data_validation_number
+      Changed _diffrn_detector.detector_specific to _diffrn_detector.type
+      Deleted _diffrn_detector.detector_type
+      Added _diffrn_radiation.probe
+      Adjusted definition of _diffrn_radiation.type
+      Changed _diffrn_source.source_specific to _diffrn_source.type
+      Deleted old _diffrn_source.type
+      Changed _diffrn_radiation_wavelength.wavelength_wt to
+              _diffrn_radiation_wavelength.wt
+      Added _diffrn_radiation.xray_symbol
+      Aliased both versions 1.0 and 2.0 of the core for
+        _diffrn_detector.detector
+        _diffrn_detector.dtime
+        _diffrn_source.source
+;
+  0.8.10 1997-01-22
+;
+  Changes (PMDF):
+    + Still more changes to align with new core:
+        Added _refine.ls_R_Fsqd_factor_obs
+        Added _refine.ls_R_I_factor_obs
+        Added _atom_site.disorder_assembly
+        Added new definition of _atom_site.disorder_group
+        Many more style and wording changes
+      Changes to provide compatibility with PDB Remark 3
+        Added _chem_comp_chir_atom.comp_id
+        Added _diffrn.ambient_temp_details
+        Added _exptl_crystal_grow.temp_details
+        Enlarged enumeration list of _phasing.method
+        Added _reflns.Rmerge_F_all
+        Added _reflns.Rmerge_F_obs
+        Added _reflns.B_iso_Wilson_estimate
+        Added _reflns.percent_possible_obs
+        Added _refine_ls_restr.weight
+        Added _refine.aniso_B data items
+        Added _exptl_crystal.density_matthews
+        Added _refine.ls_percent_reflns_R_free
+        Added _refine_ls_shell.percent_reflns_R_free
+        Added _refine.Luzzati_coordinate_error_obs
+        Added _refine.Luzzati_d_res_low_obs
+        Added _refine.Luzzati_sigma_a_obs
+        Added _refine.Luzzati_sigma_a_obs_details
+        Added _refine.Luzzati_coordinate_error_free
+        Added _refine.Luzzati_d_res_low_free
+        Added _refine.Luzzati_sigma_a_free
+        Added _refine.Luzzati_sigma_a_free_details
+        Added _refine.number_disordered_residues
+        Added _refine.occupancy_sum_hydrogen
+        Added _refine.occupancy_sum_non_hydrogen
+;
+  0.8.11 1997-01-22
+;
+  Changes (PMDF):
+    Enforced style of only one space at the end of a sentence and after a ;
+    Enforced stye in the categories section
+    Enforced style of Need example 1
+    + More changes to provide compatibility for PDB Remark 3
+        Added _refine.B_iso_mean
+        Added _refine.ls_percent_reflns_obs
+        Added _refine.ls_R_factor_R_free_error
+        Added _refine.ls_R_factor_R_free_error_details
+        Added _refine_ls_shell.percent_reflns_obs
+        Added _refine_ls_shell.R_factor_R_free_error
+        Added _refine_ls_shell.redundancy_reflns_all
+        Added _refine_ls_shell.redundancy_reflns_obs
+        Added _refine.ls_redundancy_reflns_all
+        Added _refine.ls_redundancy_reflns_obs
+        Added _reflns.observed_criterion_sigma_F
+        Added _reflns.observed_criterion_sigma_I
+        Added REFINE_LS_RESTR_NCS category
+        Added _refine.solvent_model_details
+        Added _refine.solvent_model_param_bsol
+        Added _refine.solvent_model_param_ksol
+;
+  0.8.12 1997-01-28
+;
+  Changes (JDW):
+        Replaced all tabs with spaces.
+        Fixed instances of lines > 80 characters.
+        Added 'GLX' to the enumeration list for _chem_comp.three_letter_code.
+        Added 'B' and 'Z' to the enumeration list for
+            _chem_comp.one_letter_code.
+        Corrected definition for _cell_measurement.wavelength.
+        Corrected definitions for _atom_type.scat_dispersion_imag and
+        _atom_type.scat_dispersion_real.
+        Corrected examples for categories: CITATION, DIFFRN_DETECTOR,
+        DIFFRN_MEASUREMENT, DIFFRN_SOURCE, GEOM_HBOND, REFINE_ANALYZE,
+        REFINE_LS_RESTR,
+        Corrected definition for _reflns_shell.Rmerge_F_obs.
+        Corrected definition for _reflns_scale.group_code.
+        Changed _refine_ls_restr_ncs.weight_iso_B to
+                          _refine_ls_restr_ncs.weight_B_iso.
+        Corrected definitions in: _diffrn_refln.angle_[chi-theta].
+
+        Using experimental data kindly provided by  Tom Emge,
+        Shri Jain, Rachel Kramer, Jinsong Liu, and Gary Parkinson
+        examples were added for the following categories:
+        DIFFRN_ORIENT_MATRIX, DIFFRN_ORIENT_REFLN, DIFFRN_REFLN,
+        DIFFRN_SCALE_GROUP, EXPTL, EXPTL_CRYSTAL, EXPTL_CRYSTAL_FACE,
+        STRUCT_REF_SEQ, STRUCT_REF_SEQ_DIF, STRUCT_NCS_OPER,
+        STRUCT_NCS_DOM, STRUCT_NCS_DOM_LIM, STRUCT_NCS_ENS,
+        STRUCT_NCS_ENS_GEN, REFINE_LS_RESTR_NCS, PHASING_MIR_DER_REFLN,
+        PHASING_SET, PHASING_SET_REFLN, STRUCT_MON_NUCL, STRUCT_MON_PROT,
+        REFINE_HIST, ATOM_SITE_ANISOTROP, CHEM_COMP_LINK, JOURNAL, PUBL,
+        CELL_MEASUREMENT_REFLN, CHEMICAL, CHEMICAL_CONN_ATOM,
+        CHEMICAL_CONN_BOND, STRUCT_BIOL_VIEW, STRUCT_SITE_VIEW,
+        STRUCT_MON_PROT_CIS.
+        Added _exptl_crystal_face.crystal_id.
+        Added items: _reflns.observed_criterion_I_min
+                     _reflns.observed_criterion_I_max
+                     _reflns.observed_criterion_F_max
+                     _reflns.observed_criterion_F_min.
+        Changed dictionary tile and data block name to the conforming
+        name recommended by SRH/BMcM, cif_mm.dic.
+        Restore consistency to the 'arbitrary units' suffix:
+          Changed   _phasing_set_refln.F_meas_au_sigma to
+                    _phasing_set_refln.F_meas_sigma_au
+          Changed   _phasing_mir_der_refln.F_meas_au_sigma to
+                    _phasing_mir_der_refln.F_meas_sigma_au
+          Changed   _phasing_set_refln.F_meas_au_sigma to
+                    _phasing_set_refln.F_meas_sigma_au
+          Changed   _refln.F_meas_au_sigma to
+                    _refln.F_meas_sigma_au
+        Although data item names and category names are not case
+        sensitive, as a matter of style certain abbreviations are
+        consistently expressed in upper case (e.g. B, MIR, MAD, PDB).
+        Corrected definition for category DATABASE.
+        Added category ENTRY_LINK and corresponding aliases to
+        CIF core category audit_link.
+        Corrected alias name _refine_ls_R_I_factor.
+        Added core CIF alias _diffrn_refln_crystal_id to data item
+        _diffrn.crystal_id.
+;
+  0.9.0 1997-01-30
+;
+  Changes (PMDF):
+  + Corrected _reflns_observed_criterion to _reflns.observed_criterion in
+    a number of places
+  + Aligned enumeration lists in this dictionary with those in version 2.0 of
+      the core dictionary.  This involved changes in:
+        _citation.coordinate_linkage
+        _diffrn_radiation.xray_symbol
+        _diffrn_refln.scan_mode
+        _diffrn_refln.scan_mode_backgd
+        _exptl.absorpt_correction_type
+        _publ_manuscript_incl.extra_defn
+        _refine.ls_hydrogen_treatment
+        _refine.ls_structure_factor_coef
+  + A number of corrections to errors pointed out by H. Bernstein
+     Added category.id to _database_PDB_tvect.id
+     Fixed spelling of _publ.section_exptl_soltuion
+     Corrected _refine.ls_R_factor_work to
+               _refine.ls_R_factor_R_work in description
+     Corrected spelling of _refine_analyze.Luzaatti_d_res_low_obs in example
+     Corrected spelling of _refine_analyze.Luzzatti_coordinate_error_obs in
+               example
+     Corrected _geom_hbond.atom_site_label_id_D to
+               _geom_hbond.atom_site_id_D in example
+     Corrected _geom_hbond.atom_site_label_id_H to
+               _geom_hbond.atom_site_id_H in example
+     Corrected _geom_hbond.atom_site_label_id_A to
+               _geom_hbond.atom_site_id_A in example
+     Corrected _entry_link.description to _entry_link.details
+     Corrected _DIFFRN_SCALE_GROUP to DIFFRN_SCALE_GROUP in description
+     Corrected _refine_ls_restr_ncs.model_details to
+               _refine_ls_restr_ncs.ncs_model_details in example
+     Corrected _refln.observed_criterion to _reflns.observed_criterion in
+                description
+     Corrected _struct_biol_view.view_id to _struct_biol_view.id in example
+     Corrected _chem_comp_link.id to _chem_comp_link.link_id in example
+     Corrected _chem_comp_link.comp_type_1 to
+               _chem_comp_link.type_comp_1
+     Corrected _chem_comp_link.comp_type_1 to
+               _chem_comp_link.type_comp_1
+     Corrected _entry_link.link_id to _entry_link.entry_id in description
+  Changes (JDW):
+     Corrections to REFINE_HIST category example and removal of a
+     few misplaced colons.
+;
+  0.9.01 1997-01-31
+;
+  Changes (PMDF):
+  + Removed occurrance of two or more blank lines
+  + Enforced rule of no apostrophes around values for _item_sub_category.id
+  + Enforced rule of no apostrophes around values for_item_default.value
+  + Enforced rule of no apostrophes around values for_item.mandatory_code
+      and fixed one alignment problem
+  + Enforced rule of no apostrophes around values for
+      _item_related.function_code and fixed a few alignment problems
+  + Added _item.mandatory_code for _diffrn_refln.wavelength_id
+  + Changed cifdic.c94 to cif_core.dic in _item_aliases.dictionary everywhere
+  + Changed 2.0 to 2.0.1 in _item_aliases.version everywhere
+  + Changed to consistent usage of kelvins instead of kelvin, got rid of
+      capitalized versions
+  + Removed capitalized usages of angstroms
+  + Enforced rule of no apostrophes around values for _item_units.code
+  + Fixed alignment problems with a few _category_key.name values
+;
+  1.0.00 1997-10-14
+;
+  Changes (PMDF):
+  + Editorial changes in light of proof-reading by B. McMahon and I.D. Brown
+  + No data names or enumeration values have changed, with the exception
+      of the addition of the enumeration value 'other' to exptl.method
+  + The bulk of the changes, which are too numerous to list there, were
+      fixing spelling and grammar errors, and providing missing definitions
+  + In a few cases, data definitions were reworded for clarity
+  + Replaced erroneous occurances of Y~calc~ with Y~obs~ in the defintions of
+      weighted R factors (Ian Tickle)
+;
+  2.0.01 2000-10-17
+;
+  Changes (JDW):
+  + Integrated new definitions and extensions to existing categories.
+    Additional data definitions  submitted by Kim Henrick.  Content
+    of phasing definitions reviewed by Paula Fitgerald.  Content
+    of refinement definitions reviewed by Dale Tronrud.  Editorial
+    review by Helen Berman, John Westbrook, and Paula Fitzgerald.
+
+    New Items included in this version:
+
+   _phasing_MIR.d_res_high, _phasing_MIR.d_res_low, _phasing_MIR.FOM,
+   _phasing_MIR.FOM_acentric, _phasing_MIR.FOM_centric, _phasing_MIR.reflns,
+   _phasing_MIR.reflns_acentric, _phasing_MIR.reflns_centric,
+   _phasing_MIR.reflns_criterion, _phasing_MIR_der.power_acentric,
+   _phasing_MIR_der.power_centric, _phasing_MIR_der.R_cullis_acentric,
+   _phasing_MIR_der.R_cullis_anomalous, _phasing_MIR_der.R_cullis_centric,
+   _phasing_MIR_der.reflns_acentric, _phasing_MIR_der.reflns_anomalous,
+   _phasing_MIR_der.reflns_centric, _phasing_MIR_der_site.occupancy_anom,
+   _phasing_MIR_der_site.occupancy_anom_su, _phasing_MIR_der_site.occupancy_iso,
+   _phasing_MIR_der_site.occupancy_iso_su, _phasing_MIR_shell.FOM_acentric,
+   _phasing_MIR_shell.FOM_centric, _phasing_MIR_shell.reflns_acentric,
+   _phasing_MIR_shell.reflns_anomalous, _phasing_MIR_shell.reflns_centric,
+   _refine.correlation_coeff_Fo_to_Fc, _refine.correlation_coeff_Fo_to_Fc_free,
+   _refine.overall_SU_B, _refine.overall_SU_ML,
+   _refine.overall_SU_R_Cruickshank_DPI, _refine.overall_SU_R_free,
+   _refine.overall_FOM_free_R_set, _refine.overall_FOM_work_R_set,
+   _refine_analyze.RG_d_res_high, _refine_analyze.RG_d_res_low,
+   _refine_analyze.RG_free, _refine_analyze.RG_work, and
+   _refine_analyze.RG_free_work_ratio.
+
+  + New categories included in this version:
+     REFINE_FUNCT_MINIMIZED,REFINE_LS_RESTR_TYPE, REFLN_SYS_ABS.
+  + Modification of examples for _refine_ls_restr.type
+
+  + Contributed editorial and typographical corrections.
+  + Corrected incomplete keys in categories PHASING_MAD_SET and
+    DATABASE_PDB_REV_RECORD.
+  + _exptl.method enumerations moved to examples.
+  + Added database codes for RCSB and EBI.
+  + Fixed item examples in _publ_body.label.
+;
+  2.0.02 2000-10-24
+;
+  Changes (JDW):
+  +  Updated enumerations for _database_PDB_rev.mod_type.
+  +  Updated enumerations for _struct_conn_type.id
+  +  Corrected data type of _refine_ls_shell.percent_reflns_obs
+     from int to float
+  +  Updated preliminary description of _database_PDB_rev.status.
+  +  Changed regular expression for float to accept trailing decimal (ie. dd.)
+  +  Add () to regular expressions for code and ucode.
+  +  Added L-saccharide, D-saccharide, saccharide to enumerants for
+     _chem_comp.type to handle monosaccarided components where linking
+     cannot be inferred.
+;
+  2.0.03 2000-11-09
+;
+  Changes (JDW):
+  +  Relax regular expression for atom names to accept blanks in atom names
+     in order to support nomenclature used in many existing macromolecular
+     data files. Data type "atcode" has been assigned to
+     _chem_comp_atom.atom_id,  _atom_site.auth_atom_id and all related items.
+;
+  2.0.04 2004-04-21
+;
+  Changes (JDW):
+  + Changed working name and packaging of dictionary.
+  + _reflns_shell_number_possible range data type error fixed
+  + Fix syntax errors in category examples.
+  + Remove nonsense zero value default values
+  + Remove all default values from *_esd items
+  + Make _atom_site.label_* mandatory
+  + Make _atom_site.auth_asym_id mandatory
+  + Make _software.citation_id optional
+;
+  2.0.05 2004-08-04
+;
+  Changes (JDW):
+  + Changed data type of _refine.ls_redundancy_reflns_all,
+                         _refine.ls_redundancy_reflns_obs,
+                         _refine_ls_shell.redundancy_reflns_all,
+                         _refine_ls_shell.redundancy_reflns_obs
+    from int to float.
+;
+  2.0.06 2005-03-03
+;
+  Changes (JDW):
+
+  + The following data items added to maintain data item correspondence
+    with the CIF CORE dictionary V 2.3.  All aliases in section 1 updated
+    to version 2.3.
+           _atom_site.adp_type
+           _atom_site.refinement_flags
+           _atom_site.refinement_flags_adp
+           _atom_site.refinement_flags_occupancy
+           _atom_site.refinement_flags_posn
+           _atom_sites.special_details
+           _atom_type.scat_dispersion_source
+           _audit_link.block_code
+           _audit_link.block_description
+           _cell.reciprocal_angle_alpha
+           _cell.reciprocal_angle_beta
+           _cell.reciprocal_angle_gamma
+           _cell.reciprocal_angle_alpha_esd
+           _cell.reciprocal_angle_beta_esd
+           _cell.reciprocal_angle_gamma_esd
+           _cell.reciprocal_length_a
+           _cell.reciprocal_length_b
+           _cell.reciprocal_length_c
+           _cell.reciprocal_length_a_esd
+           _cell.reciprocal_length_b_esd
+           _cell.reciprocal_length_c_esd
+           _cell.special_details
+           _chemical.absolute_configuration
+           _chemical.melting_point_gt
+           _chemical.melting_point_lt
+           _chemical.optical_rotation
+           _chemical.properties_biological
+           _chemical.properties_physical
+           _chemical.temperature_decomposition
+           _chemical.temperature_decomposition_esd
+           _chemical.temperature_decomposition_gt
+           _chemical.temperature_decomposition_lt
+           _chemical.temperature_sublimation
+           _chemical.temperature_sublimation_esd
+           _chemical.temperature_sublimation_gt
+           _chemical.temperature_sublimation_lt
+           _citation.database_id_CSD
+           _database.CSD_history
+           _database.code_CAS
+           _database.code_CSD
+           _database.code_ICSD
+           _database.code_MDF
+           _database.code_NBS
+           _database.code_PDB
+           _database.code_PDF
+           _database.code_depnum_ccdc_fiz
+           _database.code_depnum_ccdc_journal
+           _database.code_depnum_ccdc_archive
+           _diffrn.ambient_pressure
+           _diffrn.ambient_pressure_esd
+           _diffrn.ambient_pressure_gt
+           _diffrn.ambient_pressure_lt
+           _diffrn.ambient_temperature
+           _diffrn.ambient_temperature_esd
+           _diffrn.ambient_temperature_gt
+           _diffrn.ambient_temperature_lt
+           _diffrn_attenuator.material
+           _diffrn_detector.area_resol_mean
+           _diffrn_detector.dtime
+           _diffrn_refln.class_code
+           _diffrn_refln.intensity_u
+           _diffrn_reflns.av_unetI/netI
+           _diffrn_reflns_class.av_R_eq
+           _diffrn_reflns_class.av_sgI/I
+           _diffrn_reflns_class.av_uI/I
+           _diffrn_reflns_class.code
+           _diffrn_reflns_class.description
+           _diffrn_reflns_class.d_res_high
+           _diffrn_reflns_class.d_res_low
+           _diffrn_reflns_class.number
+           _diffrn_source.take-off_angle
+           _diffrn_standards.scale_u
+           _exptl_crystal.colour_lustre
+           _exptl_crystal.colour_modifier
+           _exptl_crystal.colour_primary
+           _exptl_crystal.density_meas
+           _exptl_crystal.density_meas_esd
+           _exptl_crystal.density_meas_gt
+           _exptl_crystal.density_meas_lt
+           _exptl_crystal.density_meas_temp
+           _exptl_crystal.density_meas_temp_esd
+           _exptl_crystal.density_meas_temp_gt
+           _exptl_crystal.density_meas_temp_lt
+           _geom_bond.valence
+           _publ_author.id_iucr
+           _refine.ls_R_factor_gt
+           _refine.ls_goodness_of_fit_gt
+           _refine.ls_goodness_of_fit_ref
+           _refine.ls_shift/esd_max
+           _refine.ls_shift/esd_mean
+           _refine.ls_shift/su_max
+           _refine.ls_shift/su_max_lt
+           _refine.ls_shift/su_mean
+           _refine.ls_shift/su_mean_lt
+           _refine_ls_class.code
+           _refine_ls_class.d_res_high
+           _refine_ls_class.d_res_low
+           _refine_ls_class.R_factor_gt
+           _refine_ls_class.R_factor_all
+           _refine_ls_class.R_Fsqd_factor
+           _refine_ls_class.R_I_factor
+           _refine_ls_class.wR_factor_all
+           _refln.class_code
+           _refln.d_spacing
+           _refln.include_status
+           _refln.mean_path_length_tbar
+           _refln.observed_status
+           _refln.sint/lambda
+           _reflns.Friedel_coverage
+           _reflns.number_gt
+           _reflns_class.code
+           _reflns_class.description
+           _reflns_class.d_res_high
+           _reflns_class.d_res_low
+           _reflns_class.number_gt
+           _reflns_class.number_total
+           _reflns_class.R_factor_all
+           _reflns_class.R_factor_gt
+           _reflns_class.R_Fsqd_factor
+           _reflns_class.R_I_factor
+           _reflns_class.wR_factor_all
+           _reflns_shell.meanI_over_sigI_gt
+           _reflns_shell.meanI_over_uI_all
+           _reflns_shell.meanI_over_uI_gt
+           _reflns_shell.number_measured_gt
+           _reflns_shell.number_unique_gt
+           _reflns_shell.percent_possible_gt
+           _reflns_shell.Rmerge_F_gt
+           _reflns_shell.Rmerge_I_gt
+           _space_group.crystal_system
+           _space_group.id
+           _space_group.IT_number
+           _space_group.name_Hall
+           _space_group.name_H-M_alt
+           _space_group_symop.id
+           _space_group_symop.operation_xyz
+           _space_group_symop.sg_id
+           _valence_param.atom_1
+           _valence_param.atom_1_valence
+           _valence_param.atom_2
+           _valence_param.atom_2_valence
+           _valence_param.B
+           _valence_param.details
+           _valence_param.id
+           _valence_param.ref_id
+           _valence_param.Ro
+           _valence_ref.id
+           _valence_ref.reference
+
+  Changes (BM): 2005-03-03
+    Editorial changes to accompany International Tables Volume G publication
+     (B. McMahon):
+  +  Fixed broken example loop for _phasing_MAD_ratio.*
+  +  Expanded the definitions for _phasing_MIR_der_refln.HL_A_iso (and B, C
+     and D terms) and provided literature reference
+  +  Abbreviation .FOM (for figure-of-merit) consistently rendered lowercase
+  +  Expanded the definitions for _refine.solvent_model_param_bsol (and
+     *_ksol) and provided literature reference
+  +  Rearranged the order of entries in the REFINE_ANALYZE category to
+     preserve strict alphabetisation
+  +  Removed _refine_ls_restr_type.U_sigma_weights from example in
+     REFINE_LS_RESTR_TYPE category
+  +  Commented out the incorrect example for the CHEM_COMP_LINK category
+  +  For the example in the ENTITY_NAME_SYS category supplied the EC
+     number and the systematic name "water"; also trimmed the irrelevant
+     last line of the definition.
+  +  Changed the vague 'x,x-pyranoside' example of _entity_name_sys.name
+     to 'hydroquinone-beta-D-pyranoside' and matched this with 'arbutin'
+     for _entity_name_com.name
+  +  Removed the CAVEAT and REMARK terms (and PDB code trailers) from the
+     contents pf the _database_PDB_caveat.* and *_remark.* examples in
+     accordance with current PDB practice
+  +  Updated reference to Tickle et al. in _refine_analyze.RG_free_work_ratio
+  +  Fixed few minor typos
+  +  Cosmetic reflowing of textual examples to aid typesetting
+  +  Added Engh & Huber and Priestle references to example details
+  +  Changed upper enumeration limit of _atom_site_attached_hydrogens to 8
+     in line with current Core dictionary
+  +  Added URL of PDB format description to _database_PDB_rev.mod_type
+  +  Extended enumeration list of _publ.requested_category for Acta E papers
+  +  Updated definition of _refine.ls_abs_structure_Flack and *_Rogers to
+     reflect the more correct wording of the current Core dictionary.
+  +  Added _item_range.maximum and *minimum to _refine.ls_abs_structure_Rogers
+     in line with new wording of definition.
+
+  Changes (NJA): 2005-03-03
+  + Commented out duplicate save frames for following items with
+  _item_aliases.version 2.0.1:
+    _atom_site.refinement flags, _database.code_CAS, _database.code_CSD
+    _database.code_ICSD, _database.code_MDF, _database.code_NBS
+    _database.code_PDF, _diffrn.ambient_pressure, _diffrn.ambient_pressure.esd
+    _diffrn_detector.dtime, _exptl_crystal.density.meas
+    _exptl_crystal.density_meas_temp, _refln.mean_path_length_tbar
+
+  Changes (BM): 2005-03-03
+  + Fixed erroneous _item.name in save__diffrn.ambient_pressure_esd
+  + Removed erroneous aliases to *_esd quantities in coreCIF 2.3:
+    _cell_reciprocal_angle_alpha_esd, _cell_reciprocal_angle_beta_esd
+    _cell_reciprocal_angle_gamma_esd, _cell_reciprocal_length_a_esd
+    _cell_reciprocal_length_b_esd, _cell_reciprocal_length_c_esd
+    _chemical_temperature_decomposition_esd
+    _chemical_temperature_sublimation_esd
+    _diffrn.ambient_pressure_esd, _diffrn_ambient_temperature_esd
+    _exptl_crystal_density_meas_esd, _exptl_crystal_density_meas_temp_esd
+  + Removed redundant aliases:
+    _cell.special_details       ( = _cell.details)
+    _diffrn.ambient_temperature ( = _diffrn.ambient_temp)
+    _refine.ls_shift/esd_max    ( = _refine.ls_shift_over_esd_max)
+    _refine.ls_shift/esd_mean   ( = _refine.ls_shift_over_esd_mean)
+    _refln.observed_status      ( = _refln.status)
+    _refln.sint/lambda          ( = _refln.sint_over_lambda)
+  + Changed _refine.ls_shift/su_max to _refine.ls_shift_over_su_max
+    and likewise for *_lt, *_mean and *_max_lt
+
+Changes (NJA): 2005-03-07
++ Changed _reflns.class_d_res_low to _reflns_class.d_res_low in description of
+   _reflns_class.wR_factor_all
++ Added [][] to _atom_sites.Cartn_transf_matrix, _diffrn_reflns.transf_matrix
+  and _diffrn_orient_matrix.UB for consistency throughout.
++ Changed _chem_comp_link.type_1 and _2 to _chem_comp_link.type_comp_1
+   and 2 in _chem_link_angle.atom_id_1 and _2
++ Changed all occurences of _diffrn.ambient_temperature to _diffrn.ambient_temp
++ Changed _diffrn_reflns.class_code to _diffrn_reflns_class.code in
+   _diffrn_refln.class_code
++ Changed _geom_bond.distance to _geom_bond.dist in description of
+   _geom_bond.valence.
++ Changed _refln.observed_status to _refln.status in refln.include_status
++ Changed _reflns.special_details to _reflns.details in _reflns.number_gt and
+  _reflns_class.number_gt
++ Created new entry for _reflns.threshold_expression, as no entry existed and
+   many item descriptions referred to _reflns_threshold_expression (these were
+   then changed to _reflns.threshold_expression).
++ Changed _struct_mon_prot.alt_id, _struct_mon_prot.asym_id,
+   _struct_mon_prot.comp_id and _struct_mon_prot.seq_id to
+   _struct_mon_prot.label_alt_id, _struct_mon_prot.label_asym_id,
+   _struct_mon_prot.label_comp_id and _struct_mon_prot.label_seq_id
+   in Example 1 of _struct_mon_prot.
++ Changed _struct_site_view.view_id to _struct_site_view.id in Example 1
+   of _struct_site_view.
+;
+  2.0.07 2005-03-03
+;
+  Changes (JDW) 2005-03-08
+  + Changed related references to _diffrn.ambient_temperature to
+    _diffrn.ambient_temp
+  + Changed related references to _refln.observed_status to
+      _refln.status
+  + Restore original case to FOM - although case is not an issue for
+    mmCIF it is an issue for XML translations.
+;
+  2.0.08 2005-04-06
+;
+  Changes (JDW) 2005-04-06
+  + Added mandatory code _cell.reciprocal_angle_beta
+
+;
+  2.0.09 2005-06-27
+;
+  Internal dates used for housekeeping prior to release
+  2005-04-13
+  Changes (NJA) 2005-04-13
+  + Minor corrections to spelling and punctuation.
+  + pdb_group definition: Brookhaven Protein Data Bank changed to
+  Protein Data Bank.
+
+  2005-04-14
+  Changes (NJA) 2005-04-14
+  + Minor corrections to spelling and punctuation.
+  + _atom_sites.solution_* descriptions edited so each appropriate
+  to the particular data name.
+  +_chem_comp.formula description edited to match that in core dictionary
+  +_chem_comp.three_letter_code: several typing errors in amino-acid and
+  base names corrected.
+  +_chem_comp_atom.model_Cartn_z: 'The x component ...' changed to
+  'The z component...'
+  +_chemical.melting_point_* descriptions edited so each appropriate to the
+  particular data name.
+  +_chemical.temperature_decomposition_* descriptions edited so each
+  appropriate to the particular data name.
+  +_chemical.temperature_sublimation_* descriptions edited so each appropriate
+  to the particular data name.
+
+  2005-04-15
+  Changes (NJA) 2005-04-15
+  + Minor corrections to spelling and punctuation.
+  +_citation.journal_id_CSD description, Brookhaven Protein Data Bank
+  changed to Protein Data Bank.
+  +_database.code_* entries edited so each is relevant to the particular
+  data name
+  +_database_PDB_matrix.scale[3][3]: description changed from 'The [1][1]
+  element of the PDB SCALE matrix.'  to 'The [3][3] element of the PDB SCALE
+  matrix.'
+  +_diffrn.ambient_pressure_gt and _lt, descriptions edited so each is
+  relevant to the particular data name.
+  +_diffrn.ambient_temp_gt and _lt, descriptions edited so each is relevant
+  to the particular data name.
+  +_diffrn_attenuator.scale description changed to match that in the core
+  dictionary.
+  +_diffrn_radiation_wavelength.id: _diffrn_radiation_wavelength in description
+  changed  to  _diffrn_radiation_wavelength.wavelength
+  +_diffrn_reflns_class.av_sgI/I description [sum|u(net I)|/sum|net I|] changed
+  to  [sum|sigma(net I)|/sum|net I|]
+  +_diffrn_reflns_class.d_res_high and _low descriptions changed to match
+  those in the core dictionary
+  +diffrn_source Example 1  _diffrn_source.power  '50 kw, 180 mA' changed to
+  _diffrn_source.power  50 and _diffrn_source.current   180
+  +_exptl_crystal.density_Matthews year of reference corrected from 1960 to
+  1968
+  +_exptl_crystal.density_meas_gt and _lt descriptions edited so each is
+  relevant to the particular data name.
+  +_exptl_crystal.density_meas_temp_gt and _lt descriptions edited so each
+  is relevant to the particular data name.
+  +geom_contact and geom_bond Example 1 year for reference corrected from
+  1991 to 1992
+  +_phasing_MAD_ratio.d_res_high and low ; _phasing_MAD_set.d_res_high
+  and _low; _phasing_MIR.d_res_high and low; _phasing_MIR_der.d_res_high
+  and low; _phasing_MIR_der_shell.d_res_high and low;
+  _phasing_MIR_shell.d_res_high and low and _refine.ls_d_res_high and low
+  rephrased to correspond to similar terms in the core dictionary.
+  +Spelling of Lattman corrected in references to Hendrickson, W. A. &
+  Lattman, E. E. (1970). Acta Cryst. B26, 136-143.
+  +Temperature factor replaced by displacement parameter throughout.
+  +refine Example 2 _refine.ls_weighting_scheme
+  'calc w=1/(\s^2^(F)+0.0004F^2^)' split into _refine.ls_weighting_scheme and
+  _refine.ls_weighting_details
+  +_refine.ls_extinction_coef and _refine.ls_extinction_method reference to
+  Becker and Coppens corrected to 129-147, 148-153 (is two articles).
+  +_refine.ls_restrained_S_all and _obs: Y~calc~  = the observed coefficients
+   changed  toY~calc~  = the calculated coefficients
+
+  2005-04-18
+  Changes (NJA) 2005-04-18
+  + Minor corrections to spelling and punctuation.
+  + temperature factor changed to displacement parameter throughout
+  + _refine_ls_class.R_factor_all  'and for significantly intense reflections
+  (see _reflns.threshold_expression) ' removed from description.
+  +  _refine_ls_class.R_factor_gt 'for all reflections' removed from
+  description.
+  +  _refine_ls_class.d_res_high and _low, _refine_analyze.RG_d_res_high
+  and  _low, _refine_ls_shell.d_res_high and _low,
+  _reflns.d_resolution_high and low,  _reflns_class.d_res_high and _low,
+  _reflns_shell.d_res_high and _low definitions edited to match related
+  definitions in the core dictionary
+  + _refln.intensity_calc _meas, _sigma edited to match corresponding entries
+  in the core dictionary
+  + _reflns.Friedel_coverage in description _reflns_number_total changed to
+  _reflns.number_all.
+  + _reflns_class.R_factor_all 'and for significantly intense reflections (see
+     _reflns.threshold_expression)' removed from description.
++  _reflns_class.R_factor_gt 'all reflections, and for' removed from description
++  _reflns_class.number_total in description: _reflns_special_details
+   changed to _reflns.details
+
+  2005-04-19
+  Changes (NJA) 2005-04-19
+  + Minor corrections to spelling and punctuation.
+  + _valence_param.ref_id description: _valence_ref_id changed
+  to _valence_ref.id
+  + References to International Tables updated.
+
+  2005-04-22
+  Changes (NJA) 2005-04-22
+  + _cell.reciprocal_angle_alpha, beta and gamma: descriptions edited
+  so each appropriate to the particular data name.
+  + _cell.reciprocal_length_a, b and c: descriptions edited so each
+  appropriate to the particular data name.
+  + _struct_mon_nucl.chi1 and _chi2; descriptions edited from
+  `... sugar-base torsion angle chi...' to '... sugar-base torsion angle chi1'
+  and '... sugar-base torsion angle chi2'
+
+  2005-05-03
+  Changes (NJA) 2005-05-03
+  + several data items *_esd edited so that the description reads
+  'the standard uncertainly of *', not 'the standard uncertainty of *_esd'
+  + several DDL1 datanames in descriptions changed to DDL2 datanames
+
+  2005-05-10
+  Changes (NJA) 2005-05-10
+  + _citation.journal_id_CSD example changed from 070 to 0070
+  + Mursudov and Dodson (1997) references corrected
+  + References to Cruickshank DPI updated
+  + References to Luzzati (1952) corrected
+
+  2005-06-23
+  Changes (NJA) 2005-06-23
+  _publ_author.email added. Corrections for IT G Chapter 4.5 included.
+
+  2005-06-25 (BM)
+  ITEM_UNITS_LIST: cosmetic changes to definitions of some units
+  ITEM_UNITS_CONVERSION: multipliers in electrons per <unit> cubed terms fixed
+
+  2005-06-27 (BM)
+  Some minor editorial changes to ensure consistency with latest pdbx
+  dictionary version. Only significant change:
+  + in _citation.id the listing for _software.citation_id has 
+    _item.mandatory_code changed to "no" to match the value in
+    save__software.citation_id and to match pdbx
+;
+  2.0.10 2006-02-24
+;  Changes (jdw):
+   + Added category groups to audit_link, diffrn_reflns_class, refine_ls_class,
+     reflns_class, space_group, space_group_symop, valence_param, valence_ref.
+;
+  2.0.11 2007-05-30
+;  Changes (jdw):
+   + Make all key items mandatory. 
+;
+##
+### EOF mmcif_std-header.dic ####

@@ -1,0 +1,60 @@
+##############################################################################
+#
+# File:  mmcif_biosync-header.dic
+#                                              
+#                        BIOSYNC Dictionary Extension to the                         
+#                          Macromolecular CIF Dictionary                       
+#
+#  This extension dictionary contains definitions describing the details of 
+#  synchrotron beamlines and beamline facilities. 
+#                                                                          
+#
+#                              Header Section
+#                                                                          
+##############################################################################
+
+data_mmcif_biosync.dic
+
+    _datablock.id                          mmcif_biosync.dic
+    _datablock.description
+;
+     This data block holds the BIOSYNC extension to the mmCIF data dictionary.
+;
+
+    _dictionary.title           mmcif_biosync.dic
+    _dictionary.version         0.7
+    _dictionary.datablock_id    mmcif_biosync.dic
+
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.1   2000-02-17   'Initial version'
+   0.2   2000-07-31   'Update, add versioning'
+   0.3   2000-08-01   'Revised application of beamline_id'
+   0.4   2001-01-24   'mmCIF aliases added'
+   0.5   2005-10-20   
+; Changes (jdw):
+  +Added items:   
+     _bsync_diffrn_measurement.special_capabilities
+     _bsync_diffrn_measurement.other_instrumentation
+;
+   0.6   2005-10-27   
+; Changes (jdw):
+  +Moved 
+     _bsync_diffrn_measurement.monochromator
+     _bsync_diffrn_measurement.monochromator_crystal
+     _bsync_diffrn_measurement.mirrors
+     _bsync_diffrn_measurement.mirror_cutoff
+   to category bsync_diffrn_radiation.
+;
+   0.7   2008-05-29
+; Changes (jdw):
+   + corrections to examples, set mandatory codes for key items.
+;
+### EOF  mmcif_biosync-header.dic

@@ -1,0 +1,210 @@
+
+################################################################################
+#
+# File: mmcif_sym-header.dic
+#
+#               Symmetry mmCIF Dictionary
+#
+#
+#  This dictionary is designed to provide the data names
+#  required to describe crystallographic symmetry.
+#
+#
+#                     Header Section
+#
+################################################################################
+
+#
+#
+#  This dictionary is designed to provide the data names
+#  required to describe crystallographic symmetry.
+#
+#  It is written in DDL2
+#
+#  This version, 1.0, is dated 2001-11-26
+#  This is the version presented to Comcifs and approved subject 
+#  to a number of corrections that appear in version 1.0
+#
+#  The categories and items defined in this version are:
+#
+#     space_group     (General information on the space group)
+#         Bravais_type
+#         centring_type
+#         crystal_system
+#         id                     (Parent to various .sg_id's)
+#         Laue_class
+#         IT_coordinate_system_code
+#         IT_ number
+#         name_Hall
+#         name_H-M_ref
+#         name_H-M_alt
+#         name_H-M_alt_description
+#         name_H-M_full
+#         name_Schoenflies
+#         Patterson_name_H-M
+#         point_group_H-M
+#         reference_setting
+#         transform_Pp_abc
+#         transform_Qq_xyz
+#     space_group_symop               (Symmetry operators)
+#         id                (parent to various .symop_id's)
+#         generator_xyz
+#         operation_description
+#         operation_xyz
+#         sg_id
+#     space_group_Wyckoff   (Details of the Wyckoff positions)
+#         coords_xyz
+#         id    (parent to various .wyckoff_id's to be defined)
+#         letter
+#         multiplicity
+#         sg_id
+#         site_symmetry
+#
+##########################################################
+
+data_mmcif_sym.dic
+
+
+    _datablock.id                          mmcif_sym.dic
+    _datablock.description
+;
+     This data block holds defintions describing 
+     crystallographic symmetry.
+;
+
+
+    _dictionary.title             mmcif_sym.dic
+    _dictionary.version           1.02
+    _dictionary.datablock_id      mmcif_sym.dic
+
+##
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.01      1998-11-27
+;                                (I.D.Brown)
+   Creation of first draft of the dictionary.
+   Contains the categories SPACE_GROUP, SPACE_GROUP_POS,
+     SPACE_GROUP_REFLNS and SPACE_GROUP_COORD
+;
+   0.02      1999-02-15
+;                                    (IDB)
+   Changes made in response to suggestions from the project group.  New
+   categories introduced
+    SPACE_GROUP_SYMOP
+    SPACE_GROUP_ASYM.
+   The following category name changes were made:
+    SPACE_GROUP_POS    to SPACE_GROUP_WYCKOFF
+    SPACE_GROUP_REFLNS to SPACE_GROUP_WYCKOFF_CONDITIONS
+    SPACE_GROUP_COORD  to SPACE_GROUP_WYCKOFF_COORD
+   The items are arranged in alphabetical order
+   Many other changes made in response to comments received
+   including new data names for space group names
+;
+   0.03      1999-09-01
+;  IDB
+   Definitions of _space_group.IT_number, *.name_schoenflies
+   *.Bravais_type, *point_group_H-M, *.crystal_system and *.Laue_class
+   changed to those supplied by Litvin and Kopsky.
+   *.setting_code changed to *.it_coordinate_system_code.
+   *.name_H-M-K dropped.
+   *.Patterson_symmetry_H-M changed to *.Patterson_name_H-M and
+   enumeration list corrected.
+   *.reference_setting added
+   In category space_group_symop 'operator' changed to 'operation'.
+    _space_group_symop.operation_matrix changed to conform to IT.
+    _space_group_symop.generator_* added.
+    _space_group.reference_setting added.
+    _space_group_Wyckoff.* and related categories rewritten to avoid
+   conflicting parent-child relations.  Removal of *_coord.* and addition
+   of *_cond_link.*
+;
+   0.04      1999-11-01
+;  IDB
+   List of reference settings imported from Ralf Grosse-Kunstleve
+   supplied 1999-10-29 by RWGK based on http://xtal.crystal.uwa.edu.au/
+   (Select 'Docs', Select 'space Group Symbols') Symmetry table of Ralf
+   W. Grosse-Kunstleve, ETH, Zuerich.
+     version June 1995
+          updated  September 29 1995
+          updated  July       9 1997
+     last updated  July      24 1998
+   Matrices expanded into separate items for each element.
+   References added for *_wyckoff.site_symmetry and
+   *.IT_coordinate_system_code.
+   *_asym category deleted.
+   Numerous typographical errors corrected
+;
+
+   0.05      2000-01-12
+;  IDB
+   Further clarifications to definitions as suggested by Aroyo,
+   Wondratschek, Madariaga, Litvin and Grosse-Kunstleve.
+   Removal of all matrix forms of matrices (leaving xyz form) in the hope
+   that a new DDL will make matrix representation simpler.
+   Removal of *_Wyckoff_cond and *_Wyckoff_cond_link categories until a
+   new DDL simplifies their structure.
+   Added _space_group.transform_* items
+;
+   0.06      2000-05-04
+;  IDB
+   Further clarification of definitions as suggested by Aroyo,
+   Wondratschek, Madariaga and Grosse-Kunstleve, particularly
+   clarification of the Hermann-Mauguin symbols and Bravais types and
+   changes to conform to the usage of ITA.
+;
+   0.07      2000-07-18
+;  IDB
+   Further clarifications and corrections from Wondratschek and
+   Grosse-Kunstleve.  Dictionary checked in vcif.
+
+   Brian McMahon:
+   Structural review for COMCIFS. Some reformatting and cleaning up of
+   minor typos. Checked against vcif and cyclops.
+
+;
+   0.08      2000-07-20
+;  J. Westbrook
+
+   Miscellaneous corrections and reformatting from software scan.
+;
+   0.09      2001-05-31
+;  IDB
+   The links between the space_group category and the
+   space_group_symop and space_group_Wyckoff categories are
+   corrected as well as the links between space_group_symop and the
+   various geom_ categories.
+
+   Brian McMahon:
+   Changed type of _space_group_symop.sg_id to numb at request of IDB.
+;
+   0.10      2001-11-07
+;  IDB
+   A number of corrections made following the approval of this dictionary 
+   in principle by COMCIFS.
+   The underscore in all space group names has been removed and the text
+   modified to indicate that underscores are only permitted to allow earlier
+   space group tables to be read.
+   _space_group.name_H-M changed to _space_group.name_H-M_ref
+   An enumeration list added to _space_group.nameH-M_ref
+   The 1995 H-M names for space groups 39, 41, 64, 67 and 68 introduced
+   Aliases to _symmetry_space_group_name_H-M removed from _*.name_H-M_ref
+   ^ replaced by . in Schoenflies names (e.g. C2h^4 replaced by C2h.4)
+   Changes made in the text of _*.reference_setting
+   _*.transformation_rotation_xyz and _*_origin_shift replaced by
+   _*.transformation_Pp_abc and _*. transformation_Qq_xyz
+;
+   1.0      2001-12-12
+; J. Westbrook  - Miscellaneous fixes and corrections.  
+;
+   1.01      2004-08-08
+; J. Westbrook  - Add missing data types and correct case in category names.
+;
+   1.02      2007-05-28
+; J. Westbrook  - correct parent-child data type consistency
+;
+
+
+
+### EOF mmcif_sym-header.dic

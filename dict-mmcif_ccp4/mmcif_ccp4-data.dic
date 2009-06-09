@@ -1,0 +1,91 @@
+
+###########################################################################
+#
+# File:  mmcif_ccp4-data.dic                                             
+# 
+#                       CCP4 Extension Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items required to describe the details of the
+#     structure determination using the CCP4 program system.
+#
+#     This supplement was created by Kim Henrick at Molecular Structure 
+#     Database (MSD) Group/EBI and the CCP4 development group.
+#                                                                           
+#                                                                           
+#                               Data Section 
+#                                                                           
+##############################################################################
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+#
+#
+#  The regular expressions defined here are not compliant
+#  with the POSIX 1003.2 standard as they include the
+#  '\n' and '\t' special characters.  These regular expressions
+#  have been tested using the version 0.12 of Richard Stallman's
+#  GNU regular expression libary in POSIX mode.
+#
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               code      char
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words ...
+;
+               ucode      uchar
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words  (case insensitive) ...
+;
+               text      char
+                '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              text item types / multi-line text ...
+;
+               int       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative
+               or positive integers.
+;
+               float     numb
+               '-?(([0-9]+)|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+;              int item types are the subset of numbers that are the floating
+               numbers.
+;
+
+
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+     'angstroms'              'angstroms   (meters * 10^(-10))'
+     'angstroms_squared'      'angstroms squared  (meters * 10^(-10))^2'
+     'degrees'                'degrees (of arc)'
+     'angstroms_degrees'      'angstroms x degrees'
+     'degrees_squared'        'degrees squared'
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+
+loop_
+_category_group_list.id
+_category_group_list.parent_id
+_category_group_list.description
+             'inclusive_group'
+             .
+;             All categories
+;
+             'refine_group'
+             'inclusive_group'
+;             Categories which pertain to refinement
+;
+
+### EOF  mmcif_ccp4-data.dic

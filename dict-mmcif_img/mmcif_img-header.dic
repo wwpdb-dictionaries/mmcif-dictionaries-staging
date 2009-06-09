@@ -1,0 +1,397 @@
+##############################################################################
+#                                                                           
+#                       Image CIF Dictionary (imgCIF)                       
+#             and Crystallographic Binary File Dictionary (CBF)             
+#            Extending the Macromolecular CIF Dictionary (mmCIF)            
+#                                                                           
+#     by Andrew P. Hammersley, Herbert J. Bernstein and John D. Westbrook   
+#                                                                           
+# This dictionary was adapted from format discussed at the imgCIF Workshop, 
+# held at BNL Oct 1997 and the Crystallographic Binary File Format Draft    
+# Proposal by Andrew Hammersley.  The first DDL 2.1 Version was created by  
+# John Westbrook.  This version was drafted by Herbert J. Bernstein and     
+# incorporates comments by I. David Brown, John Westbrook, Brian McMahon,   
+# Bob Sweet, Paul Ellis, Harry Powell, Wilfred Li, Gotzon Madariaga,        
+# Frances C. Bernstein and others.                                          
+#
+#                               Header Section
+#
+##############################################################################
+
+data_mmcif_img.dic
+
+    _datablock.id                          mmcif_img.dic
+    _datablock.description
+;
+     This data block holds the Image mmCIF Dictionary (imgCIF)
+;
+
+    _dictionary.title           mmcif_img.dic
+    _dictionary.version         1.3.5
+    _dictionary.datablock_id    mmcif_img.dic
+
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   1.3.5 2007-05-28
+;
+   Changes (JDW):
+    Adjust data types for parent-child consistency. 
+    Make _axis.equipment mandatory
+;
+   1.3.4 2005-03-08
+;
+   Changes (JDW):
+   + Incorportated Herb Bernstein's latest editoral changes from ITVG.
+   + Repaired _items_units.code -> _item_type.code 
+   Changes as per Nicola Ashcroft.
+   + Updated example 1 for DIFFRN_MEASUREMENT to agree with mmCIF.
+   + Spelled out "micrometres" for "um" and "millimetres" for "mm".
+   + Removed phrase "which may be stored" from ARRAY_STRUCTURE
+     description.
+   + Removed unused 'byte-offsets' compressions and updated
+     cites to ITVG for '_array_structure.compression_type'.
+   (HJB)
+;
+   1.3.3 2004-08-08
+;    
+   Changes (JDW):
+   + fixed cases where _item_units.code  used instead of _item_type.code.
+;
+   1.3.2 2004-04-15
+;    
+   Changes (JDW):
+   + fixed item ordering in _diffrn_measurement_axis.measurement_id
+   + added sub_category 'vector'
+;
+   1.3.1   2003-08-13
+;
+   Changes as per Frances C. Bernstein.
+   + Identify initials.
+   + Adopt British spelling for centre in text.
+   + Set \p and \%Angstrom and powers.
+   + Clean up commas and unclear wordings.
+   + Clean up tenses in history.
+   Changes as per Gotzon Madariaga.
+   + Fix the ARRAY_DATA example to align '_array_data.binary_id'
+   and X-Binary-Id.
+   + Add a range to '_array_intensities.gain_esd'.
+   + In the example of DIFFRN_DETECTOR_ELEMENT, 
+   '_diffrn_detector_element.id' and   '_diffrn_detector_element.detector_id' interchanged.
+   + Fix typos for direction, detector and axes.
+   + Clarify description of polarisation.
+   + Clarify axes in '_diffrn_detector_element.center[1]'
+   '_diffrn_detector_element.center[2]'.
+   + Add local item types for items that are pointers.
+   (HJB)
+;
+
+
+   1.3.0   2003-07-24
+;
+   Changes as per Brian McMahon. 
+   + Consistently quote tags embedded in text.
+   + Clean up introductory comments.
+   + Adjust line lengths to fit in 80 character window.
+   + Fix several descriptions in AXIS category which
+     referred to '_axis.type' instead of the current item.
+   + Fix erroneous use of deprecated item
+     '_diffrn_detector_axis.id' in examples for 
+     DIFFRN_SCAN_AXIS.
+   + Add deprecated items '_diffrn_detector_axis.id'
+     and '_diffrn_measurement_axis.id'.
+   (HJB)
+;
+
+
+   1.2.4   2003-07-14
+;
+   Changes as per I. David Brown. 
+   + Enhance descriptions in DIFFRN_SCAN_AXIS to make them less
+   dependent on the descriptions in DIFFRN_SCAN_FRAME_AXIS.
+   + Provide a copy of the deprecated DIFFRN_FRAME_DATA
+   category for completeness.
+   (HJB)
+;
+
+
+   1.2.3   2003-07-03
+;
+   Cleanup to conform to ITVG. 
+   + Correct sign error in ..._cubed units.
+   + Correct '_diffrn_radiation.polarisn_norm' range.
+   (HJB)
+;
+
+
+   1.2.2   2003-03-10
+;
+   Correction of typos in various DIFFRN_SCAN_AXIS descriptions. 
+   (HJB)
+;
+
+
+   1.2.1   2003-02-22
+;
+   Correction of ATOM_ for ARRAY_ typos in various descriptions. 
+   (HJB)
+;
+
+
+   1.2     2003-02-07
+;
+   Corrections to encodings (remove extraneous hyphens) remove
+   extraneous underscore in '_array_structure.encoding_type'
+   enumeration.  Correct typos in items units list. (HJB)
+;
+
+
+   1.1.3   2001-04-19
+;
+   Another typo corrections by Wilfred Li, and cleanup by HJB.
+;
+
+
+   1.1.2   2001-03-06
+;
+   Several typo corrections by Wilfred Li.
+;
+
+
+   1.1.1   2001-02-16
+;
+   Several typo corrections by JW.
+;
+
+
+   1.1     2001-02-06
+;
+   Draft resulting from discussions on header for use at NSLS.  (HJB)
+
+   + Change DIFFRN_FRAME_DATA to DIFFRN_DATA_FRAME.
+
+   + Change '_diffrn_detector_axis.id' to '_diffrn_detector_axis.detector_id'.
+
+   + Add '_diffrn_measurement_axis.measurement_device' and change
+     '_diffrn_measurement_axis.id' to '_diffrn_measurement_axis.measurement_id'.
+
+   + Add '_diffrn_radiation.div_x_source', '_diffrn_radiation.div_y_source',
+   '_diffrn_radiation.div_x_y_source', '_diffrn_radiation.polarizn_source_norm',
+   '_diffrn_radiation.polarizn_source_ratio', '_diffrn_scan.date_end',
+   '_diffrn_scan.date_start', '_diffrn_scan_axis.angle_rstrt_incr',
+   '_diffrn_scan_axis.displacement_rstrt_incr',
+   '_diffrn_scan_frame_axis.angle_increment',
+   '_diffrn_scan_frame_axis.angle_rstrt_incr',
+   '_diffrn_scan_frame_axis.displacement',
+   '_diffrn_scan_frame_axis.displacement_increment',and
+   '_diffrn_scan_frame_axis.displacement_rstrt_incr'.
+
+   + Add '_diffrn_measurement.device' to category key.
+
+   + Update yyyy-mm-dd to allow optional time with fractional seconds
+     for time stamps.
+
+   + Fix typos caught by RS.
+
+   + Add ARRAY_STRUCTURE_LIST_AXIS category, and use concept of axis sets to 
+     allow for coupled axes, as in spiral scans.
+
+   + Add examples for fairly complete headers thanks to R. Sweet and P.
+     Ellis.
+;
+
+
+   1.0     2000-12-21
+;
+   Release version - few typos and tidying up.  (BM & HJB)
+
+   + Move ITEM_TYPE_LIST, ITEM_UNITS_LIST and DICTIONARY_HISTORY to end
+   of dictionary.
+
+   + Alphabetize dictionary.
+;
+
+
+   0.7.1   2000-09-29
+;
+   Cleanup fixes.  (JW)
+
+   + Correct spelling of diffrn_measurement_axis in '_axis.id'
+
+   + Correct ordering of uses of '_item.mandatory_code' and 
+     '_item_default.value'.
+;
+
+
+   0.7.0   2000-09-09
+;
+   Respond to comments by I. David Brown.  (HJB)
+
+   + Add further comments on '\n' and '\t'.
+
+   + Update ITEM_UNITS_LIST by taking section from mmCIF dictionary
+     and adding metres.  Change 'meter' to 'metre' throughout.
+
+   + Add missing enumerations to '_array_structure.compression_type'
+     and make 'none' the default.
+
+   + Remove parent-child relationship between 
+     '_array_structure_list.index' and '_array_structure_list.precedence'.
+
+   + Improve alphabetization.
+
+   + Fix '_array_intensities_gain.esd' related function.
+
+   + Improve comments in AXIS.
+
+   + Fix DIFFRN_FRAME_DATA example.
+
+   + Remove erroneous DIFFRN_MEASUREMENT example.
+
+   + Add '_diffrn_measurement_axis.id' to the category key.
+;
+
+
+   0.6.0   1999-01-14
+;
+   Remove redundant information for ENC_NONE data.  (HJB)
+
+   + After the D5 remove binary section identifier, size and
+     compression type.
+
+   + Add Control-L to header.
+;
+
+
+   0.5.1   1999-01-03
+;
+   Cleanup of typos and syntax errors.  (HJB)
+
+   + Cleanup example details for DIFFRN_SCAN category.
+
+   + Add missing quote marks for '_diffrn_scan.id' definition.
+;
+
+
+   0.5   1999-01-01
+;
+   Modifications for axis definitions and reduction of binary header.  (HJB)
+
+   + Restore '_diffrn_detector.diffrn_id' to DIFFRN_DETECTOR KEY.
+
+   + Add AXIS category.
+
+   + Bring in complete DIFFRN_DETECTOR and DIFFRN_MEASUREMENT categories
+     from cif_mm.dic for clarity.
+
+   + Change '_array_structure.encoding_type' from type code to uline and
+     added X-Binary-Element-Type to MIME header.
+
+   + Add detector beam centre '_diffrn_detector_element.center[1]' and
+     '_diffrn_detector_element.center[2]'.
+
+   + Correct item name of '_diffrn_refln.frame_id'.
+
+   + Replace reference to '_array_intensities.undefined' by
+     '_array_intensities.undefined_value'.
+
+   + Replace references to '_array_intensity.scaling' with
+     '_array_intensities.scaling'.
+
+   + Add DIFFRN_SCAN... categories.
+;
+
+
+   0.4   1998-08-11
+;
+   Modifications to the 0.3 imgCIF draft.  (HJB)
+
+   + Reflow comment lines over 80 characters and corrected typos.
+
+   + Update examples and descriptions of MIME encoded data.
+
+   + Change name to cbfext98.dic.
+;
+
+
+   0.3   1998-07-04
+;
+   Modifications for imgCIF.  (HJB)
+
+   +  Add binary type, which is a text field containing a variant on
+      MIME encoded data.
+
+   +  Change type of '_array_data.data' to binary and specify internal
+      structure of raw binary data.
+
+   +  Add '_array_data.binary_id', and make
+      '_diffrn_frame_data.binary_id' and '_array_intensities.binary_id'
+      into pointers to this item.
+;
+
+
+   0.2   1997-12-02
+;
+   Modifications to the CBF draft.  (JW)
+
+   + Add category hierarchy for describing frame data developed from
+     discussions at the BNL imgCIF Workshop Oct 1997.   The following
+     changes are made in implementing the workshop draft.  Category
+     DIFFRN_ARRAY_DATA is renamed to DIFFRN_FRAME_DATA.  Category
+     DIFFRN_FRAME_TYPE is renamed to DIFFRN_DETECTOR_ELEMENT.   The
+     parent item for '_diffrn_frame_data.array_id' is changed from
+     '_array_structure_list.array_id' to '_array_structure.id'. Item
+     '_diffrn_detector.array_id' is deleted.
+   + Add data item '_diffrn_frame_data.binary_id' to identify data 
+     groups within a binary section.  The formal identification of the
+     binary section is still fuzzy.
+;
+
+
+   0.1   1997-01-24
+;
+   First draft of this dictionary in DDL 2.1 compliant format by John
+   Westbrook (JW).  This version is adapted from the Crystallographic
+   Binary File (CBF) Format Draft Proposal provided by Andy Hammersley
+   (AH).
+
+   Modifications to the CBF draft.  (JW)
+
+   + In this version the array description has been cast in the categories
+     ARRAY_STRUCTURE and ARRAY_STRUCTURE_LIST.  These categories 
+     have been generalized to describe array data  of arbitrary dimension.
+
+   + Array data in this description are contained in the category 
+     ARRAY_DATA.   This departs from the CBF notion of data existing 
+     in some special comment.  In this description, data is handled as an 
+     ordinary data item encapsulated in a character data type.   Although  
+     data this manner deviates from CIF conventions, it does not violate 
+     any DDL 2.1 rules.  DDL 2.1 regular expressions can be used to define 
+     the binary representation which will permit some level of data 
+     validation.  In this version, the placeholder type code "any" has
+     been used. This translates to a regular expression which will match 
+     any pattern.
+
+     It should be noted that DDL 2.1 already supports array data objects
+     although these have not been used in the current mmCIF dictionary.  
+     It may be possible to use the DDL 2.1 ITEM_STRUCTURE and 
+     ITEM_STRUCTURE_LIST categories to provide the information that is 
+     carried in by the ARRAY_STRUCTURE and ARRAY_STRUCTURE_LIST.  By 
+     moving the array structure to the DDL level it would be possible to 
+     define an array type as well as a regular expression defining the 
+     data format.
+
+   + Multiple array sections can be properly handled within a single 
+     datablock.
+;
+
+
+
+
+### EOF  mmcif_img-header.dic

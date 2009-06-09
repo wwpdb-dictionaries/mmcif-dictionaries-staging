@@ -1,0 +1,22 @@
+This directory contains the text files required to build the:
+
+                      Image CIF Dictionary (imgCIF)                       
+           and Crystallographic Binary File Dictionary (CBF)             
+           Extending the Macromolecular CIF Dictionary (mmCIF)            
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_img.PARTS.   
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_img
+
+ or 
+
+    make compile
+##
+
+
+
+
+

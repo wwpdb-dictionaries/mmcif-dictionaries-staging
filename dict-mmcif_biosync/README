@@ -1,0 +1,27 @@
+This directory contains the text files required to build the:
+
+               BIOSYNC Dictionary Extension to the                    
+     
+                 Macromolecular CIF Dictionary                       
+
+This extension dictionary contains definitions describing the details of 
+synchrotron beamlines and beamline facilities. 
+
+
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_biosync.PARTS.   
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_biosync
+
+ or 
+
+    make compile
+##
+
+
+
+
+

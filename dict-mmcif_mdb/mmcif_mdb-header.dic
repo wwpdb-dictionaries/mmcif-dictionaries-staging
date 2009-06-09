@@ -1,0 +1,56 @@
+###############################################################################
+#
+#  File: mmcif_mdb-header.dic
+#
+#            Model Database Extension to the mmCIF Data Dictionary         
+#                                                                            
+#                   Alexei Adzhubei and Eugenia Migliavacca                  
+#                         GlaxoSmithKline, Geneva                            
+#                                                                            
+#                                                                            
+#      The MDB dictionary is a mmCIF-based dictionary designed to be used in   
+#      conjunction with the full mmCIF dictionary.                           
+#                                                                            
+#                 Please email comments to Alexei Adzhubei        
+#                                                                            
+###############################################################################
+
+data_mmcif_mdb.dic
+
+    _datablock.id   mmcif_mdb.dic  
+    _datablock.description  
+;      This datablock holds the MDB dictionary
+;
+    _dictionary.title           mmcif_mdb.dic
+    _dictionary.version         1.0.3
+    _dictionary.datablock_id    mmcif_mdb.dic
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+ loop_
+_dictionary_history.version
+_dictionary_history.update
+_dictionary_history.revision  
+ 1.0.0  2001-01-19
+;   Released by MDB project team. GSK Geneva.
+    Last update 19/01/2001
+;
+ 1.0.1  2004-04-16
+;   Changes (JDW):
+      + miscellaneous corrections in syntax
+      + removed cyclic parent-child relationships
+;
+ 1.0.2  2004-08-08
+;   Changes (JDW):
+      + miscellaneous corrections in syntax
+;
+ 1.0.3  2007-05-28
+;   Changes (JDW):
+      + adjust data types for parent-child consistencies.
+;
+
+
+
+### EOF mmcif_mdb-header.dic 

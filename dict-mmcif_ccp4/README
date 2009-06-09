@@ -1,0 +1,24 @@
+This directory contains the text files required to build the:
+
+                   CCP4 Extension Data Dictionary                 
+
+This dictionary supplements the contents of the mmCIF data dictionary 
+with additional data items required to describe the details of the
+structure determination using the CCP4 program system.
+
+An ordered list of the text file components of this dictionary is 
+contained in the file mmcif_ccp4.PARTS.   
+
+The full dictionary can be built using the command:  
+
+    Build.csh mmcif_ccp4
+
+ or 
+
+    make compile
+##
+
+
+
+
+

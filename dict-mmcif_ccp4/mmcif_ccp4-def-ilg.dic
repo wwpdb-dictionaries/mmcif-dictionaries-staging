@@ -1,0 +1,25 @@
+# 
+loop_
+_pdbx_item_linked_group.category_id 
+_pdbx_item_linked_group.link_group_id 
+_pdbx_item_linked_group.label 
+_pdbx_item_linked_group.context 
+_pdbx_item_linked_group.condition_id 
+ccp4_refine_tls_group 1 ccp4_refine_tls_group:atom_site:1       . . 
+ccp4_refine_tls_group 2 ccp4_refine_tls_group:atom_site:2       . . 
+ccp4_refine_tls_group 3 ccp4_refine_tls_group:ccp4_refine_tls:3 . . 
+# 
+loop_
+_pdbx_item_linked_group_list.child_category_id 
+_pdbx_item_linked_group_list.link_group_id 
+_pdbx_item_linked_group_list.child_name 
+_pdbx_item_linked_group_list.parent_name 
+_pdbx_item_linked_group_list.parent_category_id 
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_label_asym_id' '_atom_site.label_asym_id' atom_site       
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_label_seq_id'  '_atom_site.label_seq_id'  atom_site       
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_auth_seq_id'   '_atom_site.auth_seq_id'   atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_label_asym_id' '_atom_site.label_asym_id' atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_label_seq_id'  '_atom_site.label_seq_id'  atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_auth_seq_id'   '_atom_site.auth_seq_id'   atom_site       
+ccp4_refine_tls_group 3 '_ccp4_refine_tls_group.refine_tls_id'     '_ccp4_refine_tls.id'      ccp4_refine_tls 
+# 

@@ -1,0 +1,109 @@
+
+###########################################################################
+#
+# File:  mmcif_em-header.dic                                             
+# 
+#               PDB Extension Dictionary for 3-Dimensional
+#                          Electron Microscopy                
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items that may be required to represent 
+#     structure and experimental data produced by 3-dimensional electron
+#     microscopy experiments.
+#
+#     Extensions are based on community suggestions and encoded by
+#     Richard Newman and Kim Henrick at the Molecular Structure Database 
+#     (MSD) Group/EBI and John Westbrook at PDB RCSB.
+#     
+#                                                                           
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_em.dic
+
+    _datablock.id                          mmcif_em.dic
+    _datablock.description
+;
+     This data block holds the mmCIF data definitions with extensions
+     for 3-dimensional electron microscopy.
+;
+
+    _dictionary.title           mmcif_em.dic
+    _dictionary.datablock_id    mmcif_em.dic
+    _dictionary.version         0.014
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.001  2001-09-21
+;
+ Initial version.
+;
+   0.002  2004-04-15
+; Changes: (jdw)
+   + Added partitioning and dictionary revision history.
+   + Fix syntax errors in category examples.
+   + Added missing units.
+;
+   0.003  2004-10-10
+; Changes: (jdw)
+   + Adjust enumerations
+;
+   0.004  2004-11-03
+; Changes:
+   + Reflects revisions from EM Workshop Oct 2004. 
+;
+   0.005  2004-12-04
+; Changes:
+   + Added em_electron_diffraction, em_electron_diffraction_phasing, and 
+     em_electron_diffraction_pattern
+   + Miscellaneous corrections.
+;
+   0.006  2005-06-01
+; Changes: (jdw)
+  + Add category groups
+  + Add changes proposed by EM Workshop participants.
+;
+   0.007  2005-06-09
+; Changes: (jdw)
+  + Reorganize em_sample_description_group
+  + Reorganize em_data_collection_group
+  + Reorganize em_image_selection_group
+  + Detailed particle list categories temporarily removed from this version.
+;
+   0.008  2005-06-09
+; Changes: (jdw)
+  + revise category keys in em_image_selection group
+;
+   0.009  2005-07-13
+; Changes: (jdw)
+  + Added Cathy Lawson's revised definitions and examples.
+;
+   0.010  2005-07-28
+; Changes: (jdw)
+  + Implemented changes recommended by Wah Chiu, Matt Baker, and Cathy Lawson.
+;
+
+   0.011  2005-07-29
+; Changes: (jdw)
+  + Corrections to v0.010
+  + Implemented changes recommended by Bridget Carragher and Ron Milligan
+;
+   0.012  2005-08-23
+; Changes: (jdw)
+  + Remove non-ascii characters from description text.  
+;
+   0.013  2005-10-14
+; Changes: (jdw)
+  + Remove more special characters from enumerations.  
+  + Renamed iims -> em
+;
+   0.014  2007-11-19
+; Changes: (jdw/cl)
+  + update example for category em_array_formation
+  + miscellaneous corrections
+;
+### EOF mmcif_em-header.dic

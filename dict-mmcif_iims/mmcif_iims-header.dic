@@ -1,0 +1,368 @@
+
+###########################################################################
+#
+# File:  mmcif_iims-header.dic                                             
+# 
+#               PDB Extension Dictionary for 3-Dimensional
+#                          Electron Microscopy                
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items that may be required to represent 
+#     structure and experimental data produced by 3-dimensional electron
+#     microscopy experiments.
+#
+#     Extensions are based on community suggestions and encoded by
+#     Richard Newman and Kim Henrick at the Molecular Structure Database 
+#     (MSD) Group/EBI and John Westbrook at PDB RCSB.
+#     
+#                                                                           
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_iims.dic
+
+    _datablock.id                          mmcif_iims.dic
+    _datablock.description
+;
+     This data block holds the mmCIF data definitions with extensions
+     for 3-dimensional electron microscopy.
+;
+
+    _dictionary.title           mmcif_iims.dic
+    _dictionary.datablock_id    mmcif_iims.dic
+    _dictionary.version         0.104
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   0.001  2001-09-21
+;
+ Initial version.
+;
+   0.002  2004-04-15
+; Changes: (jdw)
+   + Added partitioning and dictionary revision history.
+   + Fix syntax errors in category examples.
+   + Added missing units.
+;
+   0.003  2004-10-10
+; Changes: (jdw)
+   + Adjust enumerations
+;
+   0.004  2004-11-03
+; Changes:
+   + Reflects revisions from EM Workshop Oct 2004. 
+;
+   0.005  2004-12-04
+; Changes:
+   + Added em_electron_diffraction, em_electron_diffraction_phasing, and 
+     em_electron_diffraction_pattern
+   + Miscellaneous corrections.
+;
+   0.006  2005-06-01
+; Changes: (jdw)
+  + Add category groups
+  + Add changes proposed by EM Workshop participants.
+;
+   0.007  2005-06-09
+; Changes: (jdw)
+  + Reorganize em_sample_description_group
+  + Reorganize em_data_collection_group
+  + Reorganize em_image_selection_group
+  + Detailed particle list categories temporarily removed from this version.
+;
+   0.008  2005-06-09
+; Changes: (jdw)
+  + revise category keys in em_image_selection group
+;
+   0.009  2005-07-13
+; Changes: (jdw)
+  + Added Cathy Lawson's revised definitions and examples.
+;
+   0.010  2005-07-28
+; Changes: (jdw)
+  + Implemented changes recommended by Wah Chiu, Matt Baker, and Cathy Lawson.
+;
+
+   0.011  2005-07-29
+; Changes: (jdw)
+  + Corrections to v0.010
+  + Implemented changes recommended by Bridget Carragher and Ron Milligan
+;
+   0.012  2005-08-23
+; Changes: (jdw)
+  + Remove non-ascii characters from description text.  
+;
+   0.013  2005-10-14
+; Changes: (jdw)
+  + Remove more special characters from enumerations.  
+  + Renamed iims -> em
+;
+   0.014  2007-05-23
+; Changes: (jdw)
+  + em_vitrification.humidity data type changed to float
+  + miscellaneous typos corrections in definitions.
+;
+   0.015  2008-08-03
+; Changes: (jdw)
+   _em_experiment.entry_id           
+   _em_experiment.reconstruction_method
+   _em_experiment.specimen_type 
+   _em_single_particle_entity.entry_id
+   _em_single_particle_entity.symmetry_type
+   _em_assembly.aggregation_state enumerated.
+;
+   0.100   2008-09-18
+;
+ Changes:  (cb,cl,jdw):
+ + integrated new sections from community dictionary and
+   sections from EMDEP data dictionary.
+      _em_2d_crystal_entity.id
+      _em_2d_crystal_entity.entity_assembly_id
+      _em_2d_crystal_entity.length_a
+      _em_2d_crystal_entity.length_b
+      _em_2d_crystal_entity.angle_gamma
+      _em_2d_crystal_entity.details
+      _em_2d_crystal_entity.angle_alpha
+      _em_2d_crystal_entity.angle_beta
+      _em_2d_crystal_entity.length_c
+      _em_2d_crystal_entity.plane_group
+      _em_entity_assembly_mol_wt.entity_assembly_id
+      _em_entity_assembly_mol_wt.id
+      _em_entity_assembly_mol_wt.mol_wt
+      _em_entity_assembly_mol_wt.theo_mol_wt
+      _em_entity_assembly_mol_wt.details
+      _em_helical_entity.id
+      _em_helical_entity.entity_assembly_id
+      _em_helical_entity.details
+      _em_helical_entity.dyad
+      _em_helical_entity.axial_symmetry
+      _em_helical_entity.angular_rotation_per_subunit
+      _em_helical_entity.axial_rise_per_subunit
+      _em_helical_entity.hand
+      _em_map.id
+      _em_map.entry_id
+      _em_map.annotation_details
+      _em_map.name
+      _em_map.format
+      _em_map.sizeKb
+      _em_map.type
+      _em_map.axisOrderFast
+      _em_map.axisOrderMedium
+      _em_map.axisOrderSlow
+      _em_map.cell_angle_alpha
+      _em_map.cell_angle_beta
+      _em_map.cell_angle_gamma
+      _em_map.cell_length_a
+      _em_map.cell_length_b
+      _em_map.cell_length_c
+      _em_map.cell_length_a_esd
+      _em_map.cell_length_b_esd
+      _em_map.cell_length_c_esd
+      _em_map.row_limit
+      _em_map.col_limit
+      _em_map.sec_limit
+      _em_map.data_type
+      _em_map.details
+      _em_map.num_columns
+      _em_map.num_rows
+      _em_map.num_sections
+      _em_map.origin_x
+      _em_map.origin_y
+      _em_map.origin_z
+      _em_map.pixel_x
+      _em_map.pixel_y
+      _em_map.pixel_z
+      _em_map.spaceGroupNumber
+      _em_map.spacing_x
+      _em_map.spacing_y
+      _em_map.spacing_z
+      _em_map.value_density_min
+      _em_map.value_density_max
+      _em_map.value_density_mean
+      _em_map.value_density_std
+      _em_microscope.id
+      _em_microscope.model
+      _em_microscope.electron_source
+      _em_microscope.nominal_cs
+      _em_microscope.details
+      _em_stain.id
+      _em_stain.entry_id
+      _em_stain.details
+      _em_stain.citation
+      _em_stain.protocol
+      _em_stain.time_resolved_state
+      _em_stain.temperature
+      _em_stain.humidity
+      _em_stain.type
+      _em_stain.sample_preparation_id
+      _em_tomography.id
+      _em_tomography.entry_id
+      _em_tomography.tilt_angle_incr
+      _em_tomography.num_sections
+      _em_tomography.details
+      _em_virus_shells.virus_entity_id
+      _em_virus_shells.id
+      _em_virus_shells.shell_diameter
+      _em_virus_shells.triangulation_num
+      _em_virus_shells.name
+      _em_array_formation.id
+      _em_array_formation.type
+      _em_array_formation.method
+      _em_array_formation.apparatus
+      _em_array_formation.atmosphere
+      _em_array_formation.pH
+      _em_array_formation.temp
+      _em_array_formation.time
+      _em_array_formation.solution_id
+      _em_array_formation.details
+      _em_array_formation.citation_id
+      _em_array_formation.buffer_id
+      _em_admin.entry_id
+      _em_admin.last_update
+      _em_deposition.entry_id
+      _em_deposition.ll_release_date
+      _em_deposition.map_release_date
+      _em_deposition.replace_existing_entry
+      _em_deposition.sf_release_date
+      _em_deposition.citation_published
+      _em_na_entity.id
+      _em_na_entity.entity_assembly_id
+      _em_na_entity.class
+      _em_na_entity.sequence
+      _em_na_entity.structure
+      _em_ribosome.id
+      _em_ribosome.entity_assembly_id
+      _em_ribosome.type
+      _em_ribosome.details
+      _em_supplement.entry_id
+      _em_figure.id
+      _em_figure.file
+      _em_figure.details
+      _em_fsc.id
+      _em_fsc.file
+      _em_fsc.details
+      _em_mask.id
+      _em_mask.entry_id
+      _em_slice.id
+      _em_slice.entry_id
+      _em_2d_crystal_layer_lines.id
+      _em_2d_crystal_layer_lines.details
+      _em_2d_crystal_layer_lines.file
+      _em_structure_factor.id
+      _em_structure_factor.details
+      _em_structure_factor.file
+
+;
+   0.101   2008-10-09
+;
+ Changes:  (cb,cl):
+ + changed mandatory code to "NO" for categories,
+       em_helical_entity
+       em_stain
+ + changed mandatory code to "NO" for items,
+       _em_map.cell_angle_alpha
+       _em_map.cell_angle_beta
+       _em_map.cell_angle_gamma 
+       _em_map.cell_length_a
+       _em_map.cell_length_a_esd
+       _em_map.cell_length_b
+       _em_map.cell_length_b_esd
+       _em_map.cell_length_c
+       _em_map.cell_length_c_esd
+ + added "RIBOSOME" in _em_entity_assembly.type enumeration list
+ + changed "TUBE" to "FILAMENT" for em_array_formation.type
+ + added "OTHER" in _em_vitrification.cryogen_name enumeration list
+ + deleted _em_microscope.details
+ + added an item _em_imaging.microscope_id to refer to _em_microscope.id
+ + capitalized enumeration values 
+       _em_deposition.replace_existing_entry (YES, NO)
+       _em_deposition.citation_published (YES, NO)
+ + confirmed and updated _em_assembly.aggregation_state value
+       _item_enumeration.value
+          '2D CRYSTAL'
+          '3D CRYSTAL'
+          'PARTICLE'
+          'INDIVIDUAL STRUCTURE'
+          'FILAMENT'
+          'ICOSAHEDRAL'
+          'TISSUE'
+          'CELL'
+ + corrected the item_linked in _em_entity_assembly.id
+;
+   0.102   2008-11-21
+;
+ Changes:  (bd,cb):
+ + added / modified some examples and helps for emadit diplaying.
+;
+   0.103   2008-12-09
+;
+ Changes:  (cb,cl,jw):
+ The followingchanges to map items in EMDB xml schema.
+ + Refined the examples and definitions.
+ + changed mandatory code to No for items. 
+   (make em_map tolerable data of supplement mask and slice.)
+       _em_map.value_density_min
+       _em_map.value_density_max
+       _em_map.value_density_mean
+       _em_map.value_density_std
+ + modified the data type code from "line" to "text":
+       _em_assembly.composition
+       _em_assembly.name
+       _em_3d_fitting.software_name 
+       _em_entity_assembly.ebi_expression_system 
+       _em_vitrification.instrument 
+       _em_imaging.specimen_holder_type 
+ + inserted missing items.
+       _em_3d_reconstruction.euler_angles_details
+       _em_3d_reconstruction.num_class_averages
+       _em_3d_reconstruction.software
+       _em_entity_assembly.mutant_flag
+       _em_entity_assembly.number_of_copies
+       _em_entity_assembly.oligomeric_details
+       _em_imaging.astigmatism
+       _em_imaging.electron_beam_tilt_params
+ + added "NONE" to the enumeration list for _em_vitrification.cryogen_name
+ + added "OTHER" to the enumeration list for _em_virus_entity.virus_isolate
+ + updated enumeration list for _em_image_scans.scanner_model
+           'NIKON SUPER COOLSCAN 9000' 
+           'NIKON COOLSCAN'
+           'PRIMESCAN'
+           'IMAGE SCIENCE PATCHWORK DENSITOMETER'
+           'EIKONIX IEEE 488'
+
+ + updated enumeration list for _em_imaging.specimen_holder_model
+       _item_enumeration.value
+           'JEM3200FSC CRYOHOLDER'
+           'PHILIPS ROTATION HOLDER'
+           'HOME BUILD'
+           'JEOL'
+           'SIDE ENTRY, EUCENTRIC' 
+
+ + updated the enumeration list for _em_microscope.model:
+       _item_enumeration.value
+           'JEM2200FS'
+           'JEM3200FSC'
+           'PHILIPS EM400'
+           'PHILIPS EM420'
+           'JEOL 1200EX II'
+           'FEI TECNAI G20'
+           'ZEISS LEO 912'
+           'TECNAI G2'
+;
+   0.104   2008-12-23
+;
+ Changes:  (cl,cb):
+ + replaced _em_2d_crystal_entity.plane_group with 
+   _em_2d_crystal_entity.space_group_name_H-M
+ + revised _em_2d_crystal_entity.space_group_name_H-M
+ + moved two categories from def-6 to mmcif_iims-def-2.dic
+     em_helical_entity
+     em_2d_crystal_entity
+;
+
+
+### EOF mmcif_iims-header.dic
