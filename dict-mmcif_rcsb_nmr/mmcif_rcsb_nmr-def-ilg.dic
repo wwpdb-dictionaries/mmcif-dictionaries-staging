@@ -92,8 +92,8 @@ diffrn_reflns                     1  diffrn_reflns:diffrn:1                     
 diffrn_source                     1  diffrn_source:diffrn:1                                          . . 
 diffrn_standard_refln             1  diffrn_standard_refln:diffrn:1                                  . . 
 diffrn_standards                  1  diffrn_standards:diffrn:1                                       . . 
-ebi_soln_scatter                  1  ebi_soln_scatter:entry:1                                        . . 
-ebi_soln_scatter_model            1  ebi_soln_scatter_model:ebi_soln_scatter:1                       . . 
+pdbx_soln_scatter                  1  pdbx_soln_scatter:entry:1                                        . . 
+pdbx_soln_scatter_model            1  pdbx_soln_scatter_model:pdbx_soln_scatter:1                       . . 
 entity                            1  entity:entity:1                                                 . . 
 entity_keywords                   1  entity_keywords:entity:1                                        . . 
 entity_link                       1  entity_link:chem_link:1                                         . . 
@@ -485,8 +485,8 @@ diffrn_reflns                     1  '_diffrn_reflns.diffrn_id'                 
 diffrn_source                     1  '_diffrn_source.diffrn_id'                              '_diffrn.id'                                diffrn                         
 diffrn_standard_refln             1  '_diffrn_standard_refln.diffrn_id'                      '_diffrn.id'                                diffrn                         
 diffrn_standards                  1  '_diffrn_standards.diffrn_id'                           '_diffrn.id'                                diffrn                         
-ebi_soln_scatter                  1  '_ebi_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
-ebi_soln_scatter_model            1  '_ebi_soln_scatter_model.scatter_id'                    '_ebi_soln_scatter.id'                      ebi_soln_scatter               
+pdbx_soln_scatter                  1  '_pdbx_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
+pdbx_soln_scatter_model            1  '_pdbx_soln_scatter_model.scatter_id'                    '_pdbx_soln_scatter.id'                      pdbx_soln_scatter               
 entity                            1  '_entity.rcsb_parent_entity_id'                         '_entity.id'                                entity                         
 entity_keywords                   1  '_entity_keywords.entity_id'                            '_entity.id'                                entity                         
 entity_link                       1  '_entity_link.link_id'                                  '_chem_link.id'                             chem_link                      

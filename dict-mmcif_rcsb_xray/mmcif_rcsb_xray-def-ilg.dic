@@ -92,8 +92,8 @@ diffrn_reflns                     1  diffrn_reflns:diffrn:1                     
 diffrn_source                     1  diffrn_source:diffrn:1                                          . . 
 diffrn_standard_refln             1  diffrn_standard_refln:diffrn:1                                  . . 
 diffrn_standards                  1  diffrn_standards:diffrn:1                                       . . 
-ebi_soln_scatter                  1  ebi_soln_scatter:entry:1                                        . . 
-ebi_soln_scatter_model            1  ebi_soln_scatter_model:ebi_soln_scatter:1                       . . 
+pdbx_soln_scatter                  1  pdbx_soln_scatter:entry:1                                        . . 
+pdbx_soln_scatter_model            1  pdbx_soln_scatter_model:pdbx_soln_scatter:1                       . . 
 em_2d_crystal_grow                1  em_2d_crystal_grow:citation:1                                   . . 
 em_2d_crystal_grow                2  em_2d_crystal_grow:em_buffer:2                                  . . 
 em_2d_projection_selection        1  em_2d_projection_selection:citation:1                           . . 
@@ -511,8 +511,8 @@ diffrn_reflns                     1  '_diffrn_reflns.diffrn_id'                 
 diffrn_source                     1  '_diffrn_source.diffrn_id'                              '_diffrn.id'                                diffrn                         
 diffrn_standard_refln             1  '_diffrn_standard_refln.diffrn_id'                      '_diffrn.id'                                diffrn                         
 diffrn_standards                  1  '_diffrn_standards.diffrn_id'                           '_diffrn.id'                                diffrn                         
-ebi_soln_scatter                  1  '_ebi_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
-ebi_soln_scatter_model            1  '_ebi_soln_scatter_model.scatter_id'                    '_ebi_soln_scatter.id'                      ebi_soln_scatter               
+pdbx_soln_scatter                  1  '_pdbx_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
+pdbx_soln_scatter_model            1  '_pdbx_soln_scatter_model.scatter_id'                    '_pdbx_soln_scatter.id'                      pdbx_soln_scatter               
 em_2d_crystal_grow                1  '_em_2d_crystal_grow.citation_id'                       '_citation.id'                              citation                       
 em_2d_crystal_grow                2  '_em_2d_crystal_grow.buffer_id'                         '_em_buffer.id'                             em_buffer                      
 em_2d_projection_selection        1  '_em_2d_projection_selection.citation_id'               '_citation.id'                              citation                       

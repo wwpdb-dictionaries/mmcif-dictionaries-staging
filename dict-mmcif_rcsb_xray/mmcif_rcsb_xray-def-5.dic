@@ -2298,6 +2298,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'CHESS BEAMLINE F1'                        .
                      'CHESS BEAMLINE F2'                        .
                      'CLSI BEAMLINE 08ID-1'                     .
+                     'Cu FINE FOCUS'                            .
                      'DIAMOND BEAMLINE I02'                     .
                      'DIAMOND BEAMLINE I03'                     .
                      'DIAMOND BEAMLINE I04'                     .
@@ -2388,7 +2389,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'PHOTON FACTORY BEAMLINE BL-17A'           . 
                      'PHOTON FACTORY BEAMLINE BL-18B'           .
                      'RIGAKU'                                   .
-                     'RIGAKU 200'                               .
+#                    'RIGAKU 200'                               .
                      'RIGAKU FR-D'                              .
                      'RIGAKU FR-E DW'                           .
                      'RIGAKU FR-E SUPERBRIGHT'                  .
@@ -2434,6 +2435,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'SRS BEAMLINE PX10.1'                      .
                      'SRS BEAMLINE PX14.1'                      .
                      'SRS BEAMLINE PX14.2'                      .
+                     'SSRF BEAMLINE BL17U'                      .
                      'SSRL BEAMLINE BL1-5'                      .
                      'SSRL BEAMLINE BL4-2'                      .
                      'SSRL BEAMLINE BL7-1'                      .

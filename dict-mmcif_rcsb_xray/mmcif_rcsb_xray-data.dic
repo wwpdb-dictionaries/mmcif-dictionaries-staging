@@ -223,7 +223,7 @@
                of residues that deviate from expected standards
                by 6 * the expected RMSD
 ;
-              'soln_scatter_group'
+              'solution_scattering_group'
               'inclusive_group'
 ;              Categories that describe solution scattering.
 ;

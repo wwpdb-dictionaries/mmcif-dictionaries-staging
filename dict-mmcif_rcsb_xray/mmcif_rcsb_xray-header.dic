@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0009
+    _dictionary.version         1.0010
 #
      loop_
     _dictionary_history.version
@@ -907,6 +907,13 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
    Changes (jdw):   
    + Add category pdbx_remediation_atom_site_mapping
    + update internal tables of link relationships
+;
+
+   1.0010 2009-06-22
+;
+   Changes (jdw):   
+   + move categories pdbx_soln_scatter and pdbx_soln_scatter_model
+     into the local dictionary replacing the previous ebi_ analogs
 ;
 
 #

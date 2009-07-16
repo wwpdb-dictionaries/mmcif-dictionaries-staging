@@ -5,7 +5,7 @@ _pdbx_item_linked_group.link_group_id
 _pdbx_item_linked_group.label 
 _pdbx_item_linked_group.context 
 _pdbx_item_linked_group.condition_id 
-atom_site                         1  atom_site:atom_sites_alt:1                                      . . 
+#atom_site                         1  atom_site:atom_sites_alt:1                                      . . 
 atom_site                         2  atom_site:atom_sites_footnote:2                                 . . 
 atom_site                         3  atom_site:atom_type:3                                           . . 
 atom_site                         4  atom_site:ccp4_refine_tls_group:4                               . . 
@@ -19,6 +19,9 @@ atom_site                         11 atom_site:struct_ncs_dom:11                
 atom_site_anisotrop               1  atom_site_anisotrop:atom_site:1                                 . . 
 atom_site_anisotrop               2  atom_site_anisotrop:atom_type:2                                 . . 
 atom_sites                        1  atom_sites:entry:1                                              . . 
+#
+atom_sites_alt                    1  atom_sites_alt:atom_site:1                                      . . 
+#
 atom_sites_alt_gen                1  atom_sites_alt_gen:atom_sites_alt:1                             . . 
 atom_sites_alt_gen                2  atom_sites_alt_gen:atom_sites_alt_ens:2                         . . 
 ccp4_refine_tls                   1  ccp4_refine_tls:refine:1                                        . . 
@@ -89,8 +92,8 @@ diffrn_reflns                     1  diffrn_reflns:diffrn:1                     
 diffrn_source                     1  diffrn_source:diffrn:1                                          . . 
 diffrn_standard_refln             1  diffrn_standard_refln:diffrn:1                                  . . 
 diffrn_standards                  1  diffrn_standards:diffrn:1                                       . . 
-ebi_soln_scatter                  1  ebi_soln_scatter:entry:1                                        . . 
-ebi_soln_scatter_model            1  ebi_soln_scatter_model:ebi_soln_scatter:1                       . . 
+pdbx_soln_scatter                  1  pdbx_soln_scatter:entry:1                                        . . 
+pdbx_soln_scatter_model            1  pdbx_soln_scatter_model:pdbx_soln_scatter:1                       . . 
 em_2d_crystal_grow                1  em_2d_crystal_grow:citation:1                                   . . 
 em_2d_crystal_grow                2  em_2d_crystal_grow:em_buffer:2                                  . . 
 em_2d_projection_selection        1  em_2d_projection_selection:citation:1                           . . 
@@ -336,6 +339,7 @@ refine_ls_restr                   1  refine_ls_restr:refine:1                   
 refine_ls_restr_ncs               1  refine_ls_restr_ncs:refine:1                                    . . 
 refine_ls_restr_ncs               2  refine_ls_restr_ncs:struct_asym:2                               . . 
 refine_ls_restr_ncs               3  refine_ls_restr_ncs:struct_ncs_dom:3                            . . 
+refine_ls_restr_ncs               4  refine_ls_restr_ncs:atom_site:4                                 . . 
 refine_ls_restr_type              1  refine_ls_restr_type:refine_ls_restr:1                          . . 
 refine_ls_shell                   1  refine_ls_shell:refine:1                                        . . 
 refine_occupancy                  1  refine_occupancy:refine:1                                       . . 
@@ -401,13 +405,28 @@ struct_site_keywords              1  struct_site_keywords:struct_site:1         
 struct_site_view                  1  struct_site_view:struct_site:1                                  . . 
 symmetry                          1  symmetry:entry:1                                                . . 
 # 
+#
+em_sample_preparation                    4  em_sample_preparation:em_entity_assembly:4                                . . 
+em_2d_crystal_entity                     1  em_2d_crystal_entity:em_entity_assembly:1                                 . .
+em_helical_entity                        1  em_helical_entity:em_entity_assembly:1                                    . .
+#
+pdbx_remediation_atom_site_mapping       1  pdbx_remediation_atom_site_mapping:atom_site:1                            . .  
+#
+pdbx_reference_entity_annotation         1  pdbx_reference_entity_annotation:pdbx_reference_entity:1                  . . 
+pdbx_reference_entity_synonyms           1  pdbx_reference_entity_synonyms:pdbx_reference_entity:1                    . . 
+pdbx_reference_entity_components         1  pdbx_reference_entity_components:pdbx_reference_entity:1                  . . 
+pdbx_reference_entity_poly               1  pdbx_reference_entity_poly:pdbx_reference_entity:1                        . . 
+pdbx_reference_entity_poly_seq           1  pdbx_reference_entity_poly_seq:pdbx_reference_entity:1                    . . 
+pdbx_reference_entity_src_nat            1  pdbx_reference_entity_src_nat:pdbx_reference_entity:1                     . . 
+pdbx_reference_entity_feature            1  pdbx_reference_entity_feature:pdbx_reference_entity:1                     . . 
+
 loop_
 _pdbx_item_linked_group_list.child_category_id 
 _pdbx_item_linked_group_list.link_group_id 
 _pdbx_item_linked_group_list.child_name 
 _pdbx_item_linked_group_list.parent_name 
 _pdbx_item_linked_group_list.parent_category_id 
-atom_site                         1  '_atom_site.label_alt_id'                               '_atom_sites_alt.id'                        atom_sites_alt                 
+#atom_site                         1  '_atom_site.label_alt_id'                               '_atom_sites_alt.id'                        atom_sites_alt                 
 atom_site                         2  '_atom_site.footnote_id'                                '_atom_sites_footnote.id'                   atom_sites_footnote            
 atom_site                         3  '_atom_site.type_symbol'                                '_atom_type.symbol'                         atom_type                      
 atom_site                         4  '_atom_site.pdbx_tls_group_id'                          '_ccp4_refine_tls_group.id'                 ccp4_refine_tls_group          
@@ -421,6 +440,8 @@ atom_site                         11 '_atom_site.pdbx_ncs_dom_id'               
 atom_site_anisotrop               1  '_atom_site_anisotrop.id'                               '_atom_site.id'                             atom_site                      
 atom_site_anisotrop               2  '_atom_site_anisotrop.type_symbol'                      '_atom_type.symbol'                         atom_type                      
 atom_sites                        1  '_atom_sites.entry_id'                                  '_entry.id'                                 entry                          
+#
+atom_sites_alt                    1  '_atom_sites_alt.id'                                    '_atom_site.label_alt_id'                   atom_site
 atom_sites_alt_gen                1  '_atom_sites_alt_gen.alt_id'                            '_atom_sites_alt.id'                        atom_sites_alt                 
 atom_sites_alt_gen                2  '_atom_sites_alt_gen.ens_id'                            '_atom_sites_alt_ens.id'                    atom_sites_alt_ens             
 ccp4_refine_tls                   1  '_ccp4_refine_tls.pdbx_refine_id'                       '_refine.pdbx_refine_id'                    refine                         
@@ -498,8 +519,8 @@ diffrn_reflns                     1  '_diffrn_reflns.diffrn_id'                 
 diffrn_source                     1  '_diffrn_source.diffrn_id'                              '_diffrn.id'                                diffrn                         
 diffrn_standard_refln             1  '_diffrn_standard_refln.diffrn_id'                      '_diffrn.id'                                diffrn                         
 diffrn_standards                  1  '_diffrn_standards.diffrn_id'                           '_diffrn.id'                                diffrn                         
-ebi_soln_scatter                  1  '_ebi_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
-ebi_soln_scatter_model            1  '_ebi_soln_scatter_model.scatter_id'                    '_ebi_soln_scatter.id'                      ebi_soln_scatter               
+pdbx_soln_scatter                  1  '_pdbx_soln_scatter.entry_id'                            '_entry.id'                                 entry                          
+pdbx_soln_scatter_model            1  '_pdbx_soln_scatter_model.scatter_id'                    '_pdbx_soln_scatter.id'                      pdbx_soln_scatter               
 em_2d_crystal_grow                1  '_em_2d_crystal_grow.citation_id'                       '_citation.id'                              citation                       
 em_2d_crystal_grow                2  '_em_2d_crystal_grow.buffer_id'                         '_em_buffer.id'                             em_buffer                      
 em_2d_projection_selection        1  '_em_2d_projection_selection.citation_id'               '_citation.id'                              citation                       
@@ -1208,6 +1229,7 @@ refine_ls_restr                   1  '_refine_ls_restr.pdbx_refine_id'          
 refine_ls_restr_ncs               1  '_refine_ls_restr_ncs.pdbx_refine_id'                   '_refine.pdbx_refine_id'                    refine                         
 refine_ls_restr_ncs               2  '_refine_ls_restr_ncs.pdbx_asym_id'                     '_struct_asym.id'                           struct_asym                    
 refine_ls_restr_ncs               3  '_refine_ls_restr_ncs.pdbx_ens_id'                      '_struct_ncs_dom.pdbx_ens_id'               struct_ncs_dom                 
+refine_ls_restr_ncs               4  '_refine_ls_restr_ncs.pdbx_auth_asym_id'                '_atom_site.auth_asym_id'                   atom_site                
 refine_ls_restr_type              1  '_refine_ls_restr_type.type'                            '_refine_ls_restr.type'                     refine_ls_restr                
 refine_ls_shell                   1  '_refine_ls_shell.pdbx_refine_id'                       '_refine.pdbx_refine_id'                    refine                         
 refine_occupancy                  1  '_refine_occupancy.pdbx_refine_id'                      '_refine.pdbx_refine_id'                    refine                         
@@ -1348,3 +1370,24 @@ struct_site_keywords              1  '_struct_site_keywords.site_id'            
 struct_site_view                  1  '_struct_site_view.site_id'                             '_struct_site.id'                           struct_site                    
 symmetry                          1  '_symmetry.entry_id'                                    '_entry.id'                                 entry                          
 # 
+#
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.label_alt_id'         '_atom_site.label_alt_id'                   atom_site
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.label_asym_id'	   '_atom_site.label_asym_id'                  atom_site
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.label_atom_id'	   '_atom_site.label_atom_id'                  atom_site
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.label_comp_id'	   '_atom_site.label_comp_id'                  atom_site
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.label_seq_id'	   '_atom_site.label_seq_id'                   atom_site
+pdbx_remediation_atom_site_mapping    1 '_pdbx_remediation_atom_site_mapping.PDB_ins_code'	   '_atom_site.ndb_ins_code'                   atom_site
+#
+pdbx_reference_entity_annotation         1  '_pdbx_reference_entity_annotation.entity_id' '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_synonyms           1  '_pdbx_reference_entity_synonyms.entity_id'   '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_components         1  '_pdbx_reference_entity_components.entity_id' '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_poly               1  '_pdbx_reference_entity_poly.entity_id'       '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_poly_seq           1  '_pdbx_reference_entity_poly_seq.entity_id'   '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_src_nat            1  '_pdbx_reference_entity_src_nat.entity_id'    '_pdbx_reference_entity.id'   pdbx_reference_entity 
+pdbx_reference_entity_feature            1  '_pdbx_reference_entity_feature.entity_id'    '_pdbx_reference_entity.id'   pdbx_reference_entity 
+#
+em_2d_crystal_entity                     1  '_em_2d_crystal_entity.entity_assembly_id'    '_em_entity_assembly.id'      em_entity_assembly
+em_helical_entity                        1  '_em_helical_entity.entity_assembly_id'       '_em_entity_assembly.id'      em_entity_assembly
+em_sample_preparation                    4  '_em_sample_preparation.entity_assembly_id'   '_em_entity_assembly.id'      em_entity_assembly
+
+

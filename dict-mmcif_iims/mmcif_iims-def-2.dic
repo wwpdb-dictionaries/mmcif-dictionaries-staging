@@ -4025,7 +4025,7 @@ save_em_electron_diffraction_phase
 ; 
   _em_electron_diffraction_phase.entry_id                       1TUB
   _em_electron_diffraction_phase.id                             1
-  _em_electron_diffraction_phase.d_res_high                     4.0
+  _em_electron_diffraction_phase.d_res_high			4
   _em_electron_diffraction_phase.residual                        .
   _em_electron_diffraction_phase.highest_resolution_shell_error  .
   _em_electron_diffraction_phase.overall_error                   .
@@ -4064,7 +4064,7 @@ save__em_electron_diffraction_phase.d_res_high
     _item.category_id            em_electron_diffraction_phase
     _item.mandatory_code         no
     _item_type.code              int
-    _item_examples.case          '5.0'
+    _item_examples.case          '5'
       save_
 
 save__em_electron_diffraction_phase.residual
