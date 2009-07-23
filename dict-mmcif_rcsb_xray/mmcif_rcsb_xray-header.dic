@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0010
+    _dictionary.version         1.0011
 #
      loop_
     _dictionary_history.version
@@ -915,6 +915,10 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
    + move categories pdbx_soln_scatter and pdbx_soln_scatter_model
      into the local dictionary replacing the previous ebi_ analogs
 ;
-
+   1.0011 2009-07-23
+;
+  Changes (jdw):
+   + Add _chem_comp.type's for 'L-RNA linking' 'L-DNA linking'
+;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
