@@ -1708,6 +1708,7 @@ The make, model or name of the detector device used.
                   'BRUKER SMART 6000'               .
                   'BRUKER SMART 6500'               .
                   'CUSTOM-MADE'                     .
+                  'DECTRIS PILATUS 6M'              .
                   'ENRAF-NONIUS'                    .
                   'ENRAF-NONIUS CAD4'               .
                   'ENRAF-NONIUS FAST'               .
@@ -1742,9 +1743,10 @@ The make, model or name of the detector device used.
                   'OXFORD ONYX CCD'                 .
                   'OXFORD RUBY CCD'                 .
                   'OXFORD SAPPHIRE CCD'             .
+                  'OXFORD TITAN CCD'                .
                   'PHILLIPS'                        .
-                  'PILATUS 6M'                      .
                   'PRINCETON 2K'                    .
+                  'PSI PILATUS 6M'                  .
                   'RAYONIX MX-225'                  .
                   'RAYONIX MX-300'                  .
                   'RAYONIX MX-325'                  .
