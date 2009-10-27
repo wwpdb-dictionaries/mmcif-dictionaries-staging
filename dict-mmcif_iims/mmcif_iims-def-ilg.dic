@@ -131,6 +131,7 @@ em_virus_shells                          1  em_virus_shells:em_virus_entity:1   
 em_vitrification                         1  em_vitrification:citation:1                                               . . 
 em_vitrification                         2  em_vitrification:em_sample_preparation:2                                  . . 
 em_vitrification                         3  em_vitrification:entry:3                                                  . . 
+em_database_reference                    1  em_database_reference:em_entity_assembly:1                                . . 
 entity                                   1  entity:entity:1                                                           . . 
 entity_keywords                          1  entity_keywords:entity:1                                                  . . 
 entity_link                              1  entity_link:chem_link:1                                                   . . 
@@ -625,6 +626,8 @@ em_virus_shells                          1  '_em_virus_shells.virus_entity_id'  
 em_vitrification                         1  '_em_vitrification.citation_id'                       '_citation.id'                              citation                       
 em_vitrification                         2  '_em_vitrification.sample_preparation_id'             '_em_sample_preparation.id'                 em_sample_preparation          
 em_vitrification                         3  '_em_vitrification.entry_id'                          '_entry.id'                                 entry                          
+em_database_reference                    1  '_em_database_reference.assembly_id'                  '_em_entity_assembly.assembly_id'           em_entity_assembly
+em_database_reference                    1  '_em_database_reference.entity_assembly_id'           '_em_entity_assembly.id'                    em_entity_assembly
 entity                                   1  '_entity.pdbx_parent_entity_id'                       '_entity.id'                                entity                         
 entity_keywords                          1  '_entity_keywords.entity_id'                          '_entity.id'                                entity                         
 entity_link                              1  '_entity_link.link_id'                                '_chem_link.id'                             chem_link                      

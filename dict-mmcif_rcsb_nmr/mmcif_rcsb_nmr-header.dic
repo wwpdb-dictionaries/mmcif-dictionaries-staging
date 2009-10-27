@@ -28,7 +28,7 @@ data_mmcif_rcsb_nmr.dic
 
     _dictionary.title           mmcif_rcsb_nmr.dic
     _dictionary.datablock_id    mmcif_rcsb_nmr.dic
-    _dictionary.version         1.0009
+    _dictionary.version         1.0012
 #
      loop_
     _dictionary_history.version
@@ -581,6 +581,13 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
    + synchronize version with x-ray internal dictionary.
    + Add category pdbx_remediation_atom_site_mapping
    + update internal tables of link relationships
+;
+   1.0012 2009-10-27
+;
+  Changes (jdw):
+   + Add _pdbx_validate_planes.type enumerations for 'SIDE CHAIN' and
+     'MAIN CHAIN' and deprecate values that contained underscores
+     (e.g. MAIN_CHAIN).
 ;
 
 

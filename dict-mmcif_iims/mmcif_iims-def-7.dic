@@ -5,6 +5,142 @@
 #        required by emdb.
 ###########################################################################
 
+###############################
+# EM_FITTED_PDB_ENTRY_LIST    #
+###############################
+# _em_fitted_PDB_entry_list.entry_id
+# _em_fitted_PDB_entry_list.PDB_id_code
+
+save_em_fitted_PDB_entry_list
+    _category.description
+;  The list of PDB entry codes used in model fitting.
+;
+    _category.id                em_fitted_PDB_entry_list
+    _category.mandatory_code    no
+    loop_
+    _category_key.name         
+     '_em_fitted_PDB_entry_list.entry_id'
+     '_em_fitted_PDB_entry_list.PDB_id_code'
+
+    loop_
+    _category_group.id         'inclusive_group'
+                               'em_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+    _em_fitted_PDB_entry_list.entry_id    EMD-5001   
+    _em_fitted_PDB_entry_list.PDB_id_code 4KX0
+;
+    save_
+
+save__em_fitted_PDB_entry_list.entry_id
+    _item_description.description
+;   This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                 '_em_fitted_PDB_entry_list.entry_id'
+    _item.category_id          em_fitted_PDB_entry_list
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__em_fitted_PDB_entry_list.PDB_id_code
+    _item_description.description
+;   The the PDB ID code corresponding an entry that was used in model fitting.
+;
+    _item.name                 '_em_fitted_PDB_entry_list.PDB_id_code'
+    _item.category_id          em_fitted_PDB_entry_list
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+
+############################
+# EM_DATABASE_REFERENCE    #
+############################
+# _em_database_reference.entry_id
+# _em_database_reference.assembly_id
+# _em_database_reference.entity_assembly_id
+# _em_database_reference.db_name 
+# _em_database_reference.db_code
+#
+
+save_em_database_reference
+    _category.description
+;  The list of 
+;
+    _category.id                em_database_reference
+    _category.mandatory_code    no
+    loop_
+    _category_key.name         
+     '_em_database_reference.assembly_id'
+     '_em_database_reference.entity_assembly_id'
+     '_em_database_reference.db_name'
+     '_em_database_reference.db_code'
+
+    loop_
+    _category_group.id         'inclusive_group'
+                               'em_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+    _em_database_reference.assembly_id          1
+    _em_database_reference.entity_assembly_id   A
+    _em_database_reference.db_name              UNIPROT
+    _em_database_reference.db_code              P203567
+;
+    save_
+
+save__em_database_reference.assembly_id
+    _item_description.description
+;   This data item is a pointer to _em_entity_assembly.assembly_id in 
+    the EM_ENTITY_ASSEMBLY category.
+;
+    _item.name               '_em_database_reference.assembly_id'
+    _item.category_id          em_database_reference
+    _item.mandatory_code       yes
+    _item_type.code            code
+    _item_linked.child_name   '_em_database_reference.assembly_id'
+    _item_linked.parent_name  '_em_entity_assembly.assembly_id'
+    save_
+
+save__em_database_reference.entity_assembly_id
+    _item_description.description
+;   This data item is a pointer to _em_entity_assembly.id in the 
+    EM_ENTITY_ASSEMBLY category.
+;
+    _item.name               '_em_database_reference.entity_assembly_id'
+    _item.category_id          em_database_reference
+    _item.mandatory_code       yes
+    _item_type.code            code
+    _item_linked.child_name   '_em_database_reference.entity_assembly_id'  
+    _item_linked.parent_name  '_em_entity_assembly.id'
+    save_
+
+save__em_database_reference.db_name
+    _item_description.description
+;   The name of the referenced database.
+;
+    _item.name                 '_em_database_reference.db_name'
+    _item.category_id          em_database_reference
+    _item.mandatory_code       yes
+    _item_type.code            line
+    save_
+
+save__em_database_reference.db_code
+    _item_description.description
+;   The database code in the referenced database.
+;
+    _item.name                '_em_database_reference.db_code'
+    _item.category_id          em_database_reference
+    _item.mandatory_code       yes
+    _item_type.code            line
+    save_
+
+
 ###############
 # EM_ADMIN    #
 ###############
@@ -50,6 +186,7 @@ save__em_admin.last_update
      _item.mandatory_code        no
      _item_type.code             yyyy-mm-dd
      save_
+
 
 
 ####################
@@ -105,13 +242,46 @@ save__em_deposition.ll_release_date
         _item_type.code             yyyy-mm-dd
         save_
 
+save__em_deposition.status
+        _item_description.description
+;   deposition status
+;
+        _item.name                 '_em_deposition.status'
+        _item.category_id           em_deposition
+        _item.mandatory_code        no
+        _item_type.code             ucode
+         loop_
+        _item_enumeration.value
+        'REL' 'HPUB' 'HOLD1' 'HOLD2' 'HOLD4'
+        save_
+
 save__em_deposition.map_release_date
         _item_description.description
 ;   map release date
 ;
         _item.name                  '_em_deposition.map_release_date'
         _item.category_id           em_deposition
-        _item.mandatory_code        yes 
+        _item.mandatory_code        no
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__em_deposition.header_release_date
+        _item_description.description
+;   header file release date
+;
+        _item.name                  '_em_deposition.header_release_date'
+        _item.category_id           em_deposition
+        _item.mandatory_code        no
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__em_deposition.deposition_date
+        _item_description.description
+;   deposition date
+;
+        _item.name                  '_em_deposition.deposition_date'
+        _item.category_id           em_deposition
+        _item.mandatory_code        no
         _item_type.code             yyyy-mm-dd
         save_
 
@@ -121,7 +291,7 @@ save__em_deposition.replace_existing_entry
 ;
         _item.name                  '_em_deposition.replace_existing_entry'
         _item.category_id           em_deposition
-        _item.mandatory_code        yes
+        _item.mandatory_code        no
         _item_type.code             line
          loop_
         _item_enumeration.value

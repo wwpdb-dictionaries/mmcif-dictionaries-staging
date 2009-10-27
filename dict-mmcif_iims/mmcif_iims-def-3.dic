@@ -1207,9 +1207,9 @@ save__em_entity_assembly_list.mol_wt_method
   thin carbon films supported by a thick fenestrated carbon layer (directly 
   after cation-exchange chromatography). The gold-plated copper grids were 
   then washed on 8 drops of quartz double-distilled water and were 
-  freeze-dried at -80 °C overnight in the microscope. For mass analysis, 
+  freeze-dried at -80 Â°C overnight in the microscope. For mass analysis, 
   annular dark-field images were recorded in a STEM (VG-HB5) at 80 kV 
-  and doses of 325 ± 35 electrons/nm2. Digital acquisition of the images 
+  and doses of 325 Â± 35 electrons/nm2. Digital acquisition of the images 
   and microscope parameters, system calibration, and mass analysis were 
   carried out as described previously. The total experimental error was 
   calculated as the standard error of the mean, plus 5% of the measured 
@@ -1290,9 +1290,9 @@ save__em_entity_assembly_mol_wt.mol_wt_method
   thin carbon films supported by a thick fenestrated carbon layer (directly 
   after cation-exchange chromatography). The gold-plated copper grids were 
   then washed on 8 drops of quartz double-distilled water and were 
-  freeze-dried at -80 °C overnight in the microscope. For mass analysis, 
+  freeze-dried at -80 Â°C overnight in the microscope. For mass analysis, 
   annular dark-field images were recorded in a STEM (VG-HB5) at 80 kV 
-  and doses of 325 ± 35 electrons/nm2. Digital acquisition of the images 
+  and doses of 325 Â± 35 electrons/nm2. Digital acquisition of the images 
   and microscope parameters, system calibration, and mass analysis were 
   carried out as described previously. The total experimental error was 
   calculated as the standard error of the mean, plus 5% of the measured 
@@ -1677,7 +1677,7 @@ save__em_sample_preparation.details
   purified E1 was obtained by resolution of PDC with 2 M NaCl at pH 7.3 
   followed by FPLC on a Superdex 200 column. The weight-average molecular 
   weight of the PDC was determined by light scattering measurement to be 
-  ~8 × 106. On the basis of the known molecular weight of the complex and 
+  ~8 Ã— 106. On the basis of the known molecular weight of the complex and 
   its component enzymes and the experimentally determined polypeptide chain 
   ratios of E2/BP/E3, we estimated that the subunit composition of the 
   S. cerevisiae PDC is ~24 E1 tetramers, 60 E2 monomers, 12 BP monomers, 
@@ -1921,13 +1921,13 @@ save__em_sample_support.details
      1         
      'This grid plus sample was kept at -170 deg C for a month before use'
      2
-;    A 3-µl sample of each PDC preparation (~0.35 mg/ml containing 20 µg/ml 
+;    A 3-Âµl sample of each PDC preparation (~0.35 mg/ml containing 20 Âµg/ml 
      bacitracin) was deposited, blotted, and quick-frozen in liquid ethane 
      on a glow-discharged carbon-coated holey grid. The vitrified samples 
-     were recorded at ~1 µm under focus at ~10 e/Å2 dose for image processing. 
-     A second exposure of ~2-3 µm under focus was recorded and used as an aid 
+     were recorded at ~1 Âµm under focus at ~10 e/Ã…2 dose for image processing. 
+     A second exposure of ~2-3 Âµm under focus was recorded and used as an aid 
      in analyzing the images with the focal pair method. The images were 
-     recorded on Kodak SO 163 film at a nominal magnification of ×50,000 
+     recorded on Kodak SO 163 film at a nominal magnification of Ã—50,000 
      in a JEOL JEM 1200 electron microscope operated at 100 kV.
 ;
      3
@@ -2119,11 +2119,11 @@ save__em_array_formation.details
   4 mg/ml E. coli lipids in 20 mM Mes-NaOH (pH 6), 5% OTG, 0.01% NaN3) 
   to achieve a lipid to protein ratio of 1 (w/w). The final protein 
   concentration was adjusted to 1.33 mg/ml, and the final OTG content 
-  was adjusted to 1.93%. The reconstitution mixture (60 µl) was 
+  was adjusted to 1.93%. The reconstitution mixture (60 Âµl) was 
   preincubated at room temperature for 30 min and dialyzed against 
   1.5 liters of 10 mM Mes-NaOH (pH 6), 100 mM NaCl, 100 mM MgCl2, 
   2 mM dithiothreitol, 0.01% NaN3 for 24 h at room temperature, 
-  24 h at 37 °C, and another 24 h at room temperature. 
+  24 h at 37 Â°C, and another 24 h at room temperature. 
 ;
     save_
 
@@ -5358,7 +5358,7 @@ save__em_classes.details
   E1 was added to occupy its 60 binding sites and the same preparation 
   with about one-third of the E1 binding sites occupied. Two 3D 
   reconstructions representative of images that vary in size by 10-12% 
-  (~50 Å in diameter) from these preparations were computed to document 
+  (~50 Ã… in diameter) from these preparations were computed to document 
   the E1 organization about the core and the length of its inner linkers. 
   In this regard, our previous structure of the WT bovine kidney PDC in 
   which ~22 E1s were bound indicated that the outer shell could readily 
@@ -5412,7 +5412,7 @@ save__em_classes.details
 ; The picked particles were submitted to a multivariate statistical 
   analysis without alignment and were classified into clusters of 
   particles with similar features. To this end, a program package 
-  kindly provided by J. P.  Bretaudière was used. The various cluster 
+  kindly provided by J. P.  BretaudiÃ¨re was used. The various cluster 
   averages revealed square and round shaped particles at different 
   angular orientations. These averages were taken as references for 
   subsequent angular and translational alignment of the extracted 4096 
@@ -7864,6 +7864,25 @@ save__em_map.release_date
     _item_examples.case          '2001-05-08'     
      save_
 
+save__em_map.contour_level
+    _item_description.description
+;    Contour level which can be used in the depiction of this map.
+;
+    _item.name                   '_em_map.contour_level'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    save_
+
+save__em_map.contour_level_source
+    _item_description.description
+;    Source information for the contour level, _em_map.contour_level.
+;
+    _item.name                   '_em_map.contour_level_source'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                text
+    save_
 
 
 

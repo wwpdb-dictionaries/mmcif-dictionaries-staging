@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.104
+    _dictionary.version         0.105
 #
      loop_
     _dictionary_history.version
@@ -362,6 +362,15 @@ data_mmcif_iims.dic
  + moved two categories from def-6 to mmcif_iims-def-2.dic
      em_helical_entity
      em_2d_crystal_entity
+;
+   0.105   2009-10-26
+;
+ Changes:  (jdw):
+ + add  _em_deposition.status, _em_deposition.deposition_date, _em_deposition.deposition_date, 
+        _em_deposition.header_release_date.  
+ + adjust mandatory codes in category em_deposition.
+ + add categories EM_DATABASE_REFERENCE and EM_FITTED_PDB_ENTRY_LIST.
+ + add _em_map.contour_level and _em_map.contour_level_source
 ;
 
 
