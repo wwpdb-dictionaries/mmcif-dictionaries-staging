@@ -1939,19 +1939,19 @@ save__diffrn_measurement.device_type
      save_
 
 
-save__diffrn_measurement.collection_date
-    _ndb_item_description.description
-;
-The date on which the data set was collected.
-;
-
-    _item.name                  '_diffrn_measurement.collection_date'
-    _item.category_id             diffrn_measurement
-    _item.mandatory_code          no
-    _item_type.code               yyyy-mm-dd:hh:mm
-     loop_
-    _ndb_item_examples.case       1996-11-01:08:30
-     save_
+#save__diffrn_measurement.collection_date
+#    _ndb_item_description.description
+#;
+#The date on which the data set was collected.
+#;
+#
+#    _item.name                  '_diffrn_measurement.collection_date'
+#    _item.category_id             diffrn_measurement
+#    _item.mandatory_code          no
+#    _item_type.code               yyyy-mm-dd:hh:mm
+#     loop_
+#    _ndb_item_examples.case       1996-11-01:08:30
+#     save_
 ##
 ##
 
@@ -2483,16 +2483,16 @@ The comma separated list of wavelengths used in data collection (Angstroms).
      save_
 
 
-save__diffrn_radiation.rcsb_wavelength_list
-    _ndb_item_description.description
-;              
-The comma separated list of wavelengths used in data collection (Angstroms).  
-;
-    _item.name                  '_diffrn_radiation.rcsb_wavelength_list'
-    _item.category_id             diffrn_radiation
-    _item_type.code               line
-    _ndb_item_examples.case      '1.5418,1.5621,1.7321' 
-     save_
+#save__diffrn_radiation.rcsb_wavelength_list
+#    _ndb_item_description.description
+#;              
+#The comma separated list of wavelengths used in data collection (Angstroms).  
+#;
+#    _item.name                  '_diffrn_radiation.rcsb_wavelength_list'
+#    _item.category_id             diffrn_radiation
+#    _item_type.code               line
+#    _ndb_item_examples.case      '1.5418,1.5621,1.7321' 
+#     save_
 
 
 ##
@@ -4873,7 +4873,7 @@ save__exptl_crystal.density_percent_sol
     save_
 
 
-save__exptl_crystal.density_matthews
+save__exptl_crystal.density_Matthews
     _ndb_item_description.description
 ;
                The density of the crystal, expressed as the ratio 
@@ -4882,8 +4882,8 @@ save__exptl_crystal.density_matthews
                angstroms^3^ per dalton. Ref: Matthews B. W. (1960). 
                J. Mol. Biol., 33, 491-497 
 ;
-   _item.name                '_exptl_crystal.density_matthews'
-   _item.category_id                exptl_crystal
+   _item.name                '_exptl_crystal.density_Matthews'
+   _item.category_id         exptl_crystal
    _item_type.code           float
     save_
 
@@ -7191,12 +7191,12 @@ like.
      save_
 
 
-save__refine_ls_shell.redundancy
-    _item.name                  '_refine_ls_shell.redundancy'
-    _item.category_id             refine_ls_shell
-    _ndb_item_examples.case     3.1
-    _item_type.code             float
-    save_
+#save__refine_ls_shell.redundancy
+#    _item.name                  '_refine_ls_shell.redundancy'
+#    _item.category_id             refine_ls_shell
+#    _ndb_item_examples.case     3.1
+#    _item_type.code             float
+#    save_
 
 
 save__refine_ls_shell.R_factor_R_free

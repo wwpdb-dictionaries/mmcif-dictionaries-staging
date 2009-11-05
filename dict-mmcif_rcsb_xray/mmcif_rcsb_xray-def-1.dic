@@ -23763,7 +23763,7 @@ save_phasing_MIR_shell
     _phasing_MIR_shell.d_res_low
     _phasing_MIR_shell.d_res_high
     _phasing_MIR_shell.reflns
-    _phasing_MIR_shell.fom
+    _phasing_MIR_shell.FOM
      15.0  8.3   80  0.69
       8.3  6.4  184  0.73
       6.4  5.2  288  0.72
@@ -23815,7 +23815,7 @@ save__phasing_MIR_shell.d_res_low
     _item_units.code              angstroms
      save_
 
-save__phasing_MIR_shell.fom
+save__phasing_MIR_shell.FOM
     _item_description.description
 ;              The mean value of the figure of merit m for reflections in this
                shell.
@@ -23828,7 +23828,7 @@ save__phasing_MIR_shell.fom
 
                int is taken over the range alpha = 0 to 2 pi.
 ;
-    _item.name                  '_phasing_MIR_shell.fom'
+    _item.name                  '_phasing_MIR_shell.FOM'
     _item.category_id             phasing_MIR_shell
     _item.mandatory_code          no
      loop_

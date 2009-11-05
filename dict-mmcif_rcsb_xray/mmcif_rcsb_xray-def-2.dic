@@ -6374,16 +6374,16 @@ save__refine.ndb_method_to_determine_struct
 
      save_
 
-save__refine.isotropic_thermal_model_xplor
-    _item_description.description
-;                  Isotropic thermal model used in x-plor refinement. 
-;
- 
-    _item.name                  '_refine.isotropic_thermal_model_xplor'
-    _item.category_id             refine
-    _item.mandatory_code          no
-    _item_type.code               text
-     save_
+#save__refine.isotropic_thermal_model_xplor
+#    _item_description.description
+#;                  Isotropic thermal model used in x-plor refinement. 
+#;
+# 
+#    _item.name                  '_refine.isotropic_thermal_model_xplor'
+#    _item.category_id             refine
+#    _item.mandatory_code          no
+#    _item_type.code               text
+#     save_
 
 
 save__refine.ndb_starting_model
@@ -6587,15 +6587,15 @@ save__refine_ls_shell.ndb_total_number_of_bins_used
      save_
 ##
 ##
-save__refln.F_meas_au_sigma
-    _item_description.description
-;   The standard deviation for the measured value of F.
-;
-    _item.name                  '_refln.F_meas_au_sigma'
-    _item.category_id             refln
-    _item.mandatory_code          no
-    _item_type.code               float
-     save_
+#save__refln.F_meas_au_sigma
+#    _item_description.description
+#;   The standard deviation for the measured value of F.
+#;
+#    _item.name                  '_refln.F_meas_au_sigma'
+#    _item.category_id             refln
+#    _item.mandatory_code          no
+#    _item_type.code               float
+#     save_
 
 save__refln.ndb_anomalous_diff
     _item_description.description

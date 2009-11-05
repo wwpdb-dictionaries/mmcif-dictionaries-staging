@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.105
+    _dictionary.version         0.106
 #
      loop_
     _dictionary_history.version
@@ -372,6 +372,10 @@ data_mmcif_iims.dic
  + add categories EM_DATABASE_REFERENCE and EM_FITTED_PDB_ENTRY_LIST.
  + add _em_map.contour_level and _em_map.contour_level_source
 ;
-
+   0.106   2009-11-05
+;
+ Changes:  (jdw):
+ + add items _em_deposition.title, _em_deposition.authors, added _em_deposition.master_EMDB_id
+;
 
 ### EOF mmcif_iims-header.dic

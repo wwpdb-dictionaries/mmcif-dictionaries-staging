@@ -323,6 +323,38 @@ save__em_deposition.citation_published
                 NO
         save_
 
+save__em_deposition.title
+    _item_description.description
+;   The title of the entry.
+;
+        _item.name                  '_em_deposition.title'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes 
+        _item_type.code             text
+        save_
+
+
+save__em_deposition.authors
+    _item_description.description
+;   A comma separated list of the authors of the entry.
+;
+        _item.name                  '_em_deposition.authors'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes 
+        _item_type.code             text
+        save_
+
+
+save__em_deposition.master_EMDB_id
+    _item_description.description
+;   The database code assigned to this entry by EMDB
+;
+        _item.name                  '_em_deposition.master_EMDB_id'
+        _item.category_id           em_deposition
+        _item.mandatory_code        yes 
+        _item_type.code             code
+        save_
+
 ###################
 # EM_NA_ENTITY    #
 ###################
