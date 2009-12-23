@@ -2283,8 +2283,10 @@ LNLS Campinas, Brazil: beamlines: CPr
 #                    'APS BEAMLINE 31-BM'                       .
                      'APS BEAMLINE 31-ID'                       .
                      'APS BEAMLINE 32-ID'                       .
-                     'AUSTRALIAN SYNCHROTRON BEAMLINE 3-BM1'    .
-                     'AUSTRALIAN SYNCHROTRON BEAMLINE 3-ID'     .
+#                    'AUSTRALIAN SYNCHROTRON BEAMLINE 3-BM1'    .
+#                    'AUSTRALIAN SYNCHROTRON BEAMLINE 3-ID'     .
+                     'AUSTRALIAN SYNCHROTRON BEAMLINE MX1'      .
+                     'AUSTRALIAN SYNCHROTRON BEAMLINE MX2'      .
                      'BESSY BEAMLINE 14.1'                      .
                      'BESSY BEAMLINE 14.2'                      .
                      'BESSY BEAMLINE 14.3'                      .
