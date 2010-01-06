@@ -631,6 +631,26 @@ save__em_map.value_density_std
       save_
 
 
+save__em_map.contour_level
+    _item_description.description
+;    Contour level which can be used in the depiction of this map.
+;
+    _item.name                   '_em_map.contour_level'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    save_
+
+save__em_map.contour_level_source
+    _item_description.description
+;    Source information for the contour level, _em_map.contour_level.
+;
+    _item.name                   '_em_map.contour_level_source'
+    _item.category_id              em_map
+    _item.mandatory_code           no
+    _item_type.code                text
+    save_
+
 #########################################################################
 # copied from mmcif_em.dic
 # 

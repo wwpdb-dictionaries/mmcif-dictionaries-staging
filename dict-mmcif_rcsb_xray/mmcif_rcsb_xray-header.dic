@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0012
+    _dictionary.version         1.0014
 #
      loop_
     _dictionary_history.version
@@ -930,6 +930,15 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
      _pdbx_remediation_atom_site_mapping.auth_atom_id,_pdbx_remediation_atom_site_mapping.auth_comp_id,
      _pdbx_remediation_atom_site_mapping.auth_seq_id
 ;
-
+   1.0013 2009-11-18
+;
+  Changes (jdw): Open revision
+ + added _pdbx_soln_scatter_model.representative_conformer
+;
+   1.0014 2010-01-04
+;
+  Changes (jdw): Open revision
+ + added label_seq_id and label_asym_id to ndb_nonstandard_list category key.
+;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
