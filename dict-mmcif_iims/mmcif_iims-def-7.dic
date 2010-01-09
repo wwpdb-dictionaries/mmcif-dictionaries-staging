@@ -329,7 +329,7 @@ save__em_deposition.title
 ;
         _item.name                  '_em_deposition.title'
         _item.category_id           em_deposition
-        _item.mandatory_code        yes 
+        _item.mandatory_code        no
         _item_type.code             text
         save_
 
@@ -340,7 +340,7 @@ save__em_deposition.authors
 ;
         _item.name                  '_em_deposition.authors'
         _item.category_id           em_deposition
-        _item.mandatory_code        yes 
+        _item.mandatory_code        no
         _item_type.code             text
         save_
 
@@ -351,7 +351,7 @@ save__em_deposition.master_EMDB_id
 ;
         _item.name                  '_em_deposition.master_EMDB_id'
         _item.category_id           em_deposition
-        _item.mandatory_code        yes 
+        _item.mandatory_code        no
         _item_type.code             code
         save_
 

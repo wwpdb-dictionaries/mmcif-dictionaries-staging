@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.106
+    _dictionary.version         0.107
 #
      loop_
     _dictionary_history.version
@@ -377,5 +377,9 @@ data_mmcif_iims.dic
  Changes:  (jdw):
  + add items _em_deposition.title, _em_deposition.authors, added _em_deposition.master_EMDB_id
 ;
-
+   0.107   2010-01-08
+;
+ Changes:  (jdw):
+ + Items _em_deposition.title, _em_deposition.authors, added _em_deposition.master_EMDB_id made optional.
+;
 ### EOF mmcif_iims-header.dic
