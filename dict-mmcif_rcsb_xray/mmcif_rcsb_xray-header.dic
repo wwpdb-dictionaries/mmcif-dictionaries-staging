@@ -935,10 +935,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   Changes (jdw): Open revision
  + added _pdbx_soln_scatter_model.representative_conformer
 ;
-   1.0014 2010-01-04
+   1.0014 2010-01-29
 ;
   Changes (jdw): Open revision
  + added label_seq_id and label_asym_id to ndb_nonstandard_list category key.
+ + added 'tetartohedral' for enumeration of _pdbx_reflns_twin.type
 ;
+
 #
 ### EOF mmcif_rcsb_xray-header.dic 

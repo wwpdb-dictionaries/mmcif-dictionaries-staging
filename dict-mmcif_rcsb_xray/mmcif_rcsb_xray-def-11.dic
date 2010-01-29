@@ -133,6 +133,7 @@ save__pdbx_reflns_twin.type
     'non-merohedral'
     'pseudo-merohedral'
     'epitaxial'
+    'tetartohedral'
 save_
 
 save__pdbx_reflns_twin.operator
