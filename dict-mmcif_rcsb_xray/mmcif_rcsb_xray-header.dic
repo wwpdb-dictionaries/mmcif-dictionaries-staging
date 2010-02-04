@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0014
+    _dictionary.version         1.0015
 #
      loop_
     _dictionary_history.version
@@ -937,16 +937,21 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
 ;
    1.0014 2010-01-29
 ;
-  Changes (jdw): Open revision
+  Changes (jdw): 
  + added label_seq_id and label_asym_id to ndb_nonstandard_list category key.
  + added 'tetartohedral' for enumeration of _pdbx_reflns_twin.type
 ;
    1.0015 2010-02-04
 ;
-  Changes (zf):
+  Changes (zf/jdw):
  + changed '_item_description.description' for '_struct.pdbx_CASP_flag'
  + added new beamline
-;
+ + added items for latest version of Buster.
+   _refine.pdbx_overall_SU_R_free_Cruickshank_DPI
+   _refine.pdbx_overall_SU_R_Blow_DPI
+   _refine.pdbx_overall_SU_R_free_Blow_DPI
+   _refine_ls_restr.pdbx_restraint_function
 
+;
 #
 ### EOF mmcif_rcsb_xray-header.dic 

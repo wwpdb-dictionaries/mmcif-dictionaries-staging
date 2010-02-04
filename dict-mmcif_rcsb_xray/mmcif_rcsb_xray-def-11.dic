@@ -3050,5 +3050,83 @@ save__struct_site.pdbx_evidence_code
                                  'UNKNOWN'
      save_
 
+save__struct.pdbx_CASP_flag
+    _item_description.description
+;   The item indicates whether the entry is a CASP target, a CASD-NMR target,
+    or similar target participating in methods development experiments.
+;
+    _item.name                  '_struct.pdbx_CASP_flag'
+    _item.category_id             struct
+    _item.mandatory_code          no
+    _item_type.code               uchar1
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+          Y  'Yes'
+          N  'No'
+    _item_examples.case           Y
+     save_
+   
+save__refine.pdbx_overall_SU_R_free_Cruickshank_DPI
+    _item_description.description
+;              The overall standard uncertainty (estimated standard deviation)
+               of the displacement parameters based on the crystallographic
+               R-free value, expressed in a formalism known as the dispersion
+               precision indicator (DPI).
+
+               Ref: Cruickshank, D. W. J. (1999). Acta Cryst. D55, 583-601.
+
+;
+    _item.name                  '_refine.pdbx_overall_SU_R_free_Cruickshank_DPI'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__refine.pdbx_overall_SU_R_free_Blow_DPI
+    _item_description.description
+;              The overall standard uncertainty (estimated standard deviation)
+               of the displacement parameters based on the crystallographic
+               R-free value, expressed in a formalism known as the dispersion
+               precision indicator (DPI).
+
+               Ref: Blow, D (2002) Acta Cryst. D58, 792-797
+
+;
+    _item.name                  '_refine.pdbx_overall_SU_R_free_Blow_DPI'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__refine.pdbx_overall_SU_R_Blow_DPI
+    _item_description.description
+;              The overall standard uncertainty (estimated standard deviation)
+               of the displacement parameters based on the crystallographic
+               R value, expressed in a formalism known as the dispersion
+               precision indicator (DPI).
+
+               Ref: Blow, D (2002) Acta Cryst. D58, 792-797
+
+;
+    _item.name                  '_refine.pdbx_overall_SU_R_Blow_DPI'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_
+
+save__refine_ls_restr.pdbx_restraint_function
+    _item_description.description
+;              The functional form of the restraint function used in the least-squares
+               refinement.
+;
+    _item.name                  '_refine_ls_restr.pdbx_restraint_function'
+    _item.category_id             refine_ls_restr
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case           'SINUSOIDAL' 'HARMONIC' 'SEMIHARMONIC'
+     save_
+
 
 ##

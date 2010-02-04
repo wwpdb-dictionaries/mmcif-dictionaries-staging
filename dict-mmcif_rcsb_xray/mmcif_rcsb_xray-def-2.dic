@@ -6850,23 +6850,6 @@ starting from PDB structure ID 1ABC.
 ;
      save_
 
-save__struct.pdbx_CASP_flag
-    _item_description.description
-;   The item indicates whether the entry is a CASP target, a CASD-NMR target,
-    or similar target participating in methods development experiments.
-;
-    _item.name                  '_struct.pdbx_CASP_flag'
-    _item.category_id             struct
-    _item.mandatory_code          no
-    _item_type.code               uchar1
-     loop_
-    _item_enumeration.value
-    _item_enumeration.detail
-          Y  'Yes'
-          N  'No'
-    _item_examples.case           Y
-     save_
-
 ##
 ##
 save__struct_asym.ndb_PDB_id
