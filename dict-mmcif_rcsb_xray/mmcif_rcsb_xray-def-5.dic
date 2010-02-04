@@ -2250,6 +2250,7 @@ LNLS Campinas, Brazil: beamlines: CPr
      loop_
     _ndb_item_enumeration.value
     _ndb_item_enumeration.detail
+                     'ALBA BEAMLINE XALOC'                      .
                      'ALS BEAMLINE 4.2.2'                       .
                      'ALS BEAMLINE 5.0.1'                       .
                      'ALS BEAMLINE 5.0.2'                       .

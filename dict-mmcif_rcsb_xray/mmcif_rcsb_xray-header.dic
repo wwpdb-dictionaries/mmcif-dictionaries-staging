@@ -941,6 +941,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
  + added label_seq_id and label_asym_id to ndb_nonstandard_list category key.
  + added 'tetartohedral' for enumeration of _pdbx_reflns_twin.type
 ;
+   1.0015 2010-02-04
+;
+  Changes (zf):
+ + changed '_item_description.description' for '_struct.pdbx_CASP_flag'
+ + added new beamline
+;
 
 #
 ### EOF mmcif_rcsb_xray-header.dic 
