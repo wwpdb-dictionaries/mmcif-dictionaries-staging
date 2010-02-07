@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0015
+    _dictionary.version         1.0016
 #
      loop_
     _dictionary_history.version
@@ -952,6 +952,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
    _refine.pdbx_overall_SU_R_free_Blow_DPI
    _refine_ls_restr.pdbx_restraint_function
 
+;
+   1.0016 2010-02-06 
+;
+  Changes (jdw): (open revision)
+  + revisions for peptide reference dictionary in the pdbx_reference_entity_* category hierarchy.
+  + added _pdbx_entity_src_syn.strain.
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 

@@ -2216,7 +2216,7 @@ save_pdbx_reference_entity
 ;
     _category.id                  pdbx_reference_entity
     _category.mandatory_code      no
-    _category_key.name          '_pdbx_reference_entity.id'
+    _category_key.name          '_pdbx_reference_entity.prd_id'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2228,71 +2228,29 @@ save_pdbx_reference_entity
     Example: 1  Thiostrepton
 ;
 ;
- _pdbx_reference_entity.id                 1
+ _pdbx_reference_entity.prd_id                 1
  _pdbx_reference_entity.name               THIOSTREPTON
  _pdbx_reference_entity.type               macrolide   
  _pdbx_reference_entity.formula            "C72 H85 N19 O18 S5"
  _pdbx_reference_entity.formula_weight     1664.83
- #
- _pdbx_reference_entity.description
- ; Thiostrepton complex bacterial natural product containing thiazole
-  rings that's used as a topical veterinary antibiotic and also has
-  promising antimalarial and anticancer activity first isolated from
-  bacteria in 1955, thiostrepton has an unusual type of antibiotic
-  activity: It disables protein biosynthesis by binding to ribosomal 
-  RNA and one of its associated proteins and interacts directly with 
-  23S rRNA nucleotides 1067A and 1095A
- ;
- _pdbx_reference_entity.details
- ; Thiostrepton is a macrocyclic antibiotic incorporating thiazoles and
-  other atypical amino acids. Patented in 1961, thiostrepton has been
-  used as an antibiotic and acts by binding to ribosomes to prevent the
-  binding of the EF-G elongation factor and GTP to the 50S riobsomal
-  subunit.  Thiostrepton is an inducer of tipA, a gene that controls the
-  bacterial transcription regulators, TipAL and TipAS, members of the
-  MerR proteins that are central regulators in multidrug
-  resistance. Closely related to siomycin, a recently discovered
-  inhibitor of oncogenic transcription factor - FoxM1. The
-  thiostrepton-resistant gene is also commonly used as a selective
-  marker for recombinant DNA/plasmid technologies.
- ;
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity.id
+save__pdbx_reference_entity.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity.id must uniquely identify a record in the
+;              The value of _pdbx_reference_entity.prd_id must uniquely identify a record in the
                PDBX_REFERENCE_ENTITY list.
 
                Note that this item need not be a number; it can be any unique
                identifier.
 ;
-    _item.name                  '_pdbx_reference_entity.id'
+    _item.name                  '_pdbx_reference_entity.prd_id'
     _item.category_id             pdbx_reference_entity
     _item.mandatory_code          yes
     _item_type.code               code
      save_
 
-save__pdbx_reference_entity.description
-    _item_description.description
-;              A description of the reference entity.
-;
-    _item.name                  '_pdbx_reference_entity.description'
-    _item.category_id             pdbx_reference_entity
-    _item.mandatory_code          no
-    _item_type.code               text
-     save_
-
-save__pdbx_reference_entity.details
-    _item_description.description
-;              A description of special aspects of the entity.
-;
-    _item.name                  '_pdbx_reference_entity.details'
-    _item.category_id             pdbx_reference_entity
-    _item.mandatory_code          no
-    _item_type.code               text
-     save_
 
 save__pdbx_reference_entity.formula_weight
     _item_description.description
@@ -2391,6 +2349,111 @@ save__pdbx_reference_entity.3-letter-code
      save_
 
 
+
+###################################
+## PDBX_REFERENCE_ENTITY_DETAILS ##
+###################################
+
+save_pdbx_reference_entity_details
+    _category.description
+;              Data items in the PDBX_REFERENCE_ENTITY_DETAILS category records 
+	       textual details about small polymer molecules.
+;
+    _category.id                  pdbx_reference_entity_details
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          
+      '_pdbx_reference_entity_details.prd_id'
+      '_pdbx_reference_entity_details.ordinal'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example: 1  Thiostrepton
+;
+;
+ loop_
+ _pdbx_reference_entity.prd_id                 
+ _pdbx_reference_entity.ordinal                
+ _pdbx_reference_entity.source                 
+ _pdbx_reference_entity.text
+ 1 1 ?
+ ; Thiostrepton complex bacterial natural product containing thiazole
+  rings that's used as a topical veterinary antibiotic and also has
+  promising antimalarial and anticancer activity first isolated from
+  bacteria in 1955, thiostrepton has an unusual type of antibiotic
+  activity: It disables protein biosynthesis by binding to ribosomal 
+  RNA and one of its associated proteins and interacts directly with 
+  23S rRNA nucleotides 1067A and 1095A
+ ;
+ 1 2 ?
+ ; Thiostrepton is a macrocyclic antibiotic incorporating thiazoles and
+  other atypical amino acids. Patented in 1961, thiostrepton has been
+  used as an antibiotic and acts by binding to ribosomes to prevent the
+  binding of the EF-G elongation factor and GTP to the 50S riobsomal
+  subunit.  Thiostrepton is an inducer of tipA, a gene that controls the
+  bacterial transcription regulators, TipAL and TipAS, members of the
+  MerR proteins that are central regulators in multidrug
+  resistance. Closely related to siomycin, a recently discovered
+  inhibitor of oncogenic transcription factor - FoxM1. The
+  thiostrepton-resistant gene is also commonly used as a selective
+  marker for recombinant DNA/plasmid technologies.
+ ;
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_reference_entity_details.prd_id
+    _item_description.description
+;              The value of _pdbx_reference_entity_details.prd_id is a reference to
+               _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+
+;
+    _item.name                  '_pdbx_reference_entity_details.prd_id'
+    _item.category_id             pdbx_reference_entity_details
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_details.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_details.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_details.ordinal is an ordinal that 
+               distinguishes each descriptive text for this entity.
+
+;
+    _item.name                  '_pdbx_reference_entity_details.ordinal'
+    _item.category_id             pdbx_reference_entity_details
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_reference_entity_details.source
+    _item_description.description
+;              A source of this information.
+;
+    _item.name                  '_pdbx_reference_entity_details.source'
+    _item.category_id             pdbx_reference_entity_details
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__pdbx_reference_entity_details.text
+    _item_description.description
+;              The text of the description of special aspects of the entity.
+;
+    _item.name                  '_pdbx_reference_entity_details.text'
+    _item.category_id             pdbx_reference_entity_details
+    _item.mandatory_code          yes
+    _item_type.code               text
+     save_
+
+
 ####################################
 ## PDBX_REFERENCE_ENTITY_SYNONYMS ##
 ####################################
@@ -2403,8 +2466,8 @@ save_pdbx_reference_entity_synonyms
     _category.id                  pdbx_reference_entity_synonyms
     _category.mandatory_code      no
      loop_
-    _category_key.name          '_pdbx_reference_entity_synonyms.entity_id'
-                                '_pdbx_reference_entity_synonyms.name'
+    _category_key.name          '_pdbx_reference_entity_synonyms.prd_id'
+                                '_pdbx_reference_entity_synonyms.ordinal'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2417,25 +2480,38 @@ save_pdbx_reference_entity_synonyms
 ;
 ;
     loop_
-    _pdbx_reference_entity_synonyms.entity_id
+    _pdbx_reference_entity_synonyms.prd_id
+    _pdbx_reference_entity_synonyms.ordinal
     _pdbx_reference_entity_synonyms.name
-     1 thiostrepton
+    _pdbx_reference_entity_synonyms.source
+     1 1 thiostrepton 'CAS'
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
 
-save__pdbx_reference_entity_synonyms.entity_id
+save__pdbx_reference_entity_synonyms.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_synonyms.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_synonyms.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
-    _item.name                  '_pdbx_reference_entity_synonyms.entity_id'
+    _item.name                  '_pdbx_reference_entity_synonyms.prd_id'
     _item.category_id             pdbx_reference_entity_synonyms
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_synonyms.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_synonyms.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_synonyms.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_synonyms.ordinal is an ordinal
+	       to distinguish synonyms for this entity.
+;
+    _item.name                  '_pdbx_reference_entity_synonyms.ordinal'
+    _item.category_id             pdbx_reference_entity_synonyms
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_
 
 save__pdbx_reference_entity_synonyms.name
@@ -2449,22 +2525,33 @@ save__pdbx_reference_entity_synonyms.name
     _item_examples.case          'thiostrepton'
      save_
 
-
-
-######################################
-## PDBX_REFERENCE_ENTITY_COMPONENTS ##
-######################################
-
-save_pdbx_reference_entity_components
-    _category.description
-;              Data items in the PDBX_REFERENCE_ENTITY_COMPONENTS category records 
-               sequence of components from which this entity could be built.
+save__pdbx_reference_entity_synonyms.source
+    _item_description.description
+;              The source of this synonym name for the entity.
 ;
-    _category.id                  pdbx_reference_entity_components
+    _item.name                  '_pdbx_reference_entity_synonyms.source'
+    _item.category_id             pdbx_reference_entity_synonyms
+    _item.mandatory_code          yes
+    _item_type.code               text
+    _item_examples.case          'CAS'
+     save_
+
+
+
+#########################################
+## PDBX_REFERENCE_ENTITY_SUBCOMPONENTS ##
+#########################################
+
+save_pdbx_reference_entity_subcomponents
+    _category.description
+;              Data items in the PDBX_REFERENCE_ENTITY_SUBCOMPONENTS category records 
+               subcomponent sequence from which this entity could be built.
+;
+    _category.id                  pdbx_reference_entity_subcomponents
     _category.mandatory_code      no
      loop_
-    _category_key.name          '_pdbx_reference_entity_components.entity_id'
-                                '_pdbx_reference_entity_components.names'
+    _category_key.name          '_pdbx_reference_entity_subcomponents.prd_id'
+                                '_pdbx_reference_entity_subcomponents.seq'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2477,33 +2564,33 @@ save_pdbx_reference_entity_components
 ;
 ;
     loop_
-    _pdbx_reference_entity_components.entity_id
-    _pdbx_reference_entity_components.names
+    _pdbx_reference_entity_subcomponents.prd_id
+    _pdbx_reference_entity_subcomponents.seq
      1 "ACE DLY GLY DAL DCY DAS DTY DPR DGL DTR DGN DTR DLE DCY DAL DAL NH2"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
 
-save__pdbx_reference_entity_components.entity_id
+save__pdbx_reference_entity_subcomponents.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_components.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_subcomponents.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
-    _item.name                  '_pdbx_reference_entity_components.entity_id'
-    _item.category_id             pdbx_reference_entity_components
+    _item.name                  '_pdbx_reference_entity_subcomponents.prd_id'
+    _item.category_id             pdbx_reference_entity_subcomponents
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_components.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_subcomponents.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
      save_
 
-save__pdbx_reference_entity_components.names
+save__pdbx_reference_entity_subcomponents.seq
     _item_description.description
-;              The component name list for the entity.
+;              The subcomponent sequence for the entity.
 ;
-    _item.name                  '_pdbx_reference_entity_components.names'
-    _item.category_id             pdbx_reference_entity_components
+    _item.name                  '_pdbx_reference_entity_subcomponents.seq'
+    _item.category_id             pdbx_reference_entity_subcomponents
     _item.mandatory_code          yes
     _item_type.code               text
     _item_examples.case          "ACE DLY GLY DAL DCY DAS DTY DPR DGL DTR DGN DTR DLE DCY DAL DAL NH2"
@@ -2522,7 +2609,7 @@ save_pdbx_reference_entity_poly
 ;
     _category.id                  pdbx_reference_entity_poly
     _category.mandatory_code      no
-    _category_key.name          '_pdbx_reference_entity_poly.entity_id'
+    _category_key.name          '_pdbx_reference_entity_poly.prd_id'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2536,7 +2623,7 @@ save_pdbx_reference_entity_poly
 ;
 ;
     loop_
-    _pdbx_reference_entity_poly.entity_id
+    _pdbx_reference_entity_poly.prd_id
     _pdbx_reference_entity_poly.type
     _pdbx_reference_entity_poly.nstd_chirality
     _pdbx_reference_entity_poly.nstd_linkage
@@ -2547,18 +2634,18 @@ save_pdbx_reference_entity_poly
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity_poly.entity_id
+save__pdbx_reference_entity_poly.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_components.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_poly.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
 
-    _item.name                  '_pdbx_reference_entity_poly.entity_id'
+    _item.name                  '_pdbx_reference_entity_poly.prd_id'
     _item.category_id             pdbx_reference_entity_poly
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_poly.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_poly.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
      save_
 
 save__pdbx_reference_entity_poly.nstd_chirality
@@ -2658,8 +2745,16 @@ save__pdbx_reference_entity_poly.type
     _item.mandatory_code          no
     _item_type.code               line
     _item_examples.case           'peptide-like' 
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+     'peptide-like'
+         'Where the majority of residue linkages are peptide bonds'
+     'nucleic-acid-like'
+         'Where the majority of residue linkages are nucleotide sugar phosphate bonds'
+     'polysaccharide-like'
+         'Where the majority of residue linkages are sugar to sugar bonds'
      save_
-
 
 ####################################
 ## PDBX_REFERENCE_ENTITY_POLY_SEQ ##
@@ -2673,7 +2768,7 @@ save_pdbx_reference_entity_poly_seq
     _category.id                  pdbx_reference_entity_poly_seq
     _category.mandatory_code      no
     loop_
-    _category_key.name          '_pdbx_reference_entity_poly_seq.entity_id'
+    _category_key.name          '_pdbx_reference_entity_poly_seq.prd_id'
                                 '_pdbx_reference_entity_poly_seq.num'
                                 '_pdbx_reference_entity_poly_seq.mon_id'
     loop_
@@ -2689,7 +2784,7 @@ save_pdbx_reference_entity_poly_seq
 ;
 ;
     loop_
-    _pdbx_reference_entity_poly_seq.entity_id
+    _pdbx_reference_entity_poly_seq.prd_id
     _pdbx_reference_entity_poly_seq.num
     _pdbx_reference_entity_poly_seq.mon_id
       1  1  PRO   1  2  GLN   1  3  ILE   1  4  THR   1  5  LEU
@@ -2697,18 +2792,18 @@ save_pdbx_reference_entity_poly_seq
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity_poly_seq.entity_id
+save__pdbx_reference_entity_poly_seq.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_components.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_poly_seq.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
 
-    _item.name                  '_pdbx_reference_entity_poly_seq.entity_id'
+    _item.name                  '_pdbx_reference_entity_poly_seq.prd_id'
     _item.category_id             pdbx_reference_entity_poly_seq
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_poly_seq.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_poly_seq.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
      save_
 
 save__pdbx_reference_entity_poly_seq.mon_id
@@ -2716,6 +2811,16 @@ save__pdbx_reference_entity_poly_seq.mon_id
 ;              This data item is the 3-letter-code of monomer.
 ;
     _item.name                  '_pdbx_reference_entity_poly_seq.mon_id'
+    _item.category_id             pdbx_reference_entity_poly_seq
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_reference_entity_poly_seq.modified_mon_id
+    _item_description.description
+;              This data item is the 3-letter-code of the modified monomer.
+;
+    _item.name                  '_pdbx_reference_entity_poly_seq.modified_mon_id'
     _item.category_id             pdbx_reference_entity_poly_seq
     _item.mandatory_code          yes
     _item_type.code               code
@@ -2736,19 +2841,6 @@ save__pdbx_reference_entity_poly_seq.num
     _item_type.code               int
      save_
 
-save__pdbx_reference_entity_poly_seq.nstd_mon_parent_id
-    _item_description.description
-;              This data item is the 3-letter-code of the parent of a 
-               non-standard monomer.
-;
-    _item.name                  '_pdbx_reference_entity_poly_seq.nstd_mon_parent_id'
-    _item.category_id             pdbx_reference_entity_poly_seq
-    _item.mandatory_code          no
-    _item_type.code               code
-     loop_
-    _item_examples.case           "ALA" "TRP"
-     save_
-
 
 ######################################
 ## PDBX_REFERENCE_ENTITY_ANNOTATION ##
@@ -2762,9 +2854,9 @@ save_pdbx_reference_entity_annotation
     _category.id                  pdbx_reference_entity_annotation
     _category.mandatory_code      no
      loop_
-    _category_key.name          '_pdbx_reference_entity_annotation.entity_id'
-                                '_pdbx_reference_entity_annotation.type'
-                                '_pdbx_reference_entity_annotation.text'
+    _category_key.name          '_pdbx_reference_entity_annotation.prd_id'
+				'_pdbx_reference_entity_annotation.ordinal'	                                 
+
      loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2776,9 +2868,11 @@ save_pdbx_reference_entity_annotation
     Example 1 - 
 ;
 ;
-  _pdbx_reference_entity_annotation.entity_id   1
+  _pdbx_reference_entity_annotation.prd_id   1
+  _pdbx_reference_entity_annotation.ordinal  1
   _pdbx_reference_entity_annotation.type       'molecular function'
   _pdbx_reference_entity_annotation.text       'antigen binding'
+  _pdbx_reference_entity_annotation.source     'depositor provided data'
   _pdbx_reference_entity_annotation.support  
   ; Experimentally verified with fluroescent antigen using flow cytometry
   ;
@@ -2786,17 +2880,41 @@ save_pdbx_reference_entity_annotation
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity_annotation.entity_id
+save__pdbx_reference_entity_annotation.prd_id
     _item_description.description
 ;              This data item is a pointer to _pdbx_reference_entity.id in the 
                PDB_REFERENCE_ENTITY category.
 ;
-    _item.name                  '_pdbx_reference_entity_annotation.entity_id'
+    _item.name                  '_pdbx_reference_entity_annotation.prd_id'
     _item.category_id             pdbx_reference_entity_annotation
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name    '_pdbx_reference_entity_annotation.entity_id'
-    _item_linked.parent_name   '_pdbx_reference_entity.id'
+    _item_linked.child_name    '_pdbx_reference_entity_annotation.prd_id'
+    _item_linked.parent_name   '_pdbx_reference_entity.prd_id'
+     save_
+
+
+save__pdbx_reference_entity_annotation.ordinal
+    _item_description.description
+;              This data item distinguishes anotations for this entity.
+;
+    _item.name                  '_pdbx_reference_entity_annotation.ordinal'
+    _item.category_id             pdbx_reference_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_reference_entity_annotation.source
+    _item_description.description
+;             The source of the annoation for this entity.
+;
+    _item.name                  '_pdbx_reference_entity_annotation.source'
+    _item.category_id             pdbx_reference_entity_annotation
+    _item.mandatory_code          yes
+    _item_type.code               text
+     loop_
+    _item_examples.case          'depositor provided'
+                                 'from UniProt Entry P200311'
      save_
 
 save__pdbx_reference_entity_annotation.text
@@ -2814,17 +2932,23 @@ save__pdbx_reference_entity_annotation.text
 
 save__pdbx_reference_entity_annotation.type
     _item_description.description
-;             Type of annoation for this entity.
+;             Type of annotation for this entity.
 ;
     _item.name                  '_pdbx_reference_entity_annotation.type'
     _item.category_id             pdbx_reference_entity_annotation
     _item.mandatory_code          yes
     _item_type.code               line
      loop_
-    _item_examples.case          'molecular function'
-                                 'biochemical pathway'
-                                 'biomedical function'
-                                 'other annotation'
+    _item_examples.case
+ 'Function'
+ 'Use'
+ 'Pharmacology'
+ 'Mechanism_of_Action'
+ 'Biological_Activity'
+ 'Inhibitor_Class'
+ 'Therapeutic_Category'
+ 'Research_Use'
+ 'Other_annotation'
      save_
 
 save__pdbx_reference_entity_annotation.support
@@ -2867,10 +2991,8 @@ save_pdbx_reference_entity_feature
     _category.id                  'pdbx_reference_entity_feature'
     _category.mandatory_code      no
      loop_
-    _category_key.name            '_pdbx_reference_entity_feature.entity_id'
-                                  '_pdbx_reference_entity_feature.type'
-                                  '_pdbx_reference_entity_feature.value'
-                                  '_pdbx_reference_entity_feature.source'
+    _category_key.name            '_pdbx_reference_entity_feature.prd_id'
+                                  '_pdbx_reference_entity_feature.ordinal'
 #
     loop_
     _category_group.id           'inclusive_group'
@@ -2884,28 +3006,40 @@ save_pdbx_reference_entity_feature
 ;
 ;
      loop_
-    _pdbx_reference_entity_feature.entity_id
+    _pdbx_reference_entity_feature.prd_id
+    _pdbx_reference_entity_feature.ordinal
     _pdbx_reference_entity_feature.type
     _pdbx_reference_entity_feature.value
     _pdbx_reference_entity_feature.source
-	1   'ENZYME INHIBITED'    'ASPARTIC PROTEINASE'                     PDB
-        1   'FUNCTION'            'Transistion-state analogue inhibitor'    PDB
-        1   'STRUCTURE IMAGE URL' 'http://journals.iucr.org/00X.jpg'        IUCR
+	1 1  'ENZYME INHIBITED'    'ASPARTIC PROTEINASE'                     PDB
+        1 2  'FUNCTION'            'Transistion-state analogue inhibitor'    PDB
+        1 3  'STRUCTURE IMAGE URL' 'http://journals.iucr.org/00X.jpg'        IUCR
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity_feature.entity_id
+save__pdbx_reference_entity_feature.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_synonyms.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_feature.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
-    _item.name                  '_pdbx_reference_entity_feature.entity_id'
+    _item.name                  '_pdbx_reference_entity_feature.prd_id'
     _item.category_id             pdbx_reference_entity_feature
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_feature.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_feature.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_feature.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_feature.ordinal distinguishes 
+	       each feature for this entity.
+;
+    _item.name                  '_pdbx_reference_entity_feature.ordinal'
+    _item.category_id             pdbx_reference_entity_feature
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_
 
 save__pdbx_reference_entity_feature.type
@@ -2964,6 +3098,18 @@ save__pdbx_reference_entity_feature.source
         'PUBCHEM'
      save_
 
+save__pdbx_reference_entity_feature.citation_id
+    _item_description.description
+;              A link to related reference information in the citation category.  
+;
+    _item.name                  '_pdbx_reference_entity_feature.citation_id'
+    _item.category_id            pdbx_reference_entity_feature
+    _item.mandatory_code         no
+    _item_type.code              code
+    _item_linked.child_name	'_pdbx_reference_entity_feature.citation_id'
+    _item_linked.parent_name    '_citation.id'
+     save_
+
 
 ###################################
 ## PDBX_REFERENCE_ENTITY_SRC_NAT ##
@@ -2976,7 +3122,9 @@ save_pdbx_reference_entity_src_nat
 ;
     _category.id                  pdbx_reference_entity_src_nat
     _category.mandatory_code      no
-    _category_key.name          '_pdbx_reference_entity_src_nat.entity_id'
+     loop_
+    _category_key.name          '_pdbx_reference_entity_src_nat.prd_id'
+                                '_pdbx_reference_entity_src_nat.ordinal'
      loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2989,26 +3137,39 @@ save_pdbx_reference_entity_src_nat
 ;
 ;
      loop_
-    _pdbx_reference_entity_src_nat.entity_id
+    _pdbx_reference_entity_src_nat.prd_id
+    _pdbx_reference_entity_src_nat.ordinal
     _pdbx_reference_entity_src_nat.organism_scientific
     _pdbx_reference_entity_src_nat.strain
-     1   'Mus musculus'   .
+     1 1   'Mus musculus'   .
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__pdbx_reference_entity_src_nat.entity_id
+save__pdbx_reference_entity_src_nat.prd_id
     _item_description.description
-;              The value of _pdbx_reference_entity_synonyms.entity_id is a reference
-	       _pdbx_reference_entity.id in the  PDBX_REFERENCE_ENTITY category.
+;              The value of _pdbx_reference_entity_src_nat.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
 ;
 
-    _item.name                  '_pdbx_reference_entity_src_nat.entity_id'
+    _item.name                  '_pdbx_reference_entity_src_nat.prd_id'
     _item.category_id             pdbx_reference_entity_src_nat
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name	'_pdbx_reference_entity_src_nat.entity_id'
-    _item_linked.parent_name    '_pdbx_reference_entity.id'
+    _item_linked.child_name	'_pdbx_reference_entity_src_nat.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_src_nat.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_src_nat.ordinal distinguishes 
+	       source details for this entity.
+;
+
+    _item.name                  '_pdbx_reference_entity_src_nat.ordinal'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          yes
+    _item_type.code               int
      save_
 
 save__pdbx_reference_entity_src_nat.organism_scientific
@@ -3036,6 +3197,193 @@ save__pdbx_reference_entity_src_nat.strain
                                  'BMH 71-18'
      save_
 
+save__pdbx_reference_entity_src_nat.taxid
+    _item_description.description
+;              The NCBI TaxId of the organism from which the entity was isolated.
+;
+    _item.name                  '_pdbx_reference_entity_src_nat.taxid'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     save_
+
+save__pdbx_reference_entity_src_nat.atcc
+    _item_description.description
+;              The Americal Tissue Culture Collection code for organism from which the entity was isolated.
+;
+    _item.name                  '_pdbx_reference_entity_src_nat.atcc'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     save_
+
+
+save__pdbx_reference_entity_src_nat.db_code
+    _item_description.description
+;              The database code for this source information 
+;
+    _item.name                  '_pdbx_reference_entity_src_nat.db_code'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     save_
+
+save__pdbx_reference_entity_src_nat.db_name
+    _item_description.description
+;              The database name for this source information 
+;
+    _item.name                  '_pdbx_reference_entity_src_nat.db_name'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     save_
+
+##############################################
+## PDBX_REFERENCE_ENTITY_RELATED_STRUCTURES ##
+##############################################
+
+save_pdbx_reference_entity_related_structures
+    _category.description
+;              Data items in the PDBX_REFERENCE_ENTITY_RELATED_STRUCTURES category record 
+               details of the structural examples in related databases for this entity.
+;
+    _category.id                  pdbx_reference_entity_related_structures
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_pdbx_reference_entity_related_structures.prd_id'
+                                '_pdbx_reference_entity_related_structures.ordinal'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+     loop_
+    _pdbx_reference_entity_related_structures.prd_id
+    _pdbx_reference_entity_related_structures.ordinal
+    _pdbx_reference_entity_related_structures.database_name
+    _pdbx_reference_entity_related_structures.database_code
+    _pdbx_reference_entity_related_structures.name 
+    _pdbx_reference_entity_related_structures.formula
+     1 1   'CCDC' '012345' . .
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_reference_entity_related_structures.prd_id
+    _item_description.description
+;              The value of _pdbx_reference_entity_related_structures.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+
+    _item.name                  '_pdbx_reference_entity_related_structures.prd_id'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_related_structures.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_related_structures.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_related_structures.ordinal distinguishes
+               related structural data for each entity.
+;
+
+    _item.name                  '_pdbx_reference_entity_related_structures.ordinal'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_reference_entity_related_structures.database_name
+    _item_description.description
+;              The database name for the related structure reference.
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.database_name'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case        'CCDC' 
+     save_
+
+save__pdbx_reference_entity_related_structures.database_code
+    _item_description.description
+;              The database code for the related structure reference.
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.database_code'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case        '012395' 
+     save_
+
+save__pdbx_reference_entity_related_structures.name
+    _item_description.description
+;              The chemical name for the structure entry in the related database
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.name'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case        'actinomycn' 
+     save_
+
+save__pdbx_reference_entity_related_structures.formula
+    _item_description.description
+;              The formula for the reference entity. Formulae are written
+               according to the rules:
+
+               1. Only recognised element symbols may be used.
+
+               2. Each element symbol is followed by a 'count' number. A count
+                  of '1' may be omitted.
+
+               3. A space or parenthesis must separate each element symbol and
+                  its count, but in general parentheses are not used.
+
+               4. The order of elements depends on whether or not carbon is
+                  present. If carbon is present, the order should be: C, then
+                  H, then the other elements in alphabetical order of their
+                  symbol. If carbon is not present, the elements are listed
+                  purely in alphabetic order of their symbol. This is the
+                  'Hill' system used by Chemical Abstracts.
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.formula'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'C18 H19 N7 O8 S'
+     save_
+
+save__pdbx_reference_entity_related_structures.citation_id
+    _item_description.description
+;              A link to related reference information in the citation category.  
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.citation_id'
+    _item.category_id            pdbx_reference_entity_related_structures
+    _item.mandatory_code         no
+    _item_type.code              code
+    _item_linked.child_name	'_pdbx_reference_entity_related_structures.citation_id'
+    _item_linked.parent_name    '_citation.id'
+     save_
+
+
+##################
+##################
 save__struct_site.pdbx_evidence_code
     _item_description.description
 ;              Source of evidence supporting the assignment of this site.
@@ -3128,5 +3476,17 @@ save__refine_ls_restr.pdbx_restraint_function
     _item_examples.case           'SINUSOIDAL' 'HARMONIC' 'SEMIHARMONIC'
      save_
 
+save__pdbx_entity_src_syn.strain
+    _item_description.description
+;              The strain of the organism which this synthetic entity was modeled.
+;
+    _item.name                  '_pdbx_entity_src_syn.strain'
+    _item.category_id             pdbx_entity_src_syn
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'DH5a'
+                                 'BMH 71-18'
+     save_
 
 ##
