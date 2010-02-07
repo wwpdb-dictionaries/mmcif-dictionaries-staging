@@ -9692,6 +9692,19 @@ save__rcsb_entity_src_syn.organism_common_name
     _item_examples.case          'house mouse'
      save_
 
+save__rcsb_entity_src_syn.strain
+    _item_description.description
+;              The strain of the organism which this synthetic entity was modeled.
+;
+    _item.name                  '_rcsb_entity_src_syn.strain'
+    _item.category_id             rcsb_entity_src_syn
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'DH5a'
+                                 'BMH 71-18'
+     save_
+
 save__rcsb_entity_src_syn.ncbi_taxonomy_id
     _item_description.description
 ;  NCBI Taxonomy identifier of the organism from which the sequence of 

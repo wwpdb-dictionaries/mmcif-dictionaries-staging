@@ -3271,7 +3271,7 @@ save_pdbx_reference_entity_related_structures
     _pdbx_reference_entity_related_structures.prd_id
     _pdbx_reference_entity_related_structures.ordinal
     _pdbx_reference_entity_related_structures.database_name
-    _pdbx_reference_entity_related_structures.database_code
+    _pdbx_reference_entity_related_structures.database_id
     _pdbx_reference_entity_related_structures.name 
     _pdbx_reference_entity_related_structures.formula
      1 1   'CCDC' '012345' . .
@@ -3317,11 +3317,11 @@ save__pdbx_reference_entity_related_structures.database_name
     _item_examples.case        'CCDC' 
      save_
 
-save__pdbx_reference_entity_related_structures.database_code
+save__pdbx_reference_entity_related_structures.database_id
     _item_description.description
-;              The database code for the related structure reference.
+;              The database identifier code for the related structure reference.
 ;
-    _item.name                  '_pdbx_reference_entity_related_structures.database_code'
+    _item.name                  '_pdbx_reference_entity_related_structures.database_id'
     _item.category_id             pdbx_reference_entity_related_structures
     _item.mandatory_code          no
     _item_type.code               text
@@ -3379,6 +3379,111 @@ save__pdbx_reference_entity_related_structures.citation_id
     _item_type.code              code
     _item_linked.child_name	'_pdbx_reference_entity_related_structures.citation_id'
     _item_linked.parent_name    '_citation.id'
+     save_
+
+#####################################
+## PDBX_REFERENCE_ENTITY_INSTANCES ##
+#####################################
+
+save_pdbx_reference_entity_instances
+    _category.description
+;              Data items in the PDBX_REFERENCE_ENTITY_INSTANCES category records 
+               synonym names for reference entities.
+;
+    _category.id                  pdbx_reference_entity_instances
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_pdbx_reference_entity_instances.prd_id'
+                                '_pdbx_reference_entity_instances.ordinal'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example: 1
+;
+;
+    loop_
+    _pdbx_reference_entity_instances.prd_id
+    _pdbx_reference_entity_instances.ordinal
+    _pdbx_reference_entity_instances.3_letter_code
+    _pdbx_reference_entity_instances.database_name
+    _pdbx_reference_entity_instances.database_id
+    _pdbx_reference_entity_instances.details
+     1 1 0X1  PDB 1ABC  .
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+
+save__pdbx_reference_entity_instances.prd_id
+    _item_description.description
+;              The value of _pdbx_reference_entity_instances.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+    _item.name                  '_pdbx_reference_entity_instances.prd_id'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_instances.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_instances.ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_instances.ordinal is an ordinal
+	       to distinguish synonyms for this entity.
+;
+    _item.name                  '_pdbx_reference_entity_instances.ordinal'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_reference_entity_instances.3_letter_code
+    _item_description.description
+;              The 3 letter code for this instance. 
+;
+    _item.name                  '_pdbx_reference_entity_instances.3_letter_code'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_examples.case          '0X1'
+     save_
+
+save__pdbx_reference_entity_instances.database_name
+    _item_description.description
+;              The database name for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.database_name'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          yes
+    _item_type.code               text
+    _item_examples.case          'PDB'
+     save_
+
+save__pdbx_reference_entity_instances.database_id
+    _item_description.description
+;              The database identifier for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.database_id'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          yes
+    _item_type.code               text
+    _item_examples.case          '1ABC'
+     save_
+
+save__pdbx_reference_entity_instances.details
+    _item_description.description
+;              Additional details related to this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.details'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               text
      save_
 
 
@@ -3476,17 +3581,5 @@ save__refine_ls_restr.pdbx_restraint_function
     _item_examples.case           'SINUSOIDAL' 'HARMONIC' 'SEMIHARMONIC'
      save_
 
-save__pdbx_entity_src_syn.strain
-    _item_description.description
-;              The strain of the organism which this synthetic entity was modeled.
-;
-    _item.name                  '_pdbx_entity_src_syn.strain'
-    _item.category_id             pdbx_entity_src_syn
-    _item.mandatory_code          no
-    _item_type.code               text
-     loop_
-    _item_examples.case          'DH5a'
-                                 'BMH 71-18'
-     save_
 
 ##
