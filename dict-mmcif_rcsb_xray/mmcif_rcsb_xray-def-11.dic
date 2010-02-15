@@ -2228,11 +2228,12 @@ save_pdbx_reference_entity
     Example: 1  Thiostrepton
 ;
 ;
- _pdbx_reference_entity.prd_id                 1
- _pdbx_reference_entity.name               THIOSTREPTON
- _pdbx_reference_entity.type               macrolide   
- _pdbx_reference_entity.formula            "C72 H85 N19 O18 S5"
- _pdbx_reference_entity.formula_weight     1664.83
+_pdbx_reference_entity.prd_id PRD_THIOSTREPTON
+_pdbx_reference_entity.name "THIOSTREPTON"
+_pdbx_reference_entity.type "Protein Synthesis Inhibitors"
+_pdbx_reference_entity.class Thiopeptide
+_pdbx_reference_entity.formula "C72 H85 N19 O18 S5"
+_pdbx_reference_entity.formula_weight 1664.9
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -2376,34 +2377,40 @@ save_pdbx_reference_entity_details
     Example: 1  Thiostrepton
 ;
 ;
- loop_
- _pdbx_reference_entity.prd_id                 
- _pdbx_reference_entity.ordinal                
- _pdbx_reference_entity.source                 
- _pdbx_reference_entity.text
- 1 1 ?
- ; Thiostrepton complex bacterial natural product containing thiazole
-  rings that's used as a topical veterinary antibiotic and also has
-  promising antimalarial and anticancer activity first isolated from
-  bacteria in 1955, thiostrepton has an unusual type of antibiotic
-  activity: It disables protein biosynthesis by binding to ribosomal 
-  RNA and one of its associated proteins and interacts directly with 
-  23S rRNA nucleotides 1067A and 1095A
- ;
- 1 2 ?
+loop_
+_pdbx_reference_entity_details.prd_id
+_pdbx_reference_entity_details.ordinal
+_pdbx_reference_entity_details.source
+_pdbx_reference_entity_details.text
+ PRD_THIOSTREPTON 1 www.bioaustralis.com/pdfs/thiostrepton.pdf
  ; Thiostrepton is a macrocyclic antibiotic incorporating thiazoles and
-  other atypical amino acids. Patented in 1961, thiostrepton has been
-  used as an antibiotic and acts by binding to ribosomes to prevent the
-  binding of the EF-G elongation factor and GTP to the 50S riobsomal
-  subunit.  Thiostrepton is an inducer of tipA, a gene that controls the
-  bacterial transcription regulators, TipAL and TipAS, members of the
-  MerR proteins that are central regulators in multidrug
-  resistance. Closely related to siomycin, a recently discovered
-  inhibitor of oncogenic transcription factor - FoxM1. The
-  thiostrepton-resistant gene is also commonly used as a selective
-  marker for recombinant DNA/plasmid technologies.
+ other atypical amino acids. Inhibits binding of elongation factor G
+ (EF-G) and the dissociation of EF-G from the ribosome. Inhibits
+ bacterial protein synthesis and ribosomal GTPase activity by binding
+ non-covalently, but virtually irreversibly, to the 23S rRNA in the
+ GTPase center of the 50S subunit. Thiostrepton binding directly
+ prevents elongation factor G binding to the ribosome. Thiostrepton is
+ used as a topical veterinary antibiotic and also has promising
+ antimalarial and anticancer activity first isolated from bacteria in
+ 1955. Thiostrepton is an inducer of tipA, a gene that controls the
+ bacterial transcription regulators, TipAL and TipAS, members of the
+ MerR proteins that are central regulators in multidrug
+ resistance. Closely related to siomycin, a recently discovered
+ inhibitor of oncogenic transcription factor - FoxM1. The
+ thiostrepton-resistant gene is also commonly used as a selective
+ marker for recombinant DNA/plasmid technologies.
+ ;
+ PRD_THIOSTREPTON 2 "DOI:10.1016/j.chembiol.2009.01.007"
+ ; The thiopeptide class of antibiotics targets the GTPase-associated
+ center (GAC) of the ribosome to inhibit translation factor
+ function. The thiopeptides, by binding within a cleft located between
+ the ribosomal protein L11 and helices 43 and 44 of the 23S rRNA,
+ overlap with the position of domain V of EF-G, thus explaining how
+ this class of drugs perturbs translation factor binding to the
+ ribosome.
  ;
 ;
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
@@ -2476,15 +2483,18 @@ save_pdbx_reference_entity_synonyms
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example: 1
+    Example: 1 Thiostrepton
 ;
 ;
-    loop_
-    _pdbx_reference_entity_synonyms.prd_id
-    _pdbx_reference_entity_synonyms.ordinal
-    _pdbx_reference_entity_synonyms.name
-    _pdbx_reference_entity_synonyms.source
-     1 1 thiostrepton 'CAS'
+loop_
+_pdbx_reference_entity_synonyms.prd_id
+_pdbx_reference_entity_synonyms.ordinal
+_pdbx_reference_entity_synonyms.source
+_pdbx_reference_entity_synonyms.name
+PRD_THIOSTREPTON 1 PDB "THIOSTREPTON"
+PRD_THIOSTREPTON 2 SciFinder "Thiostrepton"
+PRD_THIOSTREPTON 3 SciFinder "Bryamycin"
+
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -2560,13 +2570,12 @@ save_pdbx_reference_entity_subcomponents
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example: 1
+    Example: 1 0G6
 ;
 ;
-    loop_
-    _pdbx_reference_entity_subcomponents.prd_id
-    _pdbx_reference_entity_subcomponents.seq
-     1 "ACE DLY GLY DAL DCY DAS DTY DPR DGL DTR DGN DTR DLE DCY DAL DAL NH2"
+_pdbx_reference_entity_subcomponents.prd_id PRD_0G6
+_pdbx_reference_entity_subcomponents.seq
+ "DPN PRO ARG 0QE"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -2618,18 +2627,18 @@ save_pdbx_reference_entity_poly
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Thiostrepton
                 
 ;
 ;
-    loop_
-    _pdbx_reference_entity_poly.prd_id
-    _pdbx_reference_entity_poly.type
-    _pdbx_reference_entity_poly.nstd_chirality
-    _pdbx_reference_entity_poly.nstd_linkage
-    _pdbx_reference_entity_poly.nstd_monomer
-    _pdbx_reference_entity_poly.number_of_monomers
-     1  peptide-like   no yes yes  8
+loop_
+_pdbx_reference_entity_poly.prd_id
+_pdbx_reference_entity_poly.type
+_pdbx_reference_entity_poly.nstd_chirality
+_pdbx_reference_entity_poly.nstd_linkage
+_pdbx_reference_entity_poly.nstd_monomer
+_pdbx_reference_entity_poly.number_of_monomers
+PRD_THIOSTREPTON "peptide-like" YES YES YES 19
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -2779,15 +2788,20 @@ save_pdbx_reference_entity_poly_seq
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Thiostrepton
                 
 ;
 ;
-    loop_
-    _pdbx_reference_entity_poly_seq.prd_id
-    _pdbx_reference_entity_poly_seq.num
-    _pdbx_reference_entity_poly_seq.mon_id
-      1  1  PRO   1  2  GLN   1  3  ILE   1  4  THR   1  5  LEU
+loop_
+_pdbx_reference_entity_poly_seq.prd_id
+_pdbx_reference_entity_poly_seq.num
+_pdbx_reference_entity_poly_seq.mon_id
+_pdbx_reference_entity_poly_seq.modified_mon_id
+PRD_THIOSTREPTON 0 . QUA
+PRD_THIOSTREPTON 1 ILE ILE
+PRD_THIOSTREPTON 2 ALA ALA
+PRD_THIOSTREPTON 4 SER DHA 
+# ... abbreviated ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -2865,17 +2879,17 @@ save_pdbx_reference_entity_annotation
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Thiostrepton
 ;
 ;
-  _pdbx_reference_entity_annotation.prd_id   1
-  _pdbx_reference_entity_annotation.ordinal  1
-  _pdbx_reference_entity_annotation.type       'molecular function'
-  _pdbx_reference_entity_annotation.text       'antigen binding'
-  _pdbx_reference_entity_annotation.source     'depositor provided data'
-  _pdbx_reference_entity_annotation.support  
-  ; Experimentally verified with fluroescent antigen using flow cytometry
-  ;
+loop_
+_pdbx_reference_entity_annotation.prd_id
+_pdbx_reference_entity_annotation.ordinal
+_pdbx_reference_entity_annotation.source
+_pdbx_reference_entity_annotation.type
+_pdbx_reference_entity_annotation.text
+PRD_THIOSTREPTON 1 KEGG Function "Antibacterial (veterinary)"
+PRD_THIOSTREPTON 2 UniProt Function "bacteriocidal activity"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -3002,18 +3016,18 @@ save_pdbx_reference_entity_feature
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Thiostrepton
 ;
 ;
-     loop_
-    _pdbx_reference_entity_feature.prd_id
-    _pdbx_reference_entity_feature.ordinal
-    _pdbx_reference_entity_feature.type
-    _pdbx_reference_entity_feature.value
-    _pdbx_reference_entity_feature.source
-	1 1  'ENZYME INHIBITED'    'ASPARTIC PROTEINASE'                     PDB
-        1 2  'FUNCTION'            'Transistion-state analogue inhibitor'    PDB
-        1 3  'STRUCTURE IMAGE URL' 'http://journals.iucr.org/00X.jpg'        IUCR
+loop_
+_pdbx_reference_entity_feature.prd_id
+_pdbx_reference_entity_feature.ordinal
+_pdbx_reference_entity_feature.source_ordinal
+_pdbx_reference_entity_feature.source
+_pdbx_reference_entity_feature.type
+_pdbx_reference_entity_feature.value
+PRD_THIOSTREPTON 1 1 CAS External_Reference_ID "1393-48-2"
+PRD_THIOSTREPTON 2 1 Merck External_Reference_ID "14:9364"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -3057,20 +3071,20 @@ save__pdbx_reference_entity_feature.type
      'STRUCTURE IMAGE URL'
      save_
 
-save__pdbx_reference_entity_feature.support
-    _item_description.description
-;            The supporting evidence for this feature.
-;
-    _item.name                  '_pdbx_reference_entity_feature.support'
-    _item.category_id            pdbx_reference_entity_feature
-    _item.mandatory_code         no
-    _item_type.code              text
-     loop_
-    _item_examples.case          
-     'Biological assay'
-     'Data obtained from PNAS August 17, 1999 vol. 96 no. 17 9586-9590'
-     save_
-
+#save__pdbx_reference_entity_feature.support
+#    _item_description.description
+#;            The supporting evidence for this feature.
+#;
+#    _item.name                  '_pdbx_reference_entity_feature.support'
+#    _item.category_id            pdbx_reference_entity_feature
+#    _item.mandatory_code         no
+#    _item_type.code              text
+#     loop_
+#    _item_examples.case          
+#     'Biological assay'
+#     'Data obtained from PNAS August 17, 1999 vol. 96 no. 17 9586-9590'
+#     save_
+#
 save__pdbx_reference_entity_feature.value
     _item_description.description
 ;              The entity feature value.
@@ -3133,15 +3147,19 @@ save_pdbx_reference_entity_src_nat
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Actinomycin
 ;
 ;
-     loop_
-    _pdbx_reference_entity_src_nat.prd_id
-    _pdbx_reference_entity_src_nat.ordinal
-    _pdbx_reference_entity_src_nat.organism_scientific
-    _pdbx_reference_entity_src_nat.strain
-     1 1   'Mus musculus'   .
+loop_
+_pdbx_reference_entity_src_nat.prd_id
+_pdbx_reference_entity_src_nat.ordinal
+_pdbx_reference_entity_src_nat.taxid
+_pdbx_reference_entity_src_nat.organism_scientific
+_pdbx_reference_entity_src_nat.source
+_pdbx_reference_entity_src_nat.atcc
+_pdbx_reference_entity_src_nat.db_code
+_pdbx_reference_entity_src_nat.db_name
+PRD_ACTINOMYCIN_D 1 "146923" "Streptomyces parvulus" KEGG ? ? ?
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -3264,17 +3282,18 @@ save_pdbx_reference_entity_related_structures
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example 1 - 
+    Example 1 - Thiostrepton
 ;
 ;
-     loop_
-    _pdbx_reference_entity_related_structures.prd_id
-    _pdbx_reference_entity_related_structures.ordinal
-    _pdbx_reference_entity_related_structures.database_name
-    _pdbx_reference_entity_related_structures.database_id
-    _pdbx_reference_entity_related_structures.name 
-    _pdbx_reference_entity_related_structures.formula
-     1 1   'CCDC' '012345' . .
+loop_
+_pdbx_reference_entity_related_structures.prd_id
+_pdbx_reference_entity_related_structures.ordinal
+_pdbx_reference_entity_related_structures.citation_id
+_pdbx_reference_entity_related_structures.database_name
+_pdbx_reference_entity_related_structures.database_id
+_pdbx_reference_entity_related_structures.name
+_pdbx_reference_entity_related_structures.formula
+PRD_THIOSTREPTON 1 Thiostrepton1 CCDC TSTREP Thiostrepton "C69 H82 N18 O17 S5"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -3403,17 +3422,23 @@ save_pdbx_reference_entity_instances
     _category_examples.case
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
-    Example: 1
+    Example: 1  0G6
 ;
 ;
-    loop_
-    _pdbx_reference_entity_instances.prd_id
-    _pdbx_reference_entity_instances.ordinal
-    _pdbx_reference_entity_instances.3_letter_code
-    _pdbx_reference_entity_instances.database_name
-    _pdbx_reference_entity_instances.database_id
-    _pdbx_reference_entity_instances.details
-     1 1 0X1  PDB 1ABC  .
+loop_
+_pdbx_reference_entity_instances.prd_id
+_pdbx_reference_entity_instances.ordinal
+_pdbx_reference_entity_instances.3_letter_code
+_pdbx_reference_entity_instances.database_name
+_pdbx_reference_entity_instances.database_id
+_pdbx_reference_entity_instances.details
+_pdbx_reference_entity_instances.published_name
+PRD_0G6  1 0G6 PDB 1TMT  "Forms a ternary complex with thrombin and the C-terminal fragment of hirudin" 
+     "D-Phe-Pro-Arg-chloromethyl ketone"
+PRD_0G6  2 0G6 PDB 1AUT  "Inhibits the Gla-domainless human activated protein C (gd-aPC)" 
+      "PPACK inhibitor"
+PRD_0G6  3 0G6 PDB 1THP  "Inhibits the Y225P human alpha-thrombin mutant" 
+      "H-D-Phe-Pro-Arg-chloromethylketone (PPACK)"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
@@ -3485,6 +3510,106 @@ save__pdbx_reference_entity_instances.details
     _item.mandatory_code          no
     _item_type.code               text
      save_
+
+save__pdbx_reference_entity_instances.published_name
+    _item_description.description
+;              Name as published in this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.published_name'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+####################################
+## PDBX_REFERENCE_ENTITY_SEQUENCE ##
+####################################
+
+save_pdbx_reference_entity_sequence
+    _category.description
+;             Additional features associated with the reference entity.
+;
+    _category.id                  'pdbx_reference_entity_sequence'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            '_pdbx_reference_entity_sequence.prd_id'
+#
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - Thiostrepton
+;
+;
+loop_
+_pdbx_reference_entity_sequence.prd_id
+_pdbx_reference_entity_sequence.type
+_pdbx_reference_entity_sequence.NRP_flag
+_pdbx_reference_entity_sequence.one_letter_codes
+PRD_THIOSTREPTON amino_acid N IASASCTTCICTCSCSS
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_reference_entity_sequence.prd_id
+    _item_description.description
+;              The value of _pdbx_reference_entity_sequence.prd_id is a reference
+	       _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+    _item.name                  '_pdbx_reference_entity_sequence.prd_id'
+    _item.category_id             pdbx_reference_entity_sequence
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_sequence.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+
+save__pdbx_reference_entity_sequence.type
+    _item_description.description
+;              The monomer type for the sequence.
+;
+    _item.name                  '_pdbx_reference_entity_sequence.type'
+    _item.category_id            pdbx_reference_entity_sequence
+    _item.mandatory_code         yes
+    _item_type.code              line
+     loop_
+    _item_examples.case          
+     'amino acid'
+     'nucleic acid'
+     save_
+#
+save__pdbx_reference_entity_sequence.NRP_flag
+    _item_description.description
+;              A flag to indicate a non-ribosomal entity.
+;
+    _item.name                  '_pdbx_reference_entity_sequence.NRP_flag'
+    _item.category_id            pdbx_reference_entity_sequence
+    _item.mandatory_code         yes
+    _item_type.code              code
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+          Y  'non-ribosomal'
+          N  'ribosomal'
+    _item_examples.case           Y
+     save_
+
+
+save__pdbx_reference_entity_sequence.one_letter_codes
+    _item_description.description
+;              The one-letter-code sequence for this entity.  Non-standard monomers are represented as 'X'.
+;
+    _item.name                  '_pdbx_reference_entity_sequence.one_letter_codes'
+    _item.category_id            pdbx_reference_entity_sequence
+    _item.mandatory_code         yes
+    _item_type.code              line
+     save_
+
 
 
 ##################
