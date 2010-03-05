@@ -2297,7 +2297,7 @@ save__pdbx_reference_entity.formula
 
 save__pdbx_reference_entity.type
     _item_description.description
-;              Defines the type of the entity.
+;              Defines the structural classification of the entity.
 ;
     _item.name                  '_pdbx_reference_entity.type'
     _item.category_id             pdbx_reference_entity
@@ -2307,6 +2307,16 @@ save__pdbx_reference_entity.type
     _item_examples.case
                                 'peptide-like'
                                 'macrolide'    
+     save_
+
+save__pdbx_reference_entity.class
+    _item_description.description
+;              Broadly defines the function of the entity.
+;
+    _item.name                  '_pdbx_reference_entity.class'
+    _item.category_id             pdbx_reference_entity
+    _item.mandatory_code          no
+    _item_type.code               text
      save_
 
 save__pdbx_reference_entity.name
@@ -2779,7 +2789,7 @@ save_pdbx_reference_entity_poly_seq
     loop_
     _category_key.name          '_pdbx_reference_entity_poly_seq.prd_id'
                                 '_pdbx_reference_entity_poly_seq.num'
-                                '_pdbx_reference_entity_poly_seq.mon_id'
+#                                '_pdbx_reference_entity_poly_seq.mon_id'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2888,7 +2898,7 @@ _pdbx_reference_entity_annotation.ordinal
 _pdbx_reference_entity_annotation.source
 _pdbx_reference_entity_annotation.type
 _pdbx_reference_entity_annotation.text
-PRD_THIOSTREPTON 1 KEGG Function "Antibacterial (veterinary)"
+PRD_THIOSTREPTON 1 KEGG    Function "Antibacterial (veterinary)"
 PRD_THIOSTREPTON 2 UniProt Function "bacteriocidal activity"
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -3053,6 +3063,17 @@ save__pdbx_reference_entity_feature.ordinal
     _item.name                  '_pdbx_reference_entity_feature.ordinal'
     _item.category_id             pdbx_reference_entity_feature
     _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_reference_entity_feature.source_ordinal
+    _item_description.description
+;              The value of _pdbx_reference_entity_feature.source_ordinal provides
+	       the priority order of features from a particular source or database.
+;
+    _item.name                  '_pdbx_reference_entity_feature.source_ordinal'
+    _item.category_id             pdbx_reference_entity_feature
+    _item.mandatory_code          no
     _item_type.code               int
      save_
 
@@ -3260,6 +3281,17 @@ save__pdbx_reference_entity_src_nat.db_name
 
      save_
 
+save__pdbx_reference_entity_src_nat.source
+    _item_description.description
+;              Additional details about of the origin of this source information.
+;
+    _item.name                  '_pdbx_reference_entity_src_nat.source'
+    _item.category_id             pdbx_reference_entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     save_
+
 ##############################################
 ## PDBX_REFERENCE_ENTITY_RELATED_STRUCTURES ##
 ##############################################
@@ -3289,8 +3321,8 @@ loop_
 _pdbx_reference_entity_related_structures.prd_id
 _pdbx_reference_entity_related_structures.ordinal
 _pdbx_reference_entity_related_structures.citation_id
-_pdbx_reference_entity_related_structures.database_name
-_pdbx_reference_entity_related_structures.database_id
+_pdbx_reference_entity_related_structures.db_name
+_pdbx_reference_entity_related_structures.db_code
 _pdbx_reference_entity_related_structures.name
 _pdbx_reference_entity_related_structures.formula
 PRD_THIOSTREPTON 1 Thiostrepton1 CCDC TSTREP Thiostrepton "C69 H82 N18 O17 S5"
@@ -3324,11 +3356,11 @@ save__pdbx_reference_entity_related_structures.ordinal
     _item_type.code               int
      save_
 
-save__pdbx_reference_entity_related_structures.database_name
+save__pdbx_reference_entity_related_structures.db_name
     _item_description.description
 ;              The database name for the related structure reference.
 ;
-    _item.name                  '_pdbx_reference_entity_related_structures.database_name'
+    _item.name                  '_pdbx_reference_entity_related_structures.db_name'
     _item.category_id             pdbx_reference_entity_related_structures
     _item.mandatory_code          no
     _item_type.code               text
@@ -3336,16 +3368,28 @@ save__pdbx_reference_entity_related_structures.database_name
     _item_examples.case        'CCDC' 
      save_
 
-save__pdbx_reference_entity_related_structures.database_id
+save__pdbx_reference_entity_related_structures.db_code
     _item_description.description
 ;              The database identifier code for the related structure reference.
 ;
-    _item.name                  '_pdbx_reference_entity_related_structures.database_id'
+    _item.name                  '_pdbx_reference_entity_related_structures.db_code'
     _item.category_id             pdbx_reference_entity_related_structures
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case        '012395' 
+    _item_examples.case        'QEFHUE' 
+     save_
+
+save__pdbx_reference_entity_related_structures.db_accession
+    _item_description.description
+;              The database accession code for the related structure reference.
+;
+    _item.name                  '_pdbx_reference_entity_related_structures.db_accession'
+    _item.category_id             pdbx_reference_entity_related_structures
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case        '143108' 
      save_
 
 save__pdbx_reference_entity_related_structures.name
@@ -3765,3 +3809,98 @@ save__atom_site.pdbx_auth_seq_id
    #_pdbx_item_context.item_name  '_atom_site.pdbx_auth_seq_id'
    #
 save_
+
+##
+##
+save_pdbx_bond_distance_limits
+    _category.description
+;             This category provides a table of upper and lower distance 
+              limits used as criteria in determining covalent bonds.
+              The table is organized by atom type pairs.
+;
+    _category.id                  'pdbx_bond_distance_limits'
+    _category.mandatory_code       no
+     loop_
+    _category_key.name            '_pdbx_bond_distance_limits.atom_type_1'
+                                  '_pdbx_bond_distance_limits.atom_type_2'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - Abbreviated bond distance limit table
+;
+;
+ loop_
+ _pdbx_bond_distance_limits.atom_type_1
+ _pdbx_bond_distance_limits.atom_type_2
+ _pdbx_bond_distance_limits.lower_limit
+ _pdbx_bond_distance_limits.upper_limit
+  N   Ag  1.85 2.70
+  O   Ag  1.85 2.70
+  S   Ag  2.00 3.00
+  Al   H  1.35 1.65
+  As   H  1.20 1.60
+  N   Au  1.80 2.80
+  O   Au  1.80 2.80
+  S   Au  1.80 3.00
+  B    B  1.45 1.95
+  C    B  1.20 1.85
+  F    B  1.20 1.75
+ # ... abbreviated ...
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_bond_distance_limits.atom_type_1
+    _item_description.description
+;              The first atom type defining the bond 
+;
+    _item.name                  '_pdbx_bond_distance_limits.atom_type_1'
+    _item.category_id            pdbx_bond_distance_limits
+    _item.mandatory_code         yes
+    _item_type.code              code
+     loop_
+    _item_examples.case          
+     'C' 'N' 'P'
+     save_
+
+save__pdbx_bond_distance_limits.atom_type_2
+    _item_description.description
+;              The first atom type defining the bond 
+;
+    _item.name                  '_pdbx_bond_distance_limits.atom_type_2'
+    _item.category_id            pdbx_bond_distance_limits
+    _item.mandatory_code         yes
+    _item_type.code              code
+     loop_
+    _item_examples.case          
+     'C' 'N' 'P'
+     save_
+
+save__pdbx_bond_distance_limits.lower_limit
+    _item_description.description
+;              The lower bond distance limit.
+;
+    _item.name                  '_pdbx_bond_distance_limits.lower_limit'
+    _item.category_id            pdbx_bond_distance_limits
+    _item.mandatory_code         yes
+    _item_type.code              float
+    _item_units.code             angstroms
+     save_
+
+save__pdbx_bond_distance_limits.upper_limit
+    _item_description.description
+;              The upper bond distance limit.
+;
+    _item.name                  '_pdbx_bond_distance_limits.upper_limit'
+    _item.category_id            pdbx_bond_distance_limits
+    _item.mandatory_code         yes
+    _item_type.code              float
+    _item_units.code             angstroms
+     save_
+
