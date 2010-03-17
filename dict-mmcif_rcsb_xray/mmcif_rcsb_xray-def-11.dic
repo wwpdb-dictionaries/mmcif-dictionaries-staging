@@ -3565,6 +3565,59 @@ save__pdbx_reference_entity_instances.published_name
     _item_type.code               text
      save_
 
+save__pdbx_reference_entity_instances.auth_asym_id 
+    _item_description.description
+;              The PDB chain identifier code for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.auth_asym_id'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__pdbx_reference_entity_instances.auth_seq_id 
+    _item_description.description
+;              The author sequence number for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.auth_seq_id'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__pdbx_reference_entity_instances.label_alt_id
+    _item_description.description
+;              The alternate location identifier for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.label_alt_id'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+
+save__pdbx_reference_entity_instances.PDB_ins_code 
+    _item_description.description
+;              PDB insertion code for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.PDB_ins_code'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__pdbx_reference_entity_instances.published_subcomponent
+    _item_description.description
+;              The author assigned list of subcomponents for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.published_subcomponent'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
+
 ####################################
 ## PDBX_REFERENCE_ENTITY_SEQUENCE ##
 ####################################
