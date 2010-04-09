@@ -1395,6 +1395,7 @@ save__ndb_database_status.status_code
      REL   'Released'
      HOLD  'On hold until yyyy-mm-dd'
      HPUB  'On hold until publication'
+     REFI  'Re-refined entry'
      OBS   'Entry has been obsoleted and replaced by another entry'
 #     DEL   'Entry has been deleted'
      WDRN  'Entry has been withdrawn'	
@@ -1423,6 +1424,7 @@ save__ndb_database_status.author_release_status_code
      REL   'Release'
      HOLD  'On hold until yyyy-mm-dd'
      HPUB  'On hold until publication'
+     REFI  'Re-refined entry'
      OBS   'Entry has been obsoleted and replaced by another entry'
      WDRN  'Entry has been withdrawn'	
     _item_examples.case         
