@@ -980,6 +980,7 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
     _pdbx_reference_entity_instances.PDB_ins_code 
     _pdbx_reference_entity_instances.published_subcomponent
   + add status code  REFI  'Re-refined entry'
+  + change ENGINEERED to ENGINEERED MUTATION in _struct_ref_seq_dif.details.
 
 ;
 #
