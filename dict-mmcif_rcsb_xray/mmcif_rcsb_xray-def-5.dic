@@ -1482,9 +1482,9 @@ will be released immediately and your coordinates and experimental
 data will be held until publication.
 <p>
 The following links provide additional information on the guidelines
-for the release of <a href="http://pdb.rutgers.edu/#release" target="_blank">coordinate</a>, 
-<a href="http://pdb.rutgers.edu/#release" target="_blank">experimental</a>, and 
-<a href="http://pdb.rutgers.edu/#prerelease" target="_blank">sequence</a> data. 
+for the release of <a href="http://www.wwpdb.org/policy" target="_blank">coordinate</a>, 
+<a href="http://www.wwpdb.org/policy" target="_blank">experimental</a>, and 
+<a href="http://www.wwpdb.org/policy" target="_blank">sequence</a> data. 
 ;
     _category.id                  ndb_database_status
      loop_
@@ -8627,9 +8627,8 @@ save__struct_conn.ptnr2_symmetry
 save_struct_keywords
     _ndb_category_description.description
 ;
-Give a list of keywords that describe important features of the deposited structure. 
-The keywords entered here should provide information about special structural features 
-such as beta-alpha-barrels, or helix-turn-helix.
+Please provide no more than 4 keywords which best describe structural feature, fold,
+location, chemical modification and/or binding properties of the deposited macromolecules.
 ;
     _category.id                  struct_keywords
     _ndb_category_examples.case
@@ -8649,6 +8648,69 @@ Keywords describing this structure.
     _item.category_id             struct_keywords
     _ndb_item_examples.case      'BETA BARREL, PROTEIN-DNA COMPLEX, DOUBLE HELIX'
      save_
+
+
+save__struct_keywords.pdbx_keyword_feature
+    _ndb_item_description.description
+;
+Keyword(s) for structural feature 
+;
+    _item.name                  '_struct_keywords.pdbx_keyword_feature'
+    _item.category_id             struct_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _ndb_item_examples.case      'Rossman fold'
+                                 'Tim Barrel fold'
+                                 'beta-propeller'
+                                 'zinc finger'
+     save_
+
+
+save__struct_keywords.pdbx_keyword_location
+    _ndb_item_description.description
+;
+Keyword(s) for location
+;
+    _item.name                  '_struct_keywords.pdbx_keyword_location'
+    _item.category_id             struct_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _ndb_item_examples.case      'membrance' 
+                                 'cytoplasm'
+     save_
+
+
+save__struct_keywords.pdbx_keyword_modification
+    _ndb_item_description.description
+;
+Keyword(s) for chemical modification
+;
+    _item.name                  '_struct_keywords.pdbx_keyword_modification'
+    _item.category_id             struct_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _ndb_item_examples.case      'phosphoprotein' 
+                                 'acetylatioin'
+     save_
+
+
+save__struct_keywords.pdbx_keyword_binding
+    _ndb_item_description.description
+;
+Keyword(s) for binding properties
+;
+    _item.name                  '_struct_keywords.pdbx_keyword_binding'
+    _item.category_id             struct_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _ndb_item_examples.case      'ATP binding' 
+                                 'DNA binding'
+     save_
+
 
 save__struct_keywords.ndb_keywords
     _ndb_item_description.description
