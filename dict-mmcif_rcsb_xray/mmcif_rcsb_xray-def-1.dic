@@ -5103,11 +5103,11 @@ save__audit_author.name
     _item_aliases.version         2.0.1
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
+    _item_examples.case          'Bleary, P.R.'
                                  "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 ###################
@@ -5303,11 +5303,11 @@ save__audit_contact_author.name
     _item_aliases.version         2.0.1
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
+    _item_examples.case          'Bleary, P.R.'
                                  "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 save__audit_contact_author.phone
@@ -10645,11 +10645,11 @@ save__citation_author.name
     _item_aliases.version         2.0.1
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
+    _item_examples.case          'Bleary, P.R.'
                                  "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 save__citation_author.ordinal
@@ -10730,11 +10730,11 @@ save__citation_editor.name
     _item_aliases.version         2.0.1
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
+    _item_examples.case          'Bleary, P.R.'
                                  "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 save__citation_editor.ordinal
@@ -11780,11 +11780,11 @@ save__database_PDB_rev.author_name
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
+    _item_examples.case          'Bleary, P.R.'
                                  "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 save__database_PDB_rev.date
@@ -25168,11 +25168,11 @@ save__publ_author.name
     _item_aliases.version         2.0.1
     _item_type.code               line
      loop_
-    _item_examples.case          'Bleary, Percival R.'
-                                 'O'Neil, F.K.'
+    _item_examples.case          'Bleary, P.R.'
+                                 "O'Neil, F.K."
                                  'Van den Bossche, G.'
-                                 'Yang, D.-L.'
-                                 'Simonov, Yu.A'
+                                 'Yang, D.L.'
+                                 'Simonov, Y.A'
      save_
 
 ###############
