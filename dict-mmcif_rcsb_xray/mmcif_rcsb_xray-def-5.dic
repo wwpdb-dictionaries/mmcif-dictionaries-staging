@@ -3700,7 +3700,7 @@ commas.
    _ndb_item_examples.case
 ;
 For a single polymer in the asymmetric unit, the chain identifier is A.
-For a homodimer in the asymmetric unit, the chain identifiers are A and B.
+For a homodimer in the asymmetric unit, the chain identifiers are "A,B".
 ;
 
     save_
@@ -8660,10 +8660,10 @@ Keyword(s) for structural feature
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _ndb_item_examples.case      'Rossman fold'
-                                 'Tim Barrel fold'
-                                 'beta-propeller'
-                                 'zinc finger'
+    _ndb_item_examples.case      'Rossmann Fold'
+                                 'Zinc Finger'
+                                 'Tim Barrel'
+                                 'Beta-Propeller'
      save_
 
 
@@ -8677,8 +8677,8 @@ Keyword(s) for location
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _ndb_item_examples.case      'membrance' 
-                                 'cytoplasm'
+    _ndb_item_examples.case      'Membrane' 
+                                 'Cytoplasm'
      save_
 
 
@@ -8692,8 +8692,8 @@ Keyword(s) for chemical modification
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _ndb_item_examples.case      'phosphoprotein' 
-                                 'acetylatioin'
+    _ndb_item_examples.case      'Phosphorylation' 
+                                 'Acetylation'
      save_
 
 
@@ -8707,8 +8707,26 @@ Keyword(s) for binding properties
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _ndb_item_examples.case      'ATP binding' 
-                                 'DNA binding'
+    _ndb_item_examples.case      'ATP Binding'
+                                 'Calcium Binding'
+                                 'DNA Binding'
+                                 'Carbohydrate/Sugar Binding'
+     save_
+
+
+save__struct_keywords.pdbx_keyword_function
+    _ndb_item_description.description
+;
+Keyword(s) for binding properties
+;
+    _item.name                  '_struct_keywords.pdbx_keyword_function'
+    _item.category_id             struct_keywords
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _ndb_item_examples.case      'Hydrolase'
+                                 'ABC Transporter'
+                                 'Unknown Function'
      save_
 
 

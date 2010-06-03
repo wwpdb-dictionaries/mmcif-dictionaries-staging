@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0016
+    _dictionary.version         1.0017
 #
      loop_
     _dictionary_history.version
@@ -982,6 +982,15 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   + add status code  REFI  'Re-refined entry'
   + change ENGINEERED to ENGINEERED MUTATION in _struct_ref_seq_dif.details.
 
+;
+   1.0017 2010-05-17
+;
+  Changes (zf):
+  + added _struct_keywords.pdbx_keyword_feature
+          _struct_keywords.pdbx_keyword_function
+          _struct_keywords.pdbx_keyword_binding
+          _struct_keywords.pdbx_keyword_modification
+          _struct_keywords.pdbx_keyword_location 
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
