@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0017
+    _dictionary.version         1.0018
 #
      loop_
     _dictionary_history.version
@@ -991,6 +991,16 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
           _struct_keywords.pdbx_keyword_binding
           _struct_keywords.pdbx_keyword_modification
           _struct_keywords.pdbx_keyword_location 
+;
+  1.0018 2010-06-10
+;
+ Changes (jdw):
+ + added - _ndb_database_status.date_hold_chemical_shifts
+           _ndb_database_status.date_chemical_shifts
+           _ndb_database_status.recvd_chemical_shifts
+           _ndb_database_status.dep_release_code_chemical_shifts
+           _ndb_database_status.date_of_cs_release
+           _ndb_database_status.status_code_cs
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
