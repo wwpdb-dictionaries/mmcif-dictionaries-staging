@@ -4783,7 +4783,8 @@ save__exptl.method
     _item.name                  '_exptl.method'
     _item.category_id             exptl
      loop_
-    _ndb_item_enumeration.value   #   'x-ray diffraction'
+    _ndb_item_enumeration.value   
+#                                 'x-ray diffraction'
 #                                 'single-crystal x-ray diffraction'
 #                                 'single-crystal neutron diffraction'
 #                                 'single-crystal electron diffraction'
@@ -4804,6 +4805,8 @@ save__exptl.method
           'SOLUTION NMR'
           'SOLID-STATE NMR'
           'SOLUTION SCATTERING'
+	  'INFRARED SPECTROSCOPY'
+	  'EPR'                  
           'OTHER'
      save_
 ##
