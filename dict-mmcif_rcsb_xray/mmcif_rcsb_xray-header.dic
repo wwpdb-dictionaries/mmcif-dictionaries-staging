@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0018
+    _dictionary.version         1.0019
 #
      loop_
     _dictionary_history.version
@@ -1001,6 +1001,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
            _ndb_database_status.dep_release_code_chemical_shifts
            _ndb_database_status.date_of_cs_release
            _ndb_database_status.status_code_cs
+;
+  1.0019 2010-09-13
+;
+  Changes (zf):
+  + added new beamline enumeration
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
