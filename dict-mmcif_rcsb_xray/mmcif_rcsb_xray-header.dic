@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0019
+    _dictionary.version         1.0020
 #
      loop_
     _dictionary_history.version
@@ -1007,6 +1007,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   Changes (zf):
   + added new beamline enumeration
 ;
+  1.0020 2010-09-27
+;
+  Changes (jdw):
+  + change data type for _chem_comp.name from line to text.
+;
+
 #
 ### EOF mmcif_rcsb_xray-header.dic 
 
