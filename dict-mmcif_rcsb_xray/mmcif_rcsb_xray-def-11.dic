@@ -2683,12 +2683,12 @@ save__pdbx_reference_entity.represent_as
                                 'polymer' 'single molecule'
      save_
 
-save__pdbx_reference_entity.3-letter-code
+save__pdbx_reference_entity.three_letter_code
     _item_description.description
 ;              For entities represented as single molecules, the 3-letter-code
                corresponding to the chemical definition for the molecule.
 ;
-    _item.name                  '_pdbx_reference_entity.3-letter-code'
+    _item.name                  '_pdbx_reference_entity.three_letter_code'
     _item.category_id             pdbx_reference_entity
     _item.mandatory_code          no
     _item_type.code               ucode
@@ -2712,8 +2712,8 @@ save_pdbx_reference_entity_details
      loop_
     _category_key.name          
       '_pdbx_reference_entity_details.family_prd_id'
-      '_pdbx_reference_entity_details.prd_id'
       '_pdbx_reference_entity_details.ordinal'
+#      '_pdbx_reference_entity_details.prd_id'
     loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -2773,7 +2773,8 @@ save__pdbx_reference_entity_details.prd_id
 ;
     _item.name                  '_pdbx_reference_entity_details.prd_id'
     _item.category_id             pdbx_reference_entity_details
-    _item.mandatory_code          yes
+#    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               code
     _item_linked.child_name	'_pdbx_reference_entity_details.prd_id'
     _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
@@ -2917,6 +2918,19 @@ save__pdbx_reference_entity_synonyms.source
     _item_examples.case          'CAS'
      save_
 
+save__pdbx_reference_entity_synonyms.three_letter_code
+    _item_description.description
+;              For entities represented as single molecules, the 3-letter-code
+               corresponding to the chemical definition for the molecule.
+;
+    _item.name                  '_pdbx_reference_entity_synonyms.three_letter_code'
+    _item.category_id             pdbx_reference_entity_synonyms
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case         '0Z3' 'CD9'
+     save_
+
 
 
 #########################################
@@ -2991,6 +3005,19 @@ save__pdbx_reference_entity_subcomponents.seq
     _item.mandatory_code          yes
     _item_type.code               text
     _item_examples.case          "ACE DLY GLY DAL DCY DAS DTY DPR DGL DTR DGN DTR DLE DCY DAL DAL NH2"
+     save_
+
+save__pdbx_reference_entity_subcomponents.three_letter_code
+    _item_description.description
+;              For entities represented as single molecules, the 3-letter-code
+               corresponding to the chemical definition for the molecule.
+;
+    _item.name                  '_pdbx_reference_entity_subcomponents.three_letter_code'
+    _item.category_id             pdbx_reference_entity_subcomponents
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case         '0Z3' 'CD9'
      save_
 
 #
@@ -3176,6 +3203,27 @@ save__pdbx_reference_entity_poly.type
          'Where the majority of residue linkages are sugar to sugar bonds'
      save_
 
+save__pdbx_reference_entity_poly.db_code
+    _item_description.description
+;              The database code for this source information 
+;
+    _item.name                  '_pdbx_reference_entity_poly.db_code'
+    _item.category_id             pdbx_reference_entity_poly
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__pdbx_reference_entity_poly.db_name
+    _item_description.description
+;              The database name for this source information 
+;
+    _item.name                  '_pdbx_reference_entity_poly.db_name'
+    _item.category_id             pdbx_reference_entity_poly
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
 ####################################
 ## PDBX_REFERENCE_ENTITY_POLY_SEQ ##
 ####################################
@@ -3303,8 +3351,8 @@ save_pdbx_reference_entity_annotation
     _category.mandatory_code      no
      loop_
     _category_key.name          '_pdbx_reference_entity_annotation.family_prd_id'
-                                '_pdbx_reference_entity_annotation.prd_id'
 				'_pdbx_reference_entity_annotation.ordinal'	                                 
+#                                '_pdbx_reference_entity_annotation.prd_id'
 
      loop_
     _category_group.id           'inclusive_group'
@@ -3355,7 +3403,8 @@ save__pdbx_reference_entity_annotation.prd_id
 ;
     _item.name                  '_pdbx_reference_entity_annotation.prd_id'
     _item.category_id             pdbx_reference_entity_annotation
-    _item.mandatory_code          yes
+#    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               code
     _item_linked.child_name    '_pdbx_reference_entity_annotation.prd_id'
     _item_linked.parent_name   '_pdbx_reference_entity.prd_id'
@@ -3446,6 +3495,19 @@ save__pdbx_reference_entity_annotation.source
         'Author provided'
         'UniProt'
         'PubChem'
+     save_
+
+save__pdbx_reference_entity_annotation.three_letter_code
+    _item_description.description
+;              For entities represented as single molecules, the 3-letter-code
+               corresponding to the chemical definition for the molecule.
+;
+    _item.name                  '_pdbx_reference_entity_annotation.three_letter_code'
+    _item.category_id             pdbx_reference_entity_annotation
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case         '0Z3' 'CD9'
      save_
 
 ###################################
@@ -3604,6 +3666,19 @@ save__pdbx_reference_entity_feature.source
         'PUBCHEM'
      save_
 
+save__pdbx_reference_entity_feature.three_letter_code
+    _item_description.description
+;              For entities represented as single molecules, the 3-letter-code
+               corresponding to the chemical definition for the molecule.
+;
+    _item.name                  '_pdbx_reference_entity_feature.three_letter_code'
+    _item.category_id             pdbx_reference_entity_feature
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_examples.case         '0Z3' 'CD9'
+     save_
+
 save__pdbx_reference_entity_feature.citation_id
     _item_description.description
 ;              A link to related reference information in the citation category.  
@@ -3630,8 +3705,8 @@ save_pdbx_reference_entity_src_nat
     _category.mandatory_code      no
      loop_
     _category_key.name          '_pdbx_reference_entity_src_nat.family_prd_id'
-                                '_pdbx_reference_entity_src_nat.prd_id'
                                 '_pdbx_reference_entity_src_nat.ordinal'
+#                                '_pdbx_reference_entity_src_nat.prd_id'
      loop_
     _category_group.id           'inclusive_group'
                                  'pdbx_group'
@@ -3685,7 +3760,8 @@ save__pdbx_reference_entity_src_nat.prd_id
 
     _item.name                  '_pdbx_reference_entity_src_nat.prd_id'
     _item.category_id             pdbx_reference_entity_src_nat
-    _item.mandatory_code          yes
+#    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               code
     _item_linked.child_name	'_pdbx_reference_entity_src_nat.prd_id'
     _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
@@ -4035,11 +4111,11 @@ save__pdbx_reference_entity_instances.ordinal
      save_
 
 
-save__pdbx_reference_entity_instances.3_letter_code
+save__pdbx_reference_entity_instances.three_letter_code
     _item_description.description
 ;              The 3 letter code for this instance. 
 ;
-    _item.name                  '_pdbx_reference_entity_instances.3_letter_code'
+    _item.name                  '_pdbx_reference_entity_instances.three_letter_code'
     _item.category_id             pdbx_reference_entity_instances
     _item.mandatory_code          no
     _item_type.code               code
@@ -4137,6 +4213,16 @@ save__pdbx_reference_entity_instances.published_subcomponent
     _item.category_id             pdbx_reference_entity_instances
     _item.mandatory_code          no
     _item_type.code               text
+     save_
+
+save__pdbx_reference_entity_instances.pre_subcomponents_seq
+    _item_description.description
+;              The prior list of subcomponents for this instance.
+;
+    _item.name                  '_pdbx_reference_entity_instances.pre_subcomponents_seq'
+    _item.category_id             pdbx_reference_entity_instances
+    _item.mandatory_code          no
+    _item_type.code               line
      save_
 
 
