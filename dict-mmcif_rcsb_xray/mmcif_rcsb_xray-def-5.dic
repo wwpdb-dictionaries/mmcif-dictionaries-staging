@@ -1708,6 +1708,7 @@ The make, model or name of the detector device used.
                   'BRUKER SMART 6000'               .
                   'BRUKER SMART 6500'               .
                   'CUSTOM-MADE'                     .
+                  'DECTRIS PILATUS 2M'              .
                   'DECTRIS PILATUS 6M'              .
                   'ENRAF-NONIUS'                    .
                   'ENRAF-NONIUS CAD4'               .
