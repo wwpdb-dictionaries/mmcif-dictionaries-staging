@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0020
+    _dictionary.version         1.0021
 #
      loop_
     _dictionary_history.version
@@ -1016,7 +1016,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   + other adjustments to pdbx_entity_reference category keys.
   + _pdbx_reference_entity_poly.db_code and _pdbx_reference_entity_poly.db_name
 ;
-
+  1.0021 2010-11-29
+;
+  Changes (jdw):
+    Added new categories for PRD - pdbx_reference_entity_group, pdbx_reference_entity_group_components, and pdbx_reference_entity_grouping
+;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
 

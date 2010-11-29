@@ -4341,3 +4341,309 @@ save__pdbx_reference_entity_sequence.one_letter_codes
 ##
 
 
+
+####################################
+## PDBX_REFERENCE_ENTITY_GROUPING ##
+####################################
+
+save_pdbx_reference_entity_grouping
+    _category.description
+;   Features associated with the reference entity grouping.
+;
+    _category.id                  'pdbx_reference_entity_grouping'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            '_pdbx_reference_entity_grouping.prd_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    "Example 1 - quinoxaline"
+;
+ #
+ loop_
+ _pdbx_reference_entity_grouping.family_prd_id
+ _pdbx_reference_entity_grouping.prd_id
+ _pdbx_reference_entity_grouping.compound_details
+ PRD_000411 1
+ ; TRIOSTIN IS A BICYCLIC OCTADEPSIPEPTIDE, A MEMBER
+  OF THE QUINOXALINE CLASS OF ANTIBIOTICS.
+  HERE, TRIOSTIN IS REPRESENTED BY GROUPING TOUGHER THE
+  SEQUENCE (SEQRES) AND THE TWO LIGANDS (HET) QUI
+ ;
+ PRD_000411 3
+ ; QUINOMYCIN IS A BICYCLIC OCTADEPSIPEPTIDE. RESIDUE 1
+  IS LINKED TO RESIDUE 8 AND A THIOACETAL BOND BETWEEN
+  RESIDUES 3 AND 7.
+  THE QUINOXALINE CHROMOPHORE AND THE D-SERINE WERE
+  MERGED TO ONE RESIDUE, UDS, SO TO FIT PDB CONVENTION
+  OF LINEAR N-TERM TO C-TERM SEQUENCE.
+ ;
+ PRD_000411 4
+ ; THE ECHINOMYCIN IS A BICYCLIC OCTADEPSIPEPTIDE, A MEMBER
+  OF THE QUINOXALINE CLASS OF ANTIBIOTICS.
+  HERE, ECHINOMYCIN IS REPRESENTED BY GROUPING TOUGHER THE
+  SEQUENCE (SEQRES) AND THE TWO LIGANDS (HET) QUI.
+ ;
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_reference_entity_grouping.family_prd_id
+    _item_description.description
+;   The value of _pdbx_reference_entity_grouping.family_prd_id is a reference to 
+    _pdbx_reference_entity.family_prd_id' in category PDBX_REFERENCE_ENTITY_FAMILY.
+;
+    _item.name                  '_pdbx_reference_entity_grouping.family_prd_id'
+    _item.category_id             pdbx_reference_entity_grouping
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_grouping.family_prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.family_prd_id'
+     save_
+
+save__pdbx_reference_entity_grouping.prd_id
+    _item_description.description
+;    The value of _pdbx_reference_entity_grouping.prd_id is a reference
+     _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+    _item.name                  '_pdbx_reference_entity_grouping.prd_id'
+    _item.category_id             pdbx_reference_entity_grouping
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_grouping.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+save__pdbx_reference_entity_grouping.compound_details
+    _item_description.description
+;    The text of the description of the grouping of the entity.
+;
+    _item.name                  '_pdbx_reference_entity_grouping.compound_details'
+    _item.category_id            pdbx_reference_entity_grouping
+    _item.mandatory_code         yes
+    _item_type.code              text
+     save_
+##
+
+#################################
+## PDBX_REFERENCE_ENTITY_GROUP ##
+#################################
+
+save_pdbx_reference_entity_group
+    _category.description
+;   Features associated with the reference entity group
+;
+    _category.id                  'pdbx_reference_entity_group'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            
+       '_pdbx_reference_entity_group.prd_id'
+       '_pdbx_reference_entity_group.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    "Example 1 - quinoxaline"
+;
+ #
+ loop_
+ _pdbx_reference_entity_group.family_prd_id
+ _pdbx_reference_entity_group.prd_id
+ _pdbx_reference_entity_group.id
+ _pdbx_reference_entity_group.name
+ _pdbx_reference_entity_group.descriptioon
+ PRD_000411 1 1 "TRIOSTIN"
+ ; TRIOSTIN IS A IS A BICYCLIC OCTADEPSIPEPTIDE.
+  BICYCLIZATION IS ACHIEVED BY LINKING THE N- AND
+  THE C- TERMINI, AND A DISULPHIDE BOND BETWEEN
+  RESIDUES 3 AND 7.
+  THE TWO QUINOXALINE CHROMOPHORES ARE LINKED
+  TO THE D-SERINE RESIDUES, RESIDUES 1 AND 5.
+ ;
+ PRD_000411 4 1 "ECHINOMYCIN"
+ ; ECHINOMYCIN IS A IS A BICYCLIC OCTADEPSIPEPTIDE.
+  BICYCLIZATION IS ACHIEVED BY LINKING THE N- AND
+  THE C- TERMINI, AND A THE THIOACETAL BOND BETWEEN
+  RESIDUES 3 AND 7.
+  THE TWO QUINOXALINE CHROMOPHORES ARE LINKED
+  TO THE D-SERINE RESIDUES, RESIDUES 1 AND 5.
+ ;
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+
+save__pdbx_reference_entity_group.family_prd_id
+    _item_description.description
+;   The value of _pdbx_reference_entity_group.family_prd_id is a reference to 
+    _pdbx_reference_entity.family_prd_id' in category PDBX_REFERENCE_ENTITY_FAMILY.
+;
+    _item.name                  '_pdbx_reference_entity_group.family_prd_id'
+    _item.category_id             pdbx_reference_entity_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_group.family_prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.family_prd_id'
+     save_
+
+save__pdbx_reference_entity_group.prd_id
+    _item_description.description
+;    The value of _pdbx_reference_entity_group.prd_id is a reference
+     _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+    _item.name                  '_pdbx_reference_entity_group.prd_id'
+    _item.category_id             pdbx_reference_entity_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_group.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+
+save__pdbx_reference_entity_group.id
+    _item_description.description
+;    The value of _pdbx_reference_entity_group.id is part of the unique identifier 
+     for records in the PDBX_REFERENCE_ENTITY_GROUP list.
+     Note that this item need not be a number; it can be any unique
+     identifier.
+;
+    _item.name                  '_pdbx_reference_entity_group.id'
+    _item.category_id             pdbx_reference_entity_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+
+save__pdbx_reference_entity_group.name
+    _item_description.description
+;    The entity group name.
+;
+    _item.name                  '_pdbx_reference_entity_group.name'
+    _item.category_id             pdbx_reference_entity_group
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__pdbx_reference_entity_group.description
+    _item_description.description
+;    The text of the description of entity group.
+;
+    _item.name                  '_pdbx_reference_entity_group.description'
+    _item.category_id            pdbx_reference_entity_group
+    _item.mandatory_code         yes
+    _item_type.code              text
+     save_
+##
+
+
+############################################
+## PDBX_REFERENCE_ENTITY_GROUP_COMPONENTS ##
+############################################
+
+
+save_pdbx_reference_entity_group_components
+    _category.description
+;   Features associated with each component within a group
+;
+    _category.id                  'pdbx_reference_entity_group_components'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            
+       '_pdbx_reference_entity_group_components.prd_id'
+       '_pdbx_reference_entity_group_components.group_id'
+       '_pdbx_reference_entity_group_components.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    "Example 1 - quinoxaline"
+;
+ #
+ loop_
+ _pdbx_reference_entity_group_components.family_prd_id
+ _pdbx_reference_entity_group_components.prd_id
+ _pdbx_reference_entity_group_components.group_id
+ _pdbx_reference_entity_group_components.id
+ _pdbx_reference_entity_group_components.name
+ PRD_000411 1 1 1 "PEPTIDE LIKE SEQUENCE RESIDUES 1 TO 8"
+ PRD_000411 1 1 2 "QUINALDIC ACID CHROMOPHORE RESIDUES 0 AND 9"
+ PRD_000411 4 1 1 "PEPTIDE LIKE SEQUENCE RESIDUES 1 TO 8"
+ PRD_000411 4 1 2 "QUINOXALINE CHROMOPHORE RESIDUES 0, 9"
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_reference_entity_group_components.family_prd_id
+    _item_description.description
+;   The value of _pdbx_reference_entity_group_components.family_prd_id is a reference to 
+    _pdbx_reference_entity.family_prd_id' in category PDBX_REFERENCE_ENTITY_FAMILY.
+;
+    _item.name                  '_pdbx_reference_entity_group_components.family_prd_id'
+    _item.category_id             pdbx_reference_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_group_components.family_prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.family_prd_id'
+     save_
+
+save__pdbx_reference_entity_group_components.prd_id
+    _item_description.description
+;    The value of _pdbx_reference_entity_group_components.prd_id is a reference
+     _pdbx_reference_entity.prd_id in the  PDBX_REFERENCE_ENTITY category.
+;
+    _item.name                  '_pdbx_reference_entity_group_components.prd_id'
+    _item.category_id             pdbx_reference_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_group_components.prd_id'
+    _item_linked.parent_name    '_pdbx_reference_entity.prd_id'
+     save_
+
+
+save__pdbx_reference_entity_group_components.group_id
+    _item_description.description
+;    The value of _pdbx_reference_entity_group_components.group_id is a reference
+     _pdbx_reference_entity_group.id in the  PDBX_REFERENCE_ENTITY_GROUP category.
+;
+    _item.name                  '_pdbx_reference_entity_group_components.group_id'
+    _item.category_id             pdbx_reference_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_reference_entity_group_components.group_id'
+    _item_linked.parent_name    '_pdbx_reference_entity_group.id'
+     save_
+
+save__pdbx_reference_entity_group_components.id
+    _item_description.description
+;    The value of _pdbx_reference_entity_group_components.id is part of the unique identifier 
+     for records in the PDBX_REFERENCE_ENTITY_GROUP_COMPONENTS list.
+     Note that this item need not be a number; it can be any unique
+     identifier.
+;
+    _item.name                  '_pdbx_reference_entity_group_components.id'
+    _item.category_id             pdbx_reference_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_reference_entity_group_components.name
+    _item_description.description
+;    The entity group component name.
+;
+    _item.name                  '_pdbx_reference_entity_group_components.name'
+    _item.category_id             pdbx_reference_entity_group_components
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+##

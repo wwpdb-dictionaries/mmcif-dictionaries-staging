@@ -129,6 +129,17 @@ em_virus_entity                   1  em_virus_entity:em_entity_assembly:1       
 em_vitrification                  1  em_vitrification:citation:1                                     . . 
 em_vitrification                  2  em_vitrification:em_sample_preparation:2                        . . 
 em_vitrification                  3  em_vitrification:entry:3                                        . . 
+#
+em_array_formation                1  em_array_formation:citation:1                                   . . 
+em_database_reference             1  em_database_reference:em_entity_assembly:1                      . . 
+em_entity_assembly_mol_wt         1  em_entity_assembly_mol_wt:em_entity_assembly:1                  . . 
+em_map                            1  em_map:entry:1                                                  . . 
+em_stain                          1  em_stain:entry:1                                                . . 
+em_stain                          2  em_stain:em_sample_preparation:1                                . . 
+em_tomography                     1  em_tomography:entry:1                                           . . 
+em_virus_shells                   1  em_virus_shells:entity:1                                        . . 
+#
+#
 entity                            1  entity:entity:1                                                 . . 
 entity_keywords                   1  entity_keywords:entity:1                                        . . 
 entity_link                       1  entity_link:chem_link:1                                         . . 
@@ -419,6 +430,11 @@ pdbx_reference_entity_related_structures 1  pdbx_reference_entity_related_struct
 pdbx_reference_entity_related_structures 2  pdbx_reference_entity_related_structures:citation:2                       . .
 pdbx_reference_entity_instances          1  pdbx_reference_entity_instances:pdbx_reference_entity:1                   . .  
 pdbx_reference_entity_sequence           1  pdbx_reference_entity_sequence:pdbx_reference_entity:1                   . .  
+#
+pdbx_reference_entity_group              1  pdbx_reference_entity_group:pdbx_reference_entity:1                   . .  
+pdbx_reference_entity_group_components   1  pdbx_reference_entity_group_components:pdbx_reference_entity:1        . .  
+pdbx_reference_entity_group_components   2  pdbx_reference_entity_group_components:pdbx_reference_entity_group:2  . .  
+pdbx_reference_entity_grouping           1  pdbx_reference_entity_grouping:pdbx_reference_entity:1                . .  
 
 # 
 loop_
@@ -556,6 +572,17 @@ em_virus_entity                   1  '_em_virus_entity.entity_assembly_id'      
 em_vitrification                  1  '_em_vitrification.citation_id'                         '_citation.id'                              citation                       
 em_vitrification                  2  '_em_vitrification.sample_preparation_id'               '_em_sample_preparation.id'                 em_sample_preparation          
 em_vitrification                  3  '_em_vitrification.entry_id'                            '_entry.id'                                 entry                          
+#
+em_array_formation                1  '_em_array_formation.citation_id'                       '_citation.id'                              citation                       
+em_database_reference             1  '_em_database_reference.entity_assembly_id'             '_em_entity_assembly.assembly_id'           em_entity_assembly
+em_database_reference             1  '_em_database_reference.assembly_id'                    '_em_entity_assembly.assembly_id'           em_entity_assembly
+em_entity_assembly_mol_wt         1  '_em_entity_assembly_mol_wt.entity_assembly_id'         '_em_entity_assembly.id'                    em_entity_assembly
+em_map                            1  '_em_map.entry_id'                                      '_entry.id'                                 entry                          
+em_stain                          1  '_em_stain.entry_id'                                    '_entry.id'                                 entry  
+em_stain                          2  '_em_stain.sample_preparation_id'                       '_em_sample_preparation.id'                 em_sample_preparation                                  
+em_tomography                     1  '_em_tomography.entry_id'                               '_entry.id'                                 entry  
+em_virus_shells                   1  '_em_virus_shells.virus_entity_id'                      '_entity.id'                                entity                         
+#
 entity                            1  '_entity.rcsb_parent_entity_id'                         '_entity.id'                                entity                         
 entity_keywords                   1  '_entity_keywords.entity_id'                            '_entity.id'                                entity                         
 entity_link                       1  '_entity_link.link_id'                                  '_chem_link.id'                             chem_link                      
@@ -1399,9 +1426,18 @@ pdbx_reference_entity_instances          1  '_pdbx_reference_entity_instances.fa
 pdbx_reference_entity_instances          1  '_pdbx_reference_entity_instances.prd_id'      '_pdbx_reference_entity.prd_id'   pdbx_reference_entity 
 pdbx_reference_entity_sequence           1  '_pdbx_reference_entity_sequence.family_prd_id'       '_pdbx_reference_entity.family_prd_id'   pdbx_reference_entity 
 pdbx_reference_entity_sequence           1  '_pdbx_reference_entity_sequence.prd_id'       '_pdbx_reference_entity.prd_id'   pdbx_reference_entity 
-
+#
 pdbx_reference_entity_related_structures 1  '_pdbx_reference_entity_related_structures.family_prd_id'  '_pdbx_reference_entity.family_prd_id'   pdbx_reference_entity 
 pdbx_reference_entity_related_structures 2  '_pdbx_reference_entity_related_structures.citation_id'    '_citation.id'                           citation
+#
+pdbx_reference_entity_group              1  '_pdbx_reference_entity_group.prd_id'                    '_pdbx_reference_entity.prd_id'          pdbx_reference_entity 
+pdbx_reference_entity_group              1  '_pdbx_reference_entity_group.family_prd_id'             '_pdbx_reference_entity.family_prd_id'   pdbx_reference_entity 
+pdbx_reference_entity_group_components   1  '_pdbx_reference_entity_group_components.prd_id'         '_pdbx_reference_entity.prd_id'          pdbx_reference_entity 
+pdbx_reference_entity_group_components   1  '_pdbx_reference_entity_group_components.family_prd_id'  '_pdbx_reference_entity.family_prd_id'   pdbx_reference_entity 
+pdbx_reference_entity_group_components   2  '_pdbx_reference_entity_group_components.group_id'       '_pdbx_reference_entity_group.id'        pdbx_reference_entity_group
+pdbx_reference_entity_grouping           1  '_pdbx_reference_entity_grouping.prd_id'                 '_pdbx_reference_entity.prd_id'          pdbx_reference_entity 
+pdbx_reference_entity_grouping           1  '_pdbx_reference_entity_grouping.family_prd_id'          '_pdbx_reference_entity.family_prd_id'   pdbx_reference_entity 
+#
 #
 em_2d_crystal_entity                     1  '_em_2d_crystal_entity.entity_assembly_id'    '_em_entity_assembly.id'      em_entity_assembly
 em_helical_entity                        1  '_em_helical_entity.entity_assembly_id'       '_em_entity_assembly.id'      em_entity_assembly
