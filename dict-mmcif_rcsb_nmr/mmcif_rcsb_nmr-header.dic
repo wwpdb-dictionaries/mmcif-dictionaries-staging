@@ -28,7 +28,7 @@ data_mmcif_rcsb_nmr.dic
 
     _dictionary.title           mmcif_rcsb_nmr.dic
     _dictionary.datablock_id    mmcif_rcsb_nmr.dic
-    _dictionary.version         1.0012
+    _dictionary.version         1.0013
 #
      loop_
     _dictionary_history.version
@@ -591,6 +591,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
    + Added _pdbx_remediation_atom_site_mapping.auth_alt_id,_pdbx_remediation_atom_site_mapping.auth_asym_id,
      _pdbx_remediation_atom_site_mapping.auth_atom_id,_pdbx_remediation_atom_site_mapping.auth_comp_id,
      _pdbx_remediation_atom_site_mapping.auth_seq_id
+;
+  1.0013 2011-01-25
+;
+  Changes (jdw):
+    + Added new category pdbx_struct_comp_nstd_link.
+    + Added _chem_comp.type 'Iso-peptide linking'  enumeration.
 ;
 
 

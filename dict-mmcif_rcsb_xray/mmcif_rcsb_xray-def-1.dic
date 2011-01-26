@@ -6603,6 +6603,7 @@ save__chem_comp.type
                                  'non-polymer'
                                  'peptide-like'
                                  'peptide linking'
+                                 'Iso-peptide linking'
                                  'other'
      save_
 
