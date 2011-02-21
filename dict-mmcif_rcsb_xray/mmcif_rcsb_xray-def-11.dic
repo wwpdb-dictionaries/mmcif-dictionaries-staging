@@ -4883,3 +4883,198 @@ save__pdbx_struct_comp_nstd_link.details
      save_
 
 
+###  
+###
+
+#######################
+## PDBX_ENTITY_GROUP ##
+#######################
+
+save_pdbx_entity_group
+    _category.description
+;   Defines groupings within one or a collection of entities.
+;
+    _category.id                  'pdbx_entity_group'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            
+       '_pdbx_entity_group.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    "Example 1 - quinoxaline"
+;
+ #
+ loop_
+ _pdbx_entity_group.id
+ _pdbx_entity_group.name
+ _pdbx_entity_group.descriptioon
+ 1 "TRIOSTIN"
+ ; TRIOSTIN IS A IS A BICYCLIC OCTADEPSIPEPTIDE.
+  BICYCLIZATION IS ACHIEVED BY LINKING THE N- AND
+  THE C- TERMINI, AND A DISULPHIDE BOND BETWEEN
+  RESIDUES 3 AND 7.
+  THE TWO QUINOXALINE CHROMOPHORES ARE LINKED
+  TO THE D-SERINE RESIDUES, RESIDUES 1 AND 5.
+ ;
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_entity_group.id
+    _item_description.description
+;    The value of _pdbx_entity_group.id uniquely identifies 
+     for records in the PDBX_ENTITY_GROUP list.
+     Note that this item need not be a number; it can be any unique
+     identifier.
+;
+    _item.name                  '_pdbx_entity_group.id'
+    _item.category_id             pdbx_entity_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_entity_group.name
+    _item_description.description
+;    The entity group name.
+;
+    _item.name                  '_pdbx_entity_group.name'
+    _item.category_id             pdbx_entity_group
+    _item.mandatory_code          yes
+    _item_type.code               text
+     save_
+
+save__pdbx_entity_group.description
+    _item_description.description
+;    The text of the description of entity group.
+;
+    _item.name                  '_pdbx_entity_group.description'
+    _item.category_id            pdbx_entity_group
+    _item.mandatory_code         no
+    _item_type.code              text
+     save_
+##
+
+
+##################################
+## PDBX_ENTITY_GROUP_COMPONENTS ##
+##################################
+
+save_pdbx_entity_group_components
+    _category.description
+;   Features associated with each component within a group
+;
+    _category.id                  'pdbx_entity_group_components'
+    _category.mandatory_code      no
+     loop_
+    _category_key.name            
+       '_pdbx_entity_group_components.group_id'
+       '_pdbx_entity_group_components.id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'pdbx_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    "Example 1 - quinoxaline"
+;
+ #
+ loop_
+ _pdbx_entity_group_components.group_id
+ _pdbx_entity_group_components.id
+ _pdbx_entity_group_components.entity_id
+ _pdbx_entity_group_components.name
+  1 1 1 "PEPTIDE LIKE SEQUENCE RESIDUES 1 TO 8"
+  1 2 1 "QUINALDIC ACID CHROMOPHORE RESIDUES 0 AND 9"
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_entity_group_components.entity_id
+    _item_description.description
+;   The value of _pdbx_entity_group_components.entity_id is a reference to 
+    _entity.id' in category ENTITY.
+;
+    _item.name                  '_pdbx_entity_group_components.entity_id'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_entity_group_components.entity_id'
+    _item_linked.parent_name    '_entity.id'
+     save_
+
+save__pdbx_entity_group_components.group_id
+    _item_description.description
+;    The value of _pdbx_entity_group_components.group_id is a reference
+     _pdbx_entity_group.id in the  PDBX_ENTITY_GROUP category.
+;
+    _item.name                  '_pdbx_entity_group_components.group_id'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_entity_group_components.group_id'
+    _item_linked.parent_name    '_pdbx_entity_group.id'
+     save_
+
+save__pdbx_entity_group_components.id
+    _item_description.description
+;    The value of _pdbx_entity_group_components.id is part of the unique identifier 
+     for records in the PDBX_ENTITY_GROUP_COMPONENTS list.
+     Note that this item need not be a number; it can be any unique
+     identifier.
+;
+    _item.name                  '_pdbx_entity_group_components.id'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_entity_group_components.name
+    _item_description.description
+;    The entity group component name.
+;
+    _item.name                  '_pdbx_entity_group_components.name'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
+save__pdbx_entity_group_components.beg_seq_id
+    _item_description.description
+;    For polymer entities the optional starting position in the sequence for this
+     group component.
+
+     The value of _pdbx_entity_group_components.beg_seq_id is a reference to 
+    _entity_poly_seq.num' in category ENTITY_POLY_SEQ.
+;
+    _item.name                  '_pdbx_entity_group_components.beg_seq_id'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_linked.child_name	'_pdbx_entity_group_components.beg_seq_id'
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     save_
+
+save__pdbx_entity_group_components.end_seq_id
+    _item_description.description
+;    For polymer entities the optional ending position in the sequence for this
+     group component.
+
+     The value of _pdbx_entity_group_components.beg_seq_id is a reference to 
+    _entity_poly_seq.num' in category ENTITY_POLY_SEQ.
+;
+    _item.name                  '_pdbx_entity_group_components.end_seq_id'
+    _item.category_id             pdbx_entity_group_components
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_linked.child_name	'_pdbx_entity_group_components.end_seq_id'
+    _item_linked.parent_name    '_entity_poly_seq.num'
+     save_
+
+##

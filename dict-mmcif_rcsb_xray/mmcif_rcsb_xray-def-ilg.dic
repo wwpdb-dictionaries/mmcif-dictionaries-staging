@@ -416,11 +416,11 @@ em_helical_entity                        1  em_helical_entity:em_entity_assembly
 pdbx_remediation_atom_site_mapping       1  pdbx_remediation_atom_site_mapping:atom_site:1                            . .  
 pdbx_remediation_atom_site_mapping       2  pdbx_remediation_atom_site_mapping:atom_site:2                            . .  
 #
-pdbx_reference_entity                    1  pdbx_reference_entity:pdbx_reference_entity_family:1                  . . 
+pdbx_reference_entity                    1  pdbx_reference_entity:pdbx_reference_entity_family:1                      . . 
 pdbx_reference_entity_annotation         1  pdbx_reference_entity_annotation:pdbx_reference_entity:1                  . . 
-pdbx_reference_entity_details            1  pdbx_reference_entity_details:pdbx_reference_entity:1                    . . 
+pdbx_reference_entity_details            1  pdbx_reference_entity_details:pdbx_reference_entity:1                     . . 
 pdbx_reference_entity_synonyms           1  pdbx_reference_entity_synonyms:pdbx_reference_entity:1                    . . 
-pdbx_reference_entity_subcomponents      1  pdbx_reference_entity_subcomponents:pdbx_reference_entity:1                  . . 
+pdbx_reference_entity_subcomponents      1  pdbx_reference_entity_subcomponents:pdbx_reference_entity:1               . . 
 pdbx_reference_entity_poly               1  pdbx_reference_entity_poly:pdbx_reference_entity:1                        . . 
 pdbx_reference_entity_poly_seq           1  pdbx_reference_entity_poly_seq:pdbx_reference_entity:1                    . . 
 pdbx_reference_entity_src_nat            1  pdbx_reference_entity_src_nat:pdbx_reference_entity:1                     . . 
@@ -429,7 +429,7 @@ pdbx_reference_entity_feature            2  pdbx_reference_entity_feature:citati
 pdbx_reference_entity_related_structures 1  pdbx_reference_entity_related_structures:pdbx_reference_entity:1          . . 
 pdbx_reference_entity_related_structures 2  pdbx_reference_entity_related_structures:citation:2                       . .
 pdbx_reference_entity_instances          1  pdbx_reference_entity_instances:pdbx_reference_entity:1                   . .  
-pdbx_reference_entity_sequence           1  pdbx_reference_entity_sequence:pdbx_reference_entity:1                   . .  
+pdbx_reference_entity_sequence           1  pdbx_reference_entity_sequence:pdbx_reference_entity:1                    . .  
 #
 pdbx_reference_entity_group              1  pdbx_reference_entity_group:pdbx_reference_entity:1                   . .  
 pdbx_reference_entity_group_components   1  pdbx_reference_entity_group_components:pdbx_reference_entity:1        . .  
@@ -437,7 +437,11 @@ pdbx_reference_entity_group_components   2  pdbx_reference_entity_group_componen
 pdbx_reference_entity_grouping           1  pdbx_reference_entity_grouping:pdbx_reference_entity:1                . .  
 #
 pdbx_struct_comp_nstd_link               1  pdbx_struct_comp_nstd_link:atom_site:1      . .
-
+#
+pdbx_entity_group_components   1  pdbx_entity_group_components:pdbx_entity_group:1    . .  
+pdbx_entity_group_components   2  pdbx_entity_group_components:entity:2               . .  
+pdbx_entity_group_components   3  pdbx_entity_group_components:entity_poly_seq:3      . .  
+pdbx_entity_group_components   4  pdbx_entity_group_components:entity_poly_seq:4      . .  
 # 
 loop_
 _pdbx_item_linked_group_list.child_category_id 
@@ -1456,4 +1460,9 @@ pdbx_struct_comp_nstd_link    1 '_pdbx_struct_comp_nstd_link.label_seq_id'	   '_
 #pdbx_struct_comp_nstd_link    1 '_pdbx_struct_comp_nstd_link.PDB_model_num'	   '_atom_site.ndb_model'                     atom_site
 #pdbx_struct_comp_nstd_link    2 '_pdbx_struct_comp_nstd_link.auth_alt_id'          '_atom_site.pdbx_auth_alt_id'              atom_site
 #pdbx_struct_comp_nstd_link    1 '_pdbx_struct_comp_nstd_link.PDB_ins_code'	   '_atom_site.ndb_ins_code'                   atom_site
+#
+pdbx_entity_group_components   1  '_pdbx_entity_group_components.group_id'        '_pdbx_entity_group.id'       pdbx_entity_group
+pdbx_entity_group_components   2  '_pdbx_entity_group_components.entity_id'       '_entity.id'                  entity 
+pdbx_entity_group_components   3  '_pdbx_entity_group_components.beg_seq_id'      '_entity_poly_seq.num'        entity_poly_seq
+pdbx_entity_group_components   4  '_pdbx_entity_group_components.end_seq_id'      '_entity_poly_seq.num'        entity_poly_seq
 #
