@@ -1700,6 +1700,9 @@ The make, model or name of the detector device used.
                   'ADSC QUANTUM 315'                .
                   'ADSC QUANTUM 210r'               .
                   'ADSC QUANTUM 315r'               .
+                  'AGILENT ATLAS CCD'               .
+                  'AGILENT EOS CCD'                 .
+                  'AGILENT TITAN CCD'               .
                   'APEX II CCD'                     .
                   'Bruker AXIOM 200'                .
                   'Bruker DIP-6040'                 .
