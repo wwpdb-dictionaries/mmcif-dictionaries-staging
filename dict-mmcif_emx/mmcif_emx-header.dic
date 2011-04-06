@@ -25,7 +25,7 @@ data_mmcif_emx.dic
 
     _dictionary.title           mmcif_emx.dic
     _dictionary.datablock_id    mmcif_emx.dic
-    _dictionary.version         0.001
+    _dictionary.version         0.002
 #
      loop_
     _dictionary_history.version
@@ -38,5 +38,9 @@ data_mmcif_emx.dic
         J. Bernard Heymann. 2001. Bsoft: Image and molecular 
         processing in electron microscopy. Journal of Structural 
         Biology. 133. 2/3. 156 - 169.                            
+;
+   0.002  2011-04-06
+;
+ Changes (J.Westbrook):  make all category key items mandatory.
 ;
 ### EOF mmcif_iims-header.dic

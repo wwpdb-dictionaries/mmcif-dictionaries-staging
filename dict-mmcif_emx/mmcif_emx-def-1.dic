@@ -4035,7 +4035,7 @@ save__emx_residue_matrix.substitution
 ;
     _item.name                   '_emx_residue_matrix.substitution'
     _item.category_id             emx_residue_matrix
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               code
     _item_aliases.alias_name     '_residue_matrix.substitution'
     _item_aliases.dictionary     'bsoft-program-dictionary'
@@ -4215,7 +4215,7 @@ save__symmetry.Int_Tables_number
 ;
     _item.name                   '_symmetry.Int_Tables_number'
     _item.category_id             symmetry
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int
     _item_aliases.alias_name     '_symmetry.Int_Tables_number'
     _item_aliases.dictionary     'bsoft-program-dictionary'
@@ -4307,7 +4307,7 @@ save__emx_symmetry_axis.order
 ;
     _item.name                   '_emx_symmetry_axis.order'
     _item.category_id             emx_symmetry_axis
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               int
     _item_aliases.alias_name     '_symmetry_axis.order'
     _item_aliases.dictionary     'bsoft-program-dictionary'
