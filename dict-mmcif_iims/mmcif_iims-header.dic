@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.107
+    _dictionary.version         0.108
 #
      loop_
     _dictionary_history.version
@@ -381,5 +381,10 @@ data_mmcif_iims.dic
 ;
  Changes:  (jdw):
  + Items _em_deposition.title, _em_deposition.authors, added _em_deposition.master_EMDB_id made optional.
+;
+   0.108   2011-04-06
+;
+ Changes:  (jdw):
+ + Synchronized PDBx categories with version 4.0 of the PDB Exchange Dictionary.
 ;
 ### EOF mmcif_iims-header.dic
