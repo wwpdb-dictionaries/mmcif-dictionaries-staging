@@ -1,0 +1,326 @@
+# -----------------------------------------------------------------------------
+#
+#  Dictionary extension proposal to address non-standard linkages.
+#  Draft v1. J. Westbrook December 15, 2010
+#
+#  The following two categories address the problem of identifying exceptional 
+#  cases where the standard linking type defined for a chemical component 
+#  (i.e. _chem_comp.type) is not observed.  These exceptional cases are 
+#  being declared here to avoid the complete redefinition of the chemical
+#  component with a different linking type.   
+#
+#  Two situations are handled by these categories.   One is the case where 
+#  there is non-standard linking behavoir within a polymer.   This can be 
+#  declared at the 'entity-level' and will apply for all instances of the 
+#  entity.    The second situation is where a component is observed in a
+#  linking context outside of the standard linking type (i.e. _chem_comp.type).
+#  This could include cases such as an iso-peptide bond or an unassociated
+#  amino acid or nucleotide.
+#
+
+
+################################
+## PDBX_ENTITY_POLY_NSTD_LINK ##
+################################
+
+save_pdbx_entity_poly_nstd_link
+     _category.description
+;   Data items in the PDBX_ENTITY_POLY_NSTD_LINK category list components within 
+    a polymer entity that exhibit non-standard polymer linking.    Components flagged in 
+    this category link in the polymer entity in a manner that differs from their standard linking 
+    behavior defined in _chem_comp.type (e.g. D-peptide linking, DNA or RNA linking,...).
+;
+     _category.id                  pdbx_entity_poly_nstd_link
+     _category.mandatory_code      no
+     loop_
+     _category_key.name          '_pdbx_entity_poly_nstd_link.entity_id'
+                                 '_pdbx_entity_poly_nstd_link.seq_num'
+                                 '_pdbx_entity_poly_nstd_link.mon_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'pdbx_group'
+
+      loop_
+     _category_examples.detail
+     _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+     Example 1
+;
+;
+loop_
+_pdbx_entity_poly_nstd_link.entity_id
+_pdbx_entity_poly_nstd_link.seq_num
+_pdbx_entity_poly_nstd_link.mon_id
+_pdbx_entity_poly_nstd_link.type
+_pdbx_entity_poly_nstd_link.details
+   1  14  HIS    nonstandard-type-name  'extra description'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+      save_
+
+
+save__pdbx_entity_poly_nstd_link.entity_id
+     _item_description.description
+;    The value of _pdbx_entity_poly_nstd_link.entity_id identifies the polymer
+     entity containing the nonstandard linkage.   This is a reference to the 
+     _entity_poly_seq.entity_id in category ENTITY_POLY_SEQ.
+;
+     _item.name               '_pdbx_entity_poly_nstd_link.entity_id'
+     _item.category_id          pdbx_entity_poly_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            code
+     _item_linked.child_name    '_pdbx_entity_poly_nstd_link.entity_id'
+     _item_linked.parent_name   '_entity_poly_seq.entity_id'
+      save_
+
+save__pdbx_entity_poly_nstd_link.seq_num
+     _item_description.description
+;    The value of _pdbx_entity_poly_nstd_link.seq_num identifies the position
+     in sequence for the monomer containing the nonstandard linkage.   
+     This is a reference to the  _entity_poly_seq.seq_num in category ENTITY_POLY_SEQ.
+;
+     _item.name               '_pdbx_entity_poly_nstd_link.seq_num'
+     _item.category_id          pdbx_entity_poly_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            code
+     _item_linked.child_name    '_pdbx_entity_poly_nstd_link.seq_num'
+     _item_linked.parent_name   '_entity_poly_seq.seq_num'
+      save_
+
+save__pdbx_entity_poly_nstd_link.mon_id
+     _item_description.description
+;    The value of _pdbx_entity_poly_nstd_link.mon_id identifies the component identifier
+     for the monomer containing the nonstandard linkage.   This is a reference to the  
+     _entity_poly_seq.mon_id in category ENTITY_POLY_SEQ.
+;
+     _item.name               '_pdbx_entity_poly_nstd_link.mon_id'
+     _item.category_id          pdbx_entity_poly_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            code
+     _item_linked.child_name    '_pdbx_entity_poly_nstd_link.mon_id'
+     _item_linked.parent_name   '_entity_poly_seq.mon_id'
+      save_
+
+save__pdbx_entity_poly_nstd_link.type
+    _item_description.description
+;              The type of non-standard linkage.
+;
+     _item.name               '_pdbx_entity_poly_nstd_link.type'
+     _item.category_id          pdbx_entity_poly_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            uline
+
+save__pdbx_entity_poly_nstd_link.details
+    _item_description.description
+;              A description of special aspects of the non-standard linkage.
+;
+    _item.name                  '_pdbx_entity_poly_nstd_link.details'
+    _item.category_id             pdbx_entity_poly_nstd_link
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
+
+################################
+## PDBX_STRUCT_COMP_NSTD_LINK ##
+################################
+
+save_pdbx_struct_comp_nstd_link
+     _category.description
+;   Data items in the PDBX_STRUCT_COMP_NSTD_LINK list chemical components in the 
+    observed coordinate set that exhibit non-standard linking.    Components flagged in 
+    this category link in manner that differs from their standard linking 
+    behavior defined in _chem_comp.type (e.g. D-peptide linking, DNA or RNA linking,...).
+    This can include identifying unassociated amino acids and nucleotides that which are not 
+    involved in any polymer linkage.  
+;
+     _category.id                  pdbx_struct_comp_nstd_link
+     _category.mandatory_code      no
+
+     _category_key.name          '_pdbx_struct_comp_nstd_link.ordinal'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'struct_group'
+                                 'pdbx_group'
+
+      loop_
+     _category_examples.detail
+     _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+     Example 1
+;
+;
+loop_
+_pdbx_struct_comp_nstd_link.ordinal
+_pdbx_struct_comp_nstd_link.PDB_model_num
+_pdbx_struct_comp_nstd_link.auth_seq_id
+_pdbx_struct_comp_nstd_link.auth_comp_id
+_pdbx_struct_comp_nstd_link.auth_asym_id
+_pdbx_struct_comp_nstd_link.PDB_ins_code
+_pdbx_struct_comp_nstd_link.type
+_pdbx_struct_comp_nstd_link.details
+   1  1 1  1 LYS  A    . 'iso-peptide linking'  .
+   2  1 1  2 ARG  B    . 'non-polymer'          .
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+      save_
+
+save__pdbx_struct_comp_nstd_link.ordinal
+     _item_description.description
+;   The value of _pdbx_struct_comp_nstd_link.ordinal must uniquely identify
+     each item in the PDBX_STRUCT_COMP_NSTD_LINK list.
+
+     This is an integer serial number.
+;
+     _item.name               '_pdbx_struct_comp_nstd_link.ordinal'
+     _item.category_id          pdbx_struct_comp_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            int
+      save_
+
+
+save__pdbx_struct_comp_nstd_link.PDB_model_num
+     _item_description.description
+;   Part of the identifier for the component in this non-standard linkage assignment.
+
+    This data item is a pointer to _atom_site.pdbx_PDB_model_num in the
+    ATOM_SITE category.
+
+;
+     _item.name                 '_pdbx_struct_comp_nstd_link.PDB_model_num'
+     _item.category_id          pdbx_struct_comp_nstd_link
+     _item.mandatory_code       no
+     _item_type.code            int
+     _item_linked.child_name    '_pdbx_struct_comp_nstd_link.PDB_model_num'
+     _item_linked.parent_name   '_atom_site.pdbx_PDB_model_num'
+      save_
+
+save__pdbx_struct_comp_nstd_link.auth_asym_id
+     _item_description.description
+;    Part of the identifier for the component in this non-standard linkage assignment.
+
+     This data item is a pointer to _atom_site.auth_asym_id in the
+     ATOM_SITE category.
+;
+     _item.name                 '_pdbx_struct_comp_nstd_link.auth_asym_id'
+     _item.category_id           pdbx_struct_comp_nstd_link
+     _item.mandatory_code        yes
+     _item_type.code             code
+     _item_linked.child_name     '_pdbx_struct_comp_nstd_link.auth_asym_id'
+     _item_linked.parent_name    '_atom_site.auth_asym_id'
+      save_
+
+save__pdbx_struct_comp_nstd_link.auth_comp_id
+     _item_description.description
+;    Part of the identifier for the component in this non-standard linkage assignment.
+
+     This data item is a pointer to _atom_site.auth_comp_id in the
+     ATOM_SITE category.
+;
+     _item.name                 '_pdbx_struct_comp_nstd_link.auth_comp_id'
+     _item.category_id           pdbx_struct_comp_nstd_link
+     _item.mandatory_code        yes
+     _item_type.code             ucode
+     _item_linked.child_name     '_pdbx_struct_comp_nstd_link.auth_comp_id'
+     _item_linked.parent_name    '_chem_comp.id'
+      save_
+
+save__pdbx_struct_comp_nstd_link.auth_seq_id
+     _item_description.description
+;    Part of the identifier for the component in this non-standard linkage assignment.
+
+     This data item is a pointer to _atom_site.auth_seq_id in the
+     ATOM_SITE category.
+;
+     _item.name                 '_pdbx_struct_comp_nstd_link.auth_seq_id'
+     _item.category_id           pdbx_struct_comp_nstd_link
+     _item.mandatory_code        yes
+     _item_type.code             code
+     _item_linked.child_name     '_pdbx_struct_comp_nstd_link.auth_seq_id'
+     _item_linked.parent_name    '_atom_site.auth_seq_id'
+      save_
+
+save__pdbx_struct_comp_nstd_link.PDB_ins_code
+     _item_description.description
+;    Part of the identifier for the component in this non-standard linkage assignment.
+
+     This data item is a pointer to _atom_site.pdbx_PDB_ins_code in the
+     ATOM_SITE category.
+;
+     _item.name                  '_pdbx_struct_comp_nstd_link.PDB_ins_code'
+     _item.category_id           pdbx_struct_comp_nstd_link
+     _item.mandatory_code        no
+     _item_type.code             code
+     _item_linked.child_name     '_pdbx_struct_comp_nstd_link.PDB_ins_code'
+     _item_linked.parent_name    '_atom_site.pdbx_PDB_ins_code'
+     save_
+
+save__pdbx_struct_comp_nstd_link.label_asym_id
+    _item_description.description
+;   Part of the identifier for the component in this non-standard linkage assignment.
+
+    This data item is a pointer to _atom_site.label_asym_id in the
+    ATOM_SITE category.
+;
+    _item.name                  '_pdbx_struct_comp_nstd_link.label_asym_id'
+    _item.category_id            pdbx_struct_comp_nstd_link
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_linked.child_name     '_pdbx_struct_comp_nstd_link.label_asym_id'
+    _item_linked.parent_name    '_atom_site.label_asym_id'
+     save_
+
+save__pdbx_struct_comp_nstd_link.label_comp_id
+    _item_description.description
+;   Part of the identifier for the component in this non-standard linkage assignment.
+  
+    This data item is a pointer to _atom_site.label_comp_id in the
+    ATOM_SITE category.
+;
+    _item.name                  '_pdbx_struct_comp_nstd_link.label_comp_id'
+    _item.category_id            pdbx_struct_comp_nstd_link
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_linked.child_name     '_pdbx_struct_comp_nstd_link.label_comp_id'
+    _item_linked.parent_name    '_atom_site.label_comp_id'
+     save_
+
+save__pdbx_struct_comp_nstd_link.label_seq_id
+    _item_description.description
+;   Part of the identifier for the component in this non-standard linkage assignment.
+
+    This data item is a pointer to _atom_site.label_seq_id in the
+    ATOM_SITE category.
+;
+    _item.name                  '_pdbx_struct_comp_nstd_link.label_seq_id'
+    _item.category_id            pdbx_struct_comp_nstd_link
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_linked.child_name     '_pdbx_struct_comp_nstd_link.label_seq_id'
+    _item_linked.parent_name    '_atom_site.label_seq_id'
+     save_
+
+save__pdbx_struct_comp_nstd_link.type
+    _item_description.description
+;              The type of non-standard linkage.
+;
+     _item.name               '_pdbx_struct_comp_nstd_link.type'
+     _item.category_id          pdbx_struct_comp_nstd_link
+     _item.mandatory_code       yes
+     _item_type.code            uline
+
+save__pdbx_entity_poly_nstd_link.details
+    _item_description.description
+;              A description of special aspects of the non-standard linkage.
+;
+    _item.name                  '_pdbx_struct_comp_nstd_link.details'
+    _item.category_id             pdbx_struct_comp_nstd_link
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+

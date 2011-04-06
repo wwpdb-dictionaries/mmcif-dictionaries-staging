@@ -74,7 +74,7 @@ data_mmcif_sym.dic
 
 
     _dictionary.title             mmcif_sym.dic
-    _dictionary.version           1.02
+    _dictionary.version           1.03
     _dictionary.datablock_id      mmcif_sym.dic
 
 ##
@@ -203,6 +203,9 @@ data_mmcif_sym.dic
 ;
    1.02      2007-05-28
 ; J. Westbrook  - correct parent-child data type consistency
+;
+   1.03      2011-04-06
+; J. Westbrook  - remove void example loops -
 ;
 
 

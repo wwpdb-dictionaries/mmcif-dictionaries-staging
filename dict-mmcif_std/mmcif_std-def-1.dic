@@ -11152,20 +11152,20 @@ save__database_2.database_id
     _item.name                  '_database_2.database_id'
     _item.category_id             database_2
     _item.mandatory_code          yes
-    loop_
-    _item_related.related_name
-    _item_related.function_code '_database.code_CAS'
-                                  replaces
-                                '_database.code_CSD'
-                                  replaces
-                                '_database.code_ICSD'
-                                  replaces
-                                '_database.code_MDF'
-                                  replaces
-                                '_database.code_NBS'
-                                  replaces
-                                '_database.code_PDF'
-                                  replaces
+#    loop_
+#    _item_related.related_name
+#    _item_related.function_code '_database.code_CAS'
+#                                  replaces
+#                                '_database.code_CSD'
+#                                  replaces
+#                                '_database.code_ICSD'
+#                                  replaces
+#                                '_database.code_MDF'
+#                                  replaces
+#                                '_database.code_NBS'
+#                                  replaces
+#                                '_database.code_PDF'
+#                                  replaces
     _item_type.code               ucode
     loop_
     _item_enumeration.value
@@ -11211,20 +11211,20 @@ save__database_2.database_code
     _item.name                  '_database_2.database_code'
     _item.category_id             database_2
     _item.mandatory_code          yes
-    loop_
-    _item_related.related_name
-    _item_related.function_code '_database.code_CAS'
-                                  replaces
-                                '_database.code_CSD'
-                                  replaces
-                                '_database.code_ICSD'
-                                  replaces
-                                '_database.code_MDF'
-                                  replaces
-                                '_database.code_NBS'
-                                  replaces
-                                '_database.code_PDF'
-                                  replaces
+#    loop_
+#    _item_related.related_name
+#    _item_related.function_code '_database.code_CAS'
+#                                  replaces
+#                                '_database.code_CSD'
+#                                  replaces
+#                                '_database.code_ICSD'
+#                                  replaces
+#                                '_database.code_MDF'
+#                                  replaces
+#                                '_database.code_NBS'
+#                                  replaces
+#                                '_database.code_PDF'
+#                                  replaces
     _item_type.code               line
     loop_
     _item_examples.case           1ABC

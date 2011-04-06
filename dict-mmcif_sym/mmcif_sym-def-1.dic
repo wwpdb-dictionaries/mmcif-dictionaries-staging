@@ -1324,10 +1324,10 @@ save__space_group_symop.sg_id
     _item.name                  '_space_group_symop.sg_id'
     _item.category_id             space_group_symop
     _item.mandatory_code          no
-     loop_
-    _item_examples.case              
-    _item_examples.detail              
-                                  ?      ?
+#     loop_
+#    _item_examples.case              
+#    _item_examples.detail              
+#                                  ?      ?
     _item_description.description      
 ;               A child of _space_group.id allowing the symmetry operator
                 to be identified with a particular space group.
@@ -1460,10 +1460,10 @@ save__space_group_Wyckoff.sg_id
     _item.name                  '_space_group_Wyckoff.sg_id'
     _item.category_id             space_group_Wyckoff
     _item.mandatory_code          no
-     loop_
-    _item_examples.case              
-    _item_examples.detail              
-     ?      ?
+#     loop_
+#    _item_examples.case              
+#    _item_examples.detail              
+#     ?      ?
     _item_description.description      
 ;               A child of _space_group.id allowing the Wyckoff position
                 to be identified with a particular space group.
