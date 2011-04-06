@@ -544,7 +544,7 @@ save__mdb_entity_seq_mon.ref_id
 ;
     _item.name                    '_mdb_entity_seq_mon.ref_id'
     _item.category_id             mdb_entity_seq_mon
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               ucode
      save_
 
@@ -666,7 +666,7 @@ save__mdb_entity_seq_relate.ref_id
 ;
     _item.name                    '_mdb_entity_seq_relate.ref_id'
     _item.category_id             mdb_entity_seq_relate
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               ucode
      save_
 
@@ -4303,7 +4303,7 @@ save__mdb_biol_PDB_cmp.ec
 ;
     _item.name                    '_mdb_biol_PDB_cmp.ec'
     _item.category_id             mdb_biol_PDB_cmp
-    _item.mandatory_code          no
+    _item.mandatory_code          yes
     _item_type.code               code
     save_
 

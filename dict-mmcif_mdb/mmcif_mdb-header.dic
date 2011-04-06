@@ -22,7 +22,7 @@ data_mmcif_mdb.dic
 ;      This datablock holds the MDB dictionary
 ;
     _dictionary.title           mmcif_mdb.dic
-    _dictionary.version         1.0.3
+    _dictionary.version         1.0.4
     _dictionary.datablock_id    mmcif_mdb.dic
 
 ########################
@@ -49,6 +49,10 @@ _dictionary_history.revision
  1.0.3  2007-05-28
 ;   Changes (JDW):
       + adjust data types for parent-child consistencies.
+;
+ 1.0.4  2011-04-05
+;   Changes (JDW):
+      + Make all key items mandatory -
 ;
 
 
