@@ -28,7 +28,7 @@ data_mmcif_rcsb_nmr.dic
 
     _dictionary.title           mmcif_rcsb_nmr.dic
     _dictionary.datablock_id    mmcif_rcsb_nmr.dic
-    _dictionary.version         1.0015
+    _dictionary.version         1.0016
 #
      loop_
     _dictionary_history.version
@@ -610,7 +610,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   Changes (jdw):
    + Added categories pdbx_entity_group and pdbx_entity_group_components
 ;
-
+  1.0016 2011-04-06
+;
+  Changes (jdw):
+   + Synchronized with version 4 of PDBx dictionary.
+;
 
 
 ### EOF mmcif_rcsb_nmr-header.dic 
