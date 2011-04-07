@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.108
+    _dictionary.version         0.109
 #
      loop_
     _dictionary_history.version
@@ -386,5 +386,16 @@ data_mmcif_iims.dic
 ;
  Changes:  (jdw):
  + Synchronized PDBx categories with version 4.0 of the PDB Exchange Dictionary.
+;
+   0.109   2011-04-07
+;
+ Changes:  (jdw):
+  + Added items - 
+    _pdbx_reference_entity_list.component
+    _pdbx_reference_entity_entity_link.link_class        
+    _pdbx_reference_entity_entity_link.entity_seq_num_1  
+    _pdbx_reference_entity_entity_link.nonpoly_res_num_1 
+    _pdbx_reference_entity_entity_link.entity_seq_num_2  
+    _pdbx_reference_entity_entity_link.nonpoly_res_num_2 
 ;
 ### EOF mmcif_iims-header.dic
