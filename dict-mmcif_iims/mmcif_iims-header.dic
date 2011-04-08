@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.109
+    _dictionary.version         0.110
 #
      loop_
     _dictionary_history.version
@@ -398,4 +398,16 @@ data_mmcif_iims.dic
     _pdbx_reference_entity_entity_link.entity_seq_num_2  
     _pdbx_reference_entity_entity_link.nonpoly_res_num_2 
 ;
+   0.110   2011-04-08
+;
+ Changes:  (jdw):
+  + Added items - 
+    _pdbx_reference_entity_link.component_1
+    _pdbx_reference_entity_link.component_2
+    _pdbx_reference_entity_poly_nstd_link.component
+    _pdbx_reference_entity_instances.PDB_residue_number
+    _pdbx_reference_entity_instances.PDB_chain_id_list
+    _pdbx_reference_entity_poly_seq.hetero
+;
+
 ### EOF mmcif_iims-header.dic
