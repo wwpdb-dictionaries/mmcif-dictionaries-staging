@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0029
+    _dictionary.version         1.0030
 #
      loop_
     _dictionary_history.version
@@ -1085,6 +1085,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   +  add famil_prd_id and ref_entity_id to the category key of pdbx_entity_reference_sequence
 
   + update enumeration for pdbx_SG_project.project_name with 'Enzyme Function Initiative'
+;
+   1.0030  2011-04-19
+;
+ Changes:  (jdw):
+ + Add item _pdbx_reference_entity_poly_seq.modification_details
 ;
 
 #
