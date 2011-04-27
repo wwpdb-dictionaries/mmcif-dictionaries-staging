@@ -28,7 +28,7 @@ data_mmcif_rcsb_nmr.dic
 
     _dictionary.title           mmcif_rcsb_nmr.dic
     _dictionary.datablock_id    mmcif_rcsb_nmr.dic
-    _dictionary.version         1.0019
+    _dictionary.version         1.0020
 #
      loop_
     _dictionary_history.version
@@ -642,6 +642,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
 ;
  Changes:  (jdw):
  + Add item _pdbx_reference_entity_poly_seq.modification_details
+;
+   1.0020  2011-04-27
+;
+ Changes:  (jdw):
+  + update enumeration _exptl.method
 ;
 
 

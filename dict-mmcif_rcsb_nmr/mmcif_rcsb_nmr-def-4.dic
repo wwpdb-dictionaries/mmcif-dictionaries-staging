@@ -3814,6 +3814,7 @@ save__exptl.method
           'SOLUTION NMR'
           'SOLID-STATE NMR'
           'SOLUTION SCATTERING'
+          'THEORETICAL MODEL'
           'OTHER'
      save_
 ##
