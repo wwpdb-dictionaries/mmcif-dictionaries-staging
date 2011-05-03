@@ -16036,7 +16036,7 @@ save__pdbx_SG_project.initial_of_center
 save_rcsb_version
     _category.description
 ;              Data items in the RCSB_VERSION category record details about the
-               current internal version of this entry.
+               version of this entry.
 
 ;
     _category.id                  rcsb_version
@@ -16046,6 +16046,7 @@ save_rcsb_version
     '_rcsb_version.entry_id'
     '_rcsb_version.major_version'                 
     '_rcsb_version.minor_version'                 
+    '_rcsb_version.revision_type'                    
      loop_
     _category_group.id           'inclusive_group'
                                  'audit_group'
@@ -16059,11 +16060,12 @@ save_rcsb_version
 ;
 ;
     _rcsb_version.entry_id                      1ABC
-    _rcsb_version.revision_date                 '2006-12-08'
-    _rcsb_version.major_version                 3
-    _rcsb_version.minor_version                 12
+    _rcsb_version.revision_date                 '2011-05-02'
+    _rcsb_version.major_version                 4
+    _rcsb_version.minor_version                 0001
+    _rcsb_version.revision_type                 'Citation'                
     _rcsb_version.details    
-    ;  Update version information. 
+    ;  Page numbers added. 
     ;
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -16095,30 +16097,27 @@ save__rcsb_version.revision_date
 
 save__rcsb_version.major_version
     _item_description.description
-;              Major version number for this datablock: 
+;              Major version number for this datablock. 
 
-               3 - represents remediated data - 
-               2 - current production data -  
 ;
     _item.name                  '_rcsb_version.major_version'
     _item.category_id             rcsb_version
     _item.mandatory_code          yes
     _item_type.code               int
-    _item_examples.case           3
+    _item_examples.case           4
      save_
 
 save__rcsb_version.minor_version
     _item_description.description
 ;              Minor version number for this datablock: 
 
-               An integer value which is incremented for each 
-               datablock revision. 
+               The minor version is incremented for each datablock revision. 
 ;
     _item.name                  '_rcsb_version.minor_version'
     _item.category_id             rcsb_version
     _item.mandatory_code          yes
-    _item_type.code               int
-    _item_examples.case           15
+    _item_type.code               code
+    _item_examples.case           0004
      save_
 
 
@@ -16130,7 +16129,46 @@ save__rcsb_version.details
     _item.category_id             rcsb_version
     _item.mandatory_code          no
     _item_type.code               text 
-    _item_examples.case          'Includes new 3dem experimental data items'
+    _item_examples.case          'Page numbers added to citation'
+     save_
+
+save__rcsb_version.revision_type
+    _item_description.description
+;              The content type that associated with the revision.
+;
+    _item.name                  '_rcsb_version.revision_type'
+    _item.category_id             rcsb_version
+    _item.mandatory_code          yes
+    _item_type.code               line 
+    _item_examples.case          'Citation'
+
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+         'Entry title'                            .
+         'Function and keywords'                  .
+         'Entry authorship'                       .
+         'Citation'                               .
+         'Polymer description'                    .
+         'Non-polymer description'                .
+         'Source and taxonomy'                    .
+         'Experimental method'                    .
+         'Refinement description'                 .
+         'Data collection'                        .
+         'Biological assembly'                    .
+         'Geometry validation'                    .
+         'Sequence database correpondence'        .
+         'Secondary structure'                    .
+         'Binding sites and description'          .
+         'Atom nomenclature'                      .
+         'Atom element type assignment'           .
+         'Atom occupancy'                         .
+         'Atom temperature factor'                .
+         'Solvent atom position'                  .
+         'Linkage'                                .
+         'Advisory'                               .
+         'Version format compliance'              .
+         'Other '                                 .
      save_
 
 ##

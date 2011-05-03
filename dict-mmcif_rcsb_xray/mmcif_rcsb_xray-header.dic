@@ -1096,13 +1096,16 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
  Changes:  (jdw):
   + update enumeration for pdbx_SG_project items
 ;
-   1.0032  2011-05-01
+   1.0032  2011-05-03
 ;
  Changes:  (jdw):
   + update enumeration _exptl.method
   + added new items -_refln.pdbx_FWT,_refln.pdbx_DELFWT,_refln.pdbx_PHWT, and 
     _refln.pdbx_DELPHWT
   + updated internal enumeration for _symmetry.space_group_name_H-M
+  + add _refine_ls_restr.pdbx_refine_id to category key
+  + add item rcsb_version.revision_type as key item in this category
+  + _rcsb_version.minor_version data type changed to code.  
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
