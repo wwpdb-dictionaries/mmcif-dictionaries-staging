@@ -16155,7 +16155,7 @@ save__rcsb_version.revision_type
          'Data collection'                        .
          'Biological assembly'                    .
          'Geometry validation'                    .
-         'Sequence database correpondence'        .
+         'Sequence database correspondence'       .
          'Secondary structure'                    .
          'Binding sites and description'          .
          'Atom nomenclature'                      .
@@ -16166,6 +16166,8 @@ save__rcsb_version.revision_type
          'Linkage'                                .
          'Advisory'                               .
          'Version format compliance'              .
+         'Flag nonstandard coordinate frame'      .
+         'Flag residual B-value'                  .
          'Initial release'                        .
          'Other '                                 .
      save_
