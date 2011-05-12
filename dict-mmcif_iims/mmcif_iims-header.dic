@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.111
+    _dictionary.version         0.112
 #
      loop_
     _dictionary_history.version
@@ -414,5 +414,9 @@ data_mmcif_iims.dic
  Changes:  (jdw):
  + Add item _pdbx_reference_entity_poly_seq.modification_details
 ;
-
+   0.112  2011-05-12
+;
+ Changes:  (jdw):
+    + _em_imaging.microscope_id made optional
+;
 ### EOF mmcif_iims-header.dic
