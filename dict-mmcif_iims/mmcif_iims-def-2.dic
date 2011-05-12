@@ -2146,7 +2146,7 @@ save__em_imaging.microscope_id
 ;
     _item.name                  '_em_imaging.microscope_id'
     _item.category_id             em_imaging
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               code
      save_
 
