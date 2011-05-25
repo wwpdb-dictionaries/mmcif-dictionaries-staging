@@ -2491,7 +2491,7 @@ save__em_vitrification.time_resolved_state
     _item.category_id             em_vitrification
     _item.mandatory_code          no
     _item_type.code               text
-    _item_examples.case           '30 msec after spraying with effector''
+    _item_examples.case           '30 msec after spraying with effector'
      save_
 
 save__em_vitrification.citation_id

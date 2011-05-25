@@ -32,7 +32,7 @@ data_mmcif_iims.dic
 
     _dictionary.title           mmcif_iims.dic
     _dictionary.datablock_id    mmcif_iims.dic
-    _dictionary.version         0.112
+    _dictionary.version         0.113
 #
      loop_
     _dictionary_history.version
@@ -418,5 +418,11 @@ data_mmcif_iims.dic
 ;
  Changes:  (jdw):
     + _em_imaging.microscope_id made optional
+;
+
+   0.113  2011-05-25
+;
+ Changes:  (jdw):
+ + correct typos in examples for _em_vitrification.time_resolved_state 
 ;
 ### EOF mmcif_iims-header.dic
