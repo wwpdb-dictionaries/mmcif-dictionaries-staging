@@ -2307,6 +2307,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'CHESS BEAMLINE F1'                        .
                      'CHESS BEAMLINE F2'                        .
                      'CHESS BEAMLINE F3'                        .
+                     'CLSI BEAMLINE 08B1-1'                     .
                      'CLSI BEAMLINE 08ID-1'                     .
                      'Cu FINE FOCUS'                            .
                      'DIAMOND BEAMLINE I02'                     .
@@ -9057,6 +9058,9 @@ The description of the biological unit.
         'tetramer'          .
         'pentamer'          .
         'hexamer'           .
+        'heptamer'          .
+        'octamer'           .
+        'nonamer'           .
         'decamer'           .
         'dodecamer'         .
         'other'             .
