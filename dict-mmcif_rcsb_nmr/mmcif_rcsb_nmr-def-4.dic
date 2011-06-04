@@ -7520,6 +7520,9 @@ The description of the biological unit.
         'tetramer'          .
         'pentamer'          .
         'hexamer'           .
+        'heptamer'          .
+        'octamer'           .
+        'nonamer'           .
         'decamer'           .
         'dodecamer'         .
         'other'             .
