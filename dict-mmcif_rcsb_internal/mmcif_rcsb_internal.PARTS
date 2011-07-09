@@ -4,8 +4,8 @@
 ../dict-mmcif_rcsb_xray/mmcif_rcsb_xray-def-2.dic
 ../dict-mmcif_rcsb_xray/mmcif_rcsb_xray-def-3.dic
 ../dict-mmcif_iims/mmcif_iims-def-2.dic
-../dict-mmcif_pdbx/mmcif_pdbx-def-5.dic
-../dict-mmcif_pdbx/mmcif_pdbx-def-12.dic
+../dict-mmcif_pdbx_v40/mmcif_pdbx-def-5.dic
+../dict-mmcif_pdbx_v40/mmcif_pdbx-def-12.dic
 ../dict-mmcif_rcsb_nmr/mmcif_rcsb_nmr-def-3.dic
 ../dict-mmcif_rcsb_xray/mmcif_rcsb_xray-def-10.dic
 ../dict-mmcif_rcsb_xray/mmcif_rcsb_xray-def-11.dic

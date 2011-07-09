@@ -10,9 +10,8 @@ mmcif_rcsb_xray-def-5.dic
 ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-5.dic
 ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-12.dic
 ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-16.dic
-../dict-mmcif_pdbx_v40/mmcif_pdbx-def-11.dic
+mmcif_rcsb_xray-def-11.dic
 mmcif_rcsb_xray-def-14.dic
-pdbx_struct_group_extension_v4-rcsb.dic
 ../dict-mmcif_pdbx_v40/chem_comp_atom_feature.dic
-../dict-mmcif_pdbx_v40/prd-extension-v4.dic
+prd-extension-v4-alt.dic
 mmcif_rcsb_xray-def-ilg.dic
