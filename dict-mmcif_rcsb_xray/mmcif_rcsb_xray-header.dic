@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0032
+    _dictionary.version         1.0033
 #
      loop_
     _dictionary_history.version
@@ -1109,6 +1109,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   + add enumerations for _pdbx_version.revision_type
   + update enumerations for PSI centers -
   + _em_imaging.microscope_id made optional -
+;
+   1.0033  2011-07-22
+;
+ Changes:  (jdw):
+  + update enumerations for category pdbx_sg_project.
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
