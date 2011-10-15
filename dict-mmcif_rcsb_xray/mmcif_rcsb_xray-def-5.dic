@@ -457,8 +457,8 @@ A unique identifier for each citation related to this deposition.
     _item.category_id             citation
      loop_
     _ndb_item_enumeration.value
-                                 primary original_data_1
-                                 original_data_2 
+                                 primary #original_data_1
+                                 #original_data_2 
                                  1  2 3 4 5 6 7 8 9 10     
                                  11 12 13 14 15 16 17 18 19 20
  
@@ -1758,6 +1758,7 @@ The make, model or name of the detector device used.
                   'RAYONIX MX-325'                  .
                   'RAYONIX MX225HE'                 .
                   'RAYONIX MX300HE'                 .
+                  'RAYONIX MX300HS'                 .
                   'RAYONIX MX325HE'                 .
                   'RAYONIX SX-165mm'                .
                   'RIGAKU'                          . 
