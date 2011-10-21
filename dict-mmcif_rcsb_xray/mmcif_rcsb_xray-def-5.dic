@@ -7295,8 +7295,8 @@ save__refine_ls_shell.number_reflns_obs
 ;The number of crystallographically unique reflections that satisfy both the 
 shell resolution and the observation limits. 
 ;
-   _item.name                '_refine_ls_shell.percent_reflns_obs'
-   _item.category_id                refine_ls_shell
+   _item.name                '_refine_ls_shell.number_reflns_obs'
+   _item.category_id           refine_ls_shell
    _ndb_item_examples.case     102
     save_
 
@@ -7671,7 +7671,7 @@ save__reflns.ndb_netI_over_sigmaI
 
 ;
 
-    _item.name                  '_reflns.ndb_netI_over_av_sigmaI'
+    _item.name                  '_reflns.ndb_netI_over_sigmaI'
     _item.category_id              reflns
     _ndb_item_examples.case      '11.4'
      save_

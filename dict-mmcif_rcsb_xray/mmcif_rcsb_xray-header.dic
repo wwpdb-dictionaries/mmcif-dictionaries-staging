@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0035
+    _dictionary.version         1.0036
 #
      loop_
     _dictionary_history.version
@@ -1124,6 +1124,12 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
 ;
  Changes:  (jdw):
   + Added item  _pdbx_reference_entity_poly_seq.observed
+;
+   1.0036  2011-10-21
+;
+ Changes:  (jdw):
+  + Added item  _pdbx_reference_entity_poly_seq.observed
+  + Added item  _pdbx_reference_entity_poly_seq.hetero
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
