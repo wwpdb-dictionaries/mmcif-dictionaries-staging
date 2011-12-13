@@ -8868,13 +8868,13 @@ save__rcsb_database_related.db_name
     _item.mandatory_code          yes
     _item_type.code               code
      loop_
-    _item_enumeration.value  'PDB' 'NDB' 'BMRB' 'TargetDB' 'EMDB' 'BMCD'
+    _item_enumeration.value  'PDB' 'NDB' 'BMRB' 'TargetTrack' 'EMDB' 'BMCD'
     _item_examples.case      
 ;
 PDB  - Protein Databank 
 NDB  - Nucleic Acid Database 
 BMRB - BioMagResBank
-TargetDB - Target Registration Database
+TargetTrack - Target Registration and Protocol Database
 EMDB - Electron Microscopy Volume Data Bank
 BMCD - Biological Macromolecule Crystallization Database
 ;
