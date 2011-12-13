@@ -2349,6 +2349,7 @@ save__ndb_database_status.methods_development_category
        'CASP'
        'CASD-NMR'
        'FoldIt'
+       'GPCR Dock'
     save_ 
 
 
