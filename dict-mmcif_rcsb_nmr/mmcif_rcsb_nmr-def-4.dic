@@ -1112,6 +1112,7 @@ save__database_PDB_rev_record.type
    _ndb_item_enumeration.value 
                'ATOM'
                'AUTHOR'
+               'CAVEAT'
                'CISPEP'
                'COMPND'
                'CONECT'
