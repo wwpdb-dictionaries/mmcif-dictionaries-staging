@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0038
+    _dictionary.version         1.0039
 #
      loop_
     _dictionary_history.version
@@ -1159,6 +1159,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   + Update enumerations for pdbx_sg_projects category.
   + Added item _ndb_database_status.methods_development_category 
   + Update enumerations and examples for  _pdbx_database_related.db_name
+;
+ 1.0039 2011-01-04
+;
+  Changes (jdw):
+  + Revise enumerations for category pdbx_sg_project.
 ;
 
 #

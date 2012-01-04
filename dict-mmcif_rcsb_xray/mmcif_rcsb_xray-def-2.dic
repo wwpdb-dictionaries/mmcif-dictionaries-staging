@@ -15912,6 +15912,7 @@ save__pdbx_SG_project.project_name
     _item_enumeration.value
       'PSI:Biology'
       'PSI, Protein Structure Initiative'
+      'NIAID, National Institute of Allergy and Infectious Diseases'
       'NPPSFA, National Project on Protein Structural and Functional Analyses'
       'Enzyme Function Initiative'
      save_
@@ -15966,6 +15967,7 @@ save__pdbx_SG_project.full_name_of_center
 'PSF'          'Protein Structure Factory'
 'RSGI'         'RIKEN Structural Genomics/Proteomics Initiative'
 'S2F'          'Structure 2 Function Project'
+'SASTAD'       'South Africa Structural Targets Annotation Database'
 'SECSG'        'Southeast Collaboratory for Structural Genomics'
 'SGC'          'Structural Genomics Consortium'
 'SGCGES'       'Structural Genomics Consortium for Research on Gene Expression'
@@ -16035,6 +16037,7 @@ save__pdbx_SG_project.initial_of_center
 'PSF'          'Protein Structure Factory'
 'RSGI'         'RIKEN Structural Genomics/Proteomics Initiative'
 'S2F'          'Structure 2 Function Project'
+'SASTAD'       'South Africa Structural Targets Annotation Database'
 'SECSG'        'Southeast Collaboratory for Structural Genomics'
 'SGC'          'Structural Genomics Consortium'
 'SGCGES'       'Structural Genomics Consortium for Research on Gene Expression'
