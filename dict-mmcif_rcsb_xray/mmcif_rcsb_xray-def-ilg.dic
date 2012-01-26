@@ -439,6 +439,7 @@ pdbx_entity_group_components   4  pdbx_entity_group_components:entity_poly_seq:4
 
 pdbx_entity_group_instances    1  pdbx_entity_group_instances:pdbx_struct_group_list:1   . .
 pdbx_entity_group_instances    2  pdbx_entity_group_instances:pdbx_entity_group_list:1   . .
+#
 ##           ------ PRD V5 items -------
 ##
 pdbx_prd_audit                             1  pdbx_prd_audit:pdbx_reference_molecule:1                  . . 
@@ -1502,7 +1503,8 @@ pdbx_entity_group_instances          1  '_pdbx_entity_group_instances.struct_gro
 pdbx_entity_group_instances          2  '_pdbx_entity_group_instances.entity_group_id'             '_pdbx_entity_group_list.entity_group_id'   pdbx_entity_group_list
 
 
-#  -- PRD V5b relationships --- 
+#  -- PRD V5 relationships --- 
+#
 pdbx_family_prd_audit                      1  '_pdbx_family_prd_audit.family_prd_id'                '_pdbx_reference_molecule_family.family_prd_id'   pdbx_reference_molecule_family 
 pdbx_prd_audit                             1  '_pdbx_prd_audit.prd_id'                              '_pdbx_reference_molecule.prd_id'                 pdbx_reference_molecule
 pdbx_reference_molecule_list               1  '_pdbx_reference_molecule_list.family_prd_id'         '_pdbx_reference_molecule_family.family_prd_id'   pdbx_reference_molecule_family 
