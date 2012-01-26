@@ -1169,6 +1169,7 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
 ;
   Changes (jdw):
   + Added _ndb_database_PDB_obs_spr.details
+  + PRD category refactoring
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
