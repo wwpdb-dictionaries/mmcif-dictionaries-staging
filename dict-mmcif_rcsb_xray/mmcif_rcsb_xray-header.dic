@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0040
+    _dictionary.version         1.0041
 #
      loop_
     _dictionary_history.version
@@ -1170,6 +1170,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
   Changes (jdw):
   + Added _ndb_database_PDB_obs_spr.details
   + PRD category refactoring
+;
+ 1.0041 2012-02-16
+;
+  Changes (jdw):
+  + add rcsb_molecule category.
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
