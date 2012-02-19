@@ -1,0 +1,27 @@
+
+##
+# File:  mmcif_emx-header.dic                                             
+##
+
+data_mmcif_emx_v1.dic
+
+    _datablock.id                          mmcif_emx_v1.dic
+    _datablock.description
+;
+     This data block holds data definitions for data exchange in 
+     3-dimensional electron microscopy.
+;
+
+    _dictionary.title           mmcif_emx_v1.dic
+    _dictionary.datablock_id    mmcif_emx_v1.dic
+    _dictionary.version         1.000
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   1.000  2012-02-18
+;
+        Initial version created by Roberto Marabini and J. Bernard Heymann. 
+;
+##

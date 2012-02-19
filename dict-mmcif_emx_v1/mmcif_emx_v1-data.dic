@@ -1,0 +1,88 @@
+
+##
+#                           Data Section 
+# 
+#                                                                        
+##
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+
+     loop_
+    _category_group_list.id
+    _category_group_list.parent_id
+    _category_group_list.description
+              'inclusive_group'   .
+;              All categories defined within this dictionary.
+;
+              'emx_group'   .   
+; Categories for EM3D data exchange.
+;
+
+######################################################
+## Common data types are provided in ITEM_TYPE_LIST ##
+######################################################
+#
+
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               code      char
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words ...
+;
+               ucode      uchar
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words  (case insensitive) ...
+;
+               line      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items ...
+;
+               uline      uchar
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items (case insensitive)...
+;
+               text      char
+               '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              text item types / multi-line text ...
+;
+               int       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative 
+               or positive integers.
+;
+               float     numb
+          '-?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+;              int item types are the subset of numbers that are the floating
+               numbers.
+;
+               yyyy-mm-dd  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               Standard format for CIF dates.
+;
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+#
+     'centimetres'            'centimetres (meters * 10^( -2))'
+     'millimetres'            'millimetres (meters * 10^( -3))'
+     'millimeters'            'millimeters (meters * 10^( -3))'
+     'nanometres'             'nanometres  (meters * 10^( -9))'
+     'angstroms'              'angstroms   (meters * 10^(-10))'
+     'picometres'             'picometres  (meters * 10^(-12))'
+     'femtometres'            'femtometres (meters * 10^(-15))'
+     'degrees'                'degrees (of arc)'
+     'kilovolts'              'kilovolts  (volts * 10^3)'
+     'microns'                'micrometers  (meters * 10^( -6))'
+     'arbitrary'              ' arbitrary system of units.'
+##
