@@ -2345,8 +2345,16 @@ save__ndb_database_status.date_of_cs_release
 
 save__ndb_database_status.methods_development_category 
     _item_description.description
-;              The methods development category in which this 
-               entry has been placed.
+;The methods development category in which this entry has been placed.
+<p>
+Selecting CASP option identifies the deposition as a CASP (Critical
+Assessment of Techniques for Protein Structure Prediction) target.
+When identifying a deposited protein structure as a CASP target, the
+depositors agree to the conditions of CASP: (1) the polymer sequence
+will be released to the public immediately, and (2) the coordinates
+and any related data will be released to the public after an eight
+week hold from the deposition date.  For more information about CASP,
+depositors should consult <a href="http://predictioncenter.org" target="_blank">http://predictioncenter.org</a>.
 ;
     _item.name                 '_ndb_database_status.methods_development_category'
     _item.category_id            ndb_database_status

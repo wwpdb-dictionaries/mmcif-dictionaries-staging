@@ -1488,6 +1488,9 @@ The following links provide additional information on the guidelines
 for the release of <a href="http://www.wwpdb.org/policy" target="_blank">coordinate</a>, 
 <a href="http://www.wwpdb.org/policy" target="_blank">experimental</a>, and 
 <a href="http://www.wwpdb.org/policy" target="_blank">sequence</a> data. 
+<p>
+If this deposition is a target for methods development, please choose
+a proper tag for methods development.
 ;
     _category.id                  ndb_database_status
      loop_
@@ -2398,6 +2401,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'PHOTON FACTORY BEAMLINE AR-NE3A'          .
                      'PHOTON FACTORY BEAMLINE AR-NW12A'         .
                      'PHOTON FACTORY BEAMLINE AR-NW14A'         .
+                     'PHOTON FACTORY BEAMLINE BL-1A'            .
                      'PHOTON FACTORY BEAMLINE BL-5A'            .
                      'PHOTON FACTORY BEAMLINE BL-6A'            .
                      'PHOTON FACTORY BEAMLINE BL-6B'            .
