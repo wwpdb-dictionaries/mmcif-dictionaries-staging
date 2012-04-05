@@ -28,7 +28,7 @@ data_mmcif_rcsb_xray.dic
 
     _dictionary.title           mmcif_rcsb_xray.dic
     _dictionary.datablock_id    mmcif_rcsb_xray.dic
-    _dictionary.version         1.0041
+    _dictionary.version         1.0042
 #
      loop_
     _dictionary_history.version
@@ -1175,6 +1175,11 @@ _pdbx_struct_ref_seq_feature_prop.end_db_seq_id
 ;
   Changes (jdw):
   + add rcsb_molecule category.
+;
+ 1.0042 2012-04-05
+;
+  Changes (jdw):  Open version
+  + add category pdbx_distant_solvent_atoms
 ;
 #
 ### EOF mmcif_rcsb_xray-header.dic 
