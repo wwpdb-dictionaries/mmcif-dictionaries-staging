@@ -4093,7 +4093,7 @@ save__pdbx_molecule.asym_id
     _item.category_id             pdbx_molecule
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_examples.case          'A
+    _item_examples.case          'A'
      save_
 
 

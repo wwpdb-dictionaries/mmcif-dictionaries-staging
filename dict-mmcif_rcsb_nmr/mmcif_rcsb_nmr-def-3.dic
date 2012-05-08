@@ -1251,7 +1251,7 @@ save__rcsb_nmr_software.classification
               'collection' 
               'processing'
               'chemical shift assignment'
-              'chemical shift calculation;
+              'chemical shift calculation'
               'data analysis'
               'geometry optimization'
               'structure solution'   
