@@ -2230,6 +2230,7 @@ save__em_imaging.specimen_holder_model
             'HOME BUILD'
             'JEOL'
             'SIDE ENTRY, EUCENTRIC'
+	    'FEI TITAN KRIOS AUTOGRID HOLDER'
             OTHER
      save_
 
