@@ -14,6 +14,7 @@
 
 
 
+
 ##
 ###
 # Please note the data items listed below are not for the PDB 
@@ -345,6 +346,7 @@ save__em_assembly.aggregation_state
     PARTICLE
     TISSUE
     CELL
+    "HELICAL CRYSTAL"
      loop_
     _item_examples.case
     "2D CRYSTAL"
@@ -2229,6 +2231,7 @@ save__em_imaging.specimen_holder_model
             'PHILIPS ROTATION HOLDER'
             'HOME BUILD'
             'JEOL'
+            "JEOL 3200FSC CRYOHOLDER"  
             'SIDE ENTRY, EUCENTRIC'
 	    'FEI TITAN KRIOS AUTOGRID HOLDER'
             OTHER
@@ -2739,6 +2742,7 @@ save__em_image_scans.scanner_model
           'NIKON COOLSCAN'
           'NIKON SUPER COOLSCAN 9000'
           'IMAGE SCIENCE PATCHWORK DENSITOMETER'
+          "PATCHWORK DENSITOMETER" 
           PRIMESCAN
           OTHER
      save_
@@ -4256,6 +4260,7 @@ save__em_experiment.reconstruction_method
       HELICAL
       CRYSTALLOGRAPHY
       TOMOGRAPHY
+      "SUBTOMOGRAM AVERAGING"
       save_
 
 save__em_experiment.specimen_type
