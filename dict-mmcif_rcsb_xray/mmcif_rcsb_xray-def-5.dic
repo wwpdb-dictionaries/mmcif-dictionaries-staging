@@ -2397,8 +2397,11 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'NSRRC BEAMLINE BL17B2'                    .
                      'OXFORD DIFFRACTION ENHANCE ULTRA'         .
                      'PAL/PLS BEAMLINE 4A'                      .
+                     'PAL/PLS BEAMLINE 5C (4A)'                 .
                      'PAL/PLS BEAMLINE 6B'                      .
                      'PAL/PLS BEAMLINE 6C1'                     .
+                     'PAL/PLS BEAMLINE 7A (6B, 6C1)'            .
+                     'PAL/PLS BEAMLINE 11C'                     .
                      'PHOTON FACTORY BEAMLINE AR-NE3A'          .
                      'PHOTON FACTORY BEAMLINE AR-NW12A'         .
                      'PHOTON FACTORY BEAMLINE AR-NW14A'         .
