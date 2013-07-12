@@ -5628,7 +5628,7 @@ save__entity_poly.rcsb_seq_db_name
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_enumeration.value  'EMBL' 'GB' 'PIR' 'SWS' 'UNP'	
+    _item_enumeration.value  'EMBL' 'GB' 'PIR' 'SWS' 'UNP' 'PDB' 'NOR'	
      loop_
     _item_examples.case      
               'Enter UNP for a Uniport entry'
