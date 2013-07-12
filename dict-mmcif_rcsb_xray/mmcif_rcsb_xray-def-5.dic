@@ -1716,6 +1716,7 @@ The make, model or name of the detector device used.
                   'BRUKER SMART 2000'               .
                   'BRUKER SMART 6000'               .
                   'BRUKER SMART 6500'               .
+                  'Cornell-SLAC Pixel Array Detector (CSPAD)' .
                   'CUSTOM-MADE'                     .
                   'DECTRIS PILATUS 2M'              .
                   'DECTRIS PILATUS 2M-F'            .
@@ -2198,6 +2199,7 @@ rotating anode, sealed tube, or synchrotron.
                                  'SYNCHROTRON'         .
                                  'NUCLEAR REACTOR'     .
                                  'ELECTRON MICROSCOPE' .
+                                 'FREE ELECTRON LASER' .
      loop_
     _ndb_item_examples.case      'sealed tube'
                                  'rotating-anode X-ray tube'
@@ -2439,6 +2441,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'RIGAKU ULTRAX 18'                         .
                      'SAGA-LS BEAMLINE BL07'                    .
                      'SIEMENS'                                  .
+                     'SLAC LCLS BEAMLINE CXI'                   .
                      'SLS BEAMLINE X06DA'                       .
                      'SLS BEAMLINE X06SA'                       . 
                      'SLS BEAMLINE X10SA'                       .
