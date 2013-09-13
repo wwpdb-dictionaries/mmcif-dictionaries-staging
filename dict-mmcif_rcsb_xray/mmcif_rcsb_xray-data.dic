@@ -156,6 +156,10 @@
                manuscript submission by the International Union of
                Crystallography staff.
 ;
+              'nmr_group'
+              'inclusive_group'
+;              Categories that describe Nuclear Magnetic Spectroscopy experiments.
+;
               'pdb_group'
               'inclusive_group'
 ;              Categories which pertain to the file format or data processing
