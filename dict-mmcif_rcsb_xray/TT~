@@ -1,0 +1,1213 @@
+##
+_pdbx_database_status.status_code
+
+save__ndb_database_status.status_code
+    _item_description.description
+;              Code for status of file.
+;
+    _item.name                  '_ndb_database_status.status_code'
+    _item.category_id             ndb_database_status
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _pdbx_item_enumeration.value
+    _pdbx_item_enumeration.detail      
+#    PROC  'Processing in progress'
+     PROC  'To be processed'
+#    WAIT  'Awaiting author approval'
+     WAIT  'Processing started, waiting for author input to continue because of ligand, coordinate, other problems'
+     AUTH  'Processed, waiting for author review and approval'
+     POLC  'Waiting for a policy decision'
+     REPL  'Author sent new coordinates'
+     REL   'Released'
+     HOLD  'On hold until yyyy-mm-dd'
+     HPUB  'On hold until publication'
+     REFI  'Re-refined entry'
+     OBS   'Entry has been obsoleted and replaced by another entry'
+#     DEL   'Entry has been deleted'
+     WDRN  'Entry has been withdrawn'	
+#     BIB   'Only a bibliographic entry exists for this entry; there are no coordinates'
+#     TEMP  'Temporary NDB id has been assigned; awaiting complete deposition'
+#     SUB   'Permanent NDB id has been assigned, awaiting processing'
+#     REV   'Entry currently under revision'
+     loop_
+    _item_examples.case         REL 
+                                HOLD
+                                REV 
+                                BIB 
+     save_
+##
+_pdbx_database_status.author_release_status_code  
+save__ndb_database_status.author_release_status_code
+    _item_description.description
+;              The release status authorized by the depositor.
+;
+    _item.name                  '_ndb_database_status.author_release_status_code'
+    _item.category_id             ndb_database_status
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _pdbx_item_enumeration.value
+    _pdbx_item_enumeration.detail      
+     REL   'Release'
+     HOLD  'On hold until yyyy-mm-dd'
+     HPUB  'On hold until publication'
+     REFI  'Re-refined entry'
+     OBS   'Entry has been obsoleted and replaced by another entry'
+     WDRN  'Entry has been withdrawn'	
+    _item_examples.case         
+;
+     REL   = Release 
+     HOLD  = On hold until yyyy-mm-dd
+     HPUB  = On hold until publication
+     OBS   = Entry has been obsoleted and replaced by another entry
+     WDRN  = Entry has been withdrawn by depositor	
+;
+     save_
+
+  
+_pdbx_database_status.author_approval_type    
+save__ndb_database_status.author_approval_type
+    _item_description.description
+;              This code indicates whether the author's approval for 
+               an entry was received explicitly or implicitly.  The
+               latter is automatically implied by failure to respond
+               validation summary within 3 days.
+;
+    _item.name                  '_ndb_database_status.author_approval_type'
+    _item.category_id             ndb_database_status
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _pdbx_item_enumeration.value
+     implicit  
+     explicit  
+    _item_examples.case       
+;
+implicit = automatic approval by failure to acknowledge
+explicit = approval via depositor acknowledgement
+;
+     save_
+
+_pdbx_database_status.recvd_author_approval  
+save__ndb_database_status.recvd_author_approval
+    _item_description.description
+;              This code indicates whether the author's approval for 
+               an entry has been received.
+;
+    _item.name                  '_ndb_database_status.recvd_author_approval'
+    _item.category_id             ndb_database_status
+    _item.mandatory_code          yes
+    _item_type.code               uchar1
+     loop_
+    _pdbx_item_enumeration.value
+    _pdbx_item_enumeration.detail      
+     Y  'Yes'
+     N  'No'
+    _item_examples.case       Y
+     save_
+
+  
+_pdbx_database_status.methods_development_category     
+
+save__ndb_database_status.methods_development_category 
+    _item_description.description
+;The methods development category in which this entry has been placed.
+<p>
+Selecting CASP option identifies the deposition as a CASP (Critical
+Assessment of Techniques for Protein Structure Prediction) target.
+When identifying a deposited protein structure as a CASP target, the
+depositors agree to the conditions of CASP: (1) the polymer sequence
+will be released to the public immediately, and (2) the coordinates
+and any related data will be released to the public after an eight
+week hold from the deposition date.  For more information about CASP,
+depositors should consult <a href="http://predictioncenter.org" target="_blank">http://predictioncenter.org</a>.
+;
+    _item.name                 '_ndb_database_status.methods_development_category'
+    _item.category_id            ndb_database_status
+    _item.mandatory_code         no
+    _item_type.code              line
+     loop_
+    _item_examples.case          'CASP' 'CASD-NMR'
+     loop_
+    _pdbx_item_enumeration.value
+       'CASP'
+       'CASD-NMR'
+       'FoldIt'
+       'GPCR Dock'
+    save_ 
+
+_pdbx_database_related.db_name    
+save__rcsb_database_related.db_name
+    _item_description.description
+;    The name of the database containing the related entry.
+;
+    _item.name                  '_rcsb_database_related.db_name'
+    _item.category_id             rcsb_database_related
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _pdbx_item_enumeration.value  'PDB' 'NDB' 'BMRB' 'TargetTrack' 'EMDB' 'BMCD'
+    _item_examples.case      
+;
+PDB  - Protein Databank 
+NDB  - Nucleic Acid Database 
+BMRB - BioMagResBank
+TargetTrack - Target Registration and Protocol Database
+EMDB - Electron Microscopy Volume Data Bank
+BMCD - Biological Macromolecule Crystallization Database
+;
+     save_
+
+ 
+_pdbx_SG_project.project_name     
+_pdbx_SG_project.full_name_of_center     
+_pdbx_SG_project.initial_of_center     
+save__pdbx_SG_project.project_name
+    _item_description.description
+;          The value identifies the Structural Genomics project.
+; 
+    _item.name                    '_pdbx_SG_project.project_name'
+    _item.category_id             pdbx_SG_project
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'PSI, Protein Structure Initiative'
+    loop_
+    _pdbx_item_enumeration.value
+      'PSI:Biology'
+      'PSI, Protein Structure Initiative'
+      'NIAID, National Institute of Allergy and Infectious Diseases'
+      'NPPSFA, National Project on Protein Structural and Functional Analyses'
+      'Enzyme Function Initiative'
+     save_
+
+
+save__pdbx_SG_project.full_name_of_center
+    _item_description.description
+;          The value identifies the full name of center.
+; 
+    _item.name                    '_pdbx_SG_project.full_name_of_center'
+    _item.category_id             pdbx_SG_project
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'Midwest Center for Structural Genomics'
+    loop_
+    _pdbx_item_enumeration.detail
+    _pdbx_item_enumeration.value
+'ATCG3D'       'Accelerated Technologies Center for Gene to 3D Structure'
+'BIGS'         'Bacterial targets at IGS-CNRS, France'
+'BSGC'         'Berkeley Structural Genomics Center'
+'BSGI'         'Montreal-Kingston Bacterial Structural Genomics Initiative'
+'CEBS'         'Chaperone-Enabled Studies of Epigenetic Regulation Enzymes'
+'CELLMAT'      'Assembly, Dynamics and Evolution of Cell-Cell and Cell-Matrix Adhesions'
+'CESG'         'Center for Eukaryotic Structural Genomics'
+'CHSAM'        'Structure, Dynamics and Activation Mechanisms of Chemokine Receptors'
+'CHTSB'        'Center for High-Throughput Structural Biology'
+'CSGID'        'Center for Structural Genomics of Infectious Diseases'
+'CSMP'         'Center for Structures of Membrane Proteins'
+'GPCR'         'GPCR Network'
+'IFN'          'Atoms-to-Animals: The Immune Function Network'
+'ISFI'         'Integrated Center for Structure and Function Innovation'
+'ISPC'         'Israel Structural Proteomics Center'
+'JCSG'         'Joint Center for Structural Genomics'
+'MCSG'         'Midwest Center for Structural Genomics'
+'MPID'         'Center for Membrane Proteins of Infectious Diseases'
+'MPP'          'Mitochondrial Protein Partnership'
+'MPSBC'        'Membrane Protein Structural Biology Consortium'
+'MPSbyNMR'     'Membrane Protein Structures by Solution NMR'
+'MSGP'         'Marseilles Structural Genomics Program @ AFMB'
+'MSGPP'        'Medical Structural Genomics of Pathogenic Protozoa'
+'MTBI'         'Structures of Mtb Proteins Conferring Susceptibility to Known Mtb Inhibitors'
+'NatPro'       'Enzyme Discovery for Natural Product Biosynthesis'
+'NPCXstals'    'Nucleocytoplasmic Transport: a Target for Cellular Control'
+'NYCOMPS'      'New York Consortium on Membrane Protein Structure'
+'NYSGRC'       'New York Structural Genomics Research Consortium'
+'NYSGXRC'      'New York SGX Research Center for Structural Genomics'
+'NYSGXRC'      'New York Structural GenomiX Research Consortium'
+'NESG'         'Northeast Structural Genomics Consortium'
+'OCSP'         'Ontario Centre for Structural Proteomics'
+'OPPF'         'Oxford Protein Production Facility'
+'PCSEP'        'Program for the Characterization of Secreted Effector Proteins'
+'PSF'          'Protein Structure Factory'
+'RSGI'         'RIKEN Structural Genomics/Proteomics Initiative'
+'S2F'          'Structure 2 Function Project'
+'SASTAD'       'South Africa Structural Targets Annotation Database'
+'SECSG'        'Southeast Collaboratory for Structural Genomics'
+'SGC'          'Structural Genomics Consortium'
+'SGCGES'       'Structural Genomics Consortium for Research on Gene Expression'
+'SGPP'         'Structural Genomics of Pathogenic Protozoa Consortium'
+'SPINE'        'Structural Proteomics in Europe'
+'SPINE-2'      'Structural Proteomics in Europe 2'
+'SSGCID'       'Seattle Structural Genomics Center for Infectious Disease'
+'SSPF'         'Scottish Structural Proteomics Facility'
+'STEMCELL'     'Partnership for Stem Cell Biology'
+'TBSGC'        'TB Structural Genomics Consortium'
+'TCELL'        'Partnership for T-Cell Biology'
+'TEMIMPS'      'Transcontinental EM Initiative for Membrane Protein Structure'
+'TJMP'         'Structure-Function Studies of Tight Junction Membrane Proteins'
+'TMPC'         'Transmembrane Protein Center'
+'TransportPDB' 'Center for the X-ray Structure Determination of Human Transporters'
+'XMTB'         'Mycobacterium Tuberculosis Structural Proteomics Project'
+'YSG'          'Paris-Sud Yeast Structural Genomics'
+     save_
+
+
+save__pdbx_SG_project.initial_of_center
+    _item_description.description
+;          The value identifies the full name of center.
+; 
+    _item.name                    '_pdbx_SG_project.initial_of_center'
+    _item.category_id             pdbx_SG_project
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'JCSG'
+    loop_
+    _pdbx_item_enumeration.value
+    _pdbx_item_enumeration.detail
+'ATCG3D'       'Accelerated Technologies Center for Gene to 3D Structure'
+'BIGS'         'Bacterial targets at IGS-CNRS, France'
+'BSGC'         'Berkeley Structural Genomics Center'
+'BSGI'         'Montreal-Kingston Bacterial Structural Genomics Initiative'
+'CEBS'         'Chaperone-Enabled Studies of Epigenetic Regulation Enzymes'
+'CELLMAT'      'Assembly, Dynamics and Evolution of Cell-Cell and Cell-Matrix Adhesions'
+'CESG'         'Center for Eukaryotic Structural Genomics'
+'CHSAM'        'Structure, Dynamics and Activation Mechanisms of Chemokine Receptors'
+'CHTSB'        'Center for High-Throughput Structural Biology'
+'CSGID'        'Center for Structural Genomics of Infectious Diseases'
+'CSMP'         'Center for Structures of Membrane Proteins'
+'GPCR'         'GPCR Network'
+'IFN'          'Atoms-to-Animals: The Immune Function Network'
+'ISFI'         'Integrated Center for Structure and Function Innovation'
+'ISPC'         'Israel Structural Proteomics Center'
+'JCSG'         'Joint Center for Structural Genomics'
+'MCSG'         'Midwest Center for Structural Genomics'
+'MPID'         'Center for Membrane Proteins of Infectious Diseases'
+'MPP'          'Mitochondrial Protein Partnership'
+'MPSBC'        'Membrane Protein Structural Biology Consortium'
+'MPSbyNMR'     'Membrane Protein Structures by Solution NMR'
+'MSGP'         'Marseilles Structural Genomics Program @ AFMB'
+'MSGPP'        'Medical Structural Genomics of Pathogenic Protozoa'
+'MTBI'         'Structures of Mtb Proteins Conferring Susceptibility to Known Mtb Inhibitors'
+'NatPro'       'Enzyme Discovery for Natural Product Biosynthesis'
+'NPCXstals'    'Nucleocytoplasmic Transport: a Target for Cellular Control'
+'NYCOMPS'      'New York Consortium on Membrane Protein Structure'
+'NYSGRC'       'New York Structural Genomics Research Consortium'
+'NYSGXRC'      'New York SGX Research Center for Structural Genomics'
+'NYSGXRC'      'New York Structural GenomiX Research Consortium'
+'NESG'         'Northeast Structural Genomics Consortium'
+'OCSP'         'Ontario Centre for Structural Proteomics'
+'OPPF'         'Oxford Protein Production Facility'
+'PCSEP'        'Program for the Characterization of Secreted Effector Proteins'
+'PSF'          'Protein Structure Factory'
+'RSGI'         'RIKEN Structural Genomics/Proteomics Initiative'
+'S2F'          'Structure 2 Function Project'
+'SASTAD'       'South Africa Structural Targets Annotation Database'
+'SECSG'        'Southeast Collaboratory for Structural Genomics'
+'SGC'          'Structural Genomics Consortium'
+'SGCGES'       'Structural Genomics Consortium for Research on Gene Expression'
+'SGPP'         'Structural Genomics of Pathogenic Protozoa Consortium'
+'SPINE'        'Structural Proteomics in Europe'
+'SPINE-2'      'Structural Proteomics in Europe 2'
+'SSGCID'       'Seattle Structural Genomics Center for Infectious Disease'
+'SSPF'         'Scottish Structural Proteomics Facility'
+'STEMCELL'     'Partnership for Stem Cell Biology'
+'TBSGC'        'TB Structural Genomics Consortium'
+'TCELL'        'Partnership for T-Cell Biology'
+'TEMIMPS'      'Transcontinental EM Initiative for Membrane Protein Structure'
+'TJMP'         'Structure-Function Studies of Tight Junction Membrane Proteins'
+'TMPC'         'Transmembrane Protein Center'
+'TransportPDB' 'Center for the X-ray Structure Determination of Human Transporters'
+'XMTB'         'Mycobacterium Tuberculosis Structural Proteomics Project'
+'YSG'          'Paris-Sud Yeast Structural Genomics'
+     save_
+
+
+_citation.journal_abbrev 
+save__citation.journal_abbrev
+    _ndb_item_description.description
+;              
+Abbreviated name of the journal in which the citation is published. 
+If the abbreviation of your journal is not in the pull down menu, type in one. 
+;
+    _item.name                  '_citation.journal_abbrev'
+    _item.category_id             citation
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail    
+              'Acta Crystallogr.,Sect.A'        .
+              'Acta Crystallogr.,Sect.B'        .
+              'Acta Crystallogr.,Sect.C'        .
+              'Acta Crystallogr.,Sect.D'        .
+              'Acta Crystallogr.,Sect.F'        .
+              'Biochem.Biophys.Res.Commun.'     .
+              'Biochemistry'       .
+              'Biochimie'       .
+              'Biophys.J.'       .
+              'Biopolymers'       .
+              'Cell(Cambridge,Mass.)'       .
+              'Chem.Biol.'       .
+              'Embo J.'       .
+              'Eur.J.Biochem.'       .
+              'FEBS Lett.'       .
+              'Genes Dev.'       .
+              'J.Am.Chem.Soc.'       .
+              'J.Biol.Chem.'       .
+              'J.Biomol.Struct.Dyn.'       .
+              'J.Med.Chem.'       .
+              'J.Mol.Biol.'       .
+              'J.Synchrotron Radia.'       .
+              'Mol.Immunol.'       .
+              'Mol.Cell' .
+              'Nat.Struct.Mol.Biol.'       .
+              'Nature'       .
+              'Nature New Biol.'       .
+              'Nucleic Acids Res.'       .
+              'Nucleosides and Nucleotides'       .
+              'Philos.Trans.R.Soc.London,Ser.B'       .
+              'Plant Mol.Biol.'       .
+              'Proc.Natl.Acad.Sci.USA'       .
+              'Proc.R.Soc.London,Ser.B'       .
+              'Proteins'      .
+              'Proteins: Struct.,Funct.,Genet.'       .
+              'Protein Sci.'  .
+              'Science'       .
+              'Structure'       .
+              'Thesis'                   .
+              'To be Published'       .
+     loop_
+    _ndb_item_examples.case 
+    _ndb_item_examples.detail    
+              'J.Am.Chem.Soc.'             .
+              'J.Biol.Chem.'                .
+              'J.Biomol.Struct.Dyn.'       .
+     save_
+
+    
+_diffrn_detector.detector   
+save__diffrn_detector.detector
+    _ndb_item_description.description
+;
+The general class of detector: area detector, CCD, diffractometer, 
+film, image plate, oscillation camera, etc. 
+;
+    _item.name                  '_diffrn_detector.detector'
+    _item.category_id             diffrn_detector
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail
+                                 'AREA DETECTOR'                         .
+                                 'CCD'                                   .
+                                 'DIFFRACTOMETER'                        .
+                                 'FILM'                                  .
+                                 'FLAT PANEL'                            .
+                                 'IMAGE PLATE'                           .
+                                 'MICROGAP'                              .
+                                 'OSCILLATION CAMERA'                    .
+                                 'PIXEL'                                 .
+                                 'STORAGE PHOSPHORS'                     .
+     loop_
+    _ndb_item_examples.case
+    _ndb_item_examples.detail
+                                 'IMAGE PLATE'                           .
+                                 'CCD'                                   .
+
+     save_
+
+  
+_diffrn_detector.type   
+save__diffrn_detector.type
+    _ndb_item_description.description
+;
+The make, model or name of the detector device used.
+;
+    _item.name                  '_diffrn_detector.type'
+    _item.category_id             diffrn_detector
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail
+                  'ADSC QUANTUM 1'                  .
+                  'ADSC QUANTUM 4'                  .
+                  'ADSC QUANTUM 4r'                 .
+                  'ADSC QUANTUM 210'                .
+                  'ADSC QUANTUM 270'                .
+                  'ADSC QUANTUM 315'                .
+                  'ADSC QUANTUM 210r'               .
+                  'ADSC QUANTUM 315r'               .
+                  'AGILENT ATLAS CCD'               .
+                  'AGILENT EOS CCD'                 .
+                  'AGILENT TITAN CCD'               .
+                  'APEX II CCD'                     .
+                  'Bruker AXIOM 200'                .
+                  'Bruker DIP-6040'                 .
+                  'Bruker Platinum 135'             .
+                  'BRUKER SMART 2000'               .
+                  'BRUKER SMART 6000'               .
+                  'BRUKER SMART 6500'               .
+                  'CUSTOM-MADE'                     .
+                  'DECTRIS PILATUS 2M'              .
+                  'DECTRIS PILATUS 2M-F'            .
+                  'DECTRIS PILATUS 6M'              .
+                  'ENRAF-NONIUS'                    .
+                  'ENRAF-NONIUS CAD4'               .
+                  'ENRAF-NONIUS FAST'               .
+#                 'ENRAF-NONIUS GX-21'              .
+                  'FUJI'                            .
+                  'HENDRIX-LENTFER'                 .
+                  'KODAK'                           .
+                  'MACSCIENCE'                      .
+                  'MACSCIENCE DIP100'               .
+                  'MACSCIENCE DIP100S'              .
+                  'MAC Science DIP-2000'            .
+                  'MAC Science DIP-2030'            .
+                  'MAC Science DIP-3000'            .
+                  'MAC Science DIP-320'             .
+                  'MAC Science DIP-420 scanner'     .
+                  'MAR555 FLAT PANEL'               .
+                  'MAR CCD 165 mm'                  .
+                  'MAR CCD 130 mm'                  .
+                  'MARMOSAIC 225 mm CCD'            .
+                  'MARMOSAIC 300 mm CCD'            .
+                  'MARMOSAIC 325 mm CCD'            .
+                  'MARRESEARCH'                     .
+                  'MAR scanner 180 mm plate'        .
+                  'MAR scanner 300 mm plate'        .
+                  'MAR scanner 345 mm plate'        .
+                  'NICOLET'                         .
+                  'NICOLET P3'                      .
+                  'NICOLET P3X'                     .
+                  'NOIR-1'                          .
+                  'NONIUS CAD4'                     .
+                  'Nonius Kappa CCD'                .
+                  'OXFORD ONYX CCD'                 .
+                  'OXFORD RUBY CCD'                 .
+                  'OXFORD SAPPHIRE CCD'             .
+                  'OXFORD TITAN CCD'                .
+                  'PHILLIPS'                        .
+                  'PRINCETON 2K'                    .
+                  'PSI PILATUS 6M'                  .
+                  'RAYONIX MX-225'                  .
+                  'RAYONIX MX-300'                  .
+                  'RAYONIX MX-325'                  .
+                  'RAYONIX MX225HE'                 .
+                  'RAYONIX MX300HE'                 .
+                  'RAYONIX MX300HS'                 .
+                  'RAYONIX MX325HE'                 .
+                  'RAYONIX SX-165mm'                .
+                  'RIGAKU'                          . 
+#                 'RIGAKU AFC-5'                    .
+                  'RIGAKU AFC-5R'                   .
+                  'RIGAKU AFC-6R'                   .
+                  'RIGAKU AFC-6S'                   .
+                  'RIGAKU AFC11'                    .
+                  'RIGAKU AFC11-KAPPA'              .
+                  'RIGAKU AFC9'                     .
+                  'RIGAKU JUPITER 140'              .
+                  'RIGAKU JUPITER 210'              .
+                  'RIGAKU MERCURY'                  .
+                  'RIGAKU RAXIS'                    .
+                  'RIGAKU RAXIS HR'                 .
+                  'RIGAKU RAXIS HTC'                .
+                  'RIGAKU RAXIS II'                 .
+                  'RIGAKU RAXIS IIC'                .
+#                 'RIGAKU RAXIS III'                .
+                  'RIGAKU RAXIS IV'                 .	
+                  'RIGAKU RAXIS IV++'               .
+                  'RIGAKU RAXIS V'                  .
+                  'RIGAKU RAXIS VII'                .
+                  'RIGAKU SATURN 70'                .
+                  'RIGAKU SATURN 724'               .
+                  'RIGAKU SATURN 92'                .
+                  'RIGAKU SATURN 944'               .
+                  'RIGAKU SATURN 944+'              .
+                  'RIGAKU SATURN A200'              .
+                  'SBC-2'                           .
+                  'SBC-3'                           .
+                  'SDMS'                            .
+                  'SIEMENS'                         .
+                  'SIEMENS 2-D'                     .
+                  'SIEMENS AED2'                    .
+                  'SIEMENS FOUR-CIRCLE'             .
+                  'SIEMENS HI-STAR'                 .
+                  'SIEMENS P4'                      .
+                  'SIEMENS-NICOLET'                 .
+                  'SIEMENS-NICOLET X100'            .
+                  'SIEMENS-XENTRONICS'              .
+                  'STOE'                            .
+                  'STOE-SIEMENS AED2'               .
+                  'SYNTEX'                          .
+                  'UCSD MARK II'                    .
+                  'UCSD MARK III'                   .
+                  'WEISSENBERG'                     .
+                  'XENTRONICS'                      .
+     loop_
+    _ndb_item_examples.case
+    _ndb_item_examples.detail
+                  'ENRAF-NONIUS'                    .
+                  'SIEMENS-NICOLET'                 .
+                  'RIGAKU RAXIS IIC'                .
+     save_
+
+  
+_diffrn_source.pdbx_synchrotron_y_n  
+save__diffrn_source.ndb_synchrotron_y_n
+    _item_description.description
+;              Yes/No if synchrotron source was used or not.  
+;
+    _item.name                  '_diffrn_source.ndb_synchrotron_y_n'
+    _item.category_id             diffrn_source
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'Y' 
+	                         'N'
+     save_
+
+   
+_diffrn_source.pdbx_synchrotron_site     
+_diffrn_source.pdbx_synchrotron_site     
+
+_diffrn_source.source   
+
+save__diffrn_source.source
+    _ndb_item_description.description
+;              
+Select the type of radiation source: 
+rotating anode, sealed tube, or synchrotron.
+;
+    _item.name                  '_diffrn_source.source'
+    _item.category_id             diffrn_source
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail
+                                 'ROTATING ANODE'      .
+                                 'SEALED TUBE'         .
+                                 'SYNCHROTRON'         .
+                                 'NUCLEAR REACTOR'     .
+                                 'ELECTRON MICROSCOPE' .
+     loop_
+    _ndb_item_examples.case      'sealed tube'
+                                 'rotating-anode X-ray tube'
+                                 'synchrotron'
+                                 'nuclear reactor'
+                                 'spallation source'
+                                 'electron microscope'
+     save_
+
+
+  
+_diffrn_radiation.pdbx_monochromatic_or_laue_m_l  
+   
+
+save__diffrn_radiation.ndb_monochromatic_or_laue_m_l
+    _item_description.description
+;           Monochromator or Laue.
+;
+    _item.name             '_diffrn_radiation.ndb_monochromatic_or_laue_m_l'
+    _item.category_id             diffrn_radiation
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_default.value           'M'
+     loop_
+    _pdbx_item_enumeration.value
+    _pdbx_item_enumeration.detail      
+	'M' . 
+	'L' .
+     loop_
+    _item_examples.case          
+	'M' 
+	'L'
+     save_
+
+_diffrn_radiation.pdbx_diffrn_protocol    
+save__diffrn_radiation.rcsb_diffrn_protocol
+    _item_description.description
+;          SINGLE WAVELENGTH, LAUE, or MAD.
+;
+    _item.name                  '_diffrn_radiation.rcsb_diffrn_protocol'
+    _item.category_id             diffrn_radiation
+    _item.mandatory_code          no
+    _item_type.code               line
+#   _item_default.value           'SINGLE WAVELENGTH'
+     loop_
+    _pdbx_item_enumeration.value
+	'SINGLE WAVELENGTH'
+	'LAUE'
+        'MAD'
+     loop_
+    _item_examples.case          
+	'SINGLE WAVELENGTH' 
+	'LAUE'
+        'MAD'
+     save_
+
+ 
+_exptl_crystal_grow.method   
+save__exptl_crystal_grow.method
+    _ndb_item_description.description
+;
+Select the method used to grow the crystals from the pulldown menu. 
+<p>
+If the method used is not listed, please enter it in the space provided.
+;
+    _item.name                  '_exptl_crystal_grow.method'
+    _item.category_id             exptl_crystal_grow
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail 
+                                 'EVAPORATION'                            .
+                                 'EVAPORATION, RECRYSTALLIZATION'         .
+                                 'LIQUID DIFFUSION'                       .
+                                 'MICRODIALYSIS'                          .
+                                 'SLOW COOLING'                           .
+                                 'SMALL TUBES'                            .
+                                 'VAPOR DIFFUSION'                        .
+                                 'VAPOR DIFFUSION, HANGING DROP'          .
+                                 'VAPOR DIFFUSION, SITTING DROP'          .
+     loop_
+    _ndb_item_examples.case 
+    _ndb_item_examples.detail
+                                 'EVAPORATION'                            .
+                                 'EVAPORATION, RECRYSTALLIZATION'         .
+                                 'LIQUID DIFFUSION'                       .
+
+     save_
+
+
+
+  
+_pdbx_reflns_twin.type     
+_pdbx_reflns_twin.operator  
+save__pdbx_reflns_twin.type
+    _item_description.description
+;
+  There are two types of twinning: merohedral or hemihedral 
+                                   non-merohedral or epitaxial
+
+  For merohedral twinning the diffraction patterns from the different domains are
+  completely superimposable.   Hemihedral twinning is a special case of merohedral 
+  twinning. It only involves two distinct domains.  Pseudo-merohedral twinning is 
+  a subclass merohedral twinning in which lattice is coincidentally superimposable.
+ 
+  In the case of non-merohedral or epitaxial twinning  the reciprocal 
+  lattices do not superimpose exactly. In this case the  diffraction pattern 
+  consists of two (or more) interpenetrating lattices, which can in principle 
+  be separated.
+;
+    _item.name                   '_pdbx_reflns_twin.type'
+    _item.category_id            'pdbx_reflns_twin'
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _pdbx_item_enumeration.value    
+    'merohedral'
+    'hemihedral'
+    'non-merohedral'
+    'pseudo-merohedral'
+    'epitaxial'
+    'tetartohedral'
+save_
+
+save__pdbx_reflns_twin.operator
+    _item_description.description
+; 
+
+The possible merohedral or hemihedral twinning operators for different 
+point groups are:
+
+True point group  	Twin operation  	hkl related to
+3                      	2 along a,b             h,-h-k,-l  
+                       	2 along a*,b*           h+k,-k,-l 
+                        2 along c               -h,-k,l  
+4                       2 along a,b,a*,b*       h,-k,-l   
+6                       2 along a,b,a*,b*       h,-h-k,-l  
+321                     2 along a*,b*,c         -h,-k,l  
+312                     2 along a,b,c           -h,-k,l  
+23                      4 along a,b,c            k,-h,l  
+
+References:
+ Yeates, T.O. (1997) Methods in Enzymology 276, 344-358. Detecting and
+ Overcoming Crystal Twinning.
+
+ and information from the following on-line sites:
+
+   CNS site http://cns.csb.yale.edu/v1.1/
+   CCP4 site http://www.ccp4.ac.uk/dist/html/detwin.html
+   SHELX site http://shelx.uni-ac.gwdg.de/~rherbst/twin.html
+
+;
+    _item.name                   '_pdbx_reflns_twin.operator'
+    _item.category_id            'pdbx_reflns_twin'
+    _item.mandatory_code          yes
+    _item_type.code               line
+
+    loop_
+    _item_examples.case
+ 'h,-h-k,-l'
+ 'h+k,-k,-l' 
+ '-h,-k,l'  
+ 'h,-k,-l'   
+ 'h,-h-k,-l'  
+ '-h,-k,l'  
+ '-h,-k,l'  
+ 'k,-h,l'  
+save_
+
+
+
+   
+_struct_keywords.pdbx_keywords    
+ 
+_refine.pdbx_method_to_determine_struct     
+
+
+save__refine.ndb_method_to_determine_struct
+    _ndb_item_description.description
+;                 Methods used to determine the structure.
+;
+ 
+    _item.name                  '_refine.ndb_method_to_determine_struct'
+    _item.category_id             refine
+    loop_
+    _ndb_item_examples.case
+    _ndb_item_examples.detail
+'SAD'                   .
+'MAD' 	                .
+'MIR'                   .
+'MOLECULAR REPLACEMENT' .
+'FOURIER SYNTHESIS'     .
+'AB INITIO PHASING'     .
+
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail  
+'SAD'                   .
+'MAD' 	                .
+'MIR'                   .
+'MOLECULAR REPLACEMENT' .
+'FOURIER SYNTHESIS'     .
+'AB INITIO PHASING'     .
+
+     save_
+
+_refine.pdbx_ls_cross_valid_method     
+
+_symmetry.space_group_name_H-M    
+save__symmetry.space_group_name_H-M
+    _ndb_item_description.description
+;              Hermann-Mauguin space-group symbol. Note that the H-M symbol does
+               not necessarily contain complete information about the symmetry
+               and the space-group origin. In such a case, supply a full space 
+               group name from International Tables for Crystallography, 
+               Vol. A (1987).
+;
+    _item.name                  '_symmetry.space_group_name_H-M'
+    _item.category_id             symmetry
+     loop_
+    _ndb_item_examples.case
+    _ndb_item_examples.detail
+                           'P 2'    .
+                           'P 2 21 21'  .
+                           'P 21'       .
+                           'P 21 2 21'  .
+                           'P 21 21 2'  .
+     loop_
+    _ndb_pdbx_item_enumeration.value
+    _ndb_pdbx_item_enumeration.detail
+'A 1'       .
+'A 1 2 1'       .
+'A 2'       .
+'B 1 1 2'       .
+'B 2'       .
+'B 2 21 2'       .
+'C 2'       .
+'C 1 2 1'       .
+'C 21'       .
+'C 1 21 1'       .
+'C 2(A 112)'       .
+'C 2 2 2'       .
+'C 2 2 21'       .
+'C 4 21 2'       .
+'F 2 2 2'       .
+'F 2 3'       .
+'F 4 2 2'       .
+'F 4 3 2'       .
+'F 41 3 2'       .
+'I 1 2 1'       .
+'I 1 21 1'       .
+'I 2'       .
+'I 2 2 2'       .
+'I 2 3'       .
+'I 21'       .
+'I 21 3'       .
+'I 21 21 21'       .
+'I 4'       .
+'I 4 2 2'       .
+'I 4 3 2'       .
+'I 41'       .
+'I 41/a'       .
+'I 41 2 2'       .
+'I 41 3 2'       .
+'P 1'       .
+'P -1'       .
+'P 2'       .
+'P 1 2 1'       .
+'P 1 1 2'       .
+'P 2 2 2'       .
+'P 2 3'       .
+'P 2 2 21'       .
+'P 2 21 21'       .
+'P 21'       .
+'P 1 21 1'       .
+'P 1 21/c 1'       .
+'P 1 1 21'       .
+'P 21(C)'       .
+'P 21 2 21'       .
+'P 21 3'       .
+'P 21 21 2'       .
+'P 21 21 2 A'       .
+'P 21 21 21'       .
+'P 3'       .
+'P 3 1 2'       .
+'P 3 2 1'       .
+'P 31'       .
+'P 31 1 2'       .
+'P 31 2 1'       .
+'P 32'       .
+'P 32 1 2'       .
+'P 32 2 1'       .
+'P 4'       .
+'P 4 2 2'       .
+'P 4 3 2'       .
+'P 4 21 2'       .
+'P 41'       .
+'P 41 2 2'       .
+'P 41 3 2'       .
+'P 41 21 2'       .
+'P 42'       .
+'P 42 2 2'       .
+'P 42 3 2'       .
+'P 42 21 2'       .
+'P 43'       .
+'P 43 2 2'       .
+'P 43 3 2'       .
+'P 43 21 2'       .
+'P 6'       .
+'P 6 2 2'       .
+'P 61'       .
+'P 61 2 2'       .
+'P 62'       .
+'P 62 2 2'       .
+'P 63'       .
+'P 63 2 2'       .
+'P 64'       .
+'P 64 2 2'       .
+'P 65'       .
+'P 65 2 2'       .
+'H 3'       .
+'R 3'       .
+'H 3 2'       .
+'R 3 2'       .
+      save_
+
+
+ 
+_computing.structure_refinement     
+_computing.structure_solution     
+_computing.rcsb_data_reduction_ii     
+_computing.rcsb_data_reduction_ds     
+save__computing.data_collection
+    _ndb_item_description.description
+;              Software used for data collection and/or data integration.
+;
+     loop_
+    _ndb_pdbx_item_enumeration.value                                
+#                          DENZO
+#                          HKL-2000
+#                          MARXDS
+#                          SDMS
+#                          R-AXIS
+#                          MAR
+#                          BIOTEX
+#                          XENGEN
+#                          DCREDUCE
+#                          MOSFLM
+#                          MADNES
+#                          PROCOR
+#                          SCALE
+#                          CAD4
+                           Biotex
+                           'ADSC Quantum'
+                           APEX
+                           CBASS
+                           CrystalClear
+                           DNA
+                           HKL-2000
+                           HKL-3000
+                           MAR345dtb
+                           'PROTEUM PLUS'
+                           StructureStudio
+
+    _item.name                  '_computing.data_collection'
+    _item.category_id             computing
+    _ndb_item_examples.case      'DENZO'
+     save_
+
+
+save__computing.data_reduction
+    _ndb_item_description.description
+;              Software used for data reduction and/or scaling.
+;
+     loop_
+    _ndb_pdbx_item_enumeration.value                                
+#                          SCALEPACK
+#                          R-AXIS
+#                          BIOTEX
+#                          XENGEN
+#                          XDS
+#                          MARSCALE
+#                          SDMS
+#                          ROTAVATA-AGROVATA
+#                          SCALA
+#                          DIFDAT
+#                          TRUNCATE
+#                          SORTRF
+#                          'ADDREF(XTAL3.0, 1990)'
+                           DENZO
+                           SCALEPACK
+                           HKL-2000
+                           HKL-3000
+                           BIOTEX
+                           MADNES
+                           SCALE
+                           PROCOR
+                           'D*TREK'
+                           SAINT
+                           XDS
+                           MOSFLM
+                           XENGEN
+                           BUDDHA
+                           MARXDS
+                           MARSCALE
+                           DCREDUCE
+                           SDMS
+                           'ADDREF (XTAL)'
+                           ROTAVATA-AGRAVATA
+                           DIFDAT
+                            SCALA
+                           SORTRF
+                           TRUNCATE
+
+    _item.name                  '_computing.data_reduction'
+    _item.category_id             computing
+     loop_
+    _ndb_item_examples.case     DIFDAT
+                                SORTRF 
+                                'ADDREF (XTAL3.0, 1990)'
+     save_
+
+
+save__computing.rcsb_data_reduction_ii
+    _ndb_item_description.description
+;              Data reduction/intensity integration software
+
+               Give the program or package name.
+;
+     loop_
+    _ndb_pdbx_item_enumeration.value                                
+                           APEX
+                           AUTOMAR
+                           CrystalClear
+                           'd*TREK'
+                           DENZO
+                           DIFDAT
+                           DNA
+                           DPS
+                           HKL-2000
+                           HKL-3000
+                           MOSFLM
+                           PROCESS
+                           'PROTEUM PLUS'
+                           SAINT
+                           StructureStudio
+
+    _item.name                  '_computing.rcsb_data_reduction_ii'
+    _item.category_id             computing
+     loop_
+    _ndb_item_examples.case     APEX
+                                DENZO
+                                HKL-2000
+                                HKL-3000
+     save_
+
+
+save__computing.rcsb_data_reduction_ds
+    _ndb_item_description.description
+;              Data reduction/data scaling
+
+               Give the program or package name.
+;
+     loop_
+    _ndb_pdbx_item_enumeration.value                                
+                           ADDREF
+                           APEX
+                           AUTOMAR
+                           CrystalClear
+                           'd*TREK'
+                           DNA
+                           DPS
+                           HKL-2000
+                           HKL-3000
+                           PROCESS
+                           'PROTEUM PLUS'
+                           SCALA
+                           SCALEPACK
+                           SORTRF
+                           StructureStudio
+
+    _item.name                  '_computing.rcsb_data_reduction_ds'
+    _item.category_id             computing
+     loop_
+    _ndb_item_examples.case     ADDREF
+                                DIFDAT
+                                SORTRF 
+                                SCALA
+     save_
+
+
+save__computing.structure_refinement
+    _ndb_item_description.description
+;              Software used for refinement of the structure.
+;
+    _item.name                  '_computing.structure_refinement'
+    _item.category_id             computing
+    loop_
+    _ndb_pdbx_item_enumeration.value        
+                          CNS
+                          'CNS 0.9'
+                          'CNS 1.0'
+                          'CNS 1.1'
+                          CORELS
+                          GPRLSA
+                          JACK-LEVITT
+                          NUCLSQ
+                          PROFFT
+                          PROLSQ
+#                         PROTEIN
+                          REFMAC
+                          'REFMAC 5.0'
+                          'REFMAC 5.1'
+                          'REFMAC 5.1.19'
+                          'REFMAC 5.1.24'
+                          RESTRAIN
+                          SHELXL-93
+                          SHELXL-97
+                          TNT
+                          'TNT 5E'
+                          'X-PLOR'
+                          'X-PLOR 3.1'
+                          'X-PLOR 3.843'
+                          'X-PLOR 3.851'
+                          'X-PLOR 98.0'
+                          'X-PLOR 98.1'
+                          XTALVIEW
+
+     loop_
+    _ndb_item_examples.case     'X-PLOR 3.1'
+     save_
+
+
+save__computing.structure_solution
+    _ndb_item_description.description
+;              Software used for solution of the structure.
+;
+    _item.name                  '_computing.structure_solution'
+    _item.category_id             computing
+    loop_
+    _ndb_pdbx_item_enumeration.value        
+                          AMoRE
+                          CNS
+                          DM
+                          GLRF
+                          ISIR
+                          MADSYS
+                          MERLOT
+                          MLPHARE
+#                         PROTEIN
+                          SHARP
+                          PHASES
+                          SHELXS
+                          SnB
+                          SOLVE
+                          SQUASH
+                          TNT
+                          X-PLOR
+                          XFIT
+#                         XTALVIEW
+
+     loop_
+    _ndb_item_examples.case     'AMoRE'
+     save_
+
+
+
+_entity_src_nat.pdbx_organism_scientific     
+save__entity_src_nat.ndb_organism_scientific
+    _item_description.description
+;              Scientific name of the organism of the natural source.
+;
+    _item.name                  '_entity_src_nat.ndb_organism_scientific'
+    _item.category_id             entity_src_nat
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _pdbx_item_enumeration.value
+'Bos taurus'
+'Cricetulus griseus'
+'Escherichia coli'
+'Gallus gallus'
+'Homo sapiens'
+'Methanococcus thermolithotrophicus'
+'Mus musculus'
+'Oryctolagus cuniculus'
+'Rattus norvegicus'
+'Saccharomyces cerevisiae'
+'Sus scrofa'
+'Thermus thermophilus'
+
+     loop_
+    _item_examples.case       'Bos taurus' 'Sus scrofa' 'Aspergillus oryzae'
+     save_
+
+_entity_src_gen.pdbx_gene_src_scientific_name
+save__entity_src_gen.ndb_gene_src_scientific_name
+    _item_description.description
+;              Scientific name of the organism.
+;
+    _item.name                  '_entity_src_gen.ndb_gene_src_scientific_name'
+    _item.category_id             entity_src_gen
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _pdbx_item_enumeration.value
+'Bos taurus'
+'Cricetulus griseus'
+'Escherichia coli'
+'Gallus gallus'
+'Homo sapiens'
+'Methanococcus thermolithotrophicus'
+'Mus musculus'
+'Oryctolagus cuniculus'
+'Rattus norvegicus'
+'Saccharomyces cerevisiae'
+'Sus scrofa'
+'Thermus thermophilus'
+
+    _item_examples.case       
+;
+Escherichia coli
+Homo sapiens
+Saccharomyces cerevisiae
+;
+     save_
+
+
