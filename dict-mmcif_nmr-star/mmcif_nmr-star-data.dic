@@ -5,7 +5,7 @@
 
          ?       ?
 
-   stop_
+   
 
 
      loop_
@@ -468,7 +468,7 @@ Categories that capture the proton chemical shift constraints used to calculate 
 Categories that capture values for other kinds of constraints not specifically defined in other category groups used to calculate one or more conformers for a biomolecular system.
 ;
 
-     stop_
+     
 
 
 
@@ -636,7 +636,7 @@ Categories that capture values for other kinds of constraints not specifically d
 ;   A value that begins with the character '$' and points to a saveframe.
 ;
 
-    stop_
+    
 
 #####################
 ## ITEM_UNITS_LIST ##
@@ -862,5 +862,5 @@ Categories that capture values for other kinds of constraints not specifically d
      'electrons_per_angstroms_cubed'                       '*'   1.0E+06
 ###
  
-  stop_
+  
 
