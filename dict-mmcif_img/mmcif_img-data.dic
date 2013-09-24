@@ -9,7 +9,6 @@
 ##############################################################################
 
 
-
 #########################
 ## CATEGORY_GROUP_LIST ##
 #########################
@@ -33,6 +32,16 @@
              'inclusive_group'
 ;            Categories that describe details of the diffraction experiment.
 ;
+             'map_group'
+             'inclusive_group'
+;            Categories that describe details of map data.
+;
+             'variant_group'
+             'inclusive_group'
+;            Categories that describe details of map data.
+;
+
+
 ##################
 ## SUB_CATEGORY ##
 ##################
@@ -46,6 +55,10 @@
               'vector'
 ;              The collection of elements of a vector.
 ;
+
+
+
+
 
 
 ####################
@@ -80,23 +93,23 @@
     _item_type_list.construct
     _item_type_list.detail
                code      char
-'[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
 ;              code item types/single words ...
 ;
                ucode      uchar
-'[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
-;              code item types/single words (case insensitive)
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words (case insensitive) ...
 ;
                line      char
-'[][ \t_(),.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
-;              code item types / multi-word items  ...
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items ...
 ;
                uline     uchar
-'[][ \t_(),.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
-;              code item types / multi-word items (case insensitive)
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items (case insensitive)...
 ;
                text      char
-'[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+             '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              text item types / multi-line text ...
 ;
                binary    char
@@ -109,35 +122,47 @@
                are used to convey the same information.
 ;
                int       numb
-'-?[0-9]+'
+               '-?[0-9]+'
 ;              int item types are the subset of numbers that are the negative
                or positive integers.
 ;
                float     numb
-'-?(([0-9]+)|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+          '-?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
 ;              float item types are the subset of numbers that are the floating
-               numbers.
+               point numbers.
 ;
                any       char
-'.*'
+               '.*'
 ;              A catch all for items that may take any form...
 ;
                yyyy-mm-dd  char
 ;\
-[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]\
-(T[0-2][0-9]:[0-5][0-9]:[0-5][0-9](.[0-9]+)([+-][0-5][0-9]:[0-5][0-9]))
+[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9]?[0-9]\
+((T[0-2][0-9](:[0-5][0-9](:[0-5][0-9](.[0-9]+)?)?)?)?\
+([+-][0-5][0-9]:[0-5][0-9]))?
 ;
 ;
                Standard format for CIF date and time strings (see
                http://www.iucr.org/iucr-top/cif/spec/datetime.html),
                consisting of a yyyy-mm-dd date optionally followed by
-               the character "T" followed by a 24-hour clock time,
+               the character 'T' followed by a 24-hour clock time,
                optionally followed by a signed time-zone offset.
 
                The IUCr standard has been extended to allow for an optional
                decimal fraction on the seconds of time.
 
                Time is local time if no time-zone offset is given.
+
+               Note that this type extends the mmCIF yyyy-mm-dd type
+               but does not conform to the mmCIF yyyy-mm-dd:hh:mm
+               type that uses a ':' in place if the 'T' specified
+               by the IUCr standard.  For reading, both forms should
+               be accepted,  but for writing, only the IUCr form should
+               be used.
+
+               For maximal compatibility, the special time zone
+               indicator 'Z' (for 'zulu') should be accepted on
+               reading in place of '+00:00' for GMT.
 ;
 
 
@@ -158,20 +183,21 @@
      'femtometres'            'femtometres (metres * 10^(-15)^)'
 #
      'reciprocal_metres'      'reciprocal metres (metres^(-1)^)'
-     'reciprocal_centimetres' 
-       'reciprocal centimetres ((metres * 10^( -2))^(-1)^)'
-     'reciprocal_millimetres' 
-       'reciprocal millimetres ((metres * 10^( -3))^(-1)^)'
-     'reciprocal_nanometres'  
-       'reciprocal nanometres  ((metres * 10^( -9))^(-1)^)'
-     'reciprocal_angstroms'   
-       'reciprocal angstroms   ((metres * 10^(-10))^(-1)^)'
-     'reciprocal_picometres'  
-       'reciprocal picometres  ((metres * 10^(-12))^(-1)^)'
+     'reciprocal_centimetres'
+        'reciprocal centimetres ((metres * 10^( -2)^)^(-1)^)'
+     'reciprocal_millimetres'
+        'reciprocal millimetres ((metres * 10^( -3)^)^(-1)^)'
+     'reciprocal_nanometres'
+        'reciprocal nanometres  ((metres * 10^( -9)^)^(-1)^)'
+     'reciprocal_angstroms'
+        'reciprocal \%Angstroms   ((metres * 10^(-10)^)^(-1)^)'
+     'reciprocal_picometres'
+        'reciprocal picometres  ((metres * 10^(-12)^)^(-1)^)'
 #
      'nanometres_squared'     'nanometres squared (metres * 10^( -9)^)^2^'
      'angstroms_squared'      '\%Angstroms squared  (metres * 10^(-10)^)^2^'
-     '8pi2_angstroms_squared' '8\p^2^ * \%Angstroms squared (metres * 10^(-10)^)^2^'
+     '8pi2_angstroms_squared'
+       '8\p^2^ * \%Angstroms squared (metres * 10^(-10)^)^2^'
      'picometres_squared'     'picometres squared (metres * 10^(-12)^)^2^'
 #
      'nanometres_cubed'       'nanometres cubed (metres * 10^( -9)^)^3^'
@@ -205,7 +231,7 @@
 ; electrons per nanometres cubed (electrons/(metres * 10^( -9)^)^(-3)^)
 ;
      'electrons_per_angstroms_cubed'
-; electrons per angstroms  cubed (electrons/(metres * 10^(-10)^)^(-3)^)
+; electrons per \%Angstroms cubed (electrons/(metres * 10^(-10)^)^(-3)^)
 ;
      'electrons_per_picometres_cubed'
 ; electrons per picometres cubed (electrons/(metres * 10^(-12)^)^(-3)^)
@@ -213,6 +239,8 @@
      'kilowatts'              'kilowatts'
      'milliamperes'           'milliamperes'
      'kilovolts'              'kilovolts'
+#
+     'pixels_per_element'     '(image) pixels per (array) element'
 #
      'arbitrary'
 ; arbitrary system of units.
@@ -362,5 +390,3 @@
      'electrons_per_angstroms_cubed'                       '*'   1.0E-06
 ###
 
-
-### EOF  mmcif_img-data.dic
