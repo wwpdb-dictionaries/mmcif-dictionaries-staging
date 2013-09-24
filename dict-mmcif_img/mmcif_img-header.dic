@@ -1,6 +1,6 @@
-data_cif_img.dic
+data_mmcif_img.dic
 
-    _datablock.id               cif_img.dic
+    _datablock.id               mmcif_img.dic
     _datablock.description
 ;
 ##############################################################################
@@ -615,9 +615,9 @@ data_cif_img.dic
 ;
 
 
-    _dictionary.title           cif_img.dic
+    _dictionary.title           mmcif_img.dic
     _dictionary.version         1.6.4
-    _dictionary.datablock_id    cif_img.dic
+    _dictionary.datablock_id    mmcif_img.dic
 ########################
 ## DICTIONARY_HISTORY ##
 ########################

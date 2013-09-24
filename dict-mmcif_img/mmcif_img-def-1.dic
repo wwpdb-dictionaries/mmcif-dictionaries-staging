@@ -4,7 +4,7 @@
 
 
 
-save_ARRAY_DATA
+save_array_data
     _category.description
 ;    Data items in the ARRAY_DATA category are the containers for
      the array data items described in the category ARRAY_STRUCTURE.
@@ -25,7 +25,7 @@ save_ARRAY_DATA
      dictionary will need to be populated.
     
 ;
-    _category.id                   ARRAY_DATA
+    _category.id                   array_data
     _category.mandatory_code       no
 
     _category.NX_mapping_details
@@ -211,7 +211,7 @@ save__array_data.array_id
              
 ;
     _item.name                  '_array_data.array_id'
-    _item.category_id             ARRAY_DATA
+    _item.category_id             array_data
     _item.mandatory_code          implicit
     _item_default.value           1
     _item_type.code               code
@@ -239,12 +239,9 @@ save__array_data.binary_id
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_array_data.binary_id'            ARRAY_DATA
-                                                                implicit
-             '_diffrn_data_frame.binary_id'     DIFFRN_DATA_FRAME
-                                                                implicit
-             '_array_intensities.binary_id'     ARRAY_INTENSITIES
-                                                                implicit
+             '_array_data.binary_id'            array_data           implicit
+             '_diffrn_data_frame.binary_id'     diffrn_data_frame    implicit
+             '_array_intensities.binary_id'     array_intensities    implicit
      loop_
     _item_linked.child_name
     _item_linked.parent_name
@@ -486,7 +483,7 @@ save__array_data.data
               before the closing flags for a binary section.
 ;
     _item.name                  '_array_data.data'
-    _item.category_id             ARRAY_DATA
+    _item.category_id             array_data
     _item.mandatory_code          yes
     _item_type.code               binary
 save_
@@ -504,7 +501,7 @@ save__array_data.header_contents
               appears.
 ;
     _item.name                  '_array_data.header_contents'
-    _item.category_id            ARRAY_DATA
+    _item.category_id            array_data
     _item.mandatory_code         no
     _item_type.code              text
      save_
@@ -524,7 +521,7 @@ save__array_data.header_convention
               the MEDSBIO.org web site.
 ;
     _item.name                  '_array_data.header_convention'
-    _item.category_id            ARRAY_DATA
+    _item.category_id            array_data
     _item.mandatory_code         no
     _item_type.code              code
      save_
@@ -541,8 +538,8 @@ save__array_data.variant
               VARIANT category.
 ;
     _item.name                  '_array_data.variant'
-    _item.category_id             ARRAY_DATA
-    _item.mandatory_code          no
+    _item.category_id             array_data
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -553,12 +550,12 @@ save__array_data.variant
 ######################
 
 
-save_ARRAY_ELEMENT_SIZE
+save_array_element_size
     _category.description
 ;    Data items in the ARRAY_ELEMENT_SIZE category record the physical
      size of array elements along each array dimension.
 ;
-    _category.id                   ARRAY_ELEMENT_SIZE
+    _category.id                   array_element_size
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -620,7 +617,7 @@ save__array_element_size.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_array_element_size.array_id'
-    _item.category_id             ARRAY_ELEMENT_SIZE
+    _item.category_id             array_element_size
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -632,9 +629,9 @@ save__array_element_size.index
               the ARRAY_STRUCTURE_LIST category.
 ;
     _item.name                  '_array_element_size.index'
-    _item.category_id             ARRAY_ELEMENT_SIZE
+    _item.category_id             array_element_size
     _item.mandatory_code          yes
-    _item_type.code               code
+    _item_type.code               int
      save_
 
 
@@ -645,7 +642,7 @@ save__array_element_size.size
                on a regular grid.
 ;
     _item.name               '_array_element_size.size'
-    _item.category_id          ARRAY_ELEMENT_SIZE
+    _item.category_id          array_element_size
     _item.mandatory_code       yes
     _item_type.code            float
     _item_units.code           'metres'
@@ -667,8 +664,8 @@ save__array_element_size.variant
               VARIANT category.
 ;
     _item.name                  '_array_element_size.variant'
-    _item.category_id             ARRAY_ELEMENT_SIZE
-    _item.mandatory_code          no
+    _item.category_id             array_element_size
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -678,7 +675,7 @@ save__array_element_size.variant
 #####################
 
 
-save_ARRAY_INTENSITIES
+save_array_intensities
     _category.description
 ;             Data items in the ARRAY_INTENSITIES category record the
               information required to recover the intensity data from
@@ -695,7 +692,7 @@ save_ARRAY_INTENSITIES
               and _array_intensities.gain will not be used.
 
 ;
-    _category.id                   ARRAY_INTENSITIES
+    _category.id                   array_intensities
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -840,7 +837,7 @@ save__array_intensities.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_array_intensities.array_id'
-    _item.category_id             ARRAY_INTENSITIES
+    _item.category_id             array_intensities
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -852,7 +849,7 @@ save__array_intensities.binary_id
               ARRAY_DATA category.
 ;
     _item.name                  '_array_intensities.binary_id'
-    _item.category_id             ARRAY_INTENSITIES
+    _item.category_id             array_intensities
     _item.mandatory_code          implicit
     _item_type.code               int
      save_
@@ -862,7 +859,7 @@ save__array_intensities.details
 ;              A description of special aspects of the calculation of array intensities.
 ;
     _item.name                  '_array_intensities.details'
-    _item.category_id             ARRAY_INTENSITIES
+    _item.category_id             array_intensities
     _item.mandatory_code          no
     _item_type.code                   text
     _item_examples.case         'Gain_setting: low gain (vrf = -0.300)'
@@ -877,7 +874,7 @@ save__array_intensities.gain
                true photon counts.
 ;
     _item.name              '_array_intensities.gain'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       yes
     _item_type.code            float
      loop_
@@ -897,7 +894,7 @@ save__array_intensities.gain_esd
 ;            The estimated standard deviation in detector 'gain'.
 ;
     _item.name              '_array_intensities.gain_esd'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       yes
     _item_type.code            float
      loop_
@@ -950,7 +947,7 @@ save__array_intensities.linearity
 ;
 
     _item.name               '_array_intensities.linearity'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       yes
     _item_type.code            code
      loop_
@@ -1006,7 +1003,7 @@ save__array_intensities.offset
                described by the item _array_intensities.linearity.
 ;
     _item.name                 '_array_intensities.offset'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       no
     _item_type.code            float
     save_
@@ -1017,7 +1014,7 @@ save__array_intensities.overload
 ;              The saturation intensity level for this data array.
 ;
     _item.name                 '_array_intensities.overload'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code          'counts'
@@ -1040,7 +1037,7 @@ save__array_intensities.pixel_fast_bin_size
                detector pixel size.
 ;
     _item.name              '_array_intensities.pixel_fast_bin_size'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       implicit
     _item_type.code            float
     _item_default.value        1.
@@ -1068,7 +1065,7 @@ save__array_intensities.pixel_slow_bin_size
                detector pixel size.
 ;
     _item.name              '_array_intensities.pixel_slow_bin_size'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       implicit
     _item_type.code            float
     _item_default.value        1.
@@ -1086,7 +1083,7 @@ save__array_intensities.pixel_binning_method
                the method used to derive array elements from multiple pixels.
 ;
     _item.name              '_array_intensities.pixel_binning_method'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       implicit
     _item_type.code            code
      loop_
@@ -1128,7 +1125,7 @@ save__array_intensities.scaling
                _array_intensities.linearity.
 ;
     _item.name                 '_array_intensities.scaling'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       no
     _item_type.code            float
     save_
@@ -1141,7 +1138,7 @@ save__array_intensities.undefined_value
                the data array.
 ;
     _item.name                 '_array_intensities.undefined_value'
-    _item.category_id          ARRAY_INTENSITIES
+    _item.category_id          array_intensities
     _item.mandatory_code       no
     _item_type.code            float
     save_
@@ -1158,8 +1155,8 @@ save__array_intensities.variant
               VARIANT category.
 ;
     _item.name                  '_array_intensities.variant'
-    _item.category_id             ARRAY_INTENSITIES
-    _item.mandatory_code          no
+    _item.category_id             array_intensities
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -1169,12 +1166,12 @@ save__array_intensities.variant
 ###################
 
 
-save_ARRAY_STRUCTURE
+save_array_structure
     _category.description
 ;    Data items in the ARRAY_STRUCTURE category record the organization and
      encoding of array data that may be stored in the ARRAY_DATA category.
 ;
-    _category.id                   ARRAY_STRUCTURE
+    _category.id                   array_structure
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -1229,7 +1226,7 @@ save__array_structure.byte_order
 ;
 
     _item.name                     '_array_structure.byte_order'
-    _item.category_id               ARRAY_STRUCTURE
+    _item.category_id               array_structure
     _item.mandatory_code            yes
     _item_type.code                 ucode
      loop_
@@ -1252,7 +1249,7 @@ save__array_structure.compression_type
               data.
 ;
     _item.name                   '_array_structure.compression_type'
-    _item.category_id             ARRAY_STRUCTURE
+    _item.category_id             array_structure
     _item.mandatory_code          no
     _item_type.code               ucode
     _item_default.value           'none'
@@ -1293,7 +1290,7 @@ save__array_structure.compression_type_flag
               compress the arraydata.
 ;
     _item.name                   '_array_structure.compression_type_flag'
-    _item.category_id             ARRAY_STRUCTURE
+    _item.category_id             array_structure
     _item.mandatory_code          no
     _item_type.code               ucode
      loop_
@@ -1334,7 +1331,7 @@ save__array_structure.encoding_type
 ;
 
     _item.name                '_array_structure.encoding_type'
-    _item.category_id          ARRAY_STRUCTURE
+    _item.category_id          array_structure
     _item.mandatory_code       yes
     _item_type.code            uline
      loop_
@@ -1365,12 +1362,12 @@ save__array_structure.id
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_array_structure.id'              ARRAY_STRUCTURE      implicit
-             '_array_data.array_id'             ARRAY_DATA           implicit
-             '_array_structure_list.array_id'   ARRAY_STRUCTURE_LIST implicit
-             '_array_structure_list_section.array_id'   ARRAY_STRUCTURE_LIST_SECTION implicit
-             '_array_intensities.array_id'      ARRAY_INTENSITIES    implicit
-             '_diffrn_data_frame.array_id'      DIFFRN_DATA_FRAME    implicit
+             '_array_structure.id'              array_structure      implicit
+             '_array_data.array_id'             array_data           implicit
+             '_array_structure_list.array_id'   array_structure_list implicit
+             '_array_structure_list_section.array_id'   array_structure_list_section implicit
+             '_array_intensities.array_id'      array_intensities    implicit
+             '_diffrn_data_frame.array_id'      diffrn_data_frame    implicit
 
 
     _item_default.value           1
@@ -1403,8 +1400,8 @@ save__array_structure.variant
               VARIANT category.
 ;
     _item.name                  '_array_structure.variant'
-    _item.category_id             ARRAY_STRUCTURE
-    _item.mandatory_code          no
+    _item.category_id             array_structure
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -1414,14 +1411,14 @@ save__array_structure.variant
 ########################
 
 
-save_ARRAY_STRUCTURE_LIST
+save_array_structure_list
     _category.description
 ;    Data items in the ARRAY_STRUCTURE_LIST category record the size
      and organization of each array dimension.
 
      The relationship to physical axes may be given.
 ;
-    _category.id                   ARRAY_STRUCTURE_LIST
+    _category.id                   array_structure_list
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -1504,7 +1501,7 @@ save__array_structure_list.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_array_structure_list.array_id'
-    _item.category_id             ARRAY_STRUCTURE_LIST
+    _item.category_id             array_structure_list
     _item.mandatory_code          implicit
     _item_type.code               code
 save_
@@ -1531,19 +1528,18 @@ save__array_structure_list.axis_set_id
     _item.category_id
     _item.mandatory_code
            '_array_structure_list.axis_set_id'
-                                  ARRAY_STRUCTURE_LIST            yes
+                                  array_structure_list            yes
            '_array_structure_list_axis.axis_set_id'
-                                  ARRAY_STRUCTURE_LIST_AXIS       implicit
+                                  array_structure_list_axis       implicit
            '_array_structure_list_section.axis_set_id'
-                                  ARRAY_STRUCTURE_LIST_AXIS_SECTION
+                                  array_structure_list_section
                                                                   implicit
     _item_type.code               code
      loop_
     _item_linked.child_name
     _item_linked.parent_name
-           '_array_structure_list_axis.axis_set_id'
-                               '_array_structure_list.axis_set_id'
-
+           '_array_structure_list_axis.axis_set_id'    '_array_structure_list.axis_set_id'
+           '_array_structure_list_section.axis_set_id' '_array_structure_list.axis_set_id'
 
      save_
 
@@ -1554,7 +1550,7 @@ save__array_structure_list.dimension
                this dimension.
 ;
     _item.name                '_array_structure_list.dimension'
-    _item.category_id          ARRAY_STRUCTURE_LIST
+    _item.category_id          array_structure_list
     _item.mandatory_code       yes
     _item_type.code            int
      loop_
@@ -1570,7 +1566,7 @@ save__array_structure_list.direction
 ;             Identifies the direction in which this array index changes.
 ;
     _item.name                '_array_structure_list.direction'
-    _item.category_id          ARRAY_STRUCTURE_LIST
+    _item.category_id          array_structure_list
     _item.mandatory_code       yes
     _item_type.code            code
      loop_
@@ -1595,9 +1591,9 @@ save__array_structure_list.index
     _item.name
     _item.category_id
     _item.mandatory_code
-           '_array_structure_list.index'        ARRAY_STRUCTURE_LIST   yes
-           '_array_structure_list.precedence'   ARRAY_STRUCTURE_LIST   yes
-           '_array_element_size.index'          ARRAY_ELEMENT_SIZE     yes
+           '_array_structure_list.index'        array_structure_list   yes
+           '_array_structure_list.precedence'   array_structure_list   yes
+           '_array_element_size.index'          array_element_size     yes
 
     _item_type.code            int
 
@@ -1624,7 +1620,7 @@ save__array_structure_list.precedence
                indicates the index which changes fastest.
 ;
     _item.name                '_array_structure_list.precedence'
-    _item.category_id          ARRAY_STRUCTURE_LIST
+    _item.category_id          array_structure_list
     _item.mandatory_code       yes
     _item_type.code            int
      loop_
@@ -1646,8 +1642,8 @@ save__array_structure_list.variant
               VARIANT category.
 ;
     _item.name                  '_array_structure_list.variant'
-    _item.category_id             ARRAY_STRUCTURE_LIST
-    _item.mandatory_code          no
+    _item.category_id             array_structure_list
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -1668,7 +1664,7 @@ save__array_structure_list.variant
 ################################
 
 
-save_ARRAY_STRUCTURE_LIST_SECTION
+save_array_structure_list_section
     _category.description
 ;    Data items in the ARRAY_STRUCTURE_LIST_SECTION category identify
      the dimension-by-dimension start, end and stride of each section of an
@@ -1697,7 +1693,7 @@ save_ARRAY_STRUCTURE_LIST_SECTION
      stride.
 
 ;
-    _category.id                   ARRAY_STRUCTURE_LIST_SECTION
+    _category.id                   array_structure_list_section
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -1801,7 +1797,7 @@ save__array_structure_list_section.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_array_structure_list_section.array_id'
-    _item.category_id             ARRAY_STRUCTURE_LIST
+    _item.category_id             array_structure_list_section
     _item.mandatory_code          mandatory
     _item_type.code               code
 save_
@@ -1824,7 +1820,7 @@ save__array_structure_list_section.end
 ;
 
     _item.name                 '_array_structure_list_section.end'
-    _item.category_id          ARRAY_STRUCTURE_LIST_SECTION
+    _item.category_id          array_structure_list_section
     _item.mandatory_code       implicit
     _item_type.code            int
     loop_
@@ -1844,17 +1840,15 @@ save__array_structure_list_section.id
               ARRAYID(start1:end1:stride1,start2:end2:stride2, ...)
 ;
     _item.name                  '_array_structure_list_section.id'
-    _item.category_id             ARRAY_STRUCTURE_LIST
-    _item.mandatory_code          mandatory
+    _item.category_id             array_structure_list_section
+    _item.mandatory_code          yes
     _item_type.code               code
    
     loop_
     _item_linked.child_name
     _item_linked.parent_name
-                            '_diffrn_data_frame.array_section_id'
-                              '_array_structure_list_section.id'
-                            '_map_segment.array_section_id'
-                              '_array_structure_list_section.id'
+                            '_diffrn_data_frame.array_section_id'             '_array_structure_list_section.id'
+#                            '_map_segment.array_section_id'                   '_array_structure_list_section.id'
 
 save_
 
@@ -1873,7 +1867,7 @@ save__array_structure_list_section.index
               index are assumed to be included in the section.
 ;
     _item.name                 '_array_structure_list_section.index'
-    _item.category_id          ARRAY_STRUCTURE_LIST_SECTION
+    _item.category_id          array_structure_list_section
     _item.mandatory_code       implicit
     _item_type.code            int
      save_
@@ -1904,7 +1898,7 @@ save__array_structure_list_section.start
                stride.
 ;
     _item.name                 '_array_structure_list_section.start'
-    _item.category_id          ARRAY_STRUCTURE_LIST_SECTION
+    _item.category_id          array_structure_list_section
     _item.mandatory_code       implicit
     _item_type.code            int
     loop_
@@ -1924,7 +1918,7 @@ save__array_structure_list_section.stride
               just defined by _array_structure_list_section.start.
 ;
     _item.name                '_array_structure_list_section.stride'
-    _item.category_id          ARRAY_STRUCTURE_LIST_SECTION
+    _item.category_id          array_structure_list_section
     _item.mandatory_code       no
     _item_default.value        1
     _item_type.code            int
@@ -1947,8 +1941,8 @@ save__array_structure_list_section.variant
               VARIANT category.
 ;
     _item.name                  '_array_structure_list_section.variant'
-    _item.category_id             ARRAY_STRUCTURE_LIST_SECTION
-    _item.mandatory_code          no
+    _item.category_id             array_structure_list_section
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -1958,7 +1952,7 @@ save__array_structure_list_section.variant
 # ARRAY_STRUCTURE_LIST_AXIS #
 #############################
 
-save_ARRAY_STRUCTURE_LIST_AXIS
+save_array_structure_list_axis
     _category.description
 ;    Data items in the ARRAY_STRUCTURE_LIST_AXIS category describe
      the physical settings of sets of axes for the centres of pixels that
@@ -1974,7 +1968,7 @@ save_ARRAY_STRUCTURE_LIST_AXIS
      cylindrical scan for which the two axes are not coupled into one
      set.
 ;
-    _category.id                   ARRAY_STRUCTURE_LIST_AXIS
+    _category.id                   array_structure_list_axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -2036,7 +2030,7 @@ save_ARRAY_STRUCTURE_LIST_AXIS
     _array_structure_list_axis.radial_pitch  RADPITCH -->
     /instrument:NXinstrument
       /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_axis__AXISID=[]
+        /cbf_axis__AXISID=[]
           /@CBF_array_structure_list_axis__radial_pitch=RADPITCH
    
     _array_structure_list_axis.reference_angle REFANG  -->
@@ -2080,7 +2074,7 @@ save__array_structure_list_axis.axis_id
                AXIS category.
 ;
     _item.name                 '_array_structure_list_axis.axis_id'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -2102,7 +2096,7 @@ save__array_structure_list_axis.axis_set_id
                axis identifier.
 ;
     _item.name                 '_array_structure_list_axis.axis_set_id'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       implicit
     _item_type.code            code
      save_
@@ -2119,7 +2113,7 @@ save__array_structure_list_axis.angle
                maximum index value.
 ;
     _item.name                 '_array_structure_list_axis.angle'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2138,7 +2132,7 @@ save__array_structure_list_axis.angle_increment
 
 ;
     _item.name                 '_array_structure_list_axis.angle_increment'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2157,7 +2151,7 @@ save__array_structure_list_axis.displacement
                maximum index value.
 ;
     _item.name               '_array_structure_list_axis.displacement'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2176,7 +2170,7 @@ save__array_structure_list_axis.fract_displacement
                pixel with maximum index value.
 ;
     _item.name               '_array_structure_list_axis.fract_displacement'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2189,7 +2183,7 @@ save__array_structure_list_axis.displacement_increment
 ;
     _item.name
         '_array_structure_list_axis.displacement_increment'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2204,7 +2198,7 @@ save__array_structure_list_axis.fract_displacement_increment
 ;
     _item.name
         '_array_structure_list_axis.fract_displacement_increment'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2226,7 +2220,7 @@ save__array_structure_list_axis.angular_pitch
                See _array_structure_list_axis.angle_increment.
 ;
     _item.name               '_array_structure_list_axis.angular_pitch'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2243,7 +2237,7 @@ save__array_structure_list_axis.radial_pitch
                value of _array_structure_list_axis.displacement_increment.
 ;
     _item.name               '_array_structure_list_axis.radial_pitch'
-    _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+    _item.category_id          array_structure_list_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -2261,7 +2255,7 @@ save__array_structure_list_axis.reference_angle
 
 ;
      _item.name '_array_structure_list_axis.reference_angle'
-     _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+     _item.category_id          array_structure_list_axis
      _item.mandatory_code       implicit
      _item_type.code            float
      _item_units.code           'degrees'
@@ -2278,7 +2272,7 @@ save__array_structure_list_axis.reference_displacement
 
 ;
      _item.name '_array_structure_list_axis.reference_displacement'
-     _item.category_id          ARRAY_STRUCTURE_LIST_AXIS
+     _item.category_id          array_structure_list_axis
      _item.mandatory_code       implicit
      _item_type.code            float
      _item_units.code           'millimetres'
@@ -2296,8 +2290,8 @@ save__array_structure_list_axis.variant
               VARIANT category.
 ;
     _item.name                  '_array_structure_list_axis.variant'
-    _item.category_id             ARRAY_STRUCTURE_LIST_AXIS
-    _item.mandatory_code          no
+    _item.category_id             array_structure_list_axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -2307,7 +2301,7 @@ save__array_structure_list_axis.variant
 # AXIS #
 ########
 
-save_AXIS
+save_axis
     _category.description
 ;    Data items in the AXIS category record the information required
      to describe the various goniometer, detector, source and other
@@ -2564,7 +2558,7 @@ save_AXIS
      __, "PROTEIN DATA BANK ATOMIC COORDINATE AND BIBLIOGRAPHIC ENTRY
      FORMAT DESCRIPTION," Brookhaven National Laboratory, February 1992.
 ;
-    _category.id                   AXIS
+    _category.id                   axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -2906,7 +2900,7 @@ save__axis.depends_on
               This item is a pointer to _axis.id in the same category.
 ;
     _item.name                      '_axis.depends_on'
-    _item.category_id                 AXIS
+    _item.category_id                 axis
     _item.mandatory_code              no
 
      save_
@@ -2919,8 +2913,8 @@ save__axis.equipment
               'gravity', 'source' or 'general'.
 ;
     _item.name                      '_axis.equipment'
-    _item.category_id                 AXIS
-    _item.mandatory_code              no
+    _item.category_id                 axis
+    _item.mandatory_code              yes
     _item_type.code                   ucode
     _item_default.value               general
      loop_
@@ -2947,7 +2941,7 @@ save__axis.offset[1]
                The vector is specified in millimetres.
 ;
     _item.name                  '_axis.offset[1]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -2964,7 +2958,7 @@ save__axis.offset[2]
                The vector is specified in millimetres.
 ;
     _item.name                  '_axis.offset[2]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -2981,7 +2975,7 @@ save__axis.offset[3]
                The vector is specified in millimetres.
 ;
     _item.name                  '_axis.offset[3]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -3002,14 +2996,14 @@ save__axis.id
     _item.name
     _item.category_id
     _item.mandatory_code
-         '_axis.id'                         AXIS                    yes
+         '_axis.id'                         axis                    yes
          '_array_structure_list_axis.axis_id'
-                                            ARRAY_STRUCTURE_LIST_AXIS
+                                            array_structure_list_axis
                                                                     yes
-         '_diffrn_detector_axis.axis_id'    DIFFRN_DETECTOR_AXIS    yes
-         '_diffrn_measurement_axis.axis_id' DIFFRN_MEASUREMENT_AXIS yes
-         '_diffrn_scan_axis.axis_id'        DIFFRN_SCAN_AXIS        yes
-         '_diffrn_scan_frame_axis.axis_id'  DIFFRN_SCAN_FRAME_AXIS  yes
+         '_diffrn_detector_axis.axis_id'    diffrn_detector_axis    yes
+         '_diffrn_measurement_axis.axis_id' diffrn_measurement_axis yes
+         '_diffrn_scan_axis.axis_id'        diffrn_scan_axis        yes
+         '_diffrn_scan_frame_axis.axis_id'  diffrn_scan_frame_axis  yes
 
     _item_type.code               code
      loop_
@@ -3031,7 +3025,7 @@ save__axis.system
               'orthogonal', 'reciprocal' or 'abstract'.
 ;
     _item.name                      '_axis.system'
-    _item.category_id                 AXIS
+    _item.category_id                 axis
     _item.mandatory_code              no
     _item_type.code                   ucode
     _item_default.value               laboratory
@@ -3070,7 +3064,7 @@ save__axis.type
               the type is not relevant, as for gravity).
 ;
     _item.name                      '_axis.type'
-    _item.category_id                 AXIS
+    _item.category_id                 axis
     _item.mandatory_code              no
     _item_type.code                   ucode
     _item_default.value               general
@@ -3094,7 +3088,7 @@ save__axis.vector[1]
                is dimensionless.
 ;
     _item.name                  '_axis.vector[1]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -3109,7 +3103,7 @@ save__axis.vector[2]
                is dimensionless.
 ;
     _item.name                  '_axis.vector[2]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -3124,7 +3118,7 @@ save__axis.vector[3]
                is dimensionless.
 ;
     _item.name                  '_axis.vector[3]'
-    _item.category_id             AXIS
+    _item.category_id             axis
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -3143,8 +3137,8 @@ save__axis.variant
               VARIANT category.
 ;
     _item.name                  '_axis.variant'
-    _item.category_id             AXIS
-    _item.mandatory_code          no
+    _item.category_id             axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -3155,7 +3149,7 @@ save__axis.variant
 #####################
 
 
-save_DIFFRN_DATA_FRAME
+save_diffrn_data_frame
     _category.description
 ;             Data items in the DIFFRN_DATA_FRAME category record
               the details about each frame of data.
@@ -3165,7 +3159,7 @@ save_DIFFRN_DATA_FRAME
               The items from the old category are provided
               as aliases but should not be used for new work.
 ;
-    _category.id                   DIFFRN_DATA_FRAME
+    _category.id                   diffrn_data_frame
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -3284,7 +3278,7 @@ save__diffrn_data_frame.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_diffrn_data_frame.array_id'
-    _item.category_id             DIFFRN_DATA_FRAME
+    _item.category_id             diffrn_data_frame
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_frame_data.array_id'
     _item_aliases.dictionary      cif_img.dic
@@ -3299,7 +3293,7 @@ save__diffrn_data_frame.array_section_id
               in the ARRAY_STRUCTURE_LIST_SECTION category.
 ;
     _item.name                  '_diffrn_data_frame.array_section_id'
-    _item.category_id             DIFFRN_DATA_FRAME
+    _item.category_id             diffrn_data_frame
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -3310,7 +3304,7 @@ save__diffrn_data_frame.binary_id
               ARRAY_DATA category.
 ;
     _item.name                  '_diffrn_data_frame.binary_id'
-    _item.category_id             DIFFRN_DATA_FRAME
+    _item.category_id             diffrn_data_frame
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_frame_data.binary_id'
     _item_aliases.dictionary      cif_img.dic
@@ -3337,7 +3331,7 @@ save__diffrn_data_frame.center_fast
 
 ;
      _item.name '_diffrn_data_frame.center_fast'
-     _item.category_id             DIFFRN_DATA_FRAME
+     _item.category_id             diffrn_data_frame
      _item.mandatory_code          no
      _item_type.code               float
 
@@ -3361,7 +3355,7 @@ save__diffrn_data_frame.center_slow
 
 ;
      _item.name '_diffrn_data_frame.center_slow'
-     _item.category_id             DIFFRN_DATA_FRAME
+     _item.category_id             diffrn_data_frame
      _item.mandatory_code          no
      _item_type.code               float
 
@@ -3390,7 +3384,7 @@ save__diffrn_data_frame.center_units
 
 ;
      _item.name '_diffrn_data_frame.center_units'
-     _item.category_id             DIFFRN_DATA_FRAME
+     _item.category_id             diffrn_data_frame
      _item.mandatory_code          no
      _item_type.code               code
       loop_
@@ -3411,7 +3405,7 @@ save__diffrn_data_frame.detector_element_id
                in the DIFFRN_DETECTOR_ELEMENT category.
 ;
     _item.name                  '_diffrn_data_frame.detector_element_id'
-    _item.category_id             DIFFRN_DATA_FRAME
+    _item.category_id             diffrn_data_frame
     _item.mandatory_code          yes
     _item_aliases.alias_name    '_diffrn_frame_data.detector_element_id'
     _item_aliases.dictionary      cif_img.dic
@@ -3429,16 +3423,16 @@ save__diffrn_data_frame.id
     _item.name
     _item.category_id
     _item.mandatory_code
-           '_diffrn_data_frame.id'        DIFFRN_DATA_FRAME  yes
-           '_diffrn_refln.frame_id'       DIFFRN_REFLN       yes
-           '_diffrn_scan.frame_id_start'  DIFFRN_SCAN        yes
-           '_diffrn_scan.frame_id_end'    DIFFRN_SCAN        yes
-           '_diffrn_scan_frame.frame_id'  DIFFRN_SCAN_FRAME  yes
+           '_diffrn_data_frame.id'        diffrn_data_frame  yes
+           '_diffrn_refln.frame_id'       diffrn_refln       yes
+           '_diffrn_scan.frame_id_start'  diffrn_scan        yes
+           '_diffrn_scan.frame_id_end'    diffrn_scan        yes
+           '_diffrn_scan_frame.frame_id'  diffrn_scan_frame  yes
            '_diffrn_scan_frame_axis.frame_id'
-                                          DIFFRN_SCAN_FRAME_AXIS
+                                          diffrn_scan_frame_axis
                                                              yes
            '_diffrn_scan_frame_monitor.frame_id'
-                                          DIFFRN_SCAN_FRAME_MONITOR
+                                          diffrn_scan_frame_monitor
                                                              implicit
     _item_aliases.alias_name    '_diffrn_frame_data.id'
     _item_aliases.dictionary      cif_img.dic
@@ -3476,7 +3470,7 @@ save__diffrn_data_frame.details
                should be removed.
 ;
     _item.name                  '_diffrn_data_frame.details'
-    _item.category_id             DIFFRN_DATA_FRAME
+    _item.category_id             diffrn_data_frame
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_frame_data.details'
     _item_aliases.dictionary      cif_img.dic
@@ -3527,8 +3521,8 @@ save__diffrn_data_frame.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_data_frame.variant'
-    _item.category_id             DIFFRN_DATA_FRAME
-    _item.mandatory_code          no
+    _item.category_id             diffrn_data_frame
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -3545,13 +3539,13 @@ save__diffrn_data_frame.variant
 ###################
 
 
-save_DIFFRN_DETECTOR
+save_diffrn_detector
     _category.description
 ;              Data items in the DIFFRN_DETECTOR category describe the
                detector used to measure the scattered radiation, including
                any analyser and post-sample collimation.
 ;
-    _category.id                  DIFFRN_DETECTOR
+    _category.id                  diffrn_detector
     _category.mandatory_code      no
     _category.NX_mapping_details
 ;
@@ -3612,7 +3606,7 @@ save__diffrn_detector.details
 ;              A description of special aspects of the radiation detector.
 ;
     _item.name                  '_diffrn_detector.details'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_detector_details'
     _item_aliases.dictionary      cif_core.dic
@@ -3627,7 +3621,7 @@ save__diffrn_detector.detector
 ;              The general class of the radiation detector.
 ;
     _item.name                  '_diffrn_detector.detector'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
      loop_
     _item_aliases.alias_name
@@ -3656,6 +3650,7 @@ save__diffrn_detector.diffrn_id
                diffraction data.
 ;
     _item.name                  '_diffrn_detector.diffrn_id'
+    _item.category_id             diffrn_detector
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -3667,7 +3662,7 @@ save__diffrn_detector.dtime
                measure the diffraction intensities.
 ;
     _item.name                  '_diffrn_detector.dtime'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
      loop_
     _item_aliases.alias_name
@@ -3700,11 +3695,11 @@ save__diffrn_detector.id
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_diffrn_detector.id'         DIFFRN_DETECTOR       implicit
+             '_diffrn_detector.id'         diffrn_detector       implicit
              '_diffrn_detector_axis.detector_id'
-                                           DIFFRN_DETECTOR_AXIS       yes
+                                           diffrn_detector_axis       yes
              '_diffrn_scan_frame_monitor.detector_id'
-                                           DIFFRN_SCAN_FRAME_MONITOR  yes
+                                           diffrn_scan_frame_monitor  yes
      loop_
     _item_linked.child_name
     _item_linked.parent_name
@@ -3723,7 +3718,7 @@ save__diffrn_detector.layer_thickness
                  for use in anglular corrections.
 ;
     _item.name                  '_diffrn_detector.layer_thickness'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
     loop_
     _item_range.maximum
@@ -3753,7 +3748,7 @@ save__diffrn_detector.number_of_axes
                in DIFFRN_DETECTOR_AXIS.
 ;
     _item.name                  '_diffrn_detector.number_of_axes'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -3769,7 +3764,7 @@ save__diffrn_detector.type
 ;              The make, model or name of the detector device used.
 ;
     _item.name                  '_diffrn_detector.type'
-    _item.category_id             DIFFRN_DETECTOR
+    _item.category_id             diffrn_detector
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_detector_type'
     _item_aliases.dictionary      cif_core.dic
@@ -3789,8 +3784,8 @@ save__diffrn_detector.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_detector.variant'
-    _item.category_id             DIFFRN_DETECTOR
-    _item.mandatory_code          no
+    _item.category_id             diffrn_detector
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -3800,12 +3795,12 @@ save__diffrn_detector.variant
 ########################
 
 
-save_DIFFRN_DETECTOR_AXIS
+save_diffrn_detector_axis
     _category.description
 ;    Data items in the DIFFRN_DETECTOR_AXIS category associate
      axes with detectors.
 ;
-    _category.id                   DIFFRN_DETECTOR_AXIS
+    _category.id                   diffrn_detector_axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -3845,7 +3840,7 @@ save__diffrn_detector_axis.axis_id
                the AXIS category.
 ;
     _item.name                  '_diffrn_detector_axis.axis_id'
-    _item.category_id             DIFFRN_DETECTOR_AXIS
+    _item.category_id             diffrn_detector_axis
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -3861,7 +3856,7 @@ save__diffrn_detector_axis.detector_id
                provided as an alias but should not be used for new work.
 ;
     _item.name                  '_diffrn_detector_axis.detector_id'
-    _item.category_id             DIFFRN_DETECTOR_AXIS
+    _item.category_id             diffrn_detector_axis
     _item.mandatory_code          yes
     _item_aliases.alias_name    '_diffrn_detector_axis.id'
     _item_aliases.dictionary      cif_img.dic
@@ -3881,8 +3876,8 @@ save__diffrn_detector_axis.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_detector_axis.variant'
-    _item.category_id             DIFFRN_DETECTOR_AXIS
-    _item.mandatory_code          no
+    _item.category_id             diffrn_detector_axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -3893,7 +3888,7 @@ save__diffrn_detector_axis.variant
 ###########################
 
 
-save_DIFFRN_DETECTOR_ELEMENT
+save_diffrn_detector_element
     _category.description
 ;             Data items in the DIFFRN_DETECTOR_ELEMENT category record
               the details about spatial layout and other characteristics
@@ -3904,7 +3899,7 @@ save_DIFFRN_DETECTOR_ELEMENT
               is preferable to simply providing the centre of the
               detector element.
 ;
-    _category.id                   DIFFRN_DETECTOR_ELEMENT
+    _category.id                   diffrn_detector_element
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -3996,7 +3991,7 @@ save__diffrn_detector_element.id
     _item.category_id
     _item.mandatory_code
            '_diffrn_detector_element.id'
-           DIFFRN_DETECTOR_ELEMENT
+           diffrn_detector_element
            yes
     _item_type.code               code
      loop_
@@ -4014,7 +4009,7 @@ save__diffrn_detector_element.detector_id
                in the DIFFRN_DETECTOR category.
 ;
     _item.name                  '_diffrn_detector_element.detector_id'
-    _item.category_id             DIFFRN_DETECTOR_ELEMENT
+    _item.category_id             diffrn_detector_element
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -4040,7 +4035,7 @@ save__diffrn_detector_element.reference_center_fast
 
 ;
      _item.name '_diffrn_detector_element.reference_center_fast'
-     _item.category_id             DIFFRN_DETECTOR_ELEMENT
+     _item.category_id             diffrn_detector_element
      _item.mandatory_code          no
      _item_type.code               float
 
@@ -4067,7 +4062,7 @@ save__diffrn_detector_element.reference_center_slow
 
 ;
      _item.name '_diffrn_detector_element.reference_center_slow'
-     _item.category_id             DIFFRN_DETECTOR_ELEMENT
+     _item.category_id             diffrn_detector_element
      _item.mandatory_code          no
      _item_type.code               float
 
@@ -4096,7 +4091,7 @@ save__diffrn_detector_element.reference_center_units
 
 ;
      _item.name '_diffrn_detector_element.reference_center_units'
-     _item.category_id             DIFFRN_DETECTOR_ELEMENT
+     _item.category_id             diffrn_detector_element
      _item.mandatory_code          no
      _item_type.code               code
       loop_
@@ -4120,25 +4115,25 @@ save__diffrn_detector_element.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_detector_element.variant'
-    _item.category_id             DIFFRN_DETECTOR_ELEMENT
-    _item.mandatory_code          no
+    _item.category_id             diffrn_detector_element
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
 
 ########################
-## DIFFRN_MEASUREMENT ##
+## diffrn_measurement ##
 ########################
 
 
-save_DIFFRN_MEASUREMENT
+save_diffrn_measurement
     _category.description
 ;              Data items in the DIFFRN_MEASUREMENT category record details
                about the device used to orient and/or position the crystal
                during data measurement and the manner in which the
                diffraction data were measured.
 ;
-    _category.id                  DIFFRN_MEASUREMENT
+    _category.id                  diffrn_measurement
     _category.mandatory_code      no
     _category.NX_mapping_details
 ;
@@ -4262,9 +4257,9 @@ save__diffrn_measurement.device
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_diffrn_measurement.device'  DIFFRN_MEASUREMENT      implicit
+             '_diffrn_measurement.device'  diffrn_measurement      implicit
              '_diffrn_measurement_axis.measurement_device'
-                                           DIFFRN_MEASUREMENT_AXIS implicit
+                                           diffrn_measurement_axis implicit
      loop_
     _item_linked.child_name
     _item_linked.parent_name
@@ -4289,7 +4284,7 @@ save__diffrn_measurement.device_details
                measure the diffraction intensities.
 ;
     _item.name                  '_diffrn_measurement.device_details'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_measurement_device_details'
     _item_aliases.dictionary      cif_core.dic
@@ -4308,7 +4303,7 @@ save__diffrn_measurement.device_type
                (goniometer) used.
 ;
     _item.name                  '_diffrn_measurement.device_type'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_measurement_device_type'
     _item_aliases.dictionary      cif_core.dic
@@ -4328,6 +4323,7 @@ save__diffrn_measurement.diffrn_id
                category.
 ;
     _item.name                  '_diffrn_measurement.diffrn_id'
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -4339,7 +4335,7 @@ save__diffrn_measurement.details
                measurement.
 ;
     _item.name                  '_diffrn_measurement.details'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_measurement_details'
     _item_aliases.dictionary      cif_core.dic
@@ -4373,9 +4369,9 @@ save__diffrn_measurement.id
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_diffrn_measurement.id'      DIFFRN_MEASUREMENT      implicit
+             '_diffrn_measurement.id'      diffrn_measurement      implicit
              '_diffrn_measurement_axis.measurement_id'
-                                           DIFFRN_MEASUREMENT_AXIS implicit
+                                           diffrn_measurement_axis implicit
      loop_
     _item_linked.child_name
     _item_linked.parent_name
@@ -4391,7 +4387,7 @@ save__diffrn_measurement.method
 ;              Method used to measure intensities.
 ;
     _item.name                  '_diffrn_measurement.method'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_measurement_method'
     _item_aliases.dictionary      cif_core.dic
@@ -4413,7 +4409,7 @@ save__diffrn_measurement.number_of_axes
                DIFFRN_MEASUREMENT_AXIS.
 ;
     _item.name                  '_diffrn_measurement.number_of_axes'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -4433,7 +4429,7 @@ save__diffrn_measurement.sample_detector_distance
                detector along the beam.
 ;
     _item.name                  '_diffrn_measurement.sample_detector_distance'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -4450,7 +4446,7 @@ save__diffrn_measurement.sample_detector_voffset
                the beam to the center of the detector.
 ;
     _item.name                  '_diffrn_measurement.sample_detector_voffset'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -4467,7 +4463,7 @@ save__diffrn_measurement.specimen_support
                collection.
 ;
     _item.name                  '_diffrn_measurement.specimen_support'
-    _item.category_id             DIFFRN_MEASUREMENT
+    _item.category_id             diffrn_measurement
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_measurement_specimen_support'
     _item_aliases.dictionary      cif_core.dic
@@ -4492,8 +4488,8 @@ save__diffrn_measurement.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_measurement.variant'
-    _item.category_id             DIFFRN_MEASUREMENT
-    _item.mandatory_code          no
+    _item.category_id             diffrn_measurement
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -4505,12 +4501,12 @@ save__diffrn_measurement.variant
 ###########################
 
 
-save_DIFFRN_MEASUREMENT_AXIS
+save_diffrn_measurement_axis
     _category.description
 ;    Data items in the DIFFRN_MEASUREMENT_AXIS category associate
      axes with goniometers.
 ;
-    _category.id                   DIFFRN_MEASUREMENT_AXIS
+    _category.id                   diffrn_measurement_axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -4553,7 +4549,7 @@ save__diffrn_measurement_axis.axis_id
                the AXIS category.
 ;
     _item.name                  '_diffrn_measurement_axis.axis_id'
-    _item.category_id             DIFFRN_MEASUREMENT_AXIS
+    _item.category_id             diffrn_measurement_axis
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -4566,7 +4562,7 @@ save__diffrn_measurement_axis.measurement_device
 ;
     _item.name
       '_diffrn_measurement_axis.measurement_device'
-    _item.category_id             DIFFRN_MEASUREMENT_AXIS
+    _item.category_id             diffrn_measurement_axis
     _item.mandatory_code          implicit
     _item_type.code               text
      save_
@@ -4582,7 +4578,7 @@ save__diffrn_measurement_axis.measurement_id
                provided as an alias but should not be used for new work.
 ;
     _item.name                  '_diffrn_measurement_axis.measurement_id'
-    _item.category_id             DIFFRN_MEASUREMENT_AXIS
+    _item.category_id             diffrn_measurement_axis
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_measurement_axis.id'
     _item_aliases.dictionary      cif_img.dic
@@ -4602,8 +4598,8 @@ save__diffrn_measurement_axis.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_measurement_axis.variant'
-    _item.category_id             DIFFRN_MEASUREMENT_AXIS
-    _item.mandatory_code          no
+    _item.category_id             diffrn_measurement_axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -4614,7 +4610,7 @@ save__diffrn_measurement_axis.variant
 ####################
 
 
-save_DIFFRN_RADIATION
+save_diffrn_radiation
     _category.description
 ;              Data items in the DIFFRN_RADIATION category describe
                the radiation used for measuring diffraction intensities,
@@ -4623,7 +4619,7 @@ save_DIFFRN_RADIATION
                Post-sample treatment of the beam is described by data
                items in the DIFFRN_DETECTOR category.
 ;
-    _category.id                  DIFFRN_RADIATION
+    _category.id                  diffrn_radiation
     _category.mandatory_code      no
     _category.NX_mapping_details
 ;
@@ -4785,7 +4781,7 @@ save__diffrn_radiation.collimation
 ;              The collimation or focusing applied to the radiation.
 ;
     _item.name                  '_diffrn_radiation.collimation'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_collimation'
     _item_aliases.dictionary      cif_core.dic
@@ -4829,7 +4825,7 @@ save__diffrn_radiation.div_x_source
                multiply by 0.180 and divide by \p.
 ;
     _item.name                  '_diffrn_radiation.div_x_source'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              degrees
@@ -4855,7 +4851,7 @@ save__diffrn_radiation.div_y_source
                multiply by 0.180 and divide by \p.
 ;
     _item.name                  '_diffrn_radiation.div_y_source'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              degrees
@@ -4886,7 +4882,7 @@ save__diffrn_radiation.div_x_y_source
 
 ;
     _item.name                  '_diffrn_radiation.div_x_y_source'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              degrees_squared
@@ -4898,7 +4894,7 @@ save__diffrn_radiation.filter_edge
 ;              Absorption edge in \%Angstroms of the radiation filter used.
 ;
     _item.name                  '_diffrn_radiation.filter_edge'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_filter_edge'
     _item_aliases.dictionary      cif_core.dic
@@ -4917,7 +4913,7 @@ save__diffrn_radiation.inhomogeneity
                direction perpendicular to the diffraction plane.
 ;
     _item.name                  '_diffrn_radiation.inhomogeneity'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_inhomogeneity'
     _item_aliases.dictionary      cif_core.dic
@@ -4937,7 +4933,7 @@ save__diffrn_radiation.monochromator
                indices of the Bragg reflection are specified.
 ;
     _item.name                  '_diffrn_radiation.monochromator'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_monochromator'
     _item_aliases.dictionary      cif_core.dic
@@ -4957,7 +4953,7 @@ save__diffrn_radiation.polarisn_norm
                plane. See _diffrn_radiation_polarisn_ratio.
 ;
     _item.name                  '_diffrn_radiation.polarisn_norm'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_polarisn_norm'
     _item_aliases.dictionary      cif_core.dic
@@ -4982,7 +4978,7 @@ save__diffrn_radiation.polarisn_ratio
                the incident and reflected beams).
 ;
     _item.name                  '_diffrn_radiation.polarisn_ratio'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_polarisn_ratio'
     _item_aliases.dictionary      cif_core.dic
@@ -5020,7 +5016,7 @@ save__diffrn_radiation.polarizn_source_norm
                See _diffrn_radiation.polarizn_source_ratio.
 ;
     _item.name                  '_diffrn_radiation.polarizn_source_norm'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -5074,7 +5070,7 @@ save__diffrn_radiation.polarizn_source_ratio
                Enzymol. 276, 307-326.
 ;
     _item.name                  '_diffrn_radiation.polarizn_source_ratio'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
      loop_
     _item_range.maximum
@@ -5092,7 +5088,7 @@ save__diffrn_radiation.probe
                probe radiation is clearly specified.
 ;
     _item.name                  '_diffrn_radiation.probe'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_probe'
     _item_aliases.dictionary      cif_core.dic
@@ -5111,7 +5107,7 @@ save__diffrn_radiation.type
                of the X-ray wavelength in Siegbahn notation.
 ;
     _item.name                  '_diffrn_radiation.type'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_type'
     _item_aliases.dictionary      cif_core.dic
@@ -5131,7 +5127,7 @@ save__diffrn_radiation.xray_symbol
                radiation.
 ;
     _item.name                  '_diffrn_radiation.xray_symbol'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_radiation_xray_symbol'
     _item_aliases.dictionary      cif_core.dic
@@ -5156,7 +5152,7 @@ save__diffrn_radiation.wavelength_id
                DIFFRN_RADIATION_WAVELENGTH category.
 ;
     _item.name                  '_diffrn_radiation.wavelength_id'
-    _item.category_id             DIFFRN_RADIATION
+    _item.category_id             diffrn_radiation
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -5174,8 +5170,8 @@ save__diffrn_radiation.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_radiation.variant'
-    _item.category_id             DIFFRN_RADIATION
-    _item.mandatory_code          no
+    _item.category_id             diffrn_radiation
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -5186,7 +5182,7 @@ save__diffrn_radiation.variant
 ################
 
 
-save_DIFFRN_REFLN
+save_diffrn_refln
     _category.description
 ;    This category redefinition has been added to extend the key of
      the standard DIFFRN_REFLN category.
@@ -5203,7 +5199,7 @@ save_DIFFRN_REFLN
      data set identified by _diffrn_reflns.diffrn_id and
      _diffrn_refln.frame_id
 ;
-    _category.id                   DIFFRN_REFLN
+    _category.id                   diffrn_refln
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -5227,7 +5223,7 @@ save__diffrn_refln.frame_id
                in the DIFFRN_DATA_FRAME category.
 ;
     _item.name                  '_diffrn_refln.frame_id'
-    _item.category_id             DIFFRN_REFLN
+    _item.category_id             diffrn_refln
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -5244,23 +5240,42 @@ save__diffrn_refln.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_refln.variant'
-    _item.category_id             DIFFRN_REFLN
-    _item.mandatory_code          no
+    _item.category_id             diffrn_refln
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
+save__diffrn_refln.id
+    _item_description.description
+;              This item is a placeholder for the definition in the PDBx/mmCIF dictionary.
+;
+    _item.name                  '_diffrn_refln.id'
+    _item.category_id             diffrn_refln
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__diffrn_refln.diffrn_id
+    _item_description.description
+;              This item is a placeholder for the definition in the PDBx/mmCIF dictionary
+;
+    _item.name                  '_diffrn_refln.diffrn_id'
+    _item.category_id             diffrn_refln
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
 
 ###############
 # DIFFRN_SCAN #
 ###############
 
-save_DIFFRN_SCAN
+save_diffrn_scan
     _category.description
 ;    Data items in the DIFFRN_SCAN category describe the parameters of one
      or more scans, relating axis positions to frames.
 
 ;
-    _category.id                   DIFFRN_SCAN
+    _category.id                   diffrn_scan
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -5922,9 +5937,9 @@ save__diffrn_scan.id
     _item.name
     _item.category_id
     _item.mandatory_code
-       '_diffrn_scan.id'                 DIFFRN_SCAN             yes
-       '_diffrn_scan_axis.scan_id'       DIFFRN_SCAN_AXIS        yes
-       '_diffrn_scan_frame.scan_id'      DIFFRN_SCAN_FRAME       yes
+       '_diffrn_scan.id'                 diffrn_scan             yes
+       '_diffrn_scan_axis.scan_id'       diffrn_scan_axis        yes
+       '_diffrn_scan_frame.scan_id'      diffrn_scan_frame       yes
     _item_type.code               code
      loop_
     _item_linked.child_name
@@ -5941,7 +5956,7 @@ save__diffrn_scan.date_end
                precise time of the end of the scan is known.
 ;
     _item.name                 '_diffrn_scan.date_end'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            yyyy-mm-dd
      save_
@@ -5952,7 +5967,7 @@ save__diffrn_scan.date_start
 ;              The date and time of the start of the scan.
 ;
     _item.name                 '_diffrn_scan.date_start'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            yyyy-mm-dd
      save_
@@ -5967,7 +5982,7 @@ save__diffrn_scan.integration_time
                if all steps have the same integration time.
 ;
     _item.name                 '_diffrn_scan.integration_time'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -5987,7 +6002,7 @@ save__diffrn_scan.frame_id_start
                DIFFRN_DATA_FRAME category.
 ;
     _item.name                 '_diffrn_scan.frame_id_start'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6002,7 +6017,7 @@ save__diffrn_scan.frame_id_end
                DIFFRN_DATA_FRAME category.
 ;
     _item.name                 '_diffrn_scan.frame_id_end'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6014,7 +6029,7 @@ save__diffrn_scan.frames
                the scan.
 ;
     _item.name                 '_diffrn_scan.frames'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            int
      loop_
@@ -6032,7 +6047,7 @@ save__diffrn_scan.time_period
                _diffrn_scan_frame.time_period.
 ;
     _item.name                 '_diffrn_scan.time_period'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -6063,7 +6078,7 @@ save__diffrn_scan.time_rstrt_incr
                the mean).
 ;
     _item.name                 '_diffrn_scan.time_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -6087,8 +6102,8 @@ save__diffrn_scan.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_scan.variant'
-    _item.category_id             DIFFRN_SCAN
-    _item.mandatory_code          no
+    _item.category_id             diffrn_scan
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -6097,13 +6112,13 @@ save__diffrn_scan.variant
 # DIFFRN_SCAN_AXIS #
 ####################
 
-save_DIFFRN_SCAN_AXIS
+save_diffrn_scan_axis
     _category.description
 ;    Data items in the DIFFRN_SCAN_AXIS category describe the settings of
      axes for particular scans.  Unspecified axes are assumed to be at
      their zero points.
 ;
-    _category.id                   DIFFRN_SCAN_AXIS
+    _category.id                   diffrn_scan_axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -6186,7 +6201,7 @@ save__diffrn_scan_axis.scan_id
                DIFFRN_SCAN category.
 ;
     _item.name                 '_diffrn_scan_axis.scan_id'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6204,7 +6219,7 @@ save__diffrn_scan_axis.axis_id
                AXIS category.
 ;
     _item.name                 '_diffrn_scan_axis.axis_id'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6215,7 +6230,7 @@ save__diffrn_scan_axis.angle_start
 ;              The starting position for the specified axis in degrees.
 ;
     _item.name                 '_diffrn_scan_axis.angle_start'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6229,7 +6244,7 @@ save__diffrn_scan_axis.angle_range
                in degrees.
 ;
     _item.name                 '_diffrn_scan_axis.angle_range'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6254,7 +6269,7 @@ save__diffrn_scan_axis.angle_increment
                the mean).
 ;
     _item.name                 '_diffrn_scan_axis.angle_increment'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6282,7 +6297,7 @@ save__diffrn_scan_axis.angle_rstrt_incr
                the mean).
 ;
     _item.name                 '_diffrn_scan_axis.angle_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6295,7 +6310,7 @@ save__diffrn_scan_axis.displacement_start
 ;              The starting position for the specified axis in millimetres.
 ;
     _item.name                 '_diffrn_scan_axis.displacement_start'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6309,7 +6324,7 @@ save__diffrn_scan_axis.displacement_range
                in millimetres.
 ;
     _item.name                 '_diffrn_scan_axis.displacement_range'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6335,7 +6350,7 @@ save__diffrn_scan_axis.displacement_increment
                the mean).
 ;
     _item.name                 '_diffrn_scan_axis.displacement_increment'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6364,7 +6379,7 @@ save__diffrn_scan_axis.displacement_rstrt_incr
                the mean).
 ;
     _item.name                 '_diffrn_scan_axis.displacement_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN_AXIS
+    _item.category_id          diffrn_scan_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6389,7 +6404,7 @@ save__diffrn_scan_axis.reference_angle
                If not specified, the value defaults to zero.
 ;
      _item.name                 '_diffrn_scan_axis.reference_angle'
-     _item.category_id          DIFFRN_SCAN_AXIS
+     _item.category_id          diffrn_scan_axis
      _item.mandatory_code       implicit
      _item_default.value        0.0
      _item_type.code            float
@@ -6416,7 +6431,7 @@ save__diffrn_scan_axis.reference_displacement
                _diffrn_scan_axis.displacement.
 ;
      _item.name                 '_diffrn_scan_axis.reference_displacement'
-     _item.category_id          DIFFRN_SCAN_AXIS
+     _item.category_id          diffrn_scan_axis
      _item.mandatory_code       implicit
      _item_type.code            float
      _item_units.code           'millimetres'
@@ -6434,8 +6449,8 @@ save__diffrn_scan_axis.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_scan_axis.variant'
-    _item.category_id             DIFFRN_SCAN_AXIS
-    _item.mandatory_code          no
+    _item.category_id             diffrn_scan_axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -6445,12 +6460,12 @@ save__diffrn_scan_axis.variant
 # DIFFRN_SCAN_FRAME #
 #####################
 
-save_DIFFRN_SCAN_FRAME
+save_diffrn_scan_frame
     _category.description
 ;           Data items in the DIFFRN_SCAN_FRAME category describe
             the relationships of particular frames to scans.
 ;
-    _category.id                   DIFFRN_SCAN_FRAME
+    _category.id                   diffrn_scan_frame
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -6522,7 +6537,7 @@ save__diffrn_scan_frame.date
 ;              The date and time of the start of the frame being scanned.
 ;
     _item.name                 '_diffrn_scan_frame.date'
-    _item.category_id          DIFFRN_SCAN_FRAME
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       no
     _item_type.code            yyyy-mm-dd
      save_
@@ -6537,7 +6552,7 @@ save__diffrn_scan_frame.frame_id
                DIFFRN_DATA_FRAME category.
 ;
     _item.name                 '_diffrn_scan_frame.frame_id'
-    _item.category_id          DIFFRN_SCAN_FRAME
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6552,7 +6567,7 @@ save__diffrn_scan_frame.frame_number
 
 ;
     _item.name                 '_diffrn_scan_frame.frame_number'
-    _item.category_id          DIFFRN_SCAN_FRAME
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       no
     _item_type.code            int
      loop_
@@ -6572,7 +6587,7 @@ save__diffrn_scan_frame.integration_time
                from the value of _diffrn_scan.integration_time.
 ;
     _item.name                 '_diffrn_scan_frame.integration_time'
-    _item.category_id          DIFFRN_SCAN_FRAME
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       yes
     _item_type.code            float
     _item_units.code           'seconds'
@@ -6592,7 +6607,7 @@ save__diffrn_scan_frame.scan_id
               DIFFRN_SCAN category.
 ;
     _item.name             '_diffrn_scan_frame.scan_id'
-    _item.category_id        DIFFRN_SCAN_FRAME
+    _item.category_id        diffrn_scan_frame
     _item.mandatory_code     yes
     _item_type.code          code
      save_
@@ -6605,7 +6620,7 @@ save__diffrn_scan_frame.time_period
                a null value should be given.
 ;
     _item.name                 '_diffrn_scan_frame.time_period'
-    _item.category_id          DIFFRN_SCAN_FRAME
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -6634,7 +6649,7 @@ save__diffrn_scan_frame.time_rstrt_incr
                If there is no next frame, a null value should be given.
 ;
     _item.name                 '_diffrn_scan_frame.time_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          diffrn_scan_frame
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -6657,8 +6672,8 @@ save__diffrn_scan_frame.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_scan_frame.variant'
-    _item.category_id             DIFFRN_SCAN_FRAME
-    _item.mandatory_code          no
+    _item.category_id             diffrn_scan_frame
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -6667,7 +6682,7 @@ save__diffrn_scan_frame.variant
 # DIFFRN_SCAN_FRAME_AXIS #
 ##########################
 
-save_DIFFRN_SCAN_FRAME_AXIS
+save_diffrn_scan_frame_axis
     _category.description
 ;    Data items in the DIFFRN_SCAN_FRAME_AXIS category describe the
      settings of axes for particular frames.  Unspecified axes are
@@ -6676,7 +6691,7 @@ save_DIFFRN_SCAN_FRAME_AXIS
      those values should be given explicitly in this category and not
      simply inferred from values in DIFFRN_SCAN_AXIS.
 ;
-    _category.id                   DIFFRN_SCAN_FRAME_AXIS
+    _category.id                   diffrn_scan_frame_axis
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -6776,7 +6791,7 @@ save__diffrn_scan_frame_axis.axis_id
                AXIS category.
 ;
     _item.name                 '_diffrn_scan_frame_axis.axis_id'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6788,7 +6803,7 @@ save__diffrn_scan_frame_axis.angle
                This is the setting at the start of the integration time.
 ;
     _item.name                 '_diffrn_scan_frame_axis.angle'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6806,7 +6821,7 @@ save__diffrn_scan_frame_axis.angle_increment
                time for this frame.
 ;
     _item.name                 '_diffrn_scan_frame_axis.angle_increment'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6826,7 +6841,7 @@ save__diffrn_scan_frame_axis.angle_rstrt_incr
                _diffrn_scan_frame_axis.angle for this next frame.
 ;
     _item.name               '_diffrn_scan_frame_axis.angle_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6841,7 +6856,7 @@ save__diffrn_scan_frame_axis.displacement
                time.
 ;
     _item.name               '_diffrn_scan_frame_axis.displacement'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6859,7 +6874,7 @@ save__diffrn_scan_frame_axis.displacement_increment
                time for this frame.
 ;
     _item.name               '_diffrn_scan_frame_axis.displacement_increment'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6879,7 +6894,7 @@ save__diffrn_scan_frame_axis.displacement_rstrt_incr
                _diffrn_scan_frame_axis.displacement for this next frame.
 ;
     _item.name               '_diffrn_scan_frame_axis.displacement_rstrt_incr'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       no
     _item_default.value        0.0
     _item_type.code            float
@@ -6898,7 +6913,7 @@ save__diffrn_scan_frame_axis.frame_id
                DIFFRN_DATA_FRAME category.
 ;
     _item.name               '_diffrn_scan_frame_axis.frame_id'
-    _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+    _item.category_id          diffrn_scan_frame_axis
     _item.mandatory_code       yes
     _item_type.code            code
      save_
@@ -6916,7 +6931,7 @@ save__diffrn_scan_frame_axis.reference_angle
                If not provided, it is assumed to be zero.
 ;
      _item.name               '_diffrn_scan_frame_axis.reference_angle'
-     _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+     _item.category_id          diffrn_scan_frame_axis
      _item.mandatory_code       implicit
      _item_default.value        0.0
      _item_type.code            float
@@ -6938,7 +6953,7 @@ save__diffrn_scan_frame_axis.reference_displacement
                _diffrn_scan_frame_axis.displacement.
 ;
      _item.name               '_diffrn_scan_frame_axis.reference_displacement'
-     _item.category_id          DIFFRN_SCAN_FRAME_AXIS
+     _item.category_id          diffrn_scan_frame_axis
      _item.mandatory_code       implicit
      _item_type.code            float
      _item_units.code           'millimetres'
@@ -6956,8 +6971,8 @@ save__diffrn_scan_frame_axis.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_scan_frame_axis.variant'
-    _item.category_id             DIFFRN_SCAN_FRAME_AXIS
-    _item.mandatory_code          no
+    _item.category_id             diffrn_scan_frame_axis
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -6967,7 +6982,7 @@ save__diffrn_scan_frame_axis.variant
 #############################
 
 
-save_DIFFRN_SCAN_FRAME_MONITOR
+save_diffrn_scan_frame_monitor
     _category.description
 ;             Data items in the DIFFRN_SCAN_FRAME_MONITOR category record
               the values and details about each monitor for each frame of data
@@ -6996,7 +7011,7 @@ save_DIFFRN_SCAN_FRAME_MONITOR
               omitted.
 
 ;
-    _category.id                   DIFFRN_SCAN_FRAME_MONITOR
+    _category.id                   diffrn_scan_frame_monitor
     _category.mandatory_code       no
     _category.NX_mapping_details
 ;
@@ -7038,8 +7053,8 @@ save_DIFFRN_SCAN_FRAME_MONITOR
     _category_key.name             '_diffrn_scan_frame_monitor.id'
                                    '_diffrn_scan_frame_monitor.detector_id'
                                    '_diffrn_scan_frame_monitor.scan_id'
-                                   '_diffrn_data_frame_monitor.frame_id'
-                                   '_diffrn_data_frame_monitor.variant'
+#                                   '_diffrn_data_frame_monitor.frame_id'
+#                                   '_diffrn_data_frame_monitor.variant'
     loop_
     _category_group.id             'inclusive_group'
                                    'diffrn_group'
@@ -7196,7 +7211,7 @@ save__diffrn_scan_frame_monitor.id
               it defaults to 1.
 ;
     _item.name             '_diffrn_scan_frame_monitor.id'
-    _item.category_id      DIFFRN_SCAN_FRAME_MONITOR
+    _item.category_id      diffrn_scan_frame_monitor
     _item.mandatory_code   implicit
     _item_default.value           1
     _item_type.code               int
@@ -7225,7 +7240,17 @@ save__diffrn_scan_frame_monitor.frame_id
                in the DIFFRN_DATA_FRAME category.
 ;
     _item.name                  '_diffrn_scan_frame_monitor.frame_id'
-    _item.category_id             DIFFRN_SCAN_FRAME_MONITOR
+    _item.category_id             diffrn_scan_frame_monitor
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__diffrn_scan_frame_monitor.scan_id
+    _item_description.description
+;              This item is a pointer to 
+;
+    _item.name                  '_diffrn_scan_frame_monitor.scan_id'
+    _item.category_id             diffrn_scan_frame_monitor
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -7237,7 +7262,7 @@ save__diffrn_scan_frame_monitor.integration_time
                must be given in _diffrn_scan_frame_monitor.integration_time.
 ;
     _item.name                 '_diffrn_scan_frame_monitor.integration_time'
-    _item.category_id          DIFFRN_SCAN_FRAME_MONITOR
+    _item.category_id          diffrn_scan_frame_monitor
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -7257,7 +7282,7 @@ save__diffrn_scan_frame_monitor.value
                monitor should be recorded.
 ;
     _item.name                 '_diffrn_scan_frame_monitor.value'
-    _item.category_id          DIFFRN_SCAN_FRAME_MONITOR
+    _item.category_id          diffrn_scan_frame_monitor
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -7279,8 +7304,8 @@ save__diffrn_scan_frame_monitor.variant
               VARIANT category.
 ;
     _item.name                  '_diffrn_scan_frame_monitor.variant'
-    _item.category_id             DIFFRN_SCAN_FRAME_MONITOR
-    _item.mandatory_code          no
+    _item.category_id             diffrn_scan_frame_monitor
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -7290,7 +7315,7 @@ save__diffrn_scan_frame_monitor.variant
 # MAP #
 #######
 
-save_MAP
+save_map
     _category.description
 ;             Data items in the MAP category record
               the details of a maps. Maps record values of parameters,
@@ -7303,7 +7328,7 @@ save_MAP
                            
               Examples are given in the MAP_SEGMENT category.
 ;
-    _category.id                   MAP
+    _category.id                   map
     _category.mandatory_code       no
      loop_
     _category_key.name             '_map.id'
@@ -7349,7 +7374,7 @@ save__map.details
 
 ;
     _item.name                  '_map.details'
-    _item.category_id             MAP
+    _item.category_id             map
     _item.mandatory_code          no
     _item_type.code               text
      loop_
@@ -7385,7 +7410,7 @@ save__map.diffrn_id
               DIFFRN category.
 ;
     _item.name                  '_map.diffrn_id'
-    _item.category_id             MAP
+    _item.category_id             map
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -7396,7 +7421,7 @@ save__map.entry_id
               ENTRY category.
 ;
     _item.name                  '_map.entry_id'
-    _item.category_id             MAP
+    _item.category_id             map
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -7411,8 +7436,8 @@ save__map.id
     _item.name
     _item.category_id
     _item.mandatory_code
-           '_map.id'                MAP          yes
-           '_map_segment.id'        MAP_SEGMENT  yes
+           '_map.id'                map          yes
+           '_map_segment.id'        map_segment  yes
     _item_type.code               code
      loop_
     _item_linked.child_name
@@ -7432,8 +7457,8 @@ save__map.variant
               VARIANT category.
 ;
     _item.name                  '_map.variant'
-    _item.category_id             MAP
-    _item.mandatory_code          no
+    _item.category_id             map
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -7444,12 +7469,12 @@ save__map.variant
 ###############
 
 
-save_MAP_SEGMENT
+save_map_segment
     _category.description
 ;             Data items in the MAP_SEGMENT category record
               the details about each segment (section or brick) of a map.
 ;
-    _category.id                   MAP_SEGMENT
+    _category.id                   map_segment
     _category.mandatory_code       no
      loop_
     _category_key.name             '_map_segment.id'
@@ -7508,7 +7533,7 @@ save__map_segment.array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_map_segment.array_id'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -7524,7 +7549,7 @@ save__map_segment.binary_id
               ARRAY_DATA category.
 ;
     _item.name                  '_map_segment.binary_id'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          implicit
     _item_type.code               int
      save_
@@ -7547,7 +7572,7 @@ save__map_segment.mask_array_id
               ARRAY_STRUCTURE category.
 ;
     _item.name                  '_map_segment.mask_array_id'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          implicit
     _item_type.code               code
      save_
@@ -7563,7 +7588,7 @@ save__map_segment.mask_binary_id
               ARRAY_DATA category.
 ;
     _item.name                  '_map_segment.mask_binary_id'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          implicit
     _item_type.code               int
      save_
@@ -7579,14 +7604,13 @@ save__map_segment.id
     _item.category_id
     _item.mandatory_code
            '_map_segment.id'
-           MAP_SEGMENT
+           map_segment
            yes
     _item_type.code               code
-     loop_
-    _item_linked.child_name
-    _item_linked.parent_name
-           '_map_data_frame.map_segment_id'
-           '_map_segment.id'
+#     loop_
+#    _item_linked.child_name
+#    _item_linked.parent_name
+#           '_map_data_frame.map_segment_id'        '_map_segment.id'
 
      save_
 
@@ -7597,7 +7621,7 @@ save__map_segment.map_id
                in the MAP category.
 ;
     _item.name                  '_map_segment.map_id'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          yes
     _item_type.code               code
      save_
@@ -7609,7 +7633,7 @@ save__map_segment.details
 
 ;
     _item.name                  '_map_segment.details'
-    _item.category_id             MAP_SEGMENT
+    _item.category_id             map_segment
     _item.mandatory_code          no
     _item_type.code               text
      loop_
@@ -7634,8 +7658,8 @@ save__map_segment.variant
               VARIANT category.
 ;
     _item.name                  '_map_segment.variant'
-    _item.category_id             MAP_SEGMENT
-    _item.mandatory_code          no
+    _item.category_id             map_segment
+    _item.mandatory_code          implicit
     _item_type.code               code
      save_
 
@@ -7645,7 +7669,7 @@ save__map_segment.variant
 ###########
 
 
-save_VARIANT
+save_variant
     _category.description
 ;             Data items in the VARIANT category record
               the details about sets of VARIANTs of data items.
@@ -7687,7 +7711,7 @@ save_VARIANT
               be used.
              
 ;
-    _category.id                   VARIANT
+    _category.id                   variant
     _category.mandatory_code       no
     loop_
     _category_key.name             '_variant.variant'
@@ -7759,7 +7783,7 @@ save__variant.details
 ;              A description of special aspects of the VARIANT.
 ;
     _item.name                  '_variant.details'
-    _item.category_id             VARIANT
+    _item.category_id             variant
     _item.mandatory_code          no
     _item_type.code               text
     _item_examples.case
@@ -7775,13 +7799,13 @@ save__variant.role
               "raw data", and "unsuccessful trial".
 ;
     _item.name                  '_variant.role'
-    _item.category_id            VARIANT
+    _item.category_id            variant
     _item.mandatory_code         no
     _item_type.code              uline
      loop_
     _item_enumeration.value
     _item_enumeration.detail
-     .
+     "null"
 ;    A null value for _variant.role leaves the precise role of
      the VARIANT unspecified.  No inference should be made that the VARIANT
      with the latest time stamp is preferred.
@@ -7815,7 +7839,7 @@ save__variant.timestamp
                reflects the order in which the VARIANTs were defined.
 ;
     _item.name                 '_variant.timestamp'
-    _item.category_id          VARIANT
+    _item.category_id          variant
     _item.mandatory_code       no
     _item_type.code            yyyy-mm-dd
      save_
@@ -7833,37 +7857,37 @@ save__variant.variant
     _item.name
     _item.category_id
     _item.mandatory_code
-             '_variant.variant'                    VARIANT             implicit
-             '_variant.variant_of'                 VARIANT             implicit
-             '_array_data.variant'                 ARRAY_DATA          implicit
-             '_array_element_size.variant'         ARRAY_ELEMENT_SIZE  implicit
-             '_array_intensities.variant'          ARRAY_INTENSITIES   implicit
-             '_array_structure.variant'            ARRAY_STRUCTURE     implicit
-             '_array_structure_list.variant'       ARRAY_STRUCTURE_LIST
+             '_variant.variant'                    variant             implicit
+             '_variant.variant_of'                 variant             implicit
+             '_array_data.variant'                 array_data          implicit
+             '_array_element_size.variant'         array_element_size  implicit
+             '_array_intensities.variant'          array_intensities   implicit
+             '_array_structure.variant'            array_structure     implicit
+             '_array_structure_list.variant'       array_structure_list
                                                                        implicit
-             '_array_structure_list_axis.variant'  ARRAY_STRUCTURE_LIST_AXIS
+             '_array_structure_list_axis.variant'  array_structure_list_axis
                                                                        implicit
-             '_axis.variant'                       AXIS                implicit
-             '_diffrn_data_frame.variant'          DIFFRN_DATA_FRAME   implicit
-             '_diffrn_detector.variant'            DIFFRN_DETECTOR     implicit
-             '_diffrn_detector_axis.variant'       DIFFRN_DETECTOR_AXIS
+             '_axis.variant'                       axis                implicit
+             '_diffrn_data_frame.variant'          diffrn_data_frame   implicit
+             '_diffrn_detector.variant'            diffrn_detector     implicit
+             '_diffrn_detector_axis.variant'       diffrn_detector_axis
                                                                        implicit
-             '_diffrn_detector_element.variant'    DIFFRN_DETECTOR_ELEMENT
+             '_diffrn_detector_element.variant'    diffrn_detector_element
                                                                        implicit
-             '_diffrn_measurement.variant'         DIFFRN_MEASUREMENT  implicit
-             '_diffrn_measurement_axis.variant'    DIFFRN_MEASUREMENT_AXIS
+             '_diffrn_measurement.variant'         diffrn_measurement  implicit
+             '_diffrn_measurement_axis.variant'    diffrn_measurement_axis
                                                                        implicit
-             '_diffrn_radiation.variant'           DIFFRN_RADIATION    implicit
-             '_diffrn_refln.variant'               DIFFRN_REFLN        implicit
-             '_diffrn_scan.variant'                DIFFRN_SCAN         implicit
-             '_diffrn_scan_axis.variant'           DIFFRN_SCAN_AXIS    implicit
-             '_diffrn_scan_frame.variant'          DIFFRN_SCAN_FRAME   implicit
-             '_diffrn_scan_frame_axis.variant'     DIFFRN_SCAN_FRAME_AXIS
+             '_diffrn_radiation.variant'           diffrn_radiation    implicit
+             '_diffrn_refln.variant'               diffrn_refln        implicit
+             '_diffrn_scan.variant'                diffrn_scan         implicit
+             '_diffrn_scan_axis.variant'           diffrn_scan_axis    implicit
+             '_diffrn_scan_frame.variant'          diffrn_scan_frame   implicit
+             '_diffrn_scan_frame_axis.variant'     diffrn_scan_frame_axis
                                                                        implicit
-             '_diffrn_scan_frame_monitor.variant'  DIFFRN_SCAN_FRAME_MONITOR
+             '_diffrn_scan_frame_monitor.variant'  diffrn_scan_frame_monitor
                                                                        implicit
-             '_map.variant'                        MAP                 implicit
-             '_map_segment.variant'                MAP_SEGMENT         implicit
+             '_map.variant'                        map                 implicit
+             '_map_segment.variant'                map_segment         implicit
 
 
     _item_default.value           .
@@ -7872,7 +7896,7 @@ save__variant.variant
     _item_linked.child_name
     _item_linked.parent_name
              '_array_data.variant'                 '_variant.variant'
-             '_array_data.variant_of'              '_variant.variant'
+#             '_array_data.variant_of'              '_variant.variant'
              '_array_element_size.variant'         '_variant.variant'
              '_array_intensities.variant'          '_variant.variant'
              '_array_structure.variant'            '_variant.variant'
@@ -7909,13 +7933,31 @@ save__variant.variant_of
               VARIANT category.
 ;
     _item.name                  '_variant.variant_of'
-    _item.category_id             VARIANT
+    _item.category_id             variant
     _item.mandatory_code          no
     _item_type.code               code
      save_
 
+save__variant.diffrn_id
+    _item_description.description
+;             This item is a pointer to _diffrn.id in the
+              DIFFRN category.
+;
+    _item.name                  '_variant.diffrn_id'
+    _item.category_id             variant
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
 
-
+save__variant.entry_id
+    _item_description.description
+;             A point to _entry.id
+;
+    _item.name                  '_variant.entry_id'
+    _item.category_id             variant
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
 
 ########################   DEPRECATED DATA ITEMS ########################
 
@@ -7927,7 +7969,7 @@ save__diffrn_detector_axis.id
                DEPRECATED -- DO NOT USE
 ;
     _item.name                  '_diffrn_detector_axis.id'
-    _item.category_id             DIFFRN_DETECTOR_AXIS
+    _item.category_id             diffrn_detector_axis
     _item.mandatory_code          no
     _item_type.code               code
      save_
@@ -7954,7 +7996,7 @@ save__diffrn_detector_element.center[1]
 
 ;
     _item.name                  '_diffrn_detector_element.center[1]'
-    _item.category_id             DIFFRN_DETECTOR_ELEMENT
+    _item.category_id             diffrn_detector_element
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -7986,7 +8028,7 @@ save__diffrn_detector_element.center[2]
 
 ;
     _item.name                  '_diffrn_detector_element.center[2]'
-    _item.category_id             DIFFRN_DETECTOR_ELEMENT
+    _item.category_id             diffrn_detector_element
     _item.mandatory_code          no
     _item_default.value           0.0
     _item_sub_category.id         vector
@@ -8005,7 +8047,7 @@ save__diffrn_measurement_axis.id
                DEPRECATED -- DO NOT USE
 ;
     _item.name                  '_diffrn_measurement_axis.id'
-    _item.category_id             DIFFRN_MEASUREMENT_AXIS
+    _item.category_id             diffrn_measurement_axis
     _item.mandatory_code          no
     _item_type.code               code
      save_
@@ -8016,7 +8058,7 @@ save__diffrn_measurement_axis.id
 #####################
 
 
-save_DIFFRN_FRAME_DATA
+save_diffrn_frame_data
     _category.description
 ;             Data items in the DIFFRN_FRAME_DATA category record
               the details about each frame of data.
@@ -8040,7 +8082,7 @@ save_DIFFRN_FRAME_DATA
              
               All _item.mandatory_code values have been changed to no
 ;
-    _category.id                   DIFFRN_FRAME_DATA
+    _category.id                   diffrn_frame_data
     _category.mandatory_code       no
      loop_
     _category_key.name             '_diffrn_frame_data.id'
@@ -8070,7 +8112,7 @@ save__diffrn_frame_data.array_id
               DEPRECATED -- DO NOT USE
 ;
     _item.name                  '_diffrn_frame_data.array_id'
-    _item.category_id             DIFFRN_FRAME_DATA
+    _item.category_id             diffrn_frame_data
     _item.mandatory_code          no
     _item_type.code               code
      save_
@@ -8084,7 +8126,7 @@ save__diffrn_frame_data.binary_id
               DEPRECATED -- DO NOT USE
 ;
     _item.name                  '_diffrn_frame_data.binary_id'
-    _item.category_id             DIFFRN_FRAME_DATA
+    _item.category_id             diffrn_frame_data
     _item.mandatory_code          no
     _item_type.code               int
      save_
@@ -8098,8 +8140,8 @@ save__diffrn_frame_data.detector_element_id
               DEPRECATED -- DO NOT USE
 ;
     _item.name                  '_diffrn_frame_data.detector_element_id'
-    _item.category_id             DIFFRN_FRAME_DATA
-    _item.mandatory_code          no
+    _item.category_id             diffrn_frame_data
+    _item.mandatory_code          yes
     _item_type.code               code
      save_
 
@@ -8115,7 +8157,7 @@ save__diffrn_frame_data.id
     _item.name
     _item.category_id
     _item.mandatory_code
-           '_diffrn_frame_data.id'        DIFFRN_FRAME_DATA  yes
+           '_diffrn_frame_data.id'        diffrn_frame_data  yes
     _item_type.code               code
      save_
 
@@ -8127,7 +8169,7 @@ save__diffrn_frame_data.details
               DEPRECATED -- DO NOT USE
 ;
      _item.name                  '_diffrn_frame_data.details'
-     _item.category_id             DIFFRN_FRAME_DATA
+     _item.category_id             diffrn_frame_data
      _item.mandatory_code          no
      _item_type.code               text
       save_

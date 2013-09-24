@@ -177,6 +177,7 @@
      'metres'                 'metres'
      'centimetres'            'centimetres (metres * 10^( -2)^)'
      'millimetres'            'millimetres (metres * 10^( -3)^)'
+     'mm'                     'millimetres (metres * 10^( -3)^)'
      'nanometres'             'nanometres  (metres * 10^( -9)^)'
      'angstroms'              '\%Angstroms   (metres * 10^(-10)^)'
      'picometres'             'picometres  (metres * 10^(-12)^)'
