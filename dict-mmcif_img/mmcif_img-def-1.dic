@@ -7195,7 +7195,6 @@ save__diffrn_scan_frame_monitor.id
               If _array_data.binary_id is not explicitly given,
               it defaults to 1.
 ;
-     loop_
     _item.name             '_diffrn_scan_frame_monitor.id'
     _item.category_id      DIFFRN_SCAN_FRAME_MONITOR
     _item.mandatory_code   implicit
@@ -7238,7 +7237,7 @@ save__diffrn_scan_frame_monitor.integration_time
                must be given in _diffrn_scan_frame_monitor.integration_time.
 ;
     _item.name                 '_diffrn_scan_frame_monitor.integration_time'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          DIFFRN_SCAN_FRAME_MONITOR
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
@@ -7258,7 +7257,7 @@ save__diffrn_scan_frame_monitor.value
                monitor should be recorded.
 ;
     _item.name                 '_diffrn_scan_frame_monitor.value'
-    _item.category_id          DIFFRN_SCAN
+    _item.category_id          DIFFRN_SCAN_FRAME_MONITOR
     _item.mandatory_code       no
     _item_type.code            float
     _item_units.code           'seconds'
