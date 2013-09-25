@@ -7136,23 +7136,23 @@ save_diffrn_scan_frame_monitor
       FRAME1 1 20.0 SCAN1 1997-12-04T10:23:48
      
      # category DIFFRN_SCAN_FRAME_MONITOR
-     loop_
-     _diffrn_scan_frame_monitor.id
-     _diffrn_scan_frame_monitor.detector_id
-     _diffrn_scan_frame_monitor.scan_id
-     _diffrn_data_frame_monitor.frame_id
-     _diffrn_data_frame_monitor.integration_time
-     _diffrn_data_frame_monitor.monitor_value
-      1  BSM01 SCAN1 FRAME1 2.0 23838345642
-      2  BSM01 SCAN1 FRAME1 2.0 23843170669
-      3  BSM01 SCAN1 FRAME1 2.0 23839478690
-      4  BSM01 SCAN1 FRAME1 2.0 23856642085
-      5  BSM01 SCAN1 FRAME1 2.0 23781717656
-      6  BSM01 SCAN1 FRAME1 2.0 23788850775
-      7  BSM01 SCAN1 FRAME1 2.0 23815576677
-      8  BSM01 SCAN1 FRAME1 2.0 23789299964
-      9  BSM01 SCAN1 FRAME1 2.0 23830195536
-      10 BSM01 SCAN1 FRAME1 2.0 23673082270
+     #loop_
+     #_diffrn_scan_frame_monitor.id
+     #_diffrn_scan_frame_monitor.detector_id
+     #_diffrn_scan_frame_monitor.scan_id
+     #_diffrn_data_frame_monitor.frame_id
+     #_diffrn_data_frame_monitor.integration_time
+     #_diffrn_data_frame_monitor.monitor_value
+     # 1  BSM01 SCAN1 FRAME1 2.0 23838345642
+     # 2  BSM01 SCAN1 FRAME1 2.0 23843170669
+     # 3  BSM01 SCAN1 FRAME1 2.0 23839478690
+     # 4  BSM01 SCAN1 FRAME1 2.0 23856642085
+     # 5  BSM01 SCAN1 FRAME1 2.0 23781717656
+     # 6  BSM01 SCAN1 FRAME1 2.0 23788850775
+     # 7  BSM01 SCAN1 FRAME1 2.0 23815576677
+     # 8  BSM01 SCAN1 FRAME1 2.0 23789299964
+     # 9  BSM01 SCAN1 FRAME1 2.0 23830195536
+     # 10 BSM01 SCAN1 FRAME1 2.0 23673082270
 
      # category DIFFRN_SCAN_FRAME_AXIS
      loop_
