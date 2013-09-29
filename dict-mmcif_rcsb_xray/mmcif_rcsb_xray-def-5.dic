@@ -1708,6 +1708,7 @@ The make, model or name of the detector device used.
                   'ADSC QUANTUM 315r'               .
                   'AGILENT ATLAS CCD'               .
                   'AGILENT EOS CCD'                 .
+                  'AGILENT RUBY CCD'                .
                   'AGILENT TITAN CCD'               .
                   'APEX II CCD'                     .
                   'Bruker AXIOM 200'                .
@@ -2377,15 +2378,16 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'MAX II BEAMLINE I911-3'                   .
                      'MAX II BEAMLINE I911-5'                   .
                      'MPG/DESY, HAMBURG BEAMLINE BW6'           .
-                     'NSLS BEAMLINE X1A'                        . 
+                     'Nova high-flux-micro-focus sealed tube'   .
+                     'NSLS BEAMLINE X1A'                        .
                      'NSLS BEAMLINE X3A'                        .
                      'NSLS BEAMLINE X4A'                        .
                      'NSLS BEAMLINE X4C'                        .
                      'NSLS BEAMLINE X6A'                        .
-                     'NSLS BEAMLINE X7B'                        .            
-                     'NSLS BEAMLINE X8C'                        .            
-                     'NSLS BEAMLINE X9A'                        .            
-                     'NSLS BEAMLINE X9B'                        .            
+                     'NSLS BEAMLINE X7B'                        .
+                     'NSLS BEAMLINE X8C'                        .
+                     'NSLS BEAMLINE X9A'                        .
+                     'NSLS BEAMLINE X9B'                        .
                      'NSLS BEAMLINE X12B'                       .
                      'NSLS BEAMLINE X12C'                       .
                      'NSLS BEAMLINE X17B1'                      .
@@ -2414,7 +2416,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'PHOTON FACTORY BEAMLINE BL-5A'            .
                      'PHOTON FACTORY BEAMLINE BL-6A'            .
                      'PHOTON FACTORY BEAMLINE BL-6B'            .
-                     'PHOTON FACTORY BEAMLINE BL-17A'           . 
+                     'PHOTON FACTORY BEAMLINE BL-17A'           .
                      'PHOTON FACTORY BEAMLINE BL-18B'           .
                      'RIGAKU'                                   .
 #                    'RIGAKU 200'                               .
@@ -2439,6 +2441,7 @@ LNLS Campinas, Brazil: beamlines: CPr
                      'RIGAKU RUH2R'                             .
                      'RIGAKU RUH3R'                             .
                      'RIGAKU ULTRAX 18'                         .
+                     'SACLA BEAMLINE BL3'                       .
                      'SAGA-LS BEAMLINE BL07'                    .
                      'SIEMENS'                                  .
                      'SLAC LCLS BEAMLINE CXI'                   .
