@@ -1,0 +1,2327 @@
+##############################################################################
+#                                                                            #
+#                               SAS CIF Dictionary                           #
+#                                                                            #
+#                       Marc Malfois, Dmitri Svergun                         #
+#                                                                            #
+# Details of revisions are given in dictionary_history at end of the file    #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#        This dictionary built with DDL v2.1. format                         #
+#        CIF data definitions for small-angle scattering applications        #
+#                                                                            #
+############################################################################## 
+#IDB
+# OVERVIEW
+#
+# This dictionary describe a additional CIF items needed for a sas experiment 
+#
+# This version of the sasCIF dictionary is organized on the following principles:
+#
+# 1. It assumes that a sasCIF will report the intensity measurements as a function 
+# of momentum transfer from one or more scans.  
+# Each scan will report scattering from either the sample, the matrix, etc. or the 
+# processed intensities.  The intensities will be recorded  
+# in the sas_scan_intensity category.  Any number of scans may be reported in a 
+# single datablock, but different scans may be reported in different datablocks
+# if so desired.
+#
+# 2. The properties of each scan, e.g., the sample, beam and detector used, whether 
+# the scattering is from the sample or the matrix, is indentified in the sas_scan 
+# category.  
+# The properties of the beam, detector and sample are reported in their own 
+# categories, but the sas_scan category has pointers to these, allowing each scan 
+# to reference any of the reported samples, beams and detectors. 
+# If more than one scan is being reported in the CIF, the items in sas_scan will be 
+# looped.  
+#
+# 3. CIF defines a Standard Laboratory Reference System (SLRS) of axes against 
+# which the axis systems of the SAS experiment can be defined, using the 
+# sas_axis category. 
+
+# DSV: OK but I would suggest to direct Z outwards the source, which 
+# may appear more logical.
+#
+## IDB: The imgCIF definition is only a reference system.  The user is free to 
+## define any alternative axis system using the items in the sas_axis category 
+## which relates the operational axis systems back to the CIF 
+## standard.  Reversing the direction of z is achieved using the sas_axis items.  
+##
+## At any given installation where the same axis system is used for all
+## experiments, the items in the sas_axis category would remain unchanged and could 
+## be imported into any experimental CIF.
+##
+
+
+###################################################################
+#
+#   DRAFT SAS DICTIONARY FOLLOWS
+#
+###################################################################
+
+data_cif_sas.dic
+    _dictionary.title           mmcif_sas.dic
+    _dictionary.version         0.4.02
+    _dictionary.update          2010-01-05
+    _dictionary.datablock_id    mmcif_sas.dic
+
+## IDB: It is normal in dictionaries for the definitions to be arranged 
+## alphabetically.  I have tried to ensure that here.
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+##IDB
+## You have defined a number of new categories in this dictionary, and for
+## each category you have defined a category group.  Since the purpose of the
+## category group is to bring different, but related, categories together, it
+## seems unnecessary to define an equal number of new category groups.  However, 
+## I am not sure that what purpose the category groups serve (they are only used 
+## in DDL2 dictionaries, i.e., the dictionaries used for macromolecular 
+## structures).  At this stage we need not be too concerned about these groups.
+## If category groups are important, there should be one group, the sas group.
+##
+## IDB 2010-01-05 
+## I have commented them out here and at other places where groups 
+## items are defined.  They can be decommented later if necessary.
+#     loop_
+#    _category_group_list.id
+#    _category_group_list.parent_id
+#    _category_group_list.description
+#              'inclusive_group'
+#              'inclusive_group'
+#;              Categories that belong to the sas dictionary.
+## The beam and detc groups should be diffr_group
+#;
+#              'beam_group'
+#              'inclusive_group'
+#;              Categories that describe the properties of the beam.
+#;
+#              'detc_group'
+#              'inclusive_group'
+#;              Categories that describe the properties of the detector.
+#;
+#              'sample_group'
+#              'inclusive_group'
+#;              Categories that describe the properties of the sample.
+#;
+#              'intensity_group'
+#              'inclusive_group'
+#;              Categories that describe the intensities
+#;
+
+############
+# SAS_AXIS #
+############
+
+## IDB: I have adapted this category from the definition of the coordinate 
+## system given in imgCIF.  It allows the axes used in the sas experiment to be 
+## defined in terms of the Standard Laboratory System.
+#
+save_SAS_AXIS
+    _category.id                  sas_axis
+    _category.mandatory_code      no
+    _category_key.name          '_sas_axis.id'
+#     loop_
+#    _category_group.id           'inclusive_group'
+#                                 'intensity_group'
+    _category.description
+;     Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+
+      A full description of the SLRS is given below.  
+
+ THE DEFINITION OF THE CIF STANDARD LABORATORY REFERENCE SYSTEM (SLRS)
+              (taken from the imgCIF dictionary)
+
+     Data items in the AXIS category record the information required
+     to describe the various goniometer, detector, source and other
+     axes needed to specify a data collection.  The location of each
+     axis is specified by two vectors: the axis itself, given as a unit
+     vector, and an offset to the base of the unit vector.  These vectors
+     are referenced to a right-handed laboratory coordinate system with
+     its origin in the sample or specimen:
+
+                             | Y (to complete right-handed system)
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |________________X
+                            /       principal goniometer axis
+                           /
+                          /
+                         /
+                        /
+                       /Z (to source)
+
+
+
+     Axis 1 (X): The X-axis is aligned to the mechanical axis pointing from
+     the sample or specimen along the  principal axis of the goniometer.
+
+     Axis 2 (Y): The Y-axis completes an orthogonal right-handed system
+     defined by the X-axis and the Z-axis (see below).
+
+     Axis 3 (Z): The Z-axis is derived from the source axis which goes from
+     the sample to the source.  The Z-axis is the component of the source axis
+     in the direction of the source orthogonal to the X-axis in the plane
+     defined by the X-axis and the source axis.
+
+     These axes are based on the goniometer, not on the orientation of the
+     detector, gravity etc.  The vectors necessary to specify all other
+     axes are given by sets of three components in the order (X, Y, Z).
+     If the axis involved is a rotation axis, it is right-handed, i.e. as
+     one views the object to be rotated from the origin (the tail) of the
+     unit vector, the rotation is clockwise.  If a translation axis is
+     specified, the direction of the unit vector specifies the sense of
+     positive translation.
+
+     Note:  This choice of coordinate system is similar to but significantly
+     different from the choice in MOSFLM (Leslie & Powell, 2004).  In MOSFLM,
+     X is along the X-ray beam (the CBF/imgCIF Z axis) and Z is along the
+     rotation axis.
+
+     In some experimental techniques, there is no goniometer or the principal
+     axis of the goniometer is at a small acute angle with respect to
+     the source axis.  In such cases, other reference axes are needed
+     to define a useful coordinate system.  The order of priority in
+     defining directions in such cases is to use the detector, then
+     gravity, then north.
+
+     If the X-axis cannot be defined as above, then the X axis is determined 
+     by the orientation of the detector when in its zero setting if more than 
+     one setting is available.  The direction (not the origin) of the X-axis 
+     should be parallel to the axis
+     of the primary detector element corresponding to the most rapidly
+     varying dimension of that detector element's data array, with its
+     positive sense corresponding to increasing values of the index for
+     that dimension.  If the detector is not planar then the Z axis is chosen 
+     along the source axis directed from the specimen to the source, and the X 
+     axis is chosen to be perpendicular to the Z axis and the axis normal to the 
+     plane that contains a row of the most rapidly varying primary detector 
+     elements as above, with its positive direction corresponding to the 
+     increasing value of this index at the point where the source beam 
+     intersects the detector (or would intersect the detector) on the side of 
+     the specimen opposite the source.
+
+     If the detector is such that such a direction cannot
+     be defined (as with a point detector) or that direction forms an
+     angle of less than 22.5 degrees with respect to the source axis, then
+     the X-axis should be chosen so that if the Y-axis is chosen
+     in the direction of gravity, and the Z-axis is chosen to be along
+     the source axis, a right-handed orthogonal coordinate system is chosen.
+     In the case of a vertical source axis, as a last resort, the
+     X-axis should be chosen to point North.
+
+     All rotations are given in degrees and all translations are given in mm.
+
+     Axes may be dependent on one another.  The X-axis is the only goniometer
+     axis the direction of which is strictly connected to the hardware.  All
+     other axes are specified by the positions they would assume when the
+     axes upon which they depend are at their zero points.
+
+     When specifying detector axes, the axis is given to the beam centre.
+     The location of the beam centre on the detector should be given in the
+     DIFFRN_DETECTOR category in distortion-corrected millimetres from 
+     the (0,0) corner of the detector.
+
+     It should be noted that many different origins arise in the definition
+     of an experiment.  In particular, as noted above, it is necessary to 
+     specify the location of the beam centre on the detector in terms 
+     of the origin of the detector, which is, of course, not coincident 
+     with the centre of the sample.
+     
+     Ref:  Leslie, A. G. W. &  Powell, H. (2004). MOSFLM v6.11.
+     MRC Laboratory of Molecular Biology, Hills Road, Cambridge, England.
+     http://www.CCP4.ac.uk/dist/x-windows/Mosflm/.
+
+END OF DESCRIPTION OF THE CIF STANDARD LABORATORY REFERENCE SYSTEM
+;
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;       This example shows the specification of the axes (x,y,z) of a
+        fixed area detector set normal to the incident beam in a small angle 
+        scattering experiment.  
+
+        It is assumed that there is no goniometer axis so the imgCIF standard 
+        laboratory axis system (X,Y,Z) is chosen according to the rules 
+        with the origin at the sample and the X axis parallel to the most 
+        rapidly varying detector axis (assumed here to be horizontal).  
+
+        The detector coordinate system is chosen with its origin at the upper 
+        left corner of the detector when viewed from the sample and the axis
+        directions are chosen so that all the pixels coordinates are positive.  
+        The direction of the most rapidly reading axis is chosen as x and the 
+        incident beam lies along -z.  The detector lies 68 mm behind the sample 
+        with detector origin 30 mm above and 45 mm to the left of the point of 
+        intersection of incident beam and the detector as viewed from the source. 
+        Note that in this setting the y axis points upward, but the pixels 
+        coordinates increase in the downward direction.
+
+        These values would not change if the detector were rotated about a
+        vertical axis passing through the point of intersection the incident 
+        beam and the detector although the z (and Z) axes would no longer point 
+        along the incident beam.
+;
+;
+        loop_
+        _sas_axis.id
+        _sas_axxis.type
+        _sas_axis.equipment
+        _sas_axis.vector[1] _axis.vector[2] _axis.vector[3]
+        _sas_axis.offset[1] _axis.offset[2] _axis.offset[3]
+        tranx     translation detector  1     0     0   -45  0   0
+        trany     translation detector  0    -1     0   0   30   0
+        tranz     translation detector  0     0     1   0    0 -68
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       save_
+
+## IDB: This item not needed unless we need to define a system of three Euler axes.
+##
+save__axis.depends_on
+    _item_description.description
+;             The value of _axis.depends_on specifies the next outermost
+              axis upon which this axis depends.
+
+              This item is a pointer to _axis.id in the same category.
+;
+    _item.name                      '_axis.depends_on'
+    _item.category_id                 axis
+    _item.mandatory_code              no
+
+     save_
+
+save__sas_axis.equipment
+    _item_description.description
+;             The value of  _axis.equipment specifies the type of
+              equipment using the axis:  'goniometer', 'detector',
+              'gravity', 'source' or 'general'.
+;
+    _item.name                      '_sas_axis.equipment'
+    _item.category_id                 sas_axis
+    _item.mandatory_code              no
+    _item_type.code                   ucode
+    _item_default.value               general
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail   goniometer
+                          'equipment used to orient or position samples'
+                               detector
+                          'equipment used to detect reflections'
+                               general
+                          'equipment used for general purposes'
+                               gravity
+                          'axis specifying the downward direction'
+                               source
+                          'axis specifying the direction sample to source'
+     save_
+
+save__sas_axis.offset[1]
+    _item_description.description
+;              The [1] element of the three-element vector used to specify
+               the offset to the base of a rotation or translation axis in the 
+               laboratory system.
+
+               The vector is specified in millimetres.
+
+      This item is used in the definition of a coordinate system used in the 
+      experiment.  
+      It is specified by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam.
+;
+    _item.name                  '_sas_axis.offset[1]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+    _item_units.code              millimetres
+     save_
+
+
+save__sas_axis.offset[2]
+    _item_description.description
+;              The [2] element of the three-element vector used to specify
+               the offset to the base of a rotation or translation axis in the 
+               laboratory system.
+
+               The vector is specified in millimetres.
+
+      Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                  '_sas_axis.offset[2]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+    _item_units.code              millimetres
+     save_
+
+
+save_sas_axis.offset[3]
+    _item_description.description
+;              The [3] element of the three-element vector used to specify
+               the offset to the base of a rotation or translation axis in the 
+               laboratory system.
+
+               The vector is specified in millimetres.
+ 
+     Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                  '_sas_axis.offset[3]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+    _item_units.code              millimetres
+     save_
+
+
+save__sas_axis.id
+    _item_description.description
+;             The value of _sas_axis.id must uniquely identify
+              each axis relevant to the experiment.  Note that multiple
+              pieces of equipment may share the same axis (e.g. a twotheta
+              arm), so the category key for AXIS also includes the
+              equipment.
+;
+    _item_type.code               code
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+#         '_sas_axis.depends_on'    '_axis.id'
+         '_sas_beam.axis_id'        '_axis.id'
+         '_sas_detc.axis_id'        '_axis.id'
+         '_sas_sample.axis_id'      '_axis.id'
+         '_sas_scan.axis_id'        '_axis.id'
+     save_
+
+save__sas_axis.type
+    _item_description.description
+;             The value of _sas_axis.type specifies the type of
+              axis:  'rotation' or 'translation' (or 'general' when
+              the type is not relevant, as for gravity).
+
+      Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                      '_sas_axis.type'
+    _item.category_id                 sas_axis
+    _item.mandatory_code              no
+    _item_type.code                   ucode
+    _item_default.value               general
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      rotation
+                      'right-handed axis of rotation'
+                                  translation
+                      'translation in the direction of the axis'
+                                  general
+                      'axis for which the type is not relevant'
+    _item_default.value           translation
+     save_
+
+
+save__sas_axis.vector[1]
+    _item_description.description
+;              The [1] element of the three-element vector used to specify
+               the direction of a rotation or translation axis.
+               The vector should be normalized to be a unit vector and
+               is dimensionless.
+
+      Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                  '_sas_axis.vector[1]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+save__sas_axis.vector[2]
+    _item_description.description
+;              The [2] element of the three-element vector used to specify
+               the direction of a rotation or translation axis.
+               The vector should be normalized to be a unit vector and
+               is dimensionless.
+
+      Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                  '_sas_axis.vector[2]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+save__sas_axis.vector[3]
+    _item_description.description
+;              The [3] element of the three-element vector used to specify
+               the direction of a rotation or translation axis.
+               The vector should be normalized to be a unit vector and
+               is dimensionless.
+
+      Data items in the AXIS category specify a coordinate system used in the 
+      experiment.  
+      This is done by giving two vectors: a unit vector in the direction of the 
+      axis and an origin off-set.  These vectors are referred to a Standard 
+      Laboratory Reference System (SLRS) that is a CIF standard.  
+
+      The SLRS convention used for small angle scattering work is as follows:
+
+      The origin is chosen at the intesection of the sample and the incident beam.
+
+      The X axis is directed along the major axis of the detector.  
+      If there is more than one axis, the major axis is the one in which the 
+      positions vary most rapidly in the data array.
+
+      The Y axis is chosen so as to form a right handed orthogonal coordinate 
+      system with the X and Z axes.
+
+      The Z axis is chosen to lie in the plane of the X axis and the incident beam 
+      and is directed towards the source of radiation.
+
+      If the axis involved is a rotation axis, it is right-handed, i.e. as
+      one views the object to be rotated from the origin (the tail) of the
+      unit vector, the rotation is clockwise.  Rotation axies are not normally
+      defined for small angle scattering, but will be needed if the detector is 
+      not set normal to the beam or if the beam polarization is defined.
+;
+    _item.name                  '_sas_axis.vector[3]'
+    _item.category_id             sas_axis
+    _item.mandatory_code          no
+    _item_default.value           0.0
+    _item_sub_category.id         vector
+    _item_type.code               float
+     save_
+
+
+#############
+## SAS_BEAM #
+#############
+
+#IDB
+# It is the intention that the items in this category be looped so 
+# that several different beams can be described, each identified with a different 
+# _sas_beam.id.  
+
+# If it is intended to allow a number of items from the core dictionary to be used 
+# in defining the properties of the beam there may be a problem in combining these 
+# since all the items in a loop must belong to the same category.  
+# I am proposing that we define all these items as _sas items and, where 
+# appropriate, identify the names of the same item in the core as aliases.  See 
+# the note 'implications of new developments...' above.
+#
+# What other items related to the beam will be picked up from the core dictionary?
+#
+# The powder dictionary has two items:
+#      _pd_inst_beam_size_ax = _sas_beam.width_y
+#      _pd_inst_beam_size_eq = _sas_beam.width_x
+# for giving the beam size in mm at the sample.  Axial is defined as perpendicular 
+# to the plane of the incident and scattered beam.
+# The core dictionary has:
+#       _diffrn_radiation_monochromator
+#       _diffrn_radiation_polarisn_norm
+#       _diffrn_radiation_polarisn_ratio
+#       _diffrn_radiation_probe
+#       _diffrn_radiation_type
+#       _diffrn_radiation_xray_symbol
+# as well as items defining the collimation, filter, inhomogeneity.
+# In a separate category are:
+#       _diffrn_radiation_wavelength  = _diffrn_radiation_wavelength.wavelength 
+#       _diffrn_radiation_wavelength_id
+#       _diffrn_radiation_wavelength_wt
+
+# DSV: we used clones of some items available in the core dictionary just for 
+# consistency.
+
+## IDB: ok
+
+
+save_sas_beam
+    _category.description
+;              Items in this category give information about the beam.
+;
+    _category.id                  sas_beam
+    _category.mandatory_code      no
+    _category_key.name          '_sas_beam.id'
+#    _category_group.id           'inclusive_group'     
+loop_
+    _category_examples.detail
+    _category_examples.case 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example   - Hypothetical example to illustrate the description of a
+                beam geometry.
+;
+;
+    _sas_beam.id                         X_ray
+    _sas_beam.axis_id                    1
+    _sas_beam.shape                      Rectangular
+    _sas_beam.width_ax                    0.2
+    _sas_beam.width_eq                    0.5
+    _sas_beam.dist_spec/detc              1.5
+    _sas_beam.radiation_wavelength_id     3
+;
+save_
+
+save_sas_beam.id
+    _category.description
+;            The value of _sas_beam.id must uniquely identify
+             the beam setup used to measure the scattered intensities.
+; 
+    _item.name                   '_sas_beam.id'
+    _item.category_id             sas_beam
+    _item.mandatory_code          yes
+    _item_type.code               code
+      loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+   '_sas_scan.beam_id   '_sas_beam.id'
+save_
+
+save_sas_beam.axis_id
+    _category.description
+;            The value of _sas_beam.axis_id identifies the axis system
+             used as described in sas_axis.
+; 
+    _item.name                   '_sas_beam.axis_id'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_default.value           1
+save_
+
+save__sas_beam.chopper_frequency
+    _item_description.description
+;              Frequency of the choppers in Hz
+;
+    _item.name                   '_sas_beam.chopper_frequency'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              Hz
+    save_
+
+save__sas_beam.collimation_slit_size_x
+    _item_description.description
+;           The width of the collimation slits in the _x direction 
+            in the system defined by _sas_beam.axis_id.
+;
+    _item.name                   '_sas_beam.collimation_slit_size_x'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+save__sas_beam.collimation_slit_size_y
+    _item_description.description
+;           The width of the collimation slits in the _y direction 
+            in the system defined by _sas_beam.axis_id.
+
+;
+    _item.name                   '_sas_beam.collimation_slit_size_y'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+## IDB:
+## I have added aliases to the pd file for the following items.
+
+save__sas_beam.dist_anal/detc
+    _item_description.description
+;      the distance in millimetres from the analyser to the detector
+;
+    _item.name           '_sas_beam.dist_anal/detc'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_anal/detc'
+    save_ 
+
+save__sas_beam.dist_mono/spec
+    _item_description.description
+;      the distance in millimetres from the monochromator to the specimen
+;
+    _item.name           '_sas_beam.dist_mono/spec'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_mono/spec'
+    save_ 
+
+save__sas_beam.dist_spec/anal
+    _item_description.description
+;      the distance in millimetres from the sample to the analyser
+;
+    _item.name                   '_sas_beam.dist_spec/anal'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_spec/anal'
+    save_ 
+
+save__sas_beam.dist_spec/detc
+    _item_description.description
+;      the distance in millimetres from the sample to the detector
+;
+    _item.name           '_sas_beam.dist_spec/detc'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_spec/detc'
+    save_ 
+
+save__sas_beam.dist_src/mono
+    _item_description.description
+;      The distance in millimetres from the radiation source to the monochromator.
+       For synchrotron radiation, the source is a bending magnet or insertion
+       device. 
+;
+    _item.name             '_sas_beam.dist_src/mono'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_src/mono'
+    save_  
+
+save__sas_beam.dist_src/spec
+    _item_description.description
+;      the distance in millimetres from the source to the sample
+       For synchrotron radiation, the source is a bending magnet or insertion
+       device. 
+;
+    _item.name           '_sas_beam.dist_src/spec'
+    _item.category_id            sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _itam_aliases.alias_name      '_pd_instr_dist_src/spec'
+    save_ 
+
+save__sas_beam.divergence_x
+    _item_description.description
+;            The beam divergence in the _x direction in the system 
+             defined by _sas_beam.axis_id.
+;
+_item.name                   '_sas_beam.divergence_x'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              radians
+## IDB:
+## _pd_instr_divg_eq_mono/spec is a similar quantity but is given in degrees.     
+##
+   save_
+
+save__sas_beam.divergence_y
+    _item_description.description
+;            The beam divergence in the _y direction in the system 
+             defined by _sas_beam.axis_id. 
+;
+    _item.name                   '_sas_beam.divergence_y'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              radians
+## IDB:
+## _pd_instr_divg_ax_mono/spec is a similar quantity but is given in degrees.     
+##
+    save_
+
+
+save__sas_beam.monochromator_takeoff
+    _item_description.description
+;              This is two times the Bragg angle (2 theta) of the monochromator.
+;
+    _item.name                   '_sas_beam.monochromator_takeoff'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+# IDB: I have moved _sas_detc.analyser_description here and changed its name.  
+# The corresponding polarization item is already in this category and I have also 
+# moved _sas_detc.polarizer_direction into this category (see below) since 
+# polarization is a property of the beam.  Is this satisfactory?
+# I have also added polarization to the name to distinguish it from a wavelength 
+# analyser
+#
+# I have added a dummy loop for examples as it would be helpful 
+# to have an example here
+
+save__sas_beam.polarization_analyser_description
+    _item_description.description
+;              Description of the polarisation analyser
+;
+    _item.name                   '_sas_beam.polariztion_analyser_description'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               text
+loop_
+    _item_example.case
+    _item_example.detail
+      ?     ?
+    save_
+
+
+# IDB: I have moved this from the sas_detc category since polarization is a beam 
+# property and changed the type to record the angle in degrees.
+# Have I described the positive direction correctly?
+
+save__sas_beam.polarization_direction
+    _item_description.description
+;              Direction of the polarization in degrees relative to the x axis 
+               in the system defined by _sas_beam.axis_id. 
+               The positive direction is counterclockwise when facing the source.
+;
+    _item.name                   '_sas_beam.polarization_direction'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               numb
+    _item_units.code              degrees
+    save_ 
+
+save__sas_beam.polarizer_details
+    _item_description.description
+;              A description of the device used to polarize the beam 
+;
+    _item.name                   '_sas_beam.polarizer_details'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_ 
+
+save__sas_beam.radiation_pulse_duration
+    _item_description.description
+;              pulse duration for neutron time of flight measurements
+;
+    _item.name                   '_sas_beam.radiation_pulse_duration'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              seconds
+    save_ 
+
+##IDB
+## The next couple of items match some of the items in the 
+## diffrn_radiation_wavelength category, but I think it is best to define new items 
+## within the sas_beam category and avoid getting involved with the diffrn items 
+## which are structured differently.  So I have changed _*.radiation_wavelength_id 
+## to _*.radiation_wavelength.  This will allow a particular wavelength to be 
+## associated with its own beam characterstics since a change in wavelength could 
+## well change the divergence etc.  All the beam characteristics will have to be 
+## given for each wavelength used.
+
+save__sas_beam.radiation_wavelength
+   _item_description.description
+;      The wavelenght of the incident beam in Angstroms. 
+:
+    _item.name                   '_sas_beam.radiation_wavelength_id'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              A
+    save_
+
+save__sas_beam.radiation_wavelength_width
+   _item_description.description
+;      The halfwidth of the distribution of wavelengths present in the incident
+       beam
+:
+    _item.name                   '_sas_beam.radiation_wavelength_width'
+    _item.category_id             diffrn_radiation_wavelength
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              A
+    save_
+
+save__sas_beam.shape
+    _item_description.description
+;           Shape of the beam profile if not rectangular, e.g., circular
+;
+    _item.name                   '_sas_beam.shape'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_default.value           'rectangular'
+    save_ 
+
+save__sas_beam.velocity_selector_orientation
+    _item_description.description
+;              Angle between the rotation axis of the velocity selector 
+               and the primary beam direction.
+;
+    _item.name                   '_sas_beam.velocity_selector_orientation'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_
+
+save__sas_beam.velocity_selector_speed
+    _item_description.description
+;              Rotation speed of the velocity selector in rpm
+;
+    _item.name                   '_sas_beam.velocity_selector_speed'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              rpm
+    save_ 
+
+save__sas_beam.width_x
+    _item_description.description
+;           The width of the beam at the sample in the _x direction
+            in the system defined by _sas_beam.axis_id.
+;
+_item.name                    '_sas_beam.width_x'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+## IDB:
+## I have added an alias here and in the next item to indicate that this
+## item gives the same information as one of the existing items in the powder
+## diffraction CIF dictionary.
+##
+    _item_aliases.alias_name      '_pd_inst_beam_size_eq'
+    save_
+
+save__sas_beam.width_y
+    _item_description.description
+;            The width of the beam at the sample in the_y direction
+             in the system defined by _sas_beam.axis_id. 
+;
+    _item.name                    '_sas_beam.width_y'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    _item_aliases.alias_name      '_pd_inst_beam_size_ax'
+    save_
+
+#################
+## SAS_DETECTOR #
+#################
+
+# DSV: The category sas_detc. has to be kept.
+# The concepts vital for SAS (e.g. beamstop size) are usually irrelevant
+# for Xtal or powder diffraction. 
+#
+#IDB
+# I appreciate that there are items here that are not relevant to single crystal 
+# work.  The question is how best to incorporate these into CIF when you will also 
+# wish to use some of the items already defined in diffrn_detector.  There are 
+# three possibilities
+#
+# 1. These items could be defined here but in the category diffrn_detector.  It 
+# is permissible to define items in the same category in different dictionaries.
+#
+# 2. All the items required for sas work could be defined in the sas_detc
+# category.  This would require duplicate definitions for those items that also 
+# appear in the diffrn_detector category and that are used in sas work.
+#
+# 3. A sas CIF could use items drawn from the sas_detc category and the 
+# diffrn_detector category, but since they are not allowed in the same loop, two 
+# loops would be needed and they would have to be linked through a parent-child 
+# relationship.
+#
+# Of these possibilities, the first is the most elegant, the last the least 
+# elegant.
+#
+# Which way should we go?
+
+## DSV: see above, I would suggest option 2
+##
+
+## IDB: I now agree option 2 is the best.  With the eventual conversion of this 
+## dictionary to DDLm we will be able to use aliases to bring all the names used 
+## for the same item into one description.
+##
+## Are there any other items (e.g., from the core dictionary) that should be 
+## defined here?
+
+save_sas_detc
+    _category.description
+;              Gives information about the detector.
+               Extension for the items used in SAS.
+;
+    _category.id                  sas_detc
+    _category.mandatory_code      no
+    _category_key.name          '_sas_detc.id'
+#    _category_group.id           'inclusive_group'
+loop_
+    _category_examples.detail
+    _category_examples.case 
+# - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example   - Hypothetical example to illustrate the description of a
+                detector.
+;
+;   _sas_detc.id                       2D
+    _sas_detc.axis_id                  1
+    _sas_detc.beamstop_size_x         0.5
+    _sas_detc.beamstop_size_y         0.5
+    _sas_detc.pixsize_x               0.01
+    _sas_detc.pixsize_y               0.01
+    _sas_detc.center_x                2.0
+    _sas_detc.center_y                2.2
+    _sas_detc.sector_width             45
+    _sas_detc.sector_orientation       22.5
+;
+    save_ 
+
+save_sas_detc.id
+    _category.description
+;
+             The value of _sas_detc.id must uniquely identify
+             the detector used to measure the scattered intensities .
+;
+    _item.name                   '_sas_detc.id'
+    _item.category_id             sas_detc
+    _item.mandatory_code          yes
+    _item_type.code               code
+loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+           _sas_scan.detc_id   _sas_detc.id
+ save_ 
+
+save_sas_detc.axis_id
+    _category.description
+;            The value of _sas_detc.axis_id identifies the axis system
+             used for the detector as described in sas_axis.
+; 
+    _item.name                   '_sas_detc.axis_id'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_default.value           1
+save_
+
+# It would be better to replace the next two items by a transformation matrix which 
+# would also take account of any difference in the labelling of the axes.
+#
+
+## IDB: The axis system is defined in the sas_axis category.
+
+
+save__sas_detc.beam_position_x
+    _item_description.description
+;              The position of the beam center on the detector in
+               _x direction in the detector coordinate system. 
+               The axis system is given by _sas_detc.axis.id.
+
+    _item.name                   '_sas_detc.beam_centre_x'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+save__sas_detc.beam_position_y
+    _item_description.description
+;              The position of the beam center on the detector in
+               _y direction. 
+               The axis system is given by _sas_detc.axis.id.
+;
+
+    _item.name                   '_sas_detc.beam_centre_y'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+save__sas_detc.beamstop_shadow_size_x
+    _item_description.description
+;              defines the maximum dimension of the beamstop shadow on the detector 
+               in the _x direction defined by the system given by 
+               _sas_detc.axis_id. 
+;
+
+    _item.name                  '_sas_detc._beamstop_shadow_size_x'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+
+save__sas_detc.beamstop_shadow_size_y
+    _item_description.description
+;              defines the maximum dimension of the beamstop shadow on the detector 
+               in the _y direction defined by the system given by 
+               _sas_detc.axis_id. 
+;
+    _item.name                  '_sas_detc.beamstop_shadow_size_y'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+
+# DSV: We can make _sas_detc.beamstop_shadow_position_x
+# and _sas_detc.beamstop_shadow_position_y in pixels,
+# in which case they will be the coordinates of the beam
+# center in pixels and serve for the transformation between the 
+# two systems.
+
+## IDB: The axis system, including the origin, is defined in the sas_axis category
+## so there is no longer a problem.
+
+save__sas_detc.beamstop_shadow_position_x
+    _item_description.description
+;              The x coordinate in pixels of the centre of the 
+               beamstop shadow on the detector measured using the 
+               detector coordinates.
+               This axis system is given by _sas_detc.axis_id. 
+;
+    _item.name                  '_sas_detc.beamstop_shadow_position_x'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_units.code              pixels
+    save_
+
+save__sas_detc.beamstop_shadow_position_y
+    _item_description.description
+;             The y coordinate of the centre of the shadow of the beamstop on the 
+              detector measured in the detector coordinate system
+               This axis system is given by _sas_detc.axis_id. 
+;
+    _item.name                  '_sas_detc.beamstop_shadow_position_y'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_units.code              pixels
+    save_
+
+save__sas_detc.beamstop_shape
+    _item_description.description
+;              Shape of the beamstop (circular, rectangular etc)
+;
+    _item.name                   '_sas_detc.beamstop_shape'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               text
+ save_ 
+
+save__sas_detc.merge_number
+    _item_description.description
+;              The number n of channels (pixels) merged together (1D-detector)
+		   to decrease the statistical error by a factor of SQRT(n).
+;
+    _item.name                   '_sas_detc.merge_number'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               int
+    save_
+
+
+# NOTE: we are accustomed to Alpha, Beta, Gamma as Euler angles. This 
+# description is routinely used by polymer people to describe detector 
+# orientation
+#IDB
+# However, a precise description of how these angles are defined relative to the 
+# reference coordinate system should be given, or else a reference to some work in 
+# which such a description appears.  The dictionary should be 
+# completely self-contained so that it does not to rely on the 
+# institutional knowledge which is currently understood but which could be lost 
+# in the future. 
+# It is not obvious to me (never having done this experiment) how Euler angles are 
+# involved.  I thought the normal to the detector plane pointed towards the source 
+# in most if not all sas experiments.
+#
+
+# DSV: it could probably be sufficient to define the angle for the detector
+# normal. To be honest I never did experiemnts with tilted detectors either, 
+# and it is very seldom that this plays a role.
+
+## IDB: If alphs, beta and gamma are to be included in the dictionary, an 
+## unambiguous definition is required.  Euler angles are used on single crystal 
+## goniometers and they are called phi, chi and psi.  I don't think there is any 
+## universal labelling of these angles.  If the normal is always parallel to the 
+## beam should these items be dropped?
+
+save__sas_detc.orientation_alpha
+    _item_description.description
+;              defines the Euler alpha angle of the normal to
+               the detector plane
+;
+    _item.name                    '_sas_detc.orientation_alpha'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_detc.orientation_beta
+    _item_description.description
+;              defines the Euler beta angle of the normal to
+               the detector plane
+    _item.name                    '_sas_detc.orientation_beta'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_detc.orientation_gamma
+    _item_description.description
+;              defines the Euler gamma angle of the normal to
+               the detector plane 
+;
+   _item.name                    '_sas_detc.orientation_gamma'
+   _item.category_id             sas_detc
+   _item.mandatory_code          no
+   _item_type.code               float
+   _item_units.code              degrees
+   save_ 
+
+save__sas_detc.pixnum_x
+    _item_description.description
+;               The number of detector pixels in the x direction.
+               This axis system is defined in the sas_axis category
+               with sas_axis.equipment set to 'detector'
+;
+    _item.name                   '_sas_detc.pixnum_x'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_units.code              pixels
+    save_
+
+save__sas_detc.pixnum_y
+    _item_description.description
+;                  The number of detector pixels in the y direction.
+               This axis system is defined in the sas_axis category
+               with sas_axis.equipment set to 'detector'
+;
+    _item.name                   '_sas_detc.pixnum_y'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_units.code              pixels
+    save_
+
+save__sas_detc.pixsize_x
+    _item_description.description
+;              The pixel size in mm in the x direction.
+               This axis system is defined in the sas_axis category
+               with sas_axis.equipment set to 'detector'
+;
+    _item.name                   '_sas_detc.pixsize_x'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+save__sas_detc.pixsize_y
+    _item_description.description
+;              The pixel size in mm in the y direction.
+               This axis system is defined in the sas_axis category
+               with sas_axis.equipment set to 'detector'
+;
+    _item.name                   '_sas_detc.pixsize_y'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+#IDB
+# Are the next three items intended to be used together?  If so, should this be 
+# explained in the description?  To complete the description we need the value 
+# of r, but in the scan category r is not given, only the momentum transfer.  
+# How should these two concepts be linked?  Since the sector is defined by its 
+# angular width, the number of pixels in each radial step will increase as r 
+# increases.  
+#
+
+# DSV: radial_step is just a binning interval, which is typically 
+# constant within the run for radial averaging. See the attached figure explaining 
+# the three terms
+
+##IDB: I have changed the name of the following items from .radial_step to 
+## .sector_radial_width and from .sector_width to 
+## .sector_angular_width in order to show that together they represent to 
+## dimentions of the binning sector.  
+## I have simplified the description.  Please check and
+## change as necessary.
+
+ save__sas_detc.sector_angular_width
+    _item_description.description
+;              The angular width of the binning sector of the 2D-detector: 
+;
+    _item.name             '_sas_detc.sector_angular_width'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_detc.sector_orientation
+    _item_description.description
+;              This is the angular coordinate of the binning sector 
+               in a 2D-detector
+               It is the angle between the central line of the
+               sector and the x direction as defined by _sas_detc.axis_id.
+;
+    _item.name                    '_sas_detc.sector_orientation'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_detc.sector_radial_width
+    _item_description.description
+;              The radial width of the binnng sector of the 2D-detector. 
+;
+    _item.name                   '_sas_detc.sector_radial_width'
+    _item.category_id             sas_detc
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+###########################
+# SAS_SAMPLE              #
+########################### 
+
+save_sas_sample
+    _category.description
+/;              Gives information about the sample and how it is mounted.
+                The sample is assumed to consist of the specimen to be 
+                analysed and a matrix or buffer.
+;
+    _category.id                  sas_sample
+    _category.mandatory_code      no
+    _category_key.name          '_sas_sample.id'
+#    _category_group.id          'inclusive_group' loop_
+    _category_examples.detail
+    _category_examples.case 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+;
+    Example   - Hypothetical example to illustrate the description of a
+                Sample.
+;
+;   _sas_sample.id                     Lysozyme_sample
+    _sas_sample.details                
+              'Chicken egg white lysozyme in solution'
+    _sas_sample.specimen_concentration 15
+    _sas_sample.matrix_composition     "150mM NaCl, 40 mM Na acetate"
+    _sas_sample.matrix_pH              4.25
+    _sas_sample.thickness              0.2
+    _sas_sample.sample_transmission    0.6
+    _sas_sample.exposure_time          600
+    _sas_sample.calibration_factor     1e-6
+;
+
+    save_ save__sas_sample.id
+    _category.description
+;
+             The value of _sas_sample.id must uniquely identify
+             the sample whose scattered intensity was measured. 
+             The sample is assumed to consist of a specimen 
+             which is actually analysed and a matrix or buffer.
+;
+    _item.name                   '_sas_sample.id'
+    _item.category_id             sas_sample
+    _item.mandatory_code          yes
+    _item_type.code               code
+save_
+
+save_sas_sample.axis_id
+    _category.description
+;            The value of _sas_sample.axis_id identifies the axis system
+             used for the sample as described in sas_axis.
+; 
+    _item.name                   '_sas_sample.axis_id'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_default.value           1
+save_
+ 
+save__sas_sample.calibration_details
+    _item_description.description
+;           A description of the calibration used for normalization
+            of the scattering intensity.
+;
+    _item.name                  '_sas_sample.calibration_details'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'Black carbon'
+                                 'Ionisation chamber'
+                                 'Water'
+                                 'Standard protein (BSA) '
+     save_
+
+save__sas_sample.details
+    _item_description.description
+;         A description of the sample such as the source of the sample,
+          identification of standards, mixtures, etc.
+          The sample is assumed to consist of a specimen which is 
+          actually analysed and a matrix or buffer.
+;
+    _item.name                   '_sas_sample.details'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_ 
+
+#IDB
+# Does this define the correct angle?  
+#
+# Does it matter whether the normal lies in the xz or yz plane?
+#
+save__sas_sample.disk_orientation
+    _item_description.description
+;         The angle between the normal to the planar sample and
+          the incident beam.  
+;
+
+    _item.name                   '_sas_sample.disk_orientation'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_sample.fibre_orientation
+    _item_description.description
+;         The angle between the fibre direction of the sample and
+          the principal detector axis.  In the case of two-dimentsional 
+          detectors this is the direction that changes most rapidly 
+          in the detector output.
+;
+
+    _item.name                   '_sas_sample.fibre_orientation'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    save_ 
+
+save__sas_sample.length_unstressed
+    _item_description.description
+;              The length of the unstressed sample along the direction of stress.
+;
+    _item.name                   '_sas_sample.length_unstressed'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_ 
+
+save__sas_sample.matrix_composition
+    _item_description.description
+;              A description of the matrix or buffer surrounding
+               the specimen.
+;
+    _item.name                   '_sas_sample.matrix_composition'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               text
+    save_ 
+
+save__sas_sample.matrix_ph
+    _item_description.description
+;              pH of the buffer surrounding the specimen.
+;
+    _item.name                   '_sas_sample.matrix_ph'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_ 
+
+save__sas_sample.position_x
+    _item_description.description
+;              Defines the sample position in the _x direction. 
+               The axis system is defined by sas_sample.axis_id.
+;
+    _item.name                  '_sas_sample.position_x'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_ 
+
+save__sas_sample.position_y
+    _item_description.description
+;              defines the sample position in the _y direction. 
+               The axis system is defined by sas_sample.axis_id.
+;
+    _item.name                  '_sas_sample.position_y'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_ 
+
+save__sas_sample.position_z
+    _item_description.description
+;              defines the sample position in the _z direction.
+               The axis system is defined by sas_sample.axis_id.
+;
+    _item.name                  '_sas_sample.position_z'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_
+
+save__sas_sample.preparation_date
+    _item_description.description
+;         The date of preparation of the sample, i.e., the date when 
+          the sample was assembled into a form suitable for measuring 
+          small angle scatterng.  The date is given in the format yyyy-mm-dd
+;
+    _item.name                   '_sas_sample.preparation_date'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+    save_ 
+
+#IDB
+# Whether we need to define both of the next two items, or just a single 
+# transmission factor will depend on how the sas_scan category is set up.  See for 
+# example the sample CIF at the head of this file.I assume that for each sample, 
+# one requires two scattering objects, a sample1 (containing the matrix + specimen) 
+# and a sample2 (containing only the matrix).  In this case, there are two scans, 
+# one using sample1 and the other using sample2, and sample1 or sample2 will be 
+# specified in sas_scan according to whether the scattering is defined as being 
+# from the 'sample' or the 'matrix'.  By treating the the specimen (sample1) and 
+# the matrix (sample2) as two separate samples, it is unnecessary to specify the 
+# two transmission factors as separate items (in fact it makes the structure of the 
+# CIF much more complex).  I have commented out the matrix trasmission pending your 
+# approval to delete it.  Otherwise it will have to be moved to its correct place 
+# in alphebetic order.
+#
+
+save__sas_sample.sample_transmission
+    _item_description.description
+;
+     The transmission factor Ts of the sample calculated or measured as
+     
+           intensity of beam transmitted through the sample
+           ------------------------------------------------
+                      intensity of incident beam
+
+     The sample is assumed to consist of the specimen that is actually
+     analyzed and a matrix or buffer.
+;
+    _item.name                   '_sas_sample.sample_transmission'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_ 
+
+#save__sas_sample.matrix_transmission
+#    _item_description.description
+#;
+#     The transmission factor Tm of the matrix defined as
+# 
+#          intensity of beam transmitted through the matrix
+#          ------------------------------------------------------------
+#                     intensity of incident beam#
+#
+#     The sample is assumed to consist of the specimen that is 
+#     actually analyzed and a matrix or buffer.
+#;
+#    _item.name                   '_sas_sample.matrix_transmission'
+#    _item.category_id             sas_sample
+#    _item.mandatory_code          no
+#    _item_type.code               float
+#    save_ 
+
+save__sas_sample.shape
+    _item_description.description
+;         defines the shape of the sample. The sample is assumed to
+          consist of a specimen which is actually analysed and
+          a matrix or buffer.
+;
+    _item.name                   '_sas_sample.shape'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               text
+loop_
+    _item_examples.case          'fibre'
+                                 'disk'
+                                 'Unknown'
+save_ 
+
+save__sas_sample.specimen_concentration
+    _item_description.description
+;          The sample is assumed to consist of the specimen which is 
+           actually analysed and a matrix or buffer.  
+           This item gives the concentration of the specimen in the sample.
+;
+    _item.name                   '_sas_sample.specimen_concentration'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              milligrammes_per_millilitres
+    save_ 
+
+save__sas_sample.strain
+    _item_description.description
+;            The extension of the stressed sample, divided by the 
+             original length (or volume).
+;
+    _item.name                   '_sas_sample.strain'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_ 
+
+save__sas_sample.stress_description
+    _item_description.description
+;          A description of the stress applied to the sample.
+;
+    _item.name                   '_sas_sample.stress_description'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          'uniaxial extension'
+                                 'uniaxial compression'
+                                 'fibers under dead-loading'
+    save_ 
+
+save__sas_sample.support
+    _item_description.description
+;           A description of the sample holder
+;
+    _item.name                  '_sas_sample.support'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_aliases.alias_name    '_diffrn_measurement.specimen_support'
+    _item_aliases.dictionary      cif_core.dic
+    _item_aliases.version         2.0.1
+    _item_type.code               text
+     save_ 
+
+## IDB: Is the description here correct?  Shouldn't the direction be along the 
+## x-ray beam rather than perpendicular to it (which is in any case ambiguous)?
+
+save__sas_sample.thickness
+    _item_description.description
+;          The thickness of the irradiated volume of the sample measured 
+           perpendicular to the incident x-ray beam.
+;
+    _item.name                   '_sas_sample.thickness'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              millimetres
+    save_ 
+
+##################
+## SAS_SCAN      #
+################## 
+
+#IDB
+# I have made some major changes here including changing the name of this category 
+# from sas_intensity.  The new organization provides the flexibility to store the 
+# sample or matrix scans etc. either in the same datablock or in different 
+# datablocks or files.  The properties of each scan, such as which beam 
+# configuration, which detector and which sample were used, and what kind of 
+# scattering intensity was measured, are all described in sas_scan.  Several 
+# different scans may be described within a single sas_scan loop.  Each scan is 
+# assigned a unique identifier. 
+#
+# The intensities themselves are stored in a loop in sas_scan_intensity and each 
+# measurement is identified as belonging to one of the described scans through the 
+# use of the unique scan identifier.  Thus intensities from several different scans 
+# may be stored in the same sas_scan_intensity loop.  Of coures if preferred each 
+# scan may be reported in its own datablock or file though CIF does not provide 
+# secure links between files.
+#
+
+# DSV: OK but see the comment in the beginning
+
+## IDB: This comment relates to the choice of axis, now resolved by the sas_axis 
+## category.
+
+save_sas_scan
+    _category.description
+;   Describes the properties of the different scans reported in sas_scan_intensity. 
+;
+    _category.id                  sas_scan
+    _category.mandatory_code      no
+    _category_key.name           '_sas_scan.id'  
+     loop_
+#    _category_group.id           'inclusive_group'
+#                                 'intensity_group'
+    loop_
+    _sas_scan.example_details
+    _sas_scan.example_case
+; This example shows how the beam, detector and sample are specified for a each scan.  In addition, the nature of the intensities measured during the scan is shown.  This example should be read in conjuntion with the example in sas_scan_intensity.  No filenames are given for the first three items as the intensities for these scans are found in the current datablock. 
+;
+;           loop_
+                _sas_scan.id
+                _sas_scan.axis_id
+                _sas_scan.title
+                _sas_scan.measurement_date
+                _sas_scan.beam_id
+                _sas_scan.detc_id
+                _sas_scan.sample_id
+                _sas_scan.type
+                _sas_scan.filename
+1 1 sample1      2007-10-12     2    1   1    sample        .
+2 1 matrix1      2007-10-12     2    1   2    matrix        .
+3 1 background1  2007-10-10     2    1   .    background    .
+4 1 detector1    2007-05-11     2    1   .    detector      c/detector/response.cif
+5 1 processed1   2007-10-15     2    1   1    processed     c/scan//processed.cif
+;
+    save_ 
+
+#IDB
+# The next item is the catgory key and is parent to 
+# sas_scan_intensity.scan_id 
+# The following four items are links to sas_axis, sas_beam, sas_detc 
+# and sas_sample. 
+# They link the intensity pattern to the axis choice, beam, detector 
+# and sample used.
+#
+save__sas_scan.id
+    _item_description.description
+;              This data item is the category key and must be unique to each scan 
+               reported in the datablock.
+;
+    _item.name                  '_sas_scan.id'
+    _item.category_id             sas_scan
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_sas_scan_intensity.scan_id
+    _item_linked.parent_name      '_sas_scan.id'
+     save_ 
+
+save_sas_scan.axis_id
+    _category.description
+;            The value of _sas_scan eam.axis_id identifies the axis system
+             used with by scans as described in sas_axis.
+; 
+    _item.name                   '_sas_scan.axis_id'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               code
+    _item_default.value           1
+save_
+
+#
+# IDB: The next two items have been moved from sas_sample 
+# since the beam and detector 
+# are related to the scattering experiment, not the sample set up.
+#
+save__sas_scan.beam_id
+    _category.description
+;             This item is a child of _sas_beam.id and identifies the beam 
+              configuration used in making the scan.
+;
+    _item.name                   '_sas_scan.beam_id'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               code
+save_ 
+
+save_sas_scan.detc_id
+    _category.description
+;           This item is a child of _sas_detc.id and identifies the detector used 
+            in recording the scan.
+;
+    _item.name                   '_sas_scan.detc_id'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               code
+save_ 
+
+save__sas_scan.sample_id
+    _item_description.description
+;              This item is is a child of _sas_sample.id and identifies the sample 
+               used in this scan.
+;
+    _item.name                  '_sas_scan.sample_id'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_ 
+
+save__sas_scan.calibration_factor
+    _item_description.description
+;           The measured intensity should be multiplied by this factor
+            to get normalized intensity
+;
+    _item.name                  '_sas_scan.calibration_factor'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               float
+     save_ 
+
+## IDB: This item was moved from _sas_scan_intensity since every intensity 
+## measurement will have the same exposure time which is recorded here.
+
+save__sas_scan.exposure_time
+    _item_description.description
+;         Time interval used to accumulate the counts in each of the values 
+          included in _sas_scan_intensity.intensity
+;
+    _item.name                   '_sas_scan.exposure_time'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              seconds
+    save_ 
+
+save__sas_scan.filename
+    _item_description.description
+;         Name of the file in which the scan intensity is stored on the machine 
+          where the primary data processing is done           
+;
+    _item.name                   '_sas_scan.filename'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_ 
+
+save__sas_scan.measurement_date
+    _item_description.description
+;         The date on which this scan was made.  The format is yyyy-mm-dd
+;
+    _item.name                   '_sas_scan.measurement_date'
+    _item.category_id             sas_sample
+    _item.mandatory_code          no
+    _item_type.code               yyyy-mm-dd
+    save_ 
+
+save__sas_scan.title
+    _item_description.description
+;         Title for this scan.
+;
+    _item.name                   '_sas_scan.title'
+    _item.category_id             sas_intensity
+    _item.mandatory_code          no
+    _item_type.code               line
+    save_ 
+
+#IDB
+# In the filename section you supply filenames for both measured and normalized 
+# scanned intensities.  Do these both need to be specified here?  If not, are these 
+# values normalised or measured?
+#
+# DSV: we may just keep the scan as measured and the reference to the normalization 
+# constants
+# and if relevant detector responce file -- this would allow one to reproduce the 
+# normalization if needed
+
+## IDB: Is this item complete now?  What is missing?
+
+save__sas_scan.type
+    _item_description.description
+; 
+  If the type is "processed", the intensity Ip is corrected for background, 
+  detector response etc. as follows:
+          Ip = (Is - Im - Ib(Tm-Ts) )/( Id*C*ds*Ts)
+      where
+          Is = the intensity measured with the mounted specimen
+          Im = the intensity measured with the matrix alone
+          Ib = the measured background intensity 
+          Id = the detector response
+  (the above four quantities are found in _sas_scan_intensity.intensity depending 
+  on the flag given in this item.  See the enumeration list for this item.)
+ Ts = transmission coefficient of the specimen = sas_sample.specimen_transmission 
+ Tm = transmission coefficient of the matrix = _sas_sample.matrix_transmission 
+ C  = concentration of the specimen          = _sas_sample.specimen_concentration
+ ds = thickness of the sample                = _sas_sample.thickness
+	The detector response is the intensity measured by the detector from
+      a uniform scatterer (e.g. a Fe55 radioactive source for X-rays
+      or water for neutrons). 
+;
+    _item.name                   '_sas_scan.type'
+    _item.category_id             sas_scan
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail   
+          processed   'Ip = processed intensity'
+          sample      'Is = intensity of the sample'
+          matrix      'Im = intensity of the matrix'
+          background  'Ib = intensity of the background'
+          detector    'Id = intensity of the detector response'
+    save_ 
+
+#######################
+## SAS_SCAN_INTENSITY #
+####################### 
+
+save_sas_scan_intensity
+    _category.description
+;         This category gives the measured and processed intensities 
+          and the corresponding momentum transfers.
+;
+    _category.id                  sas_scan_intensity
+    _category.mandatory_code      no
+    _category_key.name          '_sas_scan_intensity.id'
+     loop_
+#    _category_group.id           'inclusive_group'
+#                                 'intensity_group'
+    loop_
+    _sas_scan_intensity.example_details
+    _sas_scan_intensity.example_case
+;  This example shows the intensity as a function of momentum transfer for the cases given in the sas_scan category example, showing how each of the different scans can be reported in a single file though they can also be reported in different files if so desired
+;
+;    loop_
+     _sas_scan_intensity.id
+     _sas_scan_intensity.scan_id
+     _sas_scan_intensity.momentum transfer
+     _sas_scan_intensity.intensity
+     _sas_scan_intensity.intensity_su_counting
+     _sas_scan_intensity.intensity_su_systematic
+     _sas_scan_intensity.exposure_time
+     _sas_scan_intensity.resolution_width
+##
+## IDB: in this example I am not sure what is a reasonable value for the resolution 
+## width.
+# The following is the scan from the sample
+1  1  0.1  1258   35  20   15 ?
+2  1  0.2   953   30  20   15 ?
+3  1  0.3   876   30  20   15 ?
+4  1  0.4  1467   34  20   20 ?
+........
+# The following is the scan from the matrix
+53 2  0.1   350   15  20   15 ?
+54 2  0.2   325   15  20   15 ?
+........
+# The following is the scan of the background
+104 3 0.1    24    3  20   15 ?
+105 3 0.2    35    4  20   15 ?
+........
+;
+    save_
+
+save__sas_scan_intensity.id
+    _item_description.description
+;          This data item is the category key and must have a unique value for each 
+           intensity measurement.
+;
+    _item.name                  '_sas_scan_intensity.id'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_ 
+
+
+save__sas_scan_intensity.scan_id
+    _item_description.description
+;          This data item is a child of _sas_scan.id.  It serves to relate the 
+           current intensity measurement with the conditions given for this scan in 
+           sas_scan.
+;
+    _item.name                  '_sas_scan_intensity.scan_id'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_ 
+
+save__sas_scan_intensity.group_factor
+    _item_description.description
+;         Number of pixels contributing to the value reported in .intensity.
+;
+    _item.name                   '_sas_scan_intensity.group_factor'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               int
+    save_
+
+save__sas_scan_intensity.intensity
+    _item_description.description
+;         Intensity measured or processed at the given momentum transfer
+;
+    _item.name                   '_sas_scan_intensity.intensity'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_
+
+save__sas_scan_intensity.intensity_su_counting
+    _item_description.description
+;          Standard uncertainty determined from the counting statistics of the 
+           intensity reported in .intensity
+;
+    _item.name                   '_sas_scan_intensity.intensity_su_counting'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_
+
+save__sas_scan_intensity.intensity_su_systematic
+    _item_description.description
+;         Estimated standard uncertainty from sources other than counting 
+          statistics. e.g. from radial average, incoherent background etc...
+;
+    _item.name                   '_sas_scan_intensity.intensity_su_systematic'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_
+ 
+save__sas_scan_intensity.momentum_transfer
+    _item_description.description
+;         Momentum transfer values
+          4*PI*sin(theta)/lambda  in A^-1
+;
+    _item.name                   '_sas_scan_intensity.momentum_transfer'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              reciprocal_angstroms
+    save_
+
+save__sas_scan_intensity.momentum_transfer_su 
+    _item_description.description
+;         Uncertainty in the momentum transfer (e.g. case for
+          scanning instruments)
+;
+    _item.name                   '_sas_scan_intensity.momentum_transfer_su'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              reciprocal_angstroms
+    save_
+
+save__sas_scan_intensity.resolution_width
+    _item_description.description
+;         Width of the Gaussian resolution function defined
+          by Pedersen et al, (1990) J. Appl. Cryst., 23, 321
+;
+    _item.name                   '_sas_scan_intensity.resolution_width'
+    _item.category_id             sas_scan_intensity
+    _item.mandatory_code          no
+    _item_type.code               float
+    save_  
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+
+#
+#
+#  The regular expressions defined here are not compliant
+#  with the POSIX 1003.2 standard as they include the
+#  '\n' and '\t' special characters. These regular expressions
+#  have been tested using the version 0.12 of Richard Stallman's
+#  GNU regular expression libary in POSIX mode.
+#
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               code      char
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words ...
+;
+               ucode      uchar
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words  (case insensitive) ...
+;
+#IDB
+# Is there any point in distinguishing between lines and codes?  If someone 
+# wrote:
+# ; this is a line of code
+# ;
+# for an item that was designated as 'line' in the dictionary, it would cause a 
+# syntactic error.  It is best to define the minimum list of types that one can 
+# get away with.  Line is essentially the same as text.
+               line      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items ...
+;
+             text      char
+               '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              text item types / multi-line text ...
+;
+               int       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative
+               or positive integers.
+;
+               float     numb
+        
+       '-?(([0-9]+)|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+
+;             float item types are the subset of numbers that are the floating
+               numbers.
+;
+              yyyy-mm-dd  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               Standard format for CIF dates.
+;
+
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+#IDB
+# I have added metres (correct SI spelling) and rpm and have corrected the
+# spelling of litres.
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+#
+     'metres'                 'metres'
+#
+     'millimetres'            'millimetres (meters * 10^( -3))'
+#
+#IDB
+# I have added another level of parentheses to correct the next line.
+#
+     'reciprocal_angstroms'   'reciprocal angstroms ((metres * 10^(-10))^-1)'
+#
+     'seconds'                'seconds'
+#
+     'degrees'                'degrees (of arc)'
+     'radians'             'radians'
+#
+     'milligrammes_per_millilitres' 'milligrammes_per_millilitres'
+#
+     'rpm'                   'revolutions per minute'
+# 
+
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision    0.1   1998-11-09
+;
+   Initial definitions
+;
+0.1.1 1998-11-23
+;
+   Initial definitions corrected according to the DDL2 format.
+;
+0.1.2 1999-03-12
+;
+    Corrections including keywords defined in the core dictionary.
+;
+0.1.3 1999-06-02
+;
+    Corrections with better definitions of the items.
+;
+0.2  2000-12-19
+;   Corrections made by I.D.Brown together with questions raised in comments
+;
+0.3 2001-05-05
+;   Corrections made made by M. Malfois according the questions and comments of I.D.Brown
+;
+0.4.01  2007-10-23
+;   I.D.Brown: Introduced the standard CIF axis system defined in imgCIF and reorganized sas_intensity into sas_scan and sas_scan_intensity.  Moved .beam_id and .detc_id from sas_sample to sas_scan.  Changed some names and improved definitions etc.  Inserted a number of queries.
+;
+0.4.02  2010-01-05
+;   IDB: Further changes in response to DSV's suggestions
+;
+0.4.02  2010-01-26
+;   IDB: set up the sas_axis category and changed all the references to the axis system to conform to the use of a local set of laboratory axes defined in sas_axis in terms of the Standard Laboratory Refrence System.
+Rearranged items in alphabetic order (excetpt .id items come first)
+;
+#--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof
+
+         

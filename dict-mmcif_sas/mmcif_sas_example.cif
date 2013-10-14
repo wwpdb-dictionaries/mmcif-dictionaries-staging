@@ -1,0 +1,139 @@
+
+#
+############################################################
+#  SAMPLE SAS-CIF
+############################################################
+#
+# To illustrate the organization of the CIF a sample sasCIF is given here.
+# It helps to indicate where problems may arise and so should be carefully
+# checked.  The data values given in this example may be unrealistic but it is the 
+# organization of the items that is important.
+#
+
+data_sample
+# Details of the two beam configurations used.  Some items from
+# diffrn_radiation_wavelength are included.  
+
+# Define the axis system
+        loop_
+        _sas_axis.id
+        _sas_axxis.type
+        _sas_axis.equipment
+        _sas_axis.vector[1] _axis.vector[2] _axis.vector[3]
+        _sas_axis.offset[1] _axis.offset[2] _axis.offset[3]
+        tranx     translation detector  1     0     0   -45  0   0
+        trany     translation detector  0    -1     0   0   30   0
+        tranz     translation detector  0     0     1   0    0 -68
+# Describe the beam
+    loop_
+       _sas_beam.id                         
+       _sas_beam.shape                      
+       _sas_beam.width_ax                   
+       _sas_beam.width_eq                   
+       _sas_beam.dist_spec/detc             
+       _sas_beam.radiation_wavelength
+       _sas_beam.radiation_wavelength_width
+## IDB: The spec/detc distances in this example seem remarkably small (in mm)
+  X_ray  Rectangular  0.2  0.5  1.5  1.54  0.02
+  Neutron Circular    2.1  2.1  3.2  1.10  0.08
+
+# Details of the two detectors used
+   loop_
+    _sas_detc.id                      
+    _sas_detc.beamstop_size_x         
+    _sas_detc.beamstop_size_y         
+    _sas_detc.pixsize_x               
+    _sas_detc.pixsize_y               
+    _sas_detc.center_x                
+    _sas_detc.center_y                
+    _sas_detc.sector_width            
+    _sas_detc.sector_orientation      
+2D 0.5 0.5 0.01 0.01 2.0 2.2 45 22.5
+N  0.7 0.7 0.04 0.04 3.5 2.2 45 22.5
+
+# Details of the sample used
+   loop_
+    _sas_sample.id                   
+    _sas_sample.specimen_concentration 
+    _sas_sample.matrix_composition     
+    _sas_sample.matrix_pH              
+    _sas_sample.thickness              
+    _sas_sample.sample_transmission    
+    _sas_sample.exposure_time          
+    _sas_sample.calibration_factor     
+    _sas_sample.details                
+lysozyme_sample  15  "150mM NaCl, 40 mM Na acetate"  4.25  0.2  0.6  600  1e-6
+              'Chicken egg white lysozyme in solution'
+lysozyme_matrix   .  "150mM NaCl, 40 mM Na acetate"  4.25  0.2  0.7  600  1e-6
+              'matrix for chicken egg white lysozyme in solution'
+
+# Properties of the scans, including a reference to the beams and detectors used
+    loop_
+        _sas_scan.id
+        _sas_scan.title
+        _sas_scan.measurement_date
+        _sas_scan.beam_id
+        _sas_scan.detc_id
+        _sas_scan.sample_id
+        _sas_scan.type
+        _sas_scan.filename
+# The first three scans are found in this datablock, the other two are in the files 
+# noted.
+  1  sampleN     2007-10-12 neutron N Lysozyme_sample    sample        .
+  2  matrixN     2007-10-12 neutron N Lysozyme_matrix    matrix        .
+  3  backgroundN 2007-10-10 neutron N  .                 background    .
+  4  detectorN   2007-05-11 neutron N  .                 detector    
+                              c/detector/response.cif
+  5  processed1  2007-10-15 neutron N Lysozyme_sample processed  
+                              c/scan//processed.cif
+  6  sampleX     2007-10-22 X-ray 2D  lysozyme_sample  sample           .
+
+# DSV: we tried to keep sasCIF compatible with typical ASCII data files used 
+# by everybody, such that existing programs may read sasCIF files without
+# modifications. The style of such files is 
+#
+# ... ANY HEADERS
+#   0.1   350   15 
+#   0.2   325   15
+# ...
+#   0.9   150   10
+# ... ANY HEADERS
+#
+# The data stream (momentum transfer, intensity, su_counting, the latter optional)
+# is recognized and read in. Important are at least the two first items, which 
+# must be the two first items. 
+# This is possibnle to achieve also with your loops, e.g by
+# reverting the loop
+
+## IDB: In the following loops the items have been rearranged to match the ASCII 
+## order given in your comment above. 
+## But of course the user can arrange the items in any desired order; the order is 
+## not specified in the dictionary, only by the order of the data names.
+## Normally one would put the _*.id as the first item.  Here I have put it as the 
+## last item. 
+## I have left out the exposure_time which is discussed in the dictionary below.  
+## It was in my original draft but removed in your counter example.
+ 
+# The scans themselves follow
+    loop_
+     _sas_scan_intensity.momentum transfer
+     _sas_scan_intensity.intensity
+     _sas_scan_intensity.su_counting
+     _sas_scan_intensity.su_systematic
+     _sas_scan_intensity.scan_id
+     _sas_scan_intensity.id
+# The following is the neutron scan from the sample
+ 0.1  1258   35  20    1   1
+ 0.2   953   30  20    1   2
+ 0.3   876   30  20    1   3
+ 0.4  1467   34  20    1   4
+#........lines omitted for convenience
+# The following is the scan from the matrix
+ 0.1   350   15  20    2   53
+ 0.2   325   15  20    2   54
+#........lines omitted for convenience
+# The following is the scan of the background
+ 0.1    24    3  20    3  104
+ 0.2    35    4  20    3  105
+#.......lines omitted for convenience
+# END OF SAMPLE SAS-CIF
