@@ -85,31 +85,30 @@ data_cif_sas.dic
 ## IDB 2010-01-05 
 ## I have commented them out here and at other places where groups 
 ## items are defined.  They can be decommented later if necessary.
-#     loop_
-#    _category_group_list.id
-#    _category_group_list.parent_id
-#    _category_group_list.description
-#              'inclusive_group'
-#              'inclusive_group'
-#;              Categories that belong to the sas dictionary.
-## The beam and detc groups should be diffr_group
-#;
-#              'beam_group'
-#              'inclusive_group'
-#;              Categories that describe the properties of the beam.
-#;
-#              'detc_group'
-#              'inclusive_group'
-#;              Categories that describe the properties of the detector.
-#;
-#              'sample_group'
-#              'inclusive_group'
-#;              Categories that describe the properties of the sample.
-#;
-#              'intensity_group'
-#              'inclusive_group'
-#;              Categories that describe the intensities
-#;
+    loop_
+    _category_group_list.id
+    _category_group_list.parent_id
+    _category_group_list.description
+              'inclusive_group'
+              'inclusive_group'
+;              Categories that belong to the sas dictionary.
+;
+              'beam_group'
+              'inclusive_group'
+;              Categories that describe the properties of the beam.
+;
+              'detc_group'
+              'inclusive_group'
+;              Categories that describe the properties of the detector.
+;
+              'sample_group'
+              'inclusive_group'
+;              Categories that describe the properties of the sample.
+;
+              'intensity_group'
+              'inclusive_group'
+;              Categories that describe the intensities
+;
 
 ############
 # SAS_AXIS #
@@ -119,13 +118,13 @@ data_cif_sas.dic
 ## system given in imgCIF.  It allows the axes used in the sas experiment to be 
 ## defined in terms of the Standard Laboratory System.
 #
-save_SAS_AXIS
+save_sas_axis
     _category.id                  sas_axis
     _category.mandatory_code      no
     _category_key.name          '_sas_axis.id'
-#     loop_
-#    _category_group.id           'inclusive_group'
-#                                 'intensity_group'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'intensity_group'
     _category.description
 ;     Data items in the AXIS category specify a coordinate system used in the 
       experiment.  
@@ -307,15 +306,15 @@ END OF DESCRIPTION OF THE CIF STANDARD LABORATORY REFERENCE SYSTEM
 
 ## IDB: This item not needed unless we need to define a system of three Euler axes.
 ##
-save__axis.depends_on
+save__sas_axis.depends_on
     _item_description.description
 ;             The value of _axis.depends_on specifies the next outermost
               axis upon which this axis depends.
 
               This item is a pointer to _axis.id in the same category.
 ;
-    _item.name                      '_axis.depends_on'
-    _item.category_id                 axis
+    _item.name                      '_sas_axis.depends_on'
+    _item.category_id                 sas_axis
     _item.mandatory_code              no
 
      save_
@@ -433,7 +432,7 @@ save__sas_axis.offset[2]
      save_
 
 
-save_sas_axis.offset[3]
+save__sas_axis.offset[3]
     _item_description.description
 ;              The [3] element of the three-element vector used to specify
                the offset to the base of a rotation or translation axis in the 
@@ -485,12 +484,15 @@ save__sas_axis.id
               arm), so the category key for AXIS also includes the
               equipment.
 ;
-    _item_type.code               code
+    _item.name                      '_sas_axis.id'
+    _item.category_id                 sas_axis
+    _item.mandatory_code              yes
+    _item_type.code                   code
      loop_
     _item_linked.child_name
     _item_linked.parent_name
 #         '_sas_axis.depends_on'    '_axis.id'
-         '_sas_beam.axis_id'        '_axis.id'
+#         '_sas_beam.axis_id'        '_axis.id'
          '_sas_detc.axis_id'        '_axis.id'
          '_sas_sample.axis_id'      '_axis.id'
          '_sas_scan.axis_id'        '_axis.id'
@@ -719,7 +721,7 @@ save_sas_beam
     _category.mandatory_code      no
     _category_key.name          '_sas_beam.id'
 #    _category_group.id           'inclusive_group'     
-loop_
+    loop_
     _category_examples.detail
     _category_examples.case 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -738,8 +740,8 @@ loop_
 ;
 save_
 
-save_sas_beam.id
-    _category.description
+save__sas_beam.id
+    _item_description.description
 ;            The value of _sas_beam.id must uniquely identify
              the beam setup used to measure the scattered intensities.
 ; 
@@ -750,11 +752,11 @@ save_sas_beam.id
       loop_
     _item_linked.child_name
     _item_linked.parent_name
-   '_sas_scan.beam_id   '_sas_beam.id'
-save_
+   '_sas_scan.beam_id'   '_sas_beam.id'
+    save_
 
-save_sas_beam.axis_id
-    _category.description
+save__sas_beam.axis_id
+    _item_description.description
 ;            The value of _sas_beam.axis_id identifies the axis system
              used as described in sas_axis.
 ; 
@@ -813,7 +815,7 @@ save__sas_beam.dist_anal/detc
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_anal/detc'
+    _item_aliases.alias_name      '_pd_instr_dist_anal/detc'
     save_ 
 
 save__sas_beam.dist_mono/spec
@@ -825,7 +827,7 @@ save__sas_beam.dist_mono/spec
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_mono/spec'
+    _item_aliases.alias_name      '_pd_instr_dist_mono/spec'
     save_ 
 
 save__sas_beam.dist_spec/anal
@@ -837,7 +839,7 @@ save__sas_beam.dist_spec/anal
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_spec/anal'
+    _item_aliases.alias_name      '_pd_instr_dist_spec/anal'
     save_ 
 
 save__sas_beam.dist_spec/detc
@@ -849,7 +851,7 @@ save__sas_beam.dist_spec/detc
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_spec/detc'
+    _item_aliases.alias_name      '_pd_instr_dist_spec/detc'
     save_ 
 
 save__sas_beam.dist_src/mono
@@ -863,7 +865,7 @@ save__sas_beam.dist_src/mono
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_src/mono'
+    _item_aliases.alias_name      '_pd_instr_dist_src/mono'
     save_  
 
 save__sas_beam.dist_src/spec
@@ -877,7 +879,7 @@ save__sas_beam.dist_src/spec
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
-    _itam_aliases.alias_name      '_pd_instr_dist_src/spec'
+    _item_aliases.alias_name      '_pd_instr_dist_src/spec'
     save_ 
 
 save__sas_beam.divergence_x
@@ -885,7 +887,7 @@ save__sas_beam.divergence_x
 ;            The beam divergence in the _x direction in the system 
              defined by _sas_beam.axis_id.
 ;
-_item.name                   '_sas_beam.divergence_x'
+    _item.name                   '_sas_beam.divergence_x'
     _item.category_id             sas_beam
     _item.mandatory_code          no
     _item_type.code               float
@@ -936,14 +938,10 @@ save__sas_beam.polarization_analyser_description
     _item_description.description
 ;              Description of the polarisation analyser
 ;
-    _item.name                   '_sas_beam.polariztion_analyser_description'
+    _item.name                   '_sas_beam.polarization_analyser_description'
     _item.category_id             sas_beam
     _item.mandatory_code          no
     _item_type.code               text
-loop_
-    _item_example.case
-    _item_example.detail
-      ?     ?
     save_
 
 
@@ -995,31 +993,9 @@ save__sas_beam.radiation_pulse_duration
 ## well change the divergence etc.  All the beam characteristics will have to be 
 ## given for each wavelength used.
 
-save__sas_beam.radiation_wavelength
-   _item_description.description
-;      The wavelenght of the incident beam in Angstroms. 
-:
-    _item.name                   '_sas_beam.radiation_wavelength_id'
-    _item.category_id             sas_beam
-    _item.mandatory_code          no
-    _item_type.code               float
-    _item_units.code              A
-    save_
-
-save__sas_beam.radiation_wavelength_width
-   _item_description.description
-;      The halfwidth of the distribution of wavelengths present in the incident
-       beam
-:
-    _item.name                   '_sas_beam.radiation_wavelength_width'
-    _item.category_id             diffrn_radiation_wavelength
-    _item.mandatory_code          no
-    _item_type.code               float
-    _item_units.code              A
-    save_
 
 save__sas_beam.shape
-    _item_description.description
+      _item_description.description
 ;           Shape of the beam profile if not rectangular, e.g., circular
 ;
     _item.name                   '_sas_beam.shape'
@@ -1057,7 +1033,7 @@ save__sas_beam.width_x
 ;           The width of the beam at the sample in the _x direction
             in the system defined by _sas_beam.axis_id.
 ;
-_item.name                    '_sas_beam.width_x'
+    _item.name                    '_sas_beam.width_x'
     _item.category_id             sas_beam
     _item.mandatory_code          no
     _item_type.code               float
@@ -1081,6 +1057,29 @@ save__sas_beam.width_y
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_inst_beam_size_ax'
+    save_
+
+save__sas_beam.radiation_wavelength
+   _item_description.description
+;      The wavelength of the incident beam in Angstroms. 
+:
+    _item.name                   '_sas_beam.radiation_wavelength'
+    _item.category_id             sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              A
+    save_
+
+save__sas_beam.radiation_wavelength_width
+   _item_description.description
+;      The halfwidth of the distribution of wavelengths present in the incident
+       beam
+;
+    _item.name                    '_sas_beam.radiation_wavelength_width'
+    _item.category_id              sas_beam
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              A
     save_
 
 #################
@@ -1133,7 +1132,7 @@ save_sas_detc
     _category.mandatory_code      no
     _category_key.name          '_sas_detc.id'
 #    _category_group.id           'inclusive_group'
-loop_
+    loop_
     _category_examples.detail
     _category_examples.case 
 # - - - - - - - - - - - - - - - - - - - - - -
@@ -1154,8 +1153,8 @@ loop_
 ;
     save_ 
 
-save_sas_detc.id
-    _category.description
+save__sas_detc.id
+    _item_description.description
 ;
              The value of _sas_detc.id must uniquely identify
              the detector used to measure the scattered intensities .
@@ -1164,14 +1163,14 @@ save_sas_detc.id
     _item.category_id             sas_detc
     _item.mandatory_code          yes
     _item_type.code               code
-loop_
+     loop_
     _item_linked.child_name
     _item_linked.parent_name
-           _sas_scan.detc_id   _sas_detc.id
+           '_sas_scan.detc_id'   '_sas_detc.id'
  save_ 
 
-save_sas_detc.axis_id
-    _category.description
+save__sas_detc.axis_id
+    _item_description.description
 ;            The value of _sas_detc.axis_id identifies the axis system
              used for the detector as described in sas_axis.
 ; 
@@ -1180,7 +1179,7 @@ save_sas_detc.axis_id
     _item.mandatory_code          no
     _item_type.code               code
     _item_default.value           1
-save_
+  save_
 
 # It would be better to replace the next two items by a transformation matrix which 
 # would also take account of any difference in the labelling of the axes.
@@ -1209,7 +1208,7 @@ save__sas_detc.beam_position_y
                The axis system is given by _sas_detc.axis.id.
 ;
 
-    _item.name                   '_sas_detc.beam_centre_y'
+    _item.name                   '_sas_detc.beam_position_y'
     _item.category_id             sas_detc
     _item.mandatory_code          no
     _item_type.code               float
@@ -1477,14 +1476,15 @@ save__sas_detc.sector_radial_width
 
 save_sas_sample
     _category.description
-/;              Gives information about the sample and how it is mounted.
+;              Gives information about the sample and how it is mounted.
                 The sample is assumed to consist of the specimen to be 
                 analysed and a matrix or buffer.
 ;
     _category.id                  sas_sample
     _category.mandatory_code      no
     _category_key.name          '_sas_sample.id'
-#    _category_group.id          'inclusive_group' loop_
+#    _category_group.id          'inclusive_group'
+  loop_
     _category_examples.detail
     _category_examples.case 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
@@ -1493,8 +1493,7 @@ save_sas_sample
                 Sample.
 ;
 ;   _sas_sample.id                     Lysozyme_sample
-    _sas_sample.details                
-              'Chicken egg white lysozyme in solution'
+    _sas_sample.details               'Chicken egg white lysozyme in solution'
     _sas_sample.specimen_concentration 15
     _sas_sample.matrix_composition     "150mM NaCl, 40 mM Na acetate"
     _sas_sample.matrix_pH              4.25
@@ -1504,8 +1503,10 @@ save_sas_sample
     _sas_sample.calibration_factor     1e-6
 ;
 
-    save_ save__sas_sample.id
-    _category.description
+    save_ 
+
+save__sas_sample.id
+    _item_description.description
 ;
              The value of _sas_sample.id must uniquely identify
              the sample whose scattered intensity was measured. 
@@ -1519,7 +1520,7 @@ save_sas_sample
 save_
 
 save_sas_sample.axis_id
-    _category.description
+    _item_description.description
 ;            The value of _sas_sample.axis_id identifies the axis system
              used for the sample as described in sas_axis.
 ; 
@@ -1546,7 +1547,7 @@ save__sas_sample.calibration_details
                                  'Standard protein (BSA) '
      save_
 
-save__sas_sample.details
+save__sas_sample.detail
     _item_description.description
 ;         A description of the sample such as the source of the sample,
           identification of standards, mixtures, etc.
@@ -1734,11 +1735,11 @@ save__sas_sample.shape
     _item.category_id             sas_sample
     _item.mandatory_code          no
     _item_type.code               text
-loop_
-    _item_examples.case          'fibre'
+    loop_
+     _item_examples.case          'fibre'
                                  'disk'
                                  'Unknown'
-save_ 
+    save_ 
 
 save__sas_sample.specimen_concentration
     _item_description.description
@@ -1841,13 +1842,16 @@ save_sas_scan
     _category.mandatory_code      no
     _category_key.name           '_sas_scan.id'  
      loop_
-#    _category_group.id           'inclusive_group'
-#                                 'intensity_group'
+     _category_group.id           'inclusive_group'
+                                 'intensity_group'
     loop_
-    _sas_scan.example_details
-    _sas_scan.example_case
-; This example shows how the beam, detector and sample are specified for a each scan.  In addition, the nature of the intensities measured during the scan is shown.  This example should be read in conjuntion with the example in sas_scan_intensity.  No filenames are given for the first three items as the intensities for these scans are found in the current datablock. 
+    _category_examples.details
+    _category_examples.case
+; This example shows how the beam, detector and sample are specified for a each scan.  In addition, the nature of the intensities measured 
+  during the scan is shown.  This example should be read in conjuntion with the example in sas_scan_intensity.  No filenames are given for 
+  the first three items as the intensities for these scans are found in the current datablock. 
 ;
+
 ;           loop_
                 _sas_scan.id
                 _sas_scan.axis_id
@@ -1858,11 +1862,11 @@ save_sas_scan
                 _sas_scan.sample_id
                 _sas_scan.type
                 _sas_scan.filename
-1 1 sample1      2007-10-12     2    1   1    sample        .
-2 1 matrix1      2007-10-12     2    1   2    matrix        .
-3 1 background1  2007-10-10     2    1   .    background    .
-4 1 detector1    2007-05-11     2    1   .    detector      c/detector/response.cif
-5 1 processed1   2007-10-15     2    1   1    processed     c/scan//processed.cif
+                 1 1 sample1      2007-10-12     2    1   1    sample        .
+                 2 1 matrix1      2007-10-12     2    1   2    matrix        .
+                 3 1 background1  2007-10-10     2    1   .    background    .
+                 4 1 detector1    2007-05-11     2    1   .    detector      c/detector/response.cif
+                 5 1 processed1   2007-10-15     2    1   1    processed     c/scan//processed.cif
 ;
     save_ 
 
@@ -1887,8 +1891,8 @@ save__sas_scan.id
     _item_linked.parent_name      '_sas_scan.id'
      save_ 
 
-save_sas_scan.axis_id
-    _category.description
+save__sas_scan.axis_id
+    _item_description.description
 ;            The value of _sas_scan eam.axis_id identifies the axis system
              used with by scans as described in sas_axis.
 ; 
@@ -1905,7 +1909,7 @@ save_
 # are related to the scattering experiment, not the sample set up.
 #
 save__sas_scan.beam_id
-    _category.description
+    _item_description.description
 ;             This item is a child of _sas_beam.id and identifies the beam 
               configuration used in making the scan.
 ;
@@ -2057,8 +2061,8 @@ save_sas_scan_intensity
 #    _category_group.id           'inclusive_group'
 #                                 'intensity_group'
     loop_
-    _sas_scan_intensity.example_details
-    _sas_scan_intensity.example_case
+    _category_examples.details
+    _category_examples.case
 ;  This example shows the intensity as a function of momentum transfer for the cases given in the sas_scan category example, showing how each of the different scans can be reported in a single file though they can also be reported in different files if so desired
 ;
 ;    loop_
@@ -2216,14 +2220,7 @@ save__sas_scan_intensity.resolution_width
                '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
 ;              code item types/single words  (case insensitive) ...
 ;
-#IDB
-# Is there any point in distinguishing between lines and codes?  If someone 
-# wrote:
-# ; this is a line of code
-# ;
-# for an item that was designated as 'line' in the dictionary, it would cause a 
-# syntactic error.  It is best to define the minimum list of types that one can 
-# get away with.  Line is essentially the same as text.
+
                line      char
                '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              char item types / multi-word items ...
@@ -2290,7 +2287,8 @@ save__sas_scan_intensity.resolution_width
      loop_
     _dictionary_history.version
     _dictionary_history.update
-    _dictionary_history.revision    0.1   1998-11-09
+    _dictionary_history.revision    
+0.1   1998-11-09
 ;
    Initial definitions
 ;
