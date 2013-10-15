@@ -809,7 +809,7 @@ experiment                         13 experiment:nmr_spectrometer_probe:13      
 experiment                         14 experiment:sample:14                                              . . 
 experiment                         15 experiment:sample_condition_list:15                               . . 
 experiment                         16 experiment:saxs_expt:16                                           . . 
-experiment                         17 experiment:x_ray_instrument:17                                    . . 
+experiment                         17 experiment:xray_instrument:17                                     . . 
 experiment_file                    1  experiment_file:experiment:1                                      . . 
 experiment_file                    2  experiment_file:experiment_list:2                                 . . 
 experiment_list                    1  experiment_list:entry:1                                           . . 
@@ -1526,7 +1526,7 @@ saxs_constraint_software           3  saxs_constraint_software:saxs_constraint_l
 saxs_constraint_software           4  saxs_constraint_software:software:4                               . . 
 saxs_expt                          1  saxs_expt:method:1                                                . . 
 saxs_expt                          2  saxs_expt:software:2                                              . . 
-saxs_expt                          3  saxs_expt:x_ray_instrument:3                                      . . 
+saxs_expt                          3  saxs_expt:xray_instrument:3                                       . . 
 secondary_struct                   1  secondary_struct:conformer_family_coord_set:1                     . . 
 secondary_struct                   2  secondary_struct:entity:2                                         . . 
 secondary_struct                   3  secondary_struct:entity_assembly:3                                . . 
@@ -1789,7 +1789,7 @@ torsion_angle_constraints_expt     3  torsion_angle_constraints_expt:method:3   
 torsion_angle_constraints_expt     4  torsion_angle_constraints_expt:sample:4                           . . 
 torsion_angle_constraints_expt     5  torsion_angle_constraints_expt:torsion_angle_constraint_list:5    . . 
 vendor                             1  vendor:software:1                                                 . . 
-x_ray_instrument                   1  x_ray_instrument:entry:1                                          . . 
+xray_instrument                    1  xray_instrument:entry:1                                           . . 
 # 
 loop_
 _pdbx_item_linked_group_list.child_category_id 
@@ -2623,7 +2623,7 @@ experiment                         13 '_experiment.nmr_spectrometer_probe_id'   
 experiment                         14 '_experiment.sample_id'                                               '_sample.id'                                     sample                          
 experiment                         15 '_experiment.sample_condition_list_id'                                '_sample_condition_list.id'                      sample_condition_list           
 experiment                         16 '_experiment.saxs_expt_id'                                            '_saxs_expt.id'                                  saxs_expt                       
-experiment                         17 '_experiment.x_ray_instrument_id'                                     '_x_ray_instrument.id'                           x_ray_instrument                
+experiment                         17 '_experiment.xray_instrument_id'                                      '_xray_instrument.id'                            xray_instrument                 
 experiment_file                    1  '_experiment_file.experiment_id'                                      '_experiment.id'                                 experiment                      
 experiment_file                    2  '_experiment_file.experiment_list_id'                                 '_experiment_list.id'                            experiment_list                 
 experiment_list                    1  '_experiment_list.entry_id'                                           '_entry.id'                                      entry                           
@@ -3370,7 +3370,7 @@ saxs_constraint_software           3  '_saxs_constraint_software.saxs_constraint
 saxs_constraint_software           4  '_saxs_constraint_software.software_id'                               '_software.id'                                   software                        
 saxs_expt                          1  '_saxs_expt.method_id'                                                '_method.id'                                     method                          
 saxs_expt                          2  '_saxs_expt.software_id'                                              '_software.id'                                   software                        
-saxs_expt                          3  '_saxs_expt.x_ray_instrument_id'                                      '_x_ray_instrument.id'                           x_ray_instrument                
+saxs_expt                          3  '_saxs_expt.xray_instrument_id'                                       '_xray_instrument.id'                            xray_instrument                 
 secondary_struct                   1  '_secondary_struct.conf_family_coord_set_id'                          '_conformer_family_coord_set.id'                 conformer_family_coord_set      
 secondary_struct                   2  '_secondary_struct.entity_id'                                         '_entity.id'                                     entity                          
 secondary_struct                   3  '_secondary_struct.entity_assembly_id'                                '_entity_assembly.id'                            entity_assembly                 
@@ -3638,5 +3638,5 @@ torsion_angle_constraints_expt     3  '_torsion_angle_constraints_expt.method_id
 torsion_angle_constraints_expt     4  '_torsion_angle_constraints_expt.sample_id'                           '_sample.id'                                     sample                          
 torsion_angle_constraints_expt     5  '_torsion_angle_constraints_expt.torsion_angle_constraint_list_id'    '_torsion_angle_constraint_list.id'              torsion_angle_constraint_list   
 vendor                             1  '_vendor.software_id'                                                 '_software.id'                                   software                        
-x_ray_instrument                   1  '_x_ray_instrument.entry_id'                                          '_entry.id'                                      entry                           
+xray_instrument                    1  '_xray_instrument.entry_id'                                           '_entry.id'                                      entry                           
 # 
