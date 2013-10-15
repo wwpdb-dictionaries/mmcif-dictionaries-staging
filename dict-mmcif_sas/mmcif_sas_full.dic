@@ -1062,7 +1062,7 @@ save__sas_beam.width_y
 save__sas_beam.radiation_wavelength
    _item_description.description
 ;      The wavelength of the incident beam in Angstroms. 
-:
+;
     _item.name                   '_sas_beam.radiation_wavelength'
     _item.category_id             sas_beam
     _item.mandatory_code          no
@@ -1193,7 +1193,7 @@ save__sas_detc.beam_position_x
 ;              The position of the beam center on the detector in
                _x direction in the detector coordinate system. 
                The axis system is given by _sas_detc.axis.id.
-
+;
     _item.name                   '_sas_detc.beam_centre_x'
     _item.category_id             sas_detc
     _item.mandatory_code          no
@@ -1343,6 +1343,7 @@ save__sas_detc.orientation_beta
     _item_description.description
 ;              defines the Euler beta angle of the normal to
                the detector plane
+;
     _item.name                    '_sas_detc.orientation_beta'
     _item.category_id             sas_detc
     _item.mandatory_code          no
@@ -1961,7 +1962,7 @@ save__sas_scan.exposure_time
           included in _sas_scan_intensity.intensity
 ;
     _item.name                   '_sas_scan.exposure_time'
-    _item.category_id             sas_scan_intensity
+    _item.category_id             sas_scan
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              seconds
