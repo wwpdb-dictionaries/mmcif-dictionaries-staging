@@ -60,7 +60,7 @@
 #
 ###################################################################
 
-data_mmcif_sas.dic
+data_cif_sas.dic
     _dictionary.title           mmcif_sas.dic
     _dictionary.version         0.4.02
     _dictionary.update          2010-01-05
@@ -1194,6 +1194,7 @@ save__sas_detc.beam_position_x
                _x direction in the detector coordinate system. 
                The axis system is given by _sas_detc.axis.id.
 ;
+
     _item.name                   '_sas_detc.beam_centre_x'
     _item.category_id             sas_detc
     _item.mandatory_code          no
@@ -1962,7 +1963,7 @@ save__sas_scan.exposure_time
           included in _sas_scan_intensity.intensity
 ;
     _item.name                   '_sas_scan.exposure_time'
-    _item.category_id             sas_scan
+    _item.category_id             sas_scan_intensity
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              seconds
