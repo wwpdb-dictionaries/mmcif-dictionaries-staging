@@ -1921,8 +1921,8 @@ save__sas_scan.beam_id
     _item_type.code               code
 save_ 
 
-save_sas_scan.detc_id
-    _category.description
+save__sas_scan.detc_id
+    _item_description.description
 ;           This item is a child of _sas_detc.id and identifies the detector used 
             in recording the scan.
 ;
