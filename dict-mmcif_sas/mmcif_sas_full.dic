@@ -60,7 +60,7 @@
 #
 ###################################################################
 
-data_cif_sas.dic
+data_mmcif_sas.dic
     _dictionary.title           mmcif_sas.dic
     _dictionary.version         0.4.02
     _dictionary.update          2010-01-05
