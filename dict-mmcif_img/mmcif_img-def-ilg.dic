@@ -55,8 +55,9 @@ diffrn_scan_frame_monitor    1 diffrn_scan_frame_monitor:diffrn_data_frame:1    
 diffrn_scan_frame_monitor    2 diffrn_scan_frame_monitor:diffrn_detector:2         . . 
 diffrn_scan_frame_monitor    3 diffrn_scan_frame_monitor:variant:3                 . . 
 map                          1 map:variant:1                                       . . 
-map_segment                  1 map_segment:map:1                                   . . 
-map_segment                  2 map_segment:variant:2                               . . 
+map_segment                  1 map_segment:array_structure_list_section:1          . . 
+map_segment                  2 map_segment:map:2                                   . . 
+map_segment                  3 map_segment:variant:3                               . . 
 # 
 loop_
 _pdbx_item_linked_group_list.child_category_id 
@@ -116,6 +117,7 @@ diffrn_scan_frame_monitor    1 '_diffrn_scan_frame_monitor.frame_id'         '_d
 diffrn_scan_frame_monitor    2 '_diffrn_scan_frame_monitor.detector_id'      '_diffrn_detector.id'               diffrn_detector              
 diffrn_scan_frame_monitor    3 '_diffrn_scan_frame_monitor.variant'          '_variant.variant'                  variant                      
 map                          1 '_map.variant'                                '_variant.variant'                  variant                      
-map_segment                  1 '_map_segment.id'                             '_map.id'                           map                          
-map_segment                  2 '_map_segment.variant'                        '_variant.variant'                  variant                      
+map_segment                  1 '_map_segment.array_section_id'               '_array_structure_list_section.id'  array_structure_list_section 
+map_segment                  2 '_map_segment.id'                             '_map.id'                           map                          
+map_segment                  3 '_map_segment.variant'                        '_variant.variant'                  variant                      
 # 
