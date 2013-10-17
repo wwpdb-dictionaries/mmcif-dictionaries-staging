@@ -119,12 +119,6 @@ data_mmcif_sas.dic
 ## defined in terms of the Standard Laboratory System.
 #
 save_sas_axis
-    _category.id                  sas_axis
-    _category.mandatory_code      no
-    _category_key.name          '_sas_axis.id'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'intensity_group'
     _category.description
 ;     Data items in the AXIS category specify a coordinate system used in the 
       experiment.  
@@ -262,6 +256,12 @@ save_sas_axis
 
 END OF DESCRIPTION OF THE CIF STANDARD LABORATORY REFERENCE SYSTEM
 ;
+    _category.id                  sas_axis
+    _category.mandatory_code      no
+    _category_key.name          '_sas_axis.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'intensity_group'
     loop_
     _category_examples.detail
     _category_examples.case
