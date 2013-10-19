@@ -221,7 +221,7 @@ lysozyme_matrix   .  "150mM NaCl, 40 mM Na acetate"  4.25  0.2  0.7  600  1e-6
 
 data_cif_sas.dic
     _dictionary.title           cif_sas.dic
-    _dictionary.version         0.4.02
+    _dictionary.version         0.4.04
     _dictionary.update          2010-01-05
     _dictionary.datablock_id    cif_sas.dic
 
@@ -2472,15 +2472,19 @@ save__sas_scan_intensity.resolution_width
 ;   Corrections made made by M. Malfois according the questions and comments of I.D.Brown
 ;
 0.4.01  2007-10-23
-;   I.D.Brown: Introduced the standard CIF axis system defined in imgCIF and reorganized sas_intensity into sas_scan and sas_scan_intensity.  Moved .beam_id and .detc_id from sas_sample to sas_scan.  Changed some names and improved definitions etc.  Inserted a number of queries.
+;   I.D.Brown: Introduced the standard CIF axis system defined in imgCIF and reorganized sas_intensity into sas_scan and sas_scan_intensity.  
+  Moved .beam_id and .detc_id from sas_sample to sas_scan.  Changed some names and improved definitions etc.  Inserted a number of queries.
 ;
 0.4.02  2010-01-05
 ;   IDB: Further changes in response to DSV's suggestions
 ;
-0.4.02  2010-01-26
-;   IDB: set up the sas_axis category and changed all the references to the axis system to conform to the use of a local set of laboratory axes defined in sas_axis in terms of the Standard Laboratory Refrence System.
-Rearranged items in alphabetic order (excetpt .id items come first)
+0.4.03  2010-01-26
+;   IDB: set up the sas_axis category and changed all the references to the axis system to conform to the use of a 
+    local set of laboratory axes defined in sas_axis in terms of the Standard Laboratory Refrence System.
+    Rearranged items in alphabetic order (excetpt .id items come first)
 ;
+
+
 #--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof
 
          

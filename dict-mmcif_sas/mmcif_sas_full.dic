@@ -61,9 +61,14 @@
 ###################################################################
 
 data_mmcif_sas.dic
+    _datablock.id                          mmcif_sas.dic
+    _datablock.description
+;
+     This data block holds the draft version of SAS dictionary.
+ 
+;
     _dictionary.title           mmcif_sas.dic
-    _dictionary.version         0.4.02
-    _dictionary.update          2010-01-05
+    _dictionary.version         0.4.04
     _dictionary.datablock_id    mmcif_sas.dic
 
 ## IDB: It is normal in dictionaries for the definitions to be arranged 
@@ -316,7 +321,7 @@ save__sas_axis.depends_on
     _item.name                      '_sas_axis.depends_on'
     _item.category_id                 sas_axis
     _item.mandatory_code              no
-
+    _item_type.code      	      code
      save_
 
 save__sas_axis.equipment
@@ -492,10 +497,10 @@ save__sas_axis.id
     _item_linked.child_name
     _item_linked.parent_name
 #         '_sas_axis.depends_on'    '_axis.id'
-#         '_sas_beam.axis_id'        '_axis.id'
-         '_sas_detc.axis_id'        '_axis.id'
-         '_sas_sample.axis_id'      '_axis.id'
-         '_sas_scan.axis_id'        '_axis.id'
+         '_sas_beam.axis_id'        '_sas_axis.id'
+         '_sas_detc.axis_id'        '_sas_axis.id'
+         '_sas_sample.axis_id'      '_sas_axis.id'
+         '_sas_scan.axis_id'        '_sas_axis.id'
      save_
 
 save__sas_axis.type
@@ -720,7 +725,7 @@ save_sas_beam
     _category.id                  sas_beam
     _category.mandatory_code      no
     _category_key.name          '_sas_beam.id'
-#    _category_group.id           'inclusive_group'     
+    _category_group.id           'inclusive_group'     
     loop_
     _category_examples.detail
     _category_examples.case 
@@ -735,7 +740,7 @@ save_sas_beam
     _sas_beam.shape                      Rectangular
     _sas_beam.width_ax                    0.2
     _sas_beam.width_eq                    0.5
-    _sas_beam.dist_spec/detc              1.5
+    _sas_beam.dist_spec_to_detc           1.5
     _sas_beam.radiation_wavelength_id     3
 ;
 save_
@@ -775,7 +780,7 @@ save__sas_beam.chopper_frequency
     _item.category_id             sas_beam
     _item.mandatory_code          no
     _item_type.code               float
-    _item_units.code              Hz
+    _item_units.code              'reciprocal_seconds'
     save_
 
 save__sas_beam.collimation_slit_size_x
@@ -806,80 +811,93 @@ save__sas_beam.collimation_slit_size_y
 ## IDB:
 ## I have added aliases to the pd file for the following items.
 
-save__sas_beam.dist_anal/detc
+save__sas_beam.dist_anal_to_detc
     _item_description.description
 ;      the distance in millimetres from the analyser to the detector
 ;
-    _item.name           '_sas_beam.dist_anal/detc'
+    _item.name           '_sas_beam.dist_anal_to_detc'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_anal/detc'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
+
     save_ 
 
-save__sas_beam.dist_mono/spec
+save__sas_beam.dist_mono_to_spec
     _item_description.description
 ;      the distance in millimetres from the monochromator to the specimen
 ;
-    _item.name           '_sas_beam.dist_mono/spec'
+    _item.name           '_sas_beam.dist_mono_to_spec'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_mono/spec'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_ 
 
-save__sas_beam.dist_spec/anal
+save__sas_beam.dist_spec_to_anal
     _item_description.description
 ;      the distance in millimetres from the sample to the analyser
 ;
-    _item.name                   '_sas_beam.dist_spec/anal'
+    _item.name                   '_sas_beam.dist_spec_to_anal'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_spec/anal'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_ 
 
-save__sas_beam.dist_spec/detc
+save__sas_beam.dist_spec_to_detc
     _item_description.description
 ;      the distance in millimetres from the sample to the detector
 ;
-    _item.name           '_sas_beam.dist_spec/detc'
+    _item.name           '_sas_beam.dist_spec_to_detc'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_spec/detc'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_ 
 
-save__sas_beam.dist_src/mono
+save__sas_beam.dist_src_to_mono
     _item_description.description
 ;      The distance in millimetres from the radiation source to the monochromator.
        For synchrotron radiation, the source is a bending magnet or insertion
        device. 
 ;
-    _item.name             '_sas_beam.dist_src/mono'
+    _item.name             '_sas_beam.dist_src_to_mono'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_src/mono'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_  
 
-save__sas_beam.dist_src/spec
+save__sas_beam.dist_src_to_spec
     _item_description.description
 ;      the distance in millimetres from the source to the sample
        For synchrotron radiation, the source is a bending magnet or insertion
        device. 
 ;
-    _item.name           '_sas_beam.dist_src/spec'
+    _item.name           '_sas_beam.dist_src_to_spec'
     _item.category_id            sas_beam
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_instr_dist_src/spec'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_ 
 
 save__sas_beam.divergence_x
@@ -958,7 +976,7 @@ save__sas_beam.polarization_direction
     _item.name                   '_sas_beam.polarization_direction'
     _item.category_id             sas_beam
     _item.mandatory_code          no
-    _item_type.code               numb
+    _item_type.code               float
     _item_units.code              degrees
     save_ 
 
@@ -1044,6 +1062,8 @@ save__sas_beam.width_x
 ## diffraction CIF dictionary.
 ##
     _item_aliases.alias_name      '_pd_inst_beam_size_eq'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_
 
 save__sas_beam.width_y
@@ -1057,6 +1077,8 @@ save__sas_beam.width_y
     _item_type.code               float
     _item_units.code              millimetres
     _item_aliases.alias_name      '_pd_inst_beam_size_ax'
+    _item_aliases.dictionary      'cif_pd.dic'
+    _item_aliases.version          1.0.1
     save_
 
 save__sas_beam.radiation_wavelength
@@ -1067,7 +1089,7 @@ save__sas_beam.radiation_wavelength
     _item.category_id             sas_beam
     _item.mandatory_code          no
     _item_type.code               float
-    _item_units.code              A
+    _item_units.code              'angstroms'
     save_
 
 save__sas_beam.radiation_wavelength_width
@@ -1079,7 +1101,7 @@ save__sas_beam.radiation_wavelength_width
     _item.category_id              sas_beam
     _item.mandatory_code          no
     _item_type.code               float
-    _item_units.code              A
+    _item_units.code              'angstroms'
     save_
 
 #################
@@ -1131,7 +1153,7 @@ save_sas_detc
     _category.id                  sas_detc
     _category.mandatory_code      no
     _category_key.name          '_sas_detc.id'
-#    _category_group.id           'inclusive_group'
+    _category_group.id           'inclusive_group'
     loop_
     _category_examples.detail
     _category_examples.case 
@@ -1195,7 +1217,7 @@ save__sas_detc.beam_position_x
                The axis system is given by _sas_detc.axis.id.
 ;
 
-    _item.name                   '_sas_detc.beam_centre_x'
+    _item.name                   '_sas_detc.beam_position_x'
     _item.category_id             sas_detc
     _item.mandatory_code          no
     _item_type.code               float
@@ -1223,7 +1245,7 @@ save__sas_detc.beamstop_shadow_size_x
                _sas_detc.axis_id. 
 ;
 
-    _item.name                  '_sas_detc._beamstop_shadow_size_x'
+    _item.name                  '_sas_detc.beamstop_shadow_size_x'
     _item.category_id             sas_detc
     _item.mandatory_code          no
     _item_type.code               float
@@ -1485,7 +1507,7 @@ save_sas_sample
     _category.id                  sas_sample
     _category.mandatory_code      no
     _category_key.name          '_sas_sample.id'
-#    _category_group.id          'inclusive_group'
+    _category_group.id          'inclusive_group'
   loop_
     _category_examples.detail
     _category_examples.case 
@@ -1521,7 +1543,7 @@ save__sas_sample.id
     _item_type.code               code
 save_
 
-save_sas_sample.axis_id
+save__sas_sample.axis_id
     _item_description.description
 ;            The value of _sas_sample.axis_id identifies the axis system
              used for the sample as described in sas_axis.
@@ -1549,7 +1571,7 @@ save__sas_sample.calibration_details
                                  'Standard protein (BSA) '
      save_
 
-save__sas_sample.detail
+save__sas_sample.details
     _item_description.description
 ;         A description of the sample such as the source of the sample,
           identification of standards, mixtures, etc.
@@ -1753,7 +1775,7 @@ save__sas_sample.specimen_concentration
     _item.category_id             sas_sample
     _item.mandatory_code          no
     _item_type.code               float
-    _item_units.code              milligrammes_per_millilitres
+    _item_units.code                   'mg_per_ml'          
     save_ 
 
 save__sas_sample.strain
@@ -1847,7 +1869,7 @@ save_sas_scan
      _category_group.id           'inclusive_group'
                                  'intensity_group'
     loop_
-    _category_examples.details
+    _category_examples.detail
     _category_examples.case
 ; This example shows how the beam, detector and sample are specified for a each scan.  In addition, the nature of the intensities measured 
   during the scan is shown.  This example should be read in conjuntion with the example in sas_scan_intensity.  No filenames are given for 
@@ -1889,8 +1911,7 @@ save__sas_scan.id
     _item.category_id             sas_scan
     _item.mandatory_code          yes
     _item_type.code               code
-    _item_linked.child_name       '_sas_scan_intensity.scan_id
-    _item_linked.parent_name      '_sas_scan.id'
+
      save_ 
 
 save__sas_scan.axis_id
@@ -1963,7 +1984,7 @@ save__sas_scan.exposure_time
           included in _sas_scan_intensity.intensity
 ;
     _item.name                   '_sas_scan.exposure_time'
-    _item.category_id             sas_scan_intensity
+    _item.category_id             sas_scan
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              seconds
@@ -1985,7 +2006,7 @@ save__sas_scan.measurement_date
 ;         The date on which this scan was made.  The format is yyyy-mm-dd
 ;
     _item.name                   '_sas_scan.measurement_date'
-    _item.category_id             sas_sample
+    _item.category_id             sas_scan
     _item.mandatory_code          no
     _item_type.code               yyyy-mm-dd
     save_ 
@@ -1995,7 +2016,7 @@ save__sas_scan.title
 ;         Title for this scan.
 ;
     _item.name                   '_sas_scan.title'
-    _item.category_id             sas_intensity
+    _item.category_id             sas_scan
     _item.mandatory_code          no
     _item_type.code               line
     save_ 
@@ -2059,11 +2080,11 @@ save_sas_scan_intensity
     _category.id                  sas_scan_intensity
     _category.mandatory_code      no
     _category_key.name          '_sas_scan_intensity.id'
-     loop_
-#    _category_group.id           'inclusive_group'
-#                                 'intensity_group'
     loop_
-    _category_examples.details
+    _category_group.id           'inclusive_group'
+                                 'intensity_group'
+    loop_
+    _category_examples.detail
     _category_examples.case
 ;  This example shows the intensity as a function of momentum transfer for the cases given in the sas_scan category example, showing how each of the different scans can be reported in a single file though they can also be reported in different files if so desired
 ;
@@ -2118,6 +2139,8 @@ save__sas_scan_intensity.scan_id
     _item.category_id             sas_scan_intensity
     _item.mandatory_code          no
     _item_type.code               code
+    _item_linked.child_name       '_sas_scan_intensity.scan_id'
+    _item_linked.parent_name      '_sas_scan.id'
      save_ 
 
 save__sas_scan_intensity.group_factor
@@ -2197,6 +2220,16 @@ save__sas_scan_intensity.resolution_width
     _item_type.code               float
     save_  
 
+##################
+## SUB_CATEGORY ##
+##################
+     loop_
+    _sub_category.id
+    _sub_category.description
+              'vector'
+;              The collection of elements of a vector.
+;
+
 ####################
 ## ITEM_TYPE_LIST ##
 ####################
@@ -2263,22 +2296,25 @@ save__sas_scan_intensity.resolution_width
     _item_units_list.detail
 #
      'metres'                 'metres'
+     'angstroms'              'Angstroms   (metres * 10^(-10)^)'
 #
-     'millimetres'            'millimetres (meters * 10^( -3))'
+     'millimetres'            'millimetres (meters * 10^( -3)^)'
 #
 #IDB
 # I have added another level of parentheses to correct the next line.
 #
-     'reciprocal_angstroms'   'reciprocal angstroms ((metres * 10^(-10))^-1)'
+     'reciprocal_angstroms'   'reciprocal angstroms ((metres * 10^(-10))^^-1^)'
 #
      'seconds'                'seconds'
+     'reciprocal_seconds'     'seconds^-1^'
 #
      'degrees'                'degrees (of arc)'
      'radians'             'radians'
 #
-     'milligrammes_per_millilitres' 'milligrammes_per_millilitres'
+  'mg_per_ml'              'milligram per milliliter'
 #
      'rpm'                   'revolutions per minute'
+     'pixels'               'element of detector'
 # 
 
 
@@ -2318,9 +2354,12 @@ save__sas_scan_intensity.resolution_width
 0.4.02  2010-01-05
 ;   IDB: Further changes in response to DSV's suggestions
 ;
-0.4.02  2010-01-26
+0.4.03  2010-01-26
 ;   IDB: set up the sas_axis category and changed all the references to the axis system to conform to the use of a local set of laboratory axes defined in sas_axis in terms of the Standard Laboratory Refrence System.
 Rearranged items in alphabetic order (excetpt .id items come first)
+;
+0.4.04  2013-10-17
+;   jdw: Format and syntax updates based on software checks.  
 ;
 #--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof
 
