@@ -94,24 +94,24 @@ data_mmcif_sas.dic
     _category_group_list.id
     _category_group_list.parent_id
     _category_group_list.description
-              'inclusive_group'
-              'inclusive_group'
+              'sas_group'
+              'sas_group'
 ;              Categories that belong to the sas dictionary.
 ;
               'beam_group'
-              'inclusive_group'
+              'sas_group'
 ;              Categories that describe the properties of the beam.
 ;
-              'detc_group'
-              'inclusive_group'
+              'detector_group'
+              'sas_group'
 ;              Categories that describe the properties of the detector.
 ;
               'sample_group'
-              'inclusive_group'
+              'sas_group'
 ;              Categories that describe the properties of the sample.
 ;
               'intensity_group'
-              'inclusive_group'
+              'sas_group'
 ;              Categories that describe the intensities
 ;
 
@@ -265,7 +265,7 @@ END OF DESCRIPTION OF THE CIF STANDARD LABORATORY REFERENCE SYSTEM
     _category.mandatory_code      no
     _category_key.name          '_sas_axis.id'
      loop_
-    _category_group.id           'inclusive_group'
+    _category_group.id           'sas_group'
                                  'intensity_group'
     loop_
     _category_examples.detail
@@ -724,7 +724,8 @@ save_sas_beam
     _category.id                  sas_beam
     _category.mandatory_code      no
     _category_key.name          '_sas_beam.id'
-    _category_group.id           'inclusive_group'     
+    loop_
+    _category_group.id           'sas_group'   'beam_group'
     loop_
     _category_examples.detail
     _category_examples.case 
@@ -1152,7 +1153,8 @@ save_sas_detc
     _category.id                  sas_detc
     _category.mandatory_code      no
     _category_key.name          '_sas_detc.id'
-    _category_group.id           'inclusive_group'
+    loop_
+    _category_group.id           'sas_group' 'detector_group'
     loop_
     _category_examples.detail
     _category_examples.case 
@@ -1506,7 +1508,8 @@ save_sas_sample
     _category.id                  sas_sample
     _category.mandatory_code      no
     _category_key.name          '_sas_sample.id'
-    _category_group.id          'inclusive_group'
+    loop_
+    _category_group.id          'sas_group' 'sample_group'
   loop_
     _category_examples.detail
     _category_examples.case 
@@ -1865,7 +1868,7 @@ save_sas_scan
     _category.mandatory_code      no
     _category_key.name           '_sas_scan.id'  
      loop_
-     _category_group.id           'inclusive_group'
+     _category_group.id           'sas_group'
                                  'intensity_group'
     loop_
     _category_examples.detail
@@ -2080,7 +2083,7 @@ save_sas_scan_intensity
     _category.mandatory_code      no
     _category_key.name          '_sas_scan_intensity.id'
     loop_
-    _category_group.id           'inclusive_group'
+    _category_group.id           'sas_group'
                                  'intensity_group'
     loop_
     _category_examples.detail
