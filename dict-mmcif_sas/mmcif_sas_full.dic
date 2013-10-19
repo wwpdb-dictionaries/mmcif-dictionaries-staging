@@ -548,7 +548,6 @@ save__sas_axis.type
                       'translation in the direction of the axis'
                                   general
                       'axis for which the type is not relevant'
-    _item_default.value           translation
      save_
 
 
