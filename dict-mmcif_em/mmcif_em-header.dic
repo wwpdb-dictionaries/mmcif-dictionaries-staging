@@ -113,9 +113,8 @@ data_mmcif_em.dic
   + update example for category em_array_formation
   + miscellaneous corrections
 ;
-
    0.015  2013-1018
 ;  Changes (jdw):
    + Dictionary description updated.
- ;
+;
 ### EOF mmcif_em-header.dic
