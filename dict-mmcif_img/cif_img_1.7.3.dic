@@ -4,9 +4,9 @@
 
                           # Extensions Dictionary #
 
-data_cif_img.dic
+data_mmcif_img.dic
 
-    _datablock.id               cif_img.dic
+    _datablock.id               mmcif_img.dic
     _datablock.description
 ;
 ##############################################################################
@@ -625,9 +625,9 @@ data_cif_img.dic
 ;
 
 
-    _dictionary.title           cif_img.dic
+    _dictionary.title           mmcif_img.dic
     _dictionary.version         1.7.2
-    _dictionary.datablock_id    cif_img.dic
+    _dictionary.datablock_id    mmcif_img.dic
 
 
 
@@ -709,6 +709,38 @@ save_array_data
 ;
     _category.id                   array_data
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _array_data.array_id ARRAYID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /data_ARRAYID_BINARYID
+          /@CBF_array_id="ARRAYID"
+   
+    _array_data.binary_id BINARYID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /data_ARRAYID_BINARYID
+          /@CBF_binary_id="BINARYID"
+   
+    _array_data.data  DATAARRAY -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /data_ARRAYID_BINARYID=DATAARRAY
+   
+    _array_data.header_contents HEADER -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /data__ARRAYID_BINARYID=DATAARRAY
+          /@CBF_header_contents="HEADER"
+   
+    _array_data.header_convention HEADERCONVENTION -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /data_ARRAYID_BINARYID=DATAARRAY
+          /@CBF_header_convention="HEADERCONVENTION"
+;
      loop_
     _category_key.name             '_array_data.array_id'
                                    '_array_data.binary_id'
@@ -848,38 +880,6 @@ save_array_data
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    _category.NX_mapping_details
-;
-   
-    _array_data.array_id ARRAYID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /data_ARRAYID_BINARYID
-          /@CBF_array_id="ARRAYID"
-   
-    _array_data.binary_id BINARYID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /data_ARRAYID_BINARYID
-          /@CBF_binary_id="BINARYID"
-   
-    _array_data.data  DATAARRAY -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /data_ARRAYID_BINARYID=DATAARRAY
-   
-    _array_data.header_contents HEADER -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /data__ARRAYID_BINARYID=DATAARRAY
-          /@CBF_header_contents="HEADER"
-   
-    _array_data.header_convention HEADERCONVENTION -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /data_ARRAYID_BINARYID=DATAARRAY
-          /@CBF_header_convention="HEADERCONVENTION"
-;
 save_
 
 
@@ -1241,29 +1241,6 @@ save_array_element_size
 ;
     _category.id                   array_element_size
     _category.mandatory_code       no
-     loop_
-    _category_key.name             '_array_element_size.array_id'
-                                   '_array_element_size.index'
-                                   '_array_element_size.variant'
-    loop_
-    _category_group.id             'inclusive_group'
-                                   'array_data_group'
-    loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;       Example 1 - A regular 2D array with a uniform element dimension
-                    of 1220 nanometres.
-;
-;
-        loop_
-       _array_element_size.array_id
-       _array_element_size.index
-       _array_element_size.size
-        image_1   1    1.22e-6
-        image_1   2    1.22e-6
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -1291,6 +1268,29 @@ save_array_element_size
          
 ;
 
+     loop_
+    _category_key.name             '_array_element_size.array_id'
+                                   '_array_element_size.index'
+                                   '_array_element_size.variant'
+    loop_
+    _category_group.id             'inclusive_group'
+                                   'array_data_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;       Example 1 - A regular 2D array with a uniform element dimension
+                    of 1220 nanometres.
+;
+;
+        loop_
+       _array_element_size.array_id
+       _array_element_size.index
+       _array_element_size.size
+        image_1   1    1.22e-6
+        image_1   2    1.22e-6
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
 
@@ -1377,33 +1377,6 @@ save_array_intensities
 ;
     _category.id                   array_intensities
     _category.mandatory_code       no
-    loop_
-    _category_key.name             '_array_intensities.array_id'
-                                   '_array_intensities.binary_id'
-                                   '_array_intensities.variant'
-    loop_
-    _category_group.id             'inclusive_group'
-                                   'array_data_group'
-    loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;
-        Example 1
-;
-;
-        loop_
-        _array_intensities.array_id
-        _array_intensities.linearity
-        _array_intensities.gain
-        _array_intensities.overload
-        _array_intensities.undefined_value
-        _array_intensities.pixel_fast_bin_size
-        _array_intensities.pixel_slow_bin_size
-        _array_intensities.pixel_binning_method
-        image_1   linear  1.2    655535   0   2   2    hardware
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -1510,6 +1483,33 @@ save_array_intensities
    
 ;
    
+    loop_
+    _category_key.name             '_array_intensities.array_id'
+                                   '_array_intensities.binary_id'
+                                   '_array_intensities.variant'
+    loop_
+    _category_group.id             'inclusive_group'
+                                   'array_data_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+        Example 1
+;
+;
+        loop_
+        _array_intensities.array_id
+        _array_intensities.linearity
+        _array_intensities.gain
+        _array_intensities.overload
+        _array_intensities.undefined_value
+        _array_intensities.pixel_fast_bin_size
+        _array_intensities.pixel_slow_bin_size
+        _array_intensities.pixel_binning_method
+        image_1   linear  1.2    655535   0   2   2    hardware
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     save_
 
 
@@ -1855,6 +1855,21 @@ save_array_structure
 ;
     _category.id                   array_structure
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+    Note that this is essentially a type that may apply to multiple
+    binary images, and corresponds to some of the detailed HDF5
+    information about an array.   The following mapping is a placeholder
+    for the names given for future reference, if needed.
+
+    The information in this category is the byte order, the compression
+    information, and the encoding, which is carried in and reteievable
+    from the HDF5 types, properties lists, etc. 
+
+    At present NeXus does not expose this information.  This should be
+    discussed.
+
+;
     loop_
     _category_key.name             '_array_structure.id'
                                    '_array_structure.variant'
@@ -1876,21 +1891,6 @@ save_array_structure
      image_1       "unsigned 16-bit integer"  none  little_endian
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-    Note that this is essentially a type that may apply to multiple
-    binary images, and corresponds to some of the detailed HDF5
-    information about an array.   The following mapping is a placeholder
-    for the names given for future reference, if needed.
-
-    The information in this category is the byte order, the compression
-    information, and the encoding, which is carried in and reteievable
-    from the HDF5 types, properties lists, etc. 
-
-    At present NeXus does not expose this information.  This should be
-    discussed.
-
-;
      save_
 
 
@@ -2101,34 +2101,6 @@ save_array_structure_list
 ;
     _category.id                   array_structure_list
     _category.mandatory_code       no
-     loop_
-    _category_key.name             '_array_structure_list.array_id'
-                                   '_array_structure_list.index'
-                                   '_array_structure_list.variant'
-    loop_
-    _category_group.id             'inclusive_group'
-                                   'array_data_group'
-    loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;       Example 1 - An image array of 1300 x 1200 elements.  The raster
-                    order of the image is left to right (increasing) in the
-                    first dimension and bottom to top (decreasing) in
-                    the second dimension.
-;
-;
-        loop_
-       _array_structure_list.array_id
-       _array_structure_list.index
-       _array_structure_list.dimension
-       _array_structure_list.precedence
-       _array_structure_list.direction
-       _array_structure_list.axis_set_id
-        image_1   1    1300    1     increasing  ELEMENT_X
-        image_1   2    1200    2     decreasing  ELEMENY_Y
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -2172,6 +2144,34 @@ save_array_structure_list
 
 ;
 
+     loop_
+    _category_key.name             '_array_structure_list.array_id'
+                                   '_array_structure_list.index'
+                                   '_array_structure_list.variant'
+    loop_
+    _category_group.id             'inclusive_group'
+                                   'array_data_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;       Example 1 - An image array of 1300 x 1200 elements.  The raster
+                    order of the image is left to right (increasing) in the
+                    first dimension and bottom to top (decreasing) in
+                    the second dimension.
+;
+;
+        loop_
+       _array_structure_list.array_id
+       _array_structure_list.index
+       _array_structure_list.dimension
+       _array_structure_list.precedence
+       _array_structure_list.direction
+       _array_structure_list.axis_set_id
+        image_1   1    1300    1     increasing  ELEMENT_X
+        image_1   2    1200    2     decreasing  ELEMENY_Y
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     save_
 
 
@@ -2377,6 +2377,49 @@ save_array_structure_list_section
 ;
     _category.id                   array_structure_list_section
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _array_structure_list_section.array_id ARRAYID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          /@CBF_array_id="ARRAYID"
+   
+    _array_structure_list_section.id SECTIONID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+   
+    _array_structure_list_section.index INDEX-->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          /@CBF_array_structure_list_section__index=INDEX
+   
+    _array_structure_list_section.end END -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          /@CBF_array_structure_list_section__end=END
+   
+    _array_structure_list_section.start START -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          /@CBF_array_structure_list_section__start=START
+   
+    _array_structure_list_section.stride STRIDE -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          /@CBF_array_structure_list_section__stride=STRIDE
+   
+    _array_structure_list_section.variant --> ??
+        NeXus does not handle variants at this time
+         
+
+;
      loop_
     _category_key.name             '_array_structure_list_section.id'
                                    '_array_structure_list_section.array_id'
@@ -2426,49 +2469,6 @@ save_array_structure_list_section
 
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-   
-    _array_structure_list_section.array_id ARRAYID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-          /@CBF_array_id="ARRAYID"
-   
-    _array_structure_list_section.id SECTIONID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-   
-    _array_structure_list_section.index INDEX-->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-          /@CBF_array_structure_list_section__index=INDEX
-   
-    _array_structure_list_section.end END -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-          /@CBF_array_structure_list_section__end=END
-   
-    _array_structure_list_section.start START -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-          /@CBF_array_structure_list_section__start=START
-   
-    _array_structure_list_section.stride STRIDE -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_array_structure_list_section__SECTIONID=[]
-          /@CBF_array_structure_list_section__stride=STRIDE
-   
-    _array_structure_list_section.variant --> ??
-        NeXus does not handle variants at this time
-         
-
-;
     save_
 
 
@@ -2652,14 +2652,6 @@ save_array_structure_list_axis
 ;
     _category.id                   array_structure_list_axis
     _category.mandatory_code       no
-     loop_
-    _category_key.name
-                                  '_array_structure_list_axis.axis_set_id'
-                                  '_array_structure_list_axis.axis_id'
-                                  '_array_structure_list_axis.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'array_data_group'
     _category.NX_mapping_details
 ;
    
@@ -2738,6 +2730,14 @@ save_array_structure_list_axis
     _array_structure_list_axis.variant --> ??
         NeXus does not handle variants at this time
 ;
+     loop_
+    _category_key.name
+                                  '_array_structure_list_axis.axis_set_id'
+                                  '_array_structure_list_axis.axis_id'
+                                  '_array_structure_list_axis.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'array_data_group'
 
     save_
 
@@ -3245,6 +3245,194 @@ save_axis
 ;
     _category.id                   axis
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _axis.depends_on DEPNAME-->
+        /CBF_axis__AXISID=[]
+          @depends_on="DEPNAME"
+    provided the DEPNAME is in the same NeXus class instance as AXISID.
+    Otherwise a full path needs to be provided.
+   
+    _axis.equipment EQUIP -->
+        see _axis.id AXISID, below
+   
+    _axis.id AXISID -->
+        /instrument:NXinstrument
+          /CBF_diffrn_detector__DETECTORNAME:NXdetector
+            /CBF_axis__AXISID=[]
+    for EQUIP=="detector"
+        /instrument:NXinstrument
+          /CBF_diffrn_measurement__GONIOMETERNAME:NXgoniometer
+            /CBF_axis__AXISID=[]
+    for EQUIP=="goniometer"
+        /instrument:NXinstrument
+          /coordinate_system:NXcoordinate_system
+            /CBF_axis__AXISID=[]
+        for EQUIP=="general"
+    note that @units="mm" or @units="deg" should also be specified if
+    the settings array is populated
+
+    _axis.rotation_axis ROTNAME-->
+        /CBF_axis__AXISID=[]
+          @rotation_axis="ROTNAME"
+    provided the ROTNAME is in the same NeXus class instance as AXISID.
+    Otherwise a full path needs to be provided.
+
+    _axis.rotation_axis ROTANGLE-->
+        /CBF_axis__AXISID=[]
+            @rotation=ROTANGLE
+            @rotation_units="deg"
+
+    _axis.offset[1] O1-->
+        /CBF_axis__AXISID=[]
+            @offset=offsetxform([O1,O2,O3])
+            @offset_units="mm"
+   
+    _axis.offset[2] O2-->
+        /CBF_axis__AXISID=[]
+            @offset=offsetxform([O1,O2,O3])
+            @offset_units="mm"
+   
+    _axis.offset[3] O3-->
+        /CBF_axis__AXISID=[]
+          @offset=offsetxform([O1,O2,O3])
+          @offset_units="mm"
+   
+    _axis.type TYPE-->
+        /CBF_axis__AXISID=[]
+          @transformation_type="TYPE"
+   
+    _axis.system -->
+        Only a laboratory coordinate system is handled in NeXus.
+        See the discussion of transformation to the McStas coordinate system
+        below.
+    _axis.vector[1] V1 -->
+        /CBF_axis__AXISID=[]
+          @vector=coordxform([V1,V2,V3])
+   
+    _axis.vector[2] V2 -->
+        /CBF_axis__AXISID=[]
+          @vector=coordxform([V1,V2,V3])
+   
+    _axis.vector[3] V3 -->
+        /CBF_axis__AXISID=[]
+          @vector=coordxform([V1,V2,V3])
+   
+    _axis.variant --> ??
+        NeXus does not handle variants at this time
+   
+
+
+    Differences in Coordinate Frames
+   
+
+    The standard coordinate frame in NeXus is the McStas coordinate frame,
+    in which the Z-axis points in the direction of the incident beam, the
+    X-axis is orthogonal to the Z-axis in the horizontal plane and pointing
+    left as seen from the source and the Y-axis points upwards.  The
+    origin is in the sample.
+
+    The standard coordinate frame in imgCIF/CBF aligns the X-axis to the
+    principal goniometer axis, chooses the Z-axis to point from the sample
+    into the beam.  If the beam is not orthogonal to the X-axis, the Z-axis
+    is the component of the vector points into the beam orthogonal to the
+    X-axis.  The Y-axis is chosen to complete a right-handed axis system.
+
+    Let us call the NeXus coordinate axes, X_nx, Y_nx and Z_nx and the
+    imgCIF/CBF coordinate axes, X_cbf, Y_cbf and $Z_cbf and the direction
+    of gravity, Gravity.  In order to translate a vector v_nx = ( x, y, z)
+    from the NeXus coordinate system to the imgCIF coordinate system, we
+    also need two additional axes, as unit vectors, Gravity_cbf the downwards
+    direction, and  Beam_cbf, the direction of the beam e.g. ( 0, 0, -1)).  
+
+    In practice, the beam is not necessarily perfectly horizontal, so Y_nx
+    is not necessarily perfectly vertical. Therefore, in order to generate
+    X_nx, Y_nx and Z_nx some care is needed.  The cross product between two
+    vectors a and b is a new vector c orthogonal to both a and b,
+    chosen so that a, b, c is a right handed system.  If a and b are
+    orthogonal unit vectors, this right-handed system is an orthonormal
+    coordinate system.
+
+    In the CBF coordinate frame, Z_nx is aligned to Beam_cbf
+
+        Z_nx = Beam_cbf
+   
+    X_nx is defined as being horizontal at right angles to the beam,
+    pointing to the left when seen from the source.  Assuming the beam is
+    not vertical, we can compute X_nx as the normalized cross product of
+    the  beam and the gravity:
+
+        X_nx = (Beam_cbf x Gravity_cbf)/||Beam_cbf x Gravity_cbf||
+
+    To see that this satisfies the constraint of being horizontal and
+    pointing to the left, consider the case of Beam = ( 0, 0, -1 )
+    and Gravity = ( 0, 0, 1 ) then we would have X_nx = ( 1, 0, 0 )
+    from the cross product above.  The normalization is only necessary
+    if the beam is not horizontal.
+
+    Finally Y_nx is computed as the cross product of the beam and X_nx,
+    completing an orthonormal right-handed system with Y_nx pointing upwards
+
+        Y_nx = Beam_cbf x X_nx
+
+    Then we know that in the imgCIF/CBF coordinate frame
+   
+        v_nx = X.X_nx + Y.Y_nx + Z.Z_nx
+
+    Thus, given the imgCIF/CBF vectors for the true direction of the beam
+    and the true direction of gravity, we have a linear transformation from
+    the NeXus coordinate frame to the imgCIF/CBF coordinate frame.   The
+    origins of the two frames agree.   The inverse linear transformation will
+    transform a vector in the imgCIF/CBF coordinate frame into the NeXus
+    coordinate frame.
+
+    In the common case in which the beam is orthogonal to the principal
+    goniometer axis so that Beam_cbf = ( 0, 0, -1 ) and the imgCIF/CBF
+    Y-axis points upwards, the transformation inverts the X and Z axes.
+    In the other common case in which the beam is orthogonal to the
+    principal goniometer axis and the imgCIF/CBF Y-axis points
+    downwards, the transformation inverts the Y and Z axes.
+                                         
+    mapping Axes
+
+    There are two transformations needed:  coordxform(v) which takes a vector,
+    v, the the CBF imgCIF Standard Laboratory Coordinate System and returns the
+    equivalent McStas coordinate vector, and offsetxform(o) which takes an
+    offset, o, in the the CBF imgCIF Standard Laboratory Coordinate System and
+    returns the equivalent NeXus offset.  As of this writing, it has not
+    been decided as to whether the NeXus offset should also be relative
+    (in which case offsetxform = coordxform) or whether the NeXus offset should
+    be absolute.
+
+    In imgCIF/CBF all the information about all axes other than their
+    settings are gathered in one AXIS category.  The closest equivalent
+    container in NeXus is the NXinstrument class.  We put the information
+    about detector axes into an detector:NXdetector NeXus class instance,
+    information about the goniometer into an goniometer:NXgoniometer NeXus
+    class instance, etc.  Additionally, in view of the general nature of
+    some axes, such as the coordinate frame axes and gravity, we add a
+    coordinate_system:NXcoordinate_system NeXus class instance with
+    axis__gravity, axis__beam and other axes not tied to specific equipment.
+
+    We have applied the coordinate frame transformation changing
+    the CBF laboratory coordinates into McStas coordinates.  Notice that X and
+    Z have changed direction, but Y has not.   In other experimental setup,
+    other transformations may occur.   The offsets for dependent axes are
+    given relative to the total offset of axes on which that axis is dependent.
+    Note that the axis settings do not enter into this calculation, because the
+    offsets of dependent axes are given with all axes at their zero settings
+
+
+    The cbf_location attribute gives a mapping back into the CBF AXIS category
+    in dotted notation.  The first component is the data block.  The second
+    component is "axis".  The third component is either "vector" or
+    "offset"  for information drawn from the AXIS.VECTOR[...] or
+    AXIS.OFFSET[...] respectively.  The last component is the CBF row number
+    to facilitate recovering the original CBF layout.
+
+
+;
      loop_
     _category_key.name          '_axis.id'
                                 '_axis.equipment'
@@ -4242,194 +4430,6 @@ save_axis
 ;
    
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-   
-    _axis.depends_on DEPNAME-->
-        /CBF_axis__AXISID=[]
-          @depends_on="DEPNAME"
-    provided the DEPNAME is in the same NeXus class instance as AXISID.
-    Otherwise a full path needs to be provided.
-   
-    _axis.equipment EQUIP -->
-        see _axis.id AXISID, below
-   
-    _axis.id AXISID -->
-        /instrument:NXinstrument
-          /CBF_diffrn_detector__DETECTORNAME:NXdetector
-            /CBF_axis__AXISID=[]
-    for EQUIP=="detector"
-        /instrument:NXinstrument
-          /CBF_diffrn_measurement__GONIOMETERNAME:NXgoniometer
-            /CBF_axis__AXISID=[]
-    for EQUIP=="goniometer"
-        /instrument:NXinstrument
-          /coordinate_system:NXcoordinate_system
-            /CBF_axis__AXISID=[]
-        for EQUIP=="general"
-    note that @units="mm" or @units="deg" should also be specified if
-    the settings array is populated
-
-    _axis.rotation_axis ROTNAME-->
-        /CBF_axis__AXISID=[]
-          @rotation_axis="ROTNAME"
-    provided the ROTNAME is in the same NeXus class instance as AXISID.
-    Otherwise a full path needs to be provided.
-
-    _axis.rotation_axis ROTANGLE-->
-        /CBF_axis__AXISID=[]
-            @rotation=ROTANGLE
-            @rotation_units="deg"
-
-    _axis.offset[1] O1-->
-        /CBF_axis__AXISID=[]
-            @offset=offsetxform([O1,O2,O3])
-            @offset_units="mm"
-   
-    _axis.offset[2] O2-->
-        /CBF_axis__AXISID=[]
-            @offset=offsetxform([O1,O2,O3])
-            @offset_units="mm"
-   
-    _axis.offset[3] O3-->
-        /CBF_axis__AXISID=[]
-          @offset=offsetxform([O1,O2,O3])
-          @offset_units="mm"
-   
-    _axis.type TYPE-->
-        /CBF_axis__AXISID=[]
-          @transformation_type="TYPE"
-   
-    _axis.system -->
-        Only a laboratory coordinate system is handled in NeXus.
-        See the discussion of transformation to the McStas coordinate system
-        below.
-    _axis.vector[1] V1 -->
-        /CBF_axis__AXISID=[]
-          @vector=coordxform([V1,V2,V3])
-   
-    _axis.vector[2] V2 -->
-        /CBF_axis__AXISID=[]
-          @vector=coordxform([V1,V2,V3])
-   
-    _axis.vector[3] V3 -->
-        /CBF_axis__AXISID=[]
-          @vector=coordxform([V1,V2,V3])
-   
-    _axis.variant --> ??
-        NeXus does not handle variants at this time
-   
-
-
-    Differences in Coordinate Frames
-   
-
-    The standard coordinate frame in NeXus is the McStas coordinate frame,
-    in which the Z-axis points in the direction of the incident beam, the
-    X-axis is orthogonal to the Z-axis in the horizontal plane and pointing
-    left as seen from the source and the Y-axis points upwards.  The
-    origin is in the sample.
-
-    The standard coordinate frame in imgCIF/CBF aligns the X-axis to the
-    principal goniometer axis, chooses the Z-axis to point from the sample
-    into the beam.  If the beam is not orthogonal to the X-axis, the Z-axis
-    is the component of the vector points into the beam orthogonal to the
-    X-axis.  The Y-axis is chosen to complete a right-handed axis system.
-
-    Let us call the NeXus coordinate axes, X_nx, Y_nx and Z_nx and the
-    imgCIF/CBF coordinate axes, X_cbf, Y_cbf and $Z_cbf and the direction
-    of gravity, Gravity.  In order to translate a vector v_nx = ( x, y, z)
-    from the NeXus coordinate system to the imgCIF coordinate system, we
-    also need two additional axes, as unit vectors, Gravity_cbf the downwards
-    direction, and  Beam_cbf, the direction of the beam e.g. ( 0, 0, -1)).  
-
-    In practice, the beam is not necessarily perfectly horizontal, so Y_nx
-    is not necessarily perfectly vertical. Therefore, in order to generate
-    X_nx, Y_nx and Z_nx some care is needed.  The cross product between two
-    vectors a and b is a new vector c orthogonal to both a and b,
-    chosen so that a, b, c is a right handed system.  If a and b are
-    orthogonal unit vectors, this right-handed system is an orthonormal
-    coordinate system.
-
-    In the CBF coordinate frame, Z_nx is aligned to Beam_cbf
-
-        Z_nx = Beam_cbf
-   
-    X_nx is defined as being horizontal at right angles to the beam,
-    pointing to the left when seen from the source.  Assuming the beam is
-    not vertical, we can compute X_nx as the normalized cross product of
-    the  beam and the gravity:
-
-        X_nx = (Beam_cbf x Gravity_cbf)/||Beam_cbf x Gravity_cbf||
-
-    To see that this satisfies the constraint of being horizontal and
-    pointing to the left, consider the case of Beam = ( 0, 0, -1 )
-    and Gravity = ( 0, 0, 1 ) then we would have X_nx = ( 1, 0, 0 )
-    from the cross product above.  The normalization is only necessary
-    if the beam is not horizontal.
-
-    Finally Y_nx is computed as the cross product of the beam and X_nx,
-    completing an orthonormal right-handed system with Y_nx pointing upwards
-
-        Y_nx = Beam_cbf x X_nx
-
-    Then we know that in the imgCIF/CBF coordinate frame
-   
-        v_nx = X.X_nx + Y.Y_nx + Z.Z_nx
-
-    Thus, given the imgCIF/CBF vectors for the true direction of the beam
-    and the true direction of gravity, we have a linear transformation from
-    the NeXus coordinate frame to the imgCIF/CBF coordinate frame.   The
-    origins of the two frames agree.   The inverse linear transformation will
-    transform a vector in the imgCIF/CBF coordinate frame into the NeXus
-    coordinate frame.
-
-    In the common case in which the beam is orthogonal to the principal
-    goniometer axis so that Beam_cbf = ( 0, 0, -1 ) and the imgCIF/CBF
-    Y-axis points upwards, the transformation inverts the X and Z axes.
-    In the other common case in which the beam is orthogonal to the
-    principal goniometer axis and the imgCIF/CBF Y-axis points
-    downwards, the transformation inverts the Y and Z axes.
-                                         
-    mapping Axes
-
-    There are two transformations needed:  coordxform(v) which takes a vector,
-    v, the the CBF imgCIF Standard Laboratory Coordinate System and returns the
-    equivalent McStas coordinate vector, and offsetxform(o) which takes an
-    offset, o, in the the CBF imgCIF Standard Laboratory Coordinate System and
-    returns the equivalent NeXus offset.  As of this writing, it has not
-    been decided as to whether the NeXus offset should also be relative
-    (in which case offsetxform = coordxform) or whether the NeXus offset should
-    be absolute.
-
-    In imgCIF/CBF all the information about all axes other than their
-    settings are gathered in one AXIS category.  The closest equivalent
-    container in NeXus is the NXinstrument class.  We put the information
-    about detector axes into an detector:NXdetector NeXus class instance,
-    information about the goniometer into an goniometer:NXgoniometer NeXus
-    class instance, etc.  Additionally, in view of the general nature of
-    some axes, such as the coordinate frame axes and gravity, we add a
-    coordinate_system:NXcoordinate_system NeXus class instance with
-    axis__gravity, axis__beam and other axes not tied to specific equipment.
-
-    We have applied the coordinate frame transformation changing
-    the CBF laboratory coordinates into McStas coordinates.  Notice that X and
-    Z have changed direction, but Y has not.   In other experimental setup,
-    other transformations may occur.   The offsets for dependent axes are
-    given relative to the total offset of axes on which that axis is dependent.
-    Note that the axis settings do not enter into this calculation, because the
-    offsets of dependent axes are given with all axes at their zero settings
-
-
-    The cbf_location attribute gives a mapping back into the CBF AXIS category
-    in dotted notation.  The first component is the data block.  The second
-    component is "axis".  The third component is either "vector" or
-    "offset"  for information drawn from the AXIS.VECTOR[...] or
-    AXIS.OFFSET[...] respectively.  The last component is the CBF row number
-    to facilitate recovering the original CBF layout.
-
-
-;
     save_
 
 
@@ -4739,38 +4739,6 @@ save_diffrn_data_frame
 ;
     _category.id                   diffrn_data_frame
     _category.mandatory_code       no
-     loop_
-    _category_key.name             '_diffrn_data_frame.id'
-                                   '_diffrn_data_frame.detector_element_id'
-                                   '_diffrn_data_frame.variant'
-    loop_
-    _category_group.id             'inclusive_group'
-                                   'array_data_group'
-                                   'diffrn_group'
-    loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;   Example 1 - A frame containing data from 4 frame elements.
-                Each frame element has a common array configuration
-                'array_1' described in ARRAY_STRUCTURE and related
-                categories.  The data for each detector element are
-                stored in four groups of binary data in the
-                ARRAY_DATA category, linked by the array_id and
-                binary_id.
-;
-;
-        loop_
-        _diffrn_data_frame.id
-        _diffrn_data_frame.detector_element_id
-        _diffrn_data_frame.array_id
-        _diffrn_data_frame.binary_id
-        frame_1   d1_ccd_1  array_1  1
-        frame_1   d1_ccd_2  array_1  2
-        frame_1   d1_ccd_3  array_1  3
-        frame_1   d1_ccd_4  array_1  4
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -4846,6 +4814,38 @@ save_diffrn_data_frame
     for CENTERARRAY in the order fast and then slow.
 
 ;
+     loop_
+    _category_key.name             '_diffrn_data_frame.id'
+                                   '_diffrn_data_frame.detector_element_id'
+                                   '_diffrn_data_frame.variant'
+    loop_
+    _category_group.id             'inclusive_group'
+                                   'array_data_group'
+                                   'diffrn_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;   Example 1 - A frame containing data from 4 frame elements.
+                Each frame element has a common array configuration
+                'array_1' described in ARRAY_STRUCTURE and related
+                categories.  The data for each detector element are
+                stored in four groups of binary data in the
+                ARRAY_DATA category, linked by the array_id and
+                binary_id.
+;
+;
+        loop_
+        _diffrn_data_frame.id
+        _diffrn_data_frame.detector_element_id
+        _diffrn_data_frame.array_id
+        _diffrn_data_frame.binary_id
+        frame_1   d1_ccd_1  array_1  1
+        frame_1   d1_ccd_2  array_1  2
+        frame_1   d1_ccd_3  array_1  3
+        frame_1   d1_ccd_4  array_1  4
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     save_
 
 
@@ -4858,7 +4858,7 @@ save__diffrn_data_frame.array_id
     _item.category_id             diffrn_data_frame
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_frame_data.array_id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               code
      save_
@@ -4884,7 +4884,7 @@ save__diffrn_data_frame.binary_id
     _item.category_id             diffrn_data_frame
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_frame_data.binary_id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               int
      save_
@@ -4985,7 +4985,7 @@ save__diffrn_data_frame.detector_element_id
     _item.category_id             diffrn_data_frame
     _item.mandatory_code          yes
     _item_aliases.alias_name    '_diffrn_frame_data.detector_element_id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               code
      save_
@@ -5012,7 +5012,7 @@ save__diffrn_data_frame.id
                                           diffrn_scan_frame_monitor
                                                              implicit
     _item_aliases.alias_name    '_diffrn_frame_data.id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               code
      loop_
@@ -5050,7 +5050,7 @@ save__diffrn_data_frame.details
     _item.category_id             diffrn_data_frame
     _item.mandatory_code          no
     _item_aliases.alias_name    '_diffrn_frame_data.details'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.4
     _item_type.code               text
      loop_
@@ -5124,26 +5124,6 @@ save_diffrn_detector
 ;
     _category.id                  diffrn_detector
     _category.mandatory_code      no
-     loop_
-    _category_key.name          '_diffrn_detector.diffrn_id'
-                                '_diffrn_detector.id'
-                                '_diffrn_detector.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
-     loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;   Example 1 - based on PDB entry 5HVP and laboratory records for the
-                structure corresponding to PDB entry 5HVP.
-;
-;
-    _diffrn_detector.diffrn_id             'd1'
-    _diffrn_detector.detector              'multiwire'
-    _diffrn_detector.type                  'Siemens'
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -5174,6 +5154,26 @@ save_diffrn_detector
         NeXus does not handle variants at this time
    
 ;
+     loop_
+    _category_key.name          '_diffrn_detector.diffrn_id'
+                                '_diffrn_detector.id'
+                                '_diffrn_detector.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;   Example 1 - based on PDB entry 5HVP and laboratory records for the
+                structure corresponding to PDB entry 5HVP.
+;
+;
+    _diffrn_detector.diffrn_id             'd1'
+    _diffrn_detector.detector              'multiwire'
+    _diffrn_detector.type                  'Siemens'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
 
@@ -5378,13 +5378,6 @@ save_diffrn_detector_axis
 ;
     _category.id                   diffrn_detector_axis
     _category.mandatory_code       no
-     loop_
-    _category_key.name          '_diffrn_detector_axis.detector_id'
-                                '_diffrn_detector_axis.axis_id'
-                                '_diffrn_detector_axis.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
     _category.NX_mapping_details
 ;
    
@@ -5406,6 +5399,13 @@ This information normally will duplicate information obtained from
 the ARRAY_STRUCTURE_LIST_AXIS.
 
 ;
+     loop_
+    _category_key.name          '_diffrn_detector_axis.detector_id'
+                                '_diffrn_detector_axis.axis_id'
+                                '_diffrn_detector_axis.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
      save_
 
 
@@ -5434,7 +5434,7 @@ save__diffrn_detector_axis.detector_id
     _item.category_id             diffrn_detector_axis
     _item.mandatory_code          yes
     _item_aliases.alias_name    '_diffrn_detector_axis.id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               code
      save_
@@ -5476,6 +5476,41 @@ save_diffrn_detector_element
 ;
     _category.id                   diffrn_detector_element
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _diffrn_detector_element.id ELEMENTID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_diffrn_detector_element__id="ELEMENTID1:ELEMENTID2:..."
+    inserts ELEMENTID into the colon-separated list of element IDs
+   
+    _diffrn_detector_element.detector_id DETECTORNAME -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+   
+    _diffrn_detector_element.reference_center_fast RCF -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_diffrn_detector_element__reference_center_fast=[RCF1,RCF2,...]
+    inserts RCF into the array of reference centers
+   
+    _diffrn_detector_element.reference_center_slow RCS -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_diffrn_detector_element__reference_center_slow=[RCS1,RCS2,...]
+    inserts RCS into the array of reference centers
+   
+    _diffrn_detector_element.reference_center_units UNITS -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_diffrn_detector_element__id="UNITS1:UNITS2:..."
+    inserts ELEMENTID into the colon-separated list of units
+   
+    _diffrn_detector_element.variant --> ??
+        NeXus does not handle variants at this time
+   
+;
      loop_
     _category_key.name             '_diffrn_detector_element.id'
                                    '_diffrn_detector_element.detector_id'
@@ -5516,41 +5551,6 @@ save_diffrn_detector_element
         d1     d1_ccd_4  -1.7   -1.5  mm
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-   
-    _diffrn_detector_element.id ELEMENTID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_diffrn_detector_element__id="ELEMENTID1:ELEMENTID2:..."
-    inserts ELEMENTID into the colon-separated list of element IDs
-   
-    _diffrn_detector_element.detector_id DETECTORNAME -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-   
-    _diffrn_detector_element.reference_center_fast RCF -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_diffrn_detector_element__reference_center_fast=[RCF1,RCF2,...]
-    inserts RCF into the array of reference centers
-   
-    _diffrn_detector_element.reference_center_slow RCS -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_diffrn_detector_element__reference_center_slow=[RCS1,RCS2,...]
-    inserts RCS into the array of reference centers
-   
-    _diffrn_detector_element.reference_center_units UNITS -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /CBF_diffrn_detector_element__id="UNITS1:UNITS2:..."
-    inserts ELEMENTID into the colon-separated list of units
-   
-    _diffrn_detector_element.variant --> ??
-        NeXus does not handle variants at this time
-   
-;
     save_
 
 
@@ -5709,42 +5709,6 @@ save_diffrn_measurement
 ;
     _category.id                  diffrn_measurement
     _category.mandatory_code      no
-     loop_
-    _category_key.name          '_diffrn_measurement.device'
-                                '_diffrn_measurement.diffrn_id'
-                                '_diffrn_measurement.id'
-                                '_diffrn_measurement.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
-     loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;    Example 1 - based on PDB entry 5HVP and laboratory records for the
-                 structure corresponding to PDB entry 5HVP
-;
-;
-    _diffrn_measurement.diffrn_id          'd1'
-    _diffrn_measurement.device             '3-circle camera'
-    _diffrn_measurement.device_type        'Supper model X'
-    _diffrn_measurement.device_details     'none'
-    _diffrn_measurement.method             'omega scan'
-    _diffrn_measurement.details
-    ; 440 frames, 0.20 degrees, 150 sec, detector distance 12 cm, detector
-      angle 22.5 degrees
-    ;
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;     Example 2 - based on data set TOZ of Willis, Beckwith & Tozer
-                  [Acta Cryst. (1991), C47, 2276-2277].
-;
-;
-    _diffrn_measurement.diffrn_id       's1'
-    _diffrn_measurement.device_type     'Philips PW1100/20 diffractometer'
-    _diffrn_measurement.method          'theta/2theta (\q/2\q)'
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -5808,6 +5772,42 @@ save_diffrn_measurement
     _diffrn_measurement.variant --> ??
         NeXus does not handle variants at this time
 ;
+     loop_
+    _category_key.name          '_diffrn_measurement.device'
+                                '_diffrn_measurement.diffrn_id'
+                                '_diffrn_measurement.id'
+                                '_diffrn_measurement.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;    Example 1 - based on PDB entry 5HVP and laboratory records for the
+                 structure corresponding to PDB entry 5HVP
+;
+;
+    _diffrn_measurement.diffrn_id          'd1'
+    _diffrn_measurement.device             '3-circle camera'
+    _diffrn_measurement.device_type        'Supper model X'
+    _diffrn_measurement.device_details     'none'
+    _diffrn_measurement.method             'omega scan'
+    _diffrn_measurement.details
+    ; 440 frames, 0.20 degrees, 150 sec, detector distance 12 cm, detector
+      angle 22.5 degrees
+    ;
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;     Example 2 - based on data set TOZ of Willis, Beckwith & Tozer
+                  [Acta Cryst. (1991), C47, 2276-2277].
+;
+;
+    _diffrn_measurement.diffrn_id       's1'
+    _diffrn_measurement.device_type     'Philips PW1100/20 diffractometer'
+    _diffrn_measurement.method          'theta/2theta (\q/2\q)'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
 
@@ -6081,15 +6081,6 @@ save_diffrn_measurement_axis
 ;
     _category.id                   diffrn_measurement_axis
     _category.mandatory_code       no
-     loop_
-    _category_key.name
-                              '_diffrn_measurement_axis.measurement_device'
-                                '_diffrn_measurement_axis.measurement_id'
-                                '_diffrn_measurement_axis.axis_id'
-                                '_diffrn_measurement_axis.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
     _category.NX_mapping_details
 ;
    
@@ -6112,6 +6103,15 @@ save_diffrn_measurement_axis
    
          
 ;
+     loop_
+    _category_key.name
+                              '_diffrn_measurement_axis.measurement_device'
+                                '_diffrn_measurement_axis.measurement_id'
+                                '_diffrn_measurement_axis.axis_id'
+                                '_diffrn_measurement_axis.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
      save_
 
 
@@ -6153,7 +6153,7 @@ save__diffrn_measurement_axis.measurement_id
     _item.category_id             diffrn_measurement_axis
     _item.mandatory_code          implicit
     _item_aliases.alias_name    '_diffrn_measurement_axis.id'
-    _item_aliases.dictionary      cif_img.dic
+    _item_aliases.dictionary      mmcif_img.dic
     _item_aliases.version         1.0
     _item_type.code               code
      save_
@@ -6193,37 +6193,6 @@ save_diffrn_radiation
 ;
     _category.id                  diffrn_radiation
     _category.mandatory_code      no
-    loop_
-    _category_key.name          '_diffrn_radiation.diffrn_id'
-                                '_diffrn_radiation.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
-     loop_
-    _category_examples.detail
-    _category_examples.case
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;   Example 1 - based on PDB entry 5HVP and laboratory records for the
-                structure corresponding to PDB entry 5HVP
-;
-;
-    _diffrn_radiation.diffrn_id            'set1'
-
-    _diffrn_radiation.collimation          '0.3 mm double pinhole'
-    _diffrn_radiation.monochromator        'graphite'
-    _diffrn_radiation.type                 'Cu K\a'
-    _diffrn_radiation.wavelength_id         1
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-;    Example 2 - based on data set TOZ of Willis, Beckwith & Tozer
-                [Acta Cryst. (1991), C47, 2276-2277].
-;
-;
-    _diffrn_radiation.wavelength_id    1
-    _diffrn_radiation.type             'Cu K\a'
-    _diffrn_radiation.monochromator    'graphite'
-;
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     _category.NX_mapping_details
 ;
    
@@ -6345,6 +6314,37 @@ save_diffrn_radiation
         NeXus does not handle variants at this time
    
 ;
+    loop_
+    _category_key.name          '_diffrn_radiation.diffrn_id'
+                                '_diffrn_radiation.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;   Example 1 - based on PDB entry 5HVP and laboratory records for the
+                structure corresponding to PDB entry 5HVP
+;
+;
+    _diffrn_radiation.diffrn_id            'set1'
+
+    _diffrn_radiation.collimation          '0.3 mm double pinhole'
+    _diffrn_radiation.monochromator        'graphite'
+    _diffrn_radiation.type                 'Cu K\a'
+    _diffrn_radiation.wavelength_id         1
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;    Example 2 - based on data set TOZ of Willis, Beckwith & Tozer
+                [Acta Cryst. (1991), C47, 2276-2277].
+;
+;
+    _diffrn_radiation.wavelength_id    1
+    _diffrn_radiation.type             'Cu K\a'
+    _diffrn_radiation.monochromator    'graphite'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     save_
 
 save__diffrn_radiation.collimation
@@ -6773,6 +6773,11 @@ save_diffrn_refln
 ;
     _category.id                   diffrn_refln
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+    This category will be addressed at a future date.
+;
+
     loop_
     _category_key.name             '_diffrn_refln.diffrn_id'
                                    '_diffrn_refln.id'
@@ -6781,10 +6786,6 @@ save_diffrn_refln
      loop_
     _category_group.id             'inclusive_group'
                                    'diffrn_group'
-    _category.NX_mapping_details
-;
-    This category will be addressed at a future date.
-;
      save_
 
 
@@ -6850,6 +6851,65 @@ save_diffrn_scan
 ;
     _category.id                   diffrn_scan
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _diffrn_scan.id -->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+   
+    _diffrn_scan.date_end ENDDATETIME-->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+          /end_time=ENDDATETIME
+   
+    _diffrn_scan.date_start STARTDATETIME-->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+          /start_time=STARTDATETIME
+   
+    _diffrn_scan.integration_time AVGCOUNTTIME -->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+          /average_count_time=AVGCOUNTTIME
+            /@units="sec"
+   
+    _diffrn_scan.frame_id_start FRAMESTARTID -->
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /frame_start_number=FRAMESTARTNO
+    where FRAMESTARTNO is the value of _diffrn_scan_frame.frame_number
+    for which the value of _diffrn_scan_frame.frame_id equals FRAMESTARTID
+   
+    _diffrn_scan.frame_id_end FRAMEENDID
+    /instrument:NXinstrument
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /frame_end_number=FRAMEENDNO
+    where FRAMEENDNO is the value of _diffrn_scan_frame.frame_number
+    for which the value of
+    _diffrn_scan_frame.frame_id equals FRAMEENDID
+   
+    _diffrn_scan.frames FRAMES -->
+    carried in NeXus as the slow dimension of arrays that are organized
+    by frame.
+   
+    _diffrn_scan.time_period TIMEPER -->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+          /frame_time=TIMEPER
+            /@units="sec"
+   
+    _diffrn_scan.time_rstrt_incr RSTRTTIME -->
+        /CBF_diffrn_scan__SCANID:NXentry
+          /CBF_scan_id="SCANID"
+          /frame_restart_time=RSTRTTIME
+            /@units="sec"
+   
+    _diffrn_scan.variant --> ??
+        NeXus does not handle variants at this time
+   
+         
+;
      loop_
     _category_key.name            '_diffrn_scan.id'
                                   '_diffrn_scan.variant'
@@ -7437,65 +7497,6 @@ save_diffrn_scan
      ;
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-   
-    _diffrn_scan.id -->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-   
-    _diffrn_scan.date_end ENDDATETIME-->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-          /end_time=ENDDATETIME
-   
-    _diffrn_scan.date_start STARTDATETIME-->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-          /start_time=STARTDATETIME
-   
-    _diffrn_scan.integration_time AVGCOUNTTIME -->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-          /average_count_time=AVGCOUNTTIME
-            /@units="sec"
-   
-    _diffrn_scan.frame_id_start FRAMESTARTID -->
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /frame_start_number=FRAMESTARTNO
-    where FRAMESTARTNO is the value of _diffrn_scan_frame.frame_number
-    for which the value of _diffrn_scan_frame.frame_id equals FRAMESTARTID
-   
-    _diffrn_scan.frame_id_end FRAMEENDID
-    /instrument:NXinstrument
-      /CBF_diffrn_detector__DETECTORNAME:NXdetector
-        /frame_end_number=FRAMEENDNO
-    where FRAMEENDNO is the value of _diffrn_scan_frame.frame_number
-    for which the value of
-    _diffrn_scan_frame.frame_id equals FRAMEENDID
-   
-    _diffrn_scan.frames FRAMES -->
-    carried in NeXus as the slow dimension of arrays that are organized
-    by frame.
-   
-    _diffrn_scan.time_period TIMEPER -->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-          /frame_time=TIMEPER
-            /@units="sec"
-   
-    _diffrn_scan.time_rstrt_incr RSTRTTIME -->
-        /CBF_diffrn_scan__SCANID:NXentry
-          /CBF_scan_id="SCANID"
-          /frame_restart_time=RSTRTTIME
-            /@units="sec"
-   
-    _diffrn_scan.variant --> ??
-        NeXus does not handle variants at this time
-   
-         
-;
        save_
 
 
@@ -7692,14 +7693,6 @@ save_diffrn_scan_axis
 ;
     _category.id                   diffrn_scan_axis
     _category.mandatory_code       no
-     loop_
-    _category_key.name
-                                  '_diffrn_scan_axis.scan_id'
-                                  '_diffrn_scan_axis.axis_id'
-                                  '_diffrn_scan_axis.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
     _category.NX_mapping_details
 ;
    
@@ -7757,6 +7750,14 @@ save_diffrn_scan_axis
         NeXus does not handle variants at this time
    
 ;
+     loop_
+    _category_key.name
+                                  '_diffrn_scan_axis.scan_id'
+                                  '_diffrn_scan_axis.axis_id'
+                                  '_diffrn_scan_axis.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
      save_
 
 
@@ -8039,14 +8040,6 @@ save_diffrn_scan_frame
 ;
     _category.id                   diffrn_scan_frame
     _category.mandatory_code       no
-     loop_
-    _category_key.name
-                                  '_diffrn_scan_frame.scan_id'
-                                  '_diffrn_scan_frame.frame_id'
-                                  '_diffrn_scan_frame.variant'
-     loop_
-    _category_group.id            'inclusive_group'
-                                  'diffrn_group'
     _category.NX_mapping_details
 ;
    
@@ -8100,6 +8093,14 @@ save_diffrn_scan_frame
          
 
 ;
+     loop_
+    _category_key.name
+                                  '_diffrn_scan_frame.scan_id'
+                                  '_diffrn_scan_frame.frame_id'
+                                  '_diffrn_scan_frame.variant'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'diffrn_group'
      save_
 
 
@@ -8264,14 +8265,6 @@ save_diffrn_scan_frame_axis
 ;
     _category.id                   diffrn_scan_frame_axis
     _category.mandatory_code       no
-     loop_
-    _category_key.name
-                                  '_diffrn_scan_frame_axis.frame_id'
-                                  '_diffrn_scan_frame_axis.axis_id'
-                                  '_diffrn_scan_frame_axis.variant'
-     loop_
-    _category_group.id           'inclusive_group'
-                                 'diffrn_group'
     _category.NX_mapping_details
 ;
    
@@ -8346,6 +8339,14 @@ save_diffrn_scan_frame_axis
    
          
 ;
+     loop_
+    _category_key.name
+                                  '_diffrn_scan_frame_axis.frame_id'
+                                  '_diffrn_scan_frame_axis.axis_id'
+                                  '_diffrn_scan_frame_axis.variant'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'diffrn_group'
      save_
 
 
@@ -8584,6 +8585,41 @@ save_diffrn_scan_frame_monitor
 ;
     _category.id                   diffrn_scan_frame_monitor
     _category.mandatory_code       no
+    _category.NX_mapping_details
+;
+   
+    _diffrn_scan_frame_monitor.id MONID -->
+        selects the column (fast index) into which the monitor data
+        will be stored
+   
+    _diffrn_scan_frame_monitor.detector_id DETECTORNAME -->
+        /instrument:NXinstrument
+          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
+   
+    _diffrn_scan_frame_monitor.scan_id SCANID -->
+        /instrument:NXinstrument
+          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
+   
+    _diffrn_data_frame_monitor.frame_id FRAMEID -->
+        selects the row (slow index) into which the monitor data will be
+        stored by conversion of the FRAMEID to a frame number
+   
+    _diffrn_data_frame_monitor.integration_time INTEGRATIONTIME -->
+        /instrument:NXinstrument
+          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
+            /count_time=INTEGRATIONTIMES
+        stores INTEGRATIONTIME into slow index np==frame, nm==MONID
+   
+    _diffrn_data_frame_monitor.monitor_value MONITORVALUE -->
+        /instrument:NXinstrument
+          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
+            /data=MONITORVALUES
+        stores MONITORVALUE into slow index np=frame, fast index nm=MONID
+   
+    _diffrn_data_frame_monitor.variant category -->
+        NeXus does not handle variants at this time
+
+;
      loop_
     _category_key.name             '_diffrn_scan_frame_monitor.id'
                                    '_diffrn_scan_frame_monitor.detector_id'
@@ -8731,41 +8767,6 @@ save_diffrn_scan_frame_monitor
 
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    _category.NX_mapping_details
-;
-   
-    _diffrn_scan_frame_monitor.id MONID -->
-        selects the column (fast index) into which the monitor data
-        will be stored
-   
-    _diffrn_scan_frame_monitor.detector_id DETECTORNAME -->
-        /instrument:NXinstrument
-          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
-   
-    _diffrn_scan_frame_monitor.scan_id SCANID -->
-        /instrument:NXinstrument
-          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
-   
-    _diffrn_data_frame_monitor.frame_id FRAMEID -->
-        selects the row (slow index) into which the monitor data will be
-        stored by conversion of the FRAMEID to a frame number
-   
-    _diffrn_data_frame_monitor.integration_time INTEGRATIONTIME -->
-        /instrument:NXinstrument
-          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
-            /count_time=INTEGRATIONTIMES
-        stores INTEGRATIONTIME into slow index np==frame, nm==MONID
-   
-    _diffrn_data_frame_monitor.monitor_value MONITORVALUE -->
-        /instrument:NXinstrument
-          /CBF_diffrn_scan_frame_monitor__DETECTORNAME_SCANID:NXmonitor
-            /data=MONITORVALUES
-        stores MONITORVALUE into slow index np=frame, fast index nm=MONID
-   
-    _diffrn_data_frame_monitor.variant category -->
-        NeXus does not handle variants at this time
-
-;
     save_
 
 
