@@ -28,11 +28,18 @@ data_mmcif_em.dic
 ;
      This data block holds the mmCIF data definitions with extensions
      for 3-dimensional electron microscopy.
+
+     This dictionary incorporates the recommendations of a 2004 Cryo-EM 
+     Workshop - http://rcsb-cryo-em-development.rutgers.edu/workshop/participant.html.
+
+     The content of this dictionary has largely been incorporated into the
+     wwPDB Exchange Dictionary.   Further development of 3DEM data definitions
+     has been done within the wwPDB dictionary.
 ;
 
     _dictionary.title           mmcif_em.dic
     _dictionary.datablock_id    mmcif_em.dic
-    _dictionary.version         0.014
+    _dictionary.version         0.015
 #
      loop_
     _dictionary_history.version
@@ -106,4 +113,9 @@ data_mmcif_em.dic
   + update example for category em_array_formation
   + miscellaneous corrections
 ;
+
+   0.015  2013-1018
+;  Changes (jdw):
+   + Dictionary description updated.
+ ;
 ### EOF mmcif_em-header.dic
