@@ -10100,7 +10100,7 @@ save__diffrn_frame_data.details
    
     1.7.3   2013-10-15
    
-;  Major cleanup of dcitionary typos, misplaced loops, etc
+;  Major cleanup of dictionary typos, misplaced loops, etc
        by John Westbrook
    
     +  Change _item.mandatory_code of all *.variant to implicit
