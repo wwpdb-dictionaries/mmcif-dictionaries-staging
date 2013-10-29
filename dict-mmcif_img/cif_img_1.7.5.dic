@@ -3,9 +3,9 @@
 
                           # Extensions Dictionary #
 
-data_cif_img.dic
+data_mmcif_img.dic
 
-    _datablock.id               cif_img.dic
+    _datablock.id               mmcif_img.dic
     _datablock.description
 ;
 ##############################################################################
