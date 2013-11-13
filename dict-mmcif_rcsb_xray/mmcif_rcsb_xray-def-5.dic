@@ -1722,6 +1722,7 @@ The make, model or name of the detector device used.
                   'DECTRIS PILATUS 2M'              .
                   'DECTRIS PILATUS 2M-F'            .
                   'DECTRIS PILATUS 6M'              .
+                  'DECTRIS PILATUS 6M-F'            .
                   'ENRAF-NONIUS'                    .
                   'ENRAF-NONIUS CAD4'               .
                   'ENRAF-NONIUS FAST'               .
