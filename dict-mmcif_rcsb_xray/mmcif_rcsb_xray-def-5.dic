@@ -1702,9 +1702,10 @@ The make, model or name of the detector device used.
                   'ADSC QUANTUM 4'                  .
                   'ADSC QUANTUM 4r'                 .
                   'ADSC QUANTUM 210'                .
-                  'ADSC QUANTUM 270'                .
-                  'ADSC QUANTUM 315'                .
                   'ADSC QUANTUM 210r'               .
+                  'ADSC QUANTUM 270'                .
+                  'ADSC QUANTUM 270r'               .
+                  'ADSC QUANTUM 315'                .
                   'ADSC QUANTUM 315r'               .
                   'AGILENT ATLAS CCD'               .
                   'AGILENT EOS CCD'                 .
