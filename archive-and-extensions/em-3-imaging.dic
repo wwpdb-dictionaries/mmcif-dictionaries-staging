@@ -1,0 +1,978 @@
+################
+## EM_IMAGING ##
+################
+# changes:  
+# key: .id retained; .sample_support_id changed to .specimen_id; .entry_id removed 
+#
+# items removed:  .citation_id .microscope_id .sample_support_id 
+#                .specimen_holder_type .energy_window .entry_id
+# items added:   .energy_window_min  .energy_window_max
+#                .specimen_id .tilt_angle_increment .second_tilt_axis_flag
+#                .cryogen .c2_aperture_diameter .alignment_procedure
+#                .Cs_corrector  .Cc_corrector .phase_plate
+#
+# .microscope_model now enumerated list 
+
+
+save_em_imaging
+    _category.description
+;  Data items in the EM_IMAGING category record details about 
+   the parameters used in imaging the sample in the electron microscope.
+;
+    _category.id                  em_imaging
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_em_imaging.id'
+                                '_em_imaging.specimen_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_imaging'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1DYL 
+;
+;  
+   _em_imaging.id                     1
+   _em_imaging.specimen_id            1
+   _em_imaging.microscope_model       'FEI/PHILIPS CM200FEG'
+   _em_imaging.specimen_holder_model  'GATAN LIQUID NITROGEN'
+   _em_imaging.details                .
+   _em_imaging.date                   1998-15-06
+   _em_imaging.accelerating_voltage   200
+   _em_imaging.illumination_mode      'bright field'
+   _em_imaging.mode                   'low dose'
+   _em_imaging.nominal_cs             2.0
+   _em_imaging.nominal_defocus_min    975
+   _em_imaging.nominal_defocus_max    7600
+   _em_imaging.nominal_magnification  50000
+   _em_imaging.calibrated_magnification .
+   _em_imaging.electron_source        FEG
+   _em_imaging.electron_dose          .
+   _em_imaging.energy_filter          .
+   _em_imaging.citation_id            1
+   _em_imaging.temperature            95
+   _em_imaging.detector_distance      .
+;
+     save_
+
+save__em_imaging.id
+    _item_description.description
+; The value of _em_imaging.id must uniquely identify
+  one imaging experiment. 
+;
+    _item.name                  '_em_imaging.id'
+    _item.category_id             em_imaging
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_imaging.astigmatism
+    _item_description.description
+;   astigmatism
+;
+    _item.name                  '_em_imaging.astigmatism'
+    _item.category_id           em_imaging
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_imaging.electron_beam_tilt_params
+    _item_description.description
+;   electron beam tilt params
+;
+    _item.name                  '_em_imaging.electron_beam_tilt_params'
+    _item.category_id           em_imaging
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_imaging.specimen_id
+    _item_description.description
+; This data item is a pointer to _em_specimen.id in
+  the EM_SPECIMEN category.
+;
+    _item.name                  '_em_imaging.specimen_id'
+    _item.category_id             em_imaging
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_imaging.detector_id
+    _item_description.description
+;   The value of _em_imaging.detector_id must uniquely identify
+    the type of detector used in the experiment. 
+;
+    _item.name                  '_em_imaging.detector_id'
+    _item.category_id             em_imaging
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_imaging.recording_id
+    _item_description.description
+; _em_imaging.recording_id points to _em_image_recording.id in the EM_IMAGE_RECORDING category.
+;
+    _item.name                  '_em_imaging.recording_id'
+    _item.category_id             em_imaging
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_imaging.microscope_model
+    _item_description.description
+;  The microscope model name. 
+;
+    _item.name                  '_em_imaging.microscope_model'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+    'FEI MORGAGNI'  
+    'FEI POLARA 300'  
+    'FEI TECNAI 12'  
+    'FEI TECNAI 20'  
+    'FEI TECNAI F20'  
+    'FEI TECNAI F30'  
+    'FEI TECNAI SPHERA'  
+    'FEI TITAN KRIOS'  
+    'FEI/PHILIPS CM120T'  
+    'FEI/PHILIPS CM200FEG'  
+    'FEI/PHILIPS CM200FEG/SOPHIE'  
+    'FEI/PHILIPS CM200FEG/ST'  
+    'FEI/PHILIPS CM200FEG/UT'  
+    'FEI/PHILIPS CM200T'  
+    'FEI/PHILIPS CM300FEG/HE'  
+    'FEI/PHILIPS CM300FEG/ST'  
+    'FEI/PHILIPS CM300FEG/T'  
+    'FEI/PHILIPS EM400'  
+    'FEI/PHILIPS EM420'  
+    'HITACHI EF2000'  
+    'HITACHI HF2000'  
+    'HITACHI HF3000'  
+    'HITACHI H-9500SD'  
+    'JEOL 100CX'  
+    'JEOL 1010'  
+    'JEOL 1200'  
+    'JEOL 1200EX'  
+    'JEOL 1200EXII'  
+    'JEOL 1230'  
+    'JEOL 2000EX'  
+    'JEOL 2000EXII'  
+    'JEOL 2010F'  
+    'JEOL 2010HT'  
+    'JEOL 2010UHR'  
+    'JEOL 2100'  
+    'JEOL 2100F'  
+    'JEOL 2200FS'  
+    'JEOL 2200FSC'  
+    'JEOL 3000SFF'  
+    'JEOL KYOTO-3000SFF'  
+    'JEOL 3200FSC'  
+    'JEOL 4000EX'  
+    'OTHER' 
+     save_
+
+save__em_imaging.specimen_holder_model
+    _item_description.description
+; The name of the model of specimen holder used during imaging. 
+;
+    _item.name                  '_em_imaging.specimen_holder_model'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+            'FEI TITAN KRIOS AUTOGRID HOLDER'
+            'GATAN HELIUM'
+            'GATAN LIQUID NITROGEN'
+            'HOME BUILD'
+            'JEOL'
+            'JEOL3200FSC CRYOHOLDER'
+            'PHILIPS ROTATION HOLDER'
+            'SIDE ENTRY, EUCENTRIC'
+            'Gatan 626 Single Tilt LN2 Cryo'
+            'Gatan CT3500 Single Tilt LN2 Cryo'
+            'Gatan CT3500TR Single Tilt Rotation LN2 Cryo'
+            'Gatan 910 Multi-Specimen Single Tilt Cryo'
+            'Gatan 914 High Tilt LN2 Cryo Tomography'
+            'Gatan 915 Double Tilt LN2 Cryo'
+            'Gatan UHRST 3500 Single Tilt Ultra High Resolution Nitrogen Cooling'
+            'Gatan CHDT 3504 Double Tilt High Resolution Nitrogen Cooling'
+            'Gatan HC 3500 Single Tilt Heating/Nitrogen Cooling'
+            'Gatan HCHST 3008 Single Tilt High Resolution Helium Cooling'
+            'Gatan ULTST Ultra Low Temperature Single Tilt Helium Cooling'
+            'Gatan HCHDT 3010 Double Tilt High Resolution Helium Cooling'
+            'Gatan ULTDT Ultra Low Temperature Double Tilt Helium Cooling'
+            OTHER
+     save_
+
+save__em_imaging.details
+    _item_description.description
+; Any additional imaging details. 
+;
+    _item.name                  '_em_imaging.details'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case          'weak beam illumination'     
+     save_
+
+save__em_imaging.date
+    _item_description.description
+; Beginning date (YYYY-MM-DD) of the imaging experiment.
+;
+    _item.name                  '_em_imaging.date'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+#    _item_type.code               yyyy-mm-dd
+    _item_type.code               line
+    _item_examples.case          '2011-05-08'     
+     save_
+
+save__em_imaging.accelerating_voltage
+    _item_description.description
+;  Value of the accelerating voltage (in kV) used for imaging. 
+;
+    _item.name                  '_em_imaging.accelerating_voltage'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_units.code              kilovolts
+    _item_examples.case           300
+     save_
+
+save__em_imaging.illumination_mode
+    _item_description.description
+; The mode of illumination. 
+;
+    _item.name                  '_em_imaging.illumination_mode'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+              'FLOOD BEAM'
+              'SPOT SCAN'
+              OTHER
+     save_
+
+save__em_imaging.mode
+    _item_description.description
+;  The imaging mode. 
+
+;
+    _item.name                  '_em_imaging.mode'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+              'BRIGHT FIELD'
+              'DARK FIELD'
+              DIFFRACTION
+              OTHER
+     save_
+
+save__em_imaging.nominal_cs
+    _item_description.description
+; The spherical aberration coefficient (Cs) of the objective lens, 
+  in millimetres.
+;
+    _item.name                  '_em_imaging.nominal_cs'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               millimetres
+    _item_examples.case           1.4
+     save_
+
+save__em_imaging.nominal_defocus_min
+    _item_description.description
+;   The minimum defocus value of the objective lens (in nanometres) used
+    to obtain the recorded images. 
+;
+    _item.name                  '_em_imaging.nominal_defocus_min'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code             nanometres
+    _item_examples.case           1200 
+     save_
+
+save__em_imaging.nominal_defocus_max
+    _item_description.description
+;   The maximum defocus value of the objective lens (in nanometres) used
+    to obtain the recorded images. 
+;
+    _item.name                  '_em_imaging.nominal_defocus_max'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code             nanometres
+    _item_examples.case           5000 
+     save_
+
+save__em_imaging.calibrated_defocus_min
+    _item_description.description
+;   The minimum calibrated defocus value of the objective lens (in nanometres) used
+    to obtain the recorded images.
+;
+    _item.name                  '_em_imaging.calibrated_defocus_min'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code             nanometres
+    _item_examples.case           1200
+     save_
+
+save__em_imaging.calibrated_defocus_max
+    _item_description.description
+;   The maximum calibrated defocus value of the objective lens (in nanometres) used
+    to obtain the recorded images.
+;
+    _item.name                  '_em_imaging.calibrated_defocus_max'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code             nanometres
+    _item_examples.case           5000
+     save_
+
+
+save__em_imaging.tilt_angle_min
+    _item_description.description
+;  The minimum angle at which the specimen was tilted to obtain
+   recorded images.
+;
+    _item.name                  '_em_imaging.tilt_angle_min'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    _item_examples.case          -70
+     save_
+
+save__em_imaging.tilt_angle_max
+    _item_description.description
+;  The maximum angle at which the specimen was tilted to obtain
+   recorded images.
+;
+    _item.name                  '_em_imaging.tilt_angle_max'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    _item_examples.case          70 
+     save_
+
+save__em_imaging.tilt_angle_increment
+    _item_description.description
+;  The angle increment of specimen tilting to obtain the
+   recorded images.
+;
+    _item.name                  '_em_imaging.tilt_angle_increment'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              degrees
+    _item_examples.case           2
+     save_
+
+save__em_imaging.second_tilt_axis_flag
+    _item_description.description
+;  Flag to indicate whether two tilt axes were employed,
+   e.g., for tomogram or subtomogram average reconstructions.
+;
+    _item.name                  '_em_imaging.second_tilt_axis_flag'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code              line
+   loop_
+    _item_enumeration.value
+     YES
+     NO
+     save_
+
+save__em_imaging.nominal_magnification
+    _item_description.description
+;  The magnification indicated by the microscope readout. 
+;
+    _item.name                  '_em_imaging.nominal_magnification'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_examples.case           60000
+     save_
+
+save__em_imaging.calibrated_magnification
+    _item_description.description
+;  The magnification value obtained for a known standard just
+   prior to, during or just after the imaging experiment. 
+;
+    _item.name                  '_em_imaging.calibrated_magnification'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_examples.case          61200
+     save_
+
+save__em_imaging.electron_source
+    _item_description.description
+; The source of electrons, e.g. electron gun.
+;
+    _item.name                  '_em_imaging.electron_source'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+              'FIELD EMISSION GUN'
+              LAB6
+              'TUNGSTEN HAIRPIN'
+              'FIELD EMISSION GUN'
+              OTHER
+     save_
+
+
+#save__em_imaging.electron_dose
+# moved to _em_image_recording.electron_dose
+#    _item_description.description
+#; The electron dose received by the specimen (electrons per square angstrom). 
+#;
+#    _item.name                  '_em_imaging.electron_dose'
+#    _item.category_id             em_imaging
+#    _item.mandatory_code          no
+#    _item_type.code               float
+#    _item_units.code               electrons_angstrom_squared
+#    _item_examples.case           0.9
+#     save_
+
+save__em_imaging.energy_filter
+    _item_description.description
+;   The type of energy filter spectrometer apparatus. 
+;
+    _item.name                  '_em_imaging.energy_filter'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'FEI'
+     save_
+
+save__em_imaging.energy_window_min
+    _item_description.description
+;   The energy filter range minimum value in electron volts (eV)set by spectrometer. 
+;
+    _item.name                  '_em_imaging.energy_window_min'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_units.code              electron_volts
+    _item_examples.case          '0'
+     save_
+
+save__em_imaging.energy_window_max
+    _item_description.description
+;   The energy filter range in electron volts (eV)set by spectrometer. 
+;
+    _item.name                  '_em_imaging.energy_window_max'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_units.code              electron_volts
+    _item_examples.case          '15'
+     save_
+
+save__em_imaging.temperature
+    _item_description.description
+;    The mean specimen stage temperature (degrees Kelvin) during imaging
+     in the microscope. 
+;
+    _item.name                  '_em_imaging.temperature'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kelvins
+    _item_examples.case          '70'
+     save_
+
+save__em_imaging.cryogen
+    _item_description.description
+;    Cryogen type used to maintain the specimen stage temperature during imaging
+     in the microscope. 
+;
+    _item.name                  '_em_imaging.cryogen'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case          
+       NITROGEN
+       HELIUM
+       NONE
+     save_
+
+save__em_imaging.detector_distance
+    _item_description.description
+;    The camera length (in millimetres). The camera length is the 
+     product of the objective focal length and the combined magnification
+     of the intermediate and projector lenses when the microscope is
+     operated in the diffraction mode. 
+;
+    _item.name                  '_em_imaging.detector_distance'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               millimetres
+     save_
+
+save__em_imaging.recording_temperature_minimum
+    _item_description.description
+;    The specimen temperature minimum (degrees Kelvin) for the duration
+     of imaging. 
+;
+    _item.name                  '_em_imaging.recording_temperature_minimum'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               kelvins
+     save_
+
+save__em_imaging.recording_temperature_maximum
+    _item_description.description
+;    The specimen temperature maximum (degrees Kelvin) for the duration
+     of imaging. 
+;
+    _item.name                  '_em_imaging.recording_temperature_maximum'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               kelvins
+     save_
+
+
+save__em_imaging.c2_aperture_diameter
+    _item_description.description
+;    The diameter of the aperture controlling illumination of the sample.
+     This normally corresponds to condenser lens #2.
+;
+    _item.name                  '_em_imaging.c2_aperture_diameter'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              microns 
+    _item_examples.case           1.5
+     save_
+
+save__em_imaging.alignment_procedure
+# item changed from free text to enumeration
+    _item_description.description
+;    Procedure used to align the microscope prior to imaging.
+;
+    _item.name                  '_em_imaging.alignment_procedure'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+     NONE
+     BASIC
+     'COMA FREE'
+     'ZEMLIN TABLEAU'
+     OTHER
+     save_
+
+save__em_imaging.Cs_corrector
+    _item_description.description
+;    Spherical aberration corrector description.
+;
+    _item.name                  '_em_imaging.Cs_corrector'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'Home-made design'
+     save_
+
+save__em_imaging.Cc_corrector
+    _item_description.description
+;    Chromatic aberration corrector description.
+;
+    _item.name                  '_em_imaging.Cc_corrector'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'Home-made design'
+     save_
+
+save__em_imaging.phase_plate
+    _item_description.description
+;    Text description of phase plate used in imaging.
+;
+    _item.name                  '_em_imaging.phase_plate'
+    _item.category_id             em_imaging
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case           
+     'Zernike carbon film'
+     'Hilbert phase plate'
+     save_
+
+#################
+## EM_DETECTOR ##
+#################
+# new items: .class .mode
+
+save_em_detector
+    _category.description
+;  Data items in the EM_DETECTOR category record details
+   of the image detector type.
+;
+    _category.id                  em_detector
+    _category.mandatory_code      no
+    _category_key.name          '_em_detector.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_imaging'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 
+;
+; 
+  _em_detector.id                             1
+  _em_detector.class                          FILM
+  _em_detector.model                         'KODAK SO163'
+  _em_detector.details                        .
+;
+     save_
+
+save__em_detector.id
+    _item_description.description
+;    The value of _em_detector.id must uniquely identify
+     the detector used for imaging.     
+;
+    _item.name                   '_em_detector.id'
+    _item.category_id              em_detector
+    _item.mandatory_code           yes
+    _item_type.code                code
+    loop_
+    _item_linked.child_name     
+    _item_linked.parent_name    
+       '_em_imaging.detector_id'  '_em_detector.id'
+    save_
+
+save__em_detector.details
+    _item_description.description
+;    Any additional information about the detection system. 
+;
+    _item.name                   '_em_detector.details'
+    _item.category_id              em_detector
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+       'Any other details regarding the detector.'
+     save_
+
+save__em_detector.mode
+    _item_description.description
+;    The detector mode used during image recording.
+;
+    _item.name                   '_em_detector.mode'
+    _item.category_id              em_detector
+    _item.mandatory_code           no
+    _item_type.code                line
+    loop_
+    _item_enumeration.value
+        COUNTING
+        INTEGRATING
+        SUPER-RESOLUTION
+        OTHER
+     save_
+
+save__em_detector.class
+    _item_description.description
+;    Class of detector used for recording images. 
+;
+    _item.name                   '_em_detector.class'
+    _item.category_id              em_detector
+    _item.mandatory_code           no
+    _item_type.code                text
+    loop_
+    _item_enumeration.value         
+        FILM
+        CCD
+        CMOS
+        OTHER
+     save_
+
+save__em_detector.model
+    _item_description.description
+;    The detector type used for recording images. 
+     Usually film or CCD camera.  
+;
+    _item.name                   '_em_detector.model'
+    _item.category_id              em_detector
+    _item.mandatory_code           no
+    _item_type.code                line
+     loop_
+    _item_examples.case
+          'KODAK SO163'
+          'FEI FALCON'
+          'DIRECT ELECTRON DE-12'
+          'DIRECT ELECTRON DE-20'
+          'GATAN 673' 
+          'GATAN 676' 
+          'GATAN 692' 
+          'GATAN 794' 
+          'GATAN 1000' 
+          'GATAN 4000' 
+          'TVIPS BIOCAM'
+          'TVIPS TEMCAM F214'
+          'TVIPS TEMCAM F224'
+          'TVIPS FASTSCAN F114'
+          PROSCAN
+          AMT
+          OTHER
+     save_
+
+#save__em_detector.detective_quantum_efficiency
+#    _item_description.description
+#;    The detective_quantum_efficiency (DQE)is defined as the 
+#     square of the signal-to-noise ratio in the recording device
+#     divided by the square of the signal-to-ratio in the electron beam:
+#            (SIGNAL/NOISE)2 recording device
+#   DQE =    -------------------------------
+#            (SIGNAL/NOISE)2 electron beam
+#   A DQE value of 1 indicates a perfect recorder. "DQE = 0.25" means
+#   that the signal-to-noise ratio is reduced by half in the 
+#   recording step. 
+#        (0.5)**2  
+#  DQE = --------- = 0.25.
+#         (1.0)**2
+#;
+#    _item.name                   '_em_detector.detective_quantum_efficiency'
+#    _item.category_id              em_detector
+#    _item.mandatory_code           no
+#    _item_type.code                float
+#    _item_examples.case           0.25
+#     save_
+
+
+########################
+## EM_IMAGE_RECORDING ##
+########################
+# key:  .entry_id removed
+# removed: .citation_id .entry_id 
+# added:   .width .height .apix_sampling .frames_per_image
+# name changed:  .sampling_size --> .scanner_sampling_size
+
+save_em_image_recording
+    _category.description
+;  Data items in the EM_IMAGE_RECORDING category record details
+   of the image scanning device (either microdensitometer or electronic detector)
+   and parameters for image digitization.
+;
+    _category.id                  em_image_recording
+    _category.mandatory_code      no
+    _category_key.name           '_em_image_recording.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_imaging'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 -  images collected on film
+;
+;  
+   _em_image_recording.id                            1
+   _em_image_recording.num_digital_images            48
+   _em_image_recording.scanner_model                 'ZEISS SCAI'
+   _em_image_recording.sampling_size                 7
+;
+;  Example 2 -  images collected on a direct detector in time-slice mode
+;
+;  
+   _em_image_recording.id                            1
+   _em_image_recording.num_digital_images           200
+   _em_image_recording.scanner_model                 .
+   _em_image_recording.sampling_interval              6
+   _em_image_recording.apix_sampling                1.5
+   _em_image_recording.width                        2048
+   _em_image_recording.height                       2048
+   _em_image_recording.frames_per_image              10
+   _em_image_recording.details               'drift correction performed'
+;
+     save_
+
+save__em_image_recording.id
+    _item_description.description
+;    The value of _em_image_recording.id must uniquely identify
+     one set of scanned images.     
+;
+    _item.name                   '_em_image_recording.id'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           yes
+    _item_type.code                code
+    loop_
+    _item_linked.child_name     
+    _item_linked.parent_name    
+       '_em_imaging.recording_id'    '_em_image_recording.id'
+     save_
+
+
+save__em_image_recording.num_digital_images
+    _item_description.description
+;    The number of images scanned and digitised.     
+;
+    _item.name                   '_em_image_recording.num_digital_images'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                int
+     save_
+
+save__em_image_recording.exposure_time
+    _item_description.description
+; The average exposure time for each image.
+;
+    _item.name                  '_em_image_recording.exposure_time'
+    _item.category_id             em_image_recording
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               seconds
+    _item_examples.case           2.0
+     save_
+
+save__em_image_recording.electron_dose
+    _item_description.description
+; The electron dose received by the specimen (electrons per square angstrom).
+;
+    _item.name                  '_em_image_recording.electron_dose'
+    _item.category_id             em_image_recording
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               electrons_angstrom_squared
+    _item_examples.case           0.9
+     save_
+
+
+save__em_image_recording.details
+    _item_description.description
+;    Any additional details about image recording.     
+;
+    _item.name                   '_em_image_recording.details'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                text
+     save_
+
+
+save__em_image_recording.scanner_model
+    _item_description.description
+;    The scanner model.     
+;
+    _item.name                   '_em_image_recording.scanner_model'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                line
+     loop_
+    _item_enumeration.value
+          'EIKONIX IEEE 488'
+          'EMIL 10'
+          IMACON
+          OPTRONICS
+          'PERKIN ELMER'
+          'NIKON COOLSCAN'
+          'NIKON SUPER COOLSCAN 9000'
+          'PATCHWORK DENSITOMETER'
+          PRIMESCAN
+          TEMSCAN
+          'ZEISS SCAI'
+          OTHER
+     save_
+
+save__em_image_recording.sampling_interval
+    _item_description.description
+;    The sampling step size (microns) set on the scanner.     
+;
+    _item.name                   '_em_image_recording.sampling_interval'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code                microns
+     save_
+
+save__em_image_recording.apix_sampling
+    _item_description.description
+;    The pixel sampling size of image scanning, in Angstroms.
+     This value is often but not always equivalent to map pixel sampling.
+     (e.g., if binning performed).
+;
+    _item.name                   '_em_image_recording.apix_sampling'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+     save_
+
+
+
+#save__em_image_recording.od_range
+#    _item_description.description
+#;    The optical density range (OD=-log 10 transmission).     
+#     To the eye OD=1 appears light grey and OD=3 is opaque.
+#;
+#    _item.name                   '_em_image_recording.od_range'
+#    _item.category_id              em_image_recording
+#    _item.mandatory_code           no
+#    _item_type.code                float
+#    _item_examples.case            1.4
+#     save_
+
+#save__em_image_recording.quant_bit_size
+#    _item_description.description
+#;    The number of bits per pixel.
+#;
+#    _item.name                   '_em_image_recording.quant_bit_size'
+#    _item.category_id              em_image_recording
+#    _item.mandatory_code           no
+#    _item_type.code                int
+#    _item_examples.case           8
+#     save_
+
+save__em_image_recording.width
+    _item_description.description
+;    The scanned image width in pixels.
+;
+    _item.name                   '_em_image_recording.width'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case           2048
+     save_
+
+save__em_image_recording.height
+    _item_description.description
+;    The scanned image height in pixels.
+;
+    _item.name                   '_em_image_recording.height'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case           2048
+     save_
+
+save__em_image_recording.frames_per_image
+    _item_description.description
+;    The number of time-slice frames included per image.
+;
+    _item.name                   '_em_image_recording.frames_per_image'
+    _item.category_id              em_image_recording
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case           10
+     save_

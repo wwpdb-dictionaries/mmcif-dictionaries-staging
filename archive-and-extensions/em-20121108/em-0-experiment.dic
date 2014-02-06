@@ -1,0 +1,185 @@
+###################
+## EM_EXPERIMENT ##
+###################
+
+save_em_experiment
+    _category.description
+;   Data items in the EM_EXPERIMENT category provide
+    high-level classification of the EM experiment.
+;
+    _category.id                  em_experiment
+    _category.mandatory_code      no
+    _category_key.name           '_em_experiment.entry_id'
+
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_experiment'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1EG0 
+; 
+;
+   _em_experiment.entry_id                1EG0
+   _em_experiment.reconstruction_method   "SINGLE PARTICLE"
+   _em_experiment.specimen_type           "VITREOUS ICE (CRYO EM)"
+;
+     save_
+  
+save__em_experiment.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_experiment.entry_id'
+    _item.category_id            em_experiment
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_experiment.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_experiment.reconstruction_method
+    _item_description.description
+;    The reconstruction method used in the EM experiment.
+;
+    _item.name                   '_em_experiment.reconstruction_method'
+    _item.category_id            em_experiment
+    _item.mandatory_code         no
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+     "SINGLE PARTICLE"
+     "HELICAL (LAYER LINES)"
+     "CRYSTALLOGRAPHY (STRUCTURE FACTORS)"
+      TOMOGRAPHY
+     "SUBTOMOGRAM AVERAGING"
+      save_
+
+save__em_experiment.specimen_type
+    _item_description.description
+;    The specimen type used in the EM experiment.
+;
+    _item.name                   '_em_experiment.specimen_type'
+    _item.category_id            em_experiment
+    _item.mandatory_code         no
+    _item_type.code              text
+     loop_
+    _item_examples.case          
+     "VITREOUS ICE (CRYO EM)"
+     "NEGATIVE STAIN"
+     "FREEZE SUBSTITUTION"
+      save_
+
+#################
+## EM_SOFTWARE ##
+#################
+# new category, based on _pdbx_nmr_software
+
+save_em_software
+    _category.description
+; 
+Description of the software that was used for data collection, data processing, 
+data analysis, structure calculations and refinement. The description should 
+include the name of the software, the author of the software and the version used.
+;
+    _category.id                  em_software
+    _category.mandatory_code      no
+
+     loop_
+     _category_key.name         '_em_software.ordinal' 
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_experiment'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1
+;
+; 
+   loop_
+   _em_software.id    
+   _em_software.name
+   _em_software.version
+   _em_software.classification 
+   _em_software.details
+   1 Leginon 1.3  'image acquisition'  . 
+   2 X3D      .    'particle selection' .
+   3 bsoft   1.1  'background masking' .
+   4 EM2DR2  3.2   reconstruction 'em3dr2 -low 20 -in o.star -out o.map'
+   5 erandom  .     'euler assignment' .
+   6 bctf     .     'ctf correction'  . 
+   7 chimera 1.6   'model fitting' .
+;
+     save_
+
+save__em_software.ordinal
+    _item_description.description
+;
+               Ordinal index for this category
+;
+    _item.name                  '_em_software.ordinal'
+    _item.category_id             em_software
+    _item.mandatory_code          yes
+    _item_type.code               int    
+     loop_
+    _item_examples.case            1 2
+     save_
+
+save__em_software.classification
+   _item_description.description
+;  The purpose of the software.
+;
+    _item.name                   '_em_software.classification'
+    _item.category_id              em_software
+    _item.mandatory_code           yes
+    _item_type.code                line
+     loop_
+    _item_examples.case   
+              'image acquisition' 
+              'particle selection'
+              'background masking'
+              'reconstruction'      
+              'refinement'
+              'euler assignment'  
+              'ctf correction'
+              'model fitting'
+     save_
+
+save__em_software.name
+    _item_description.description
+;   The name of the software used for the task.
+;
+    _item.name                   '_em_software.name'
+    _item.category_id              em_software
+    _item.mandatory_code           yes
+    _item_type.code                line
+     loop_
+    _item_examples.case          
+ EMAN
+ IMAGIC
+ SPIDER
+ BSOFT
+ UCSF-CHIMERA
+     save_
+
+save__em_software.version
+    _item_description.description
+;   The version of the software.
+;
+    _item.name                   '_em_software.version'
+    _item.category_id              em_software
+    _item.mandatory_code           no
+#    _item.mandatory_code           yes
+    _item_type.code                line
+     loop_
+    _item_examples.case
+              '9.03'
+              '2.1'
+     save_
+
+

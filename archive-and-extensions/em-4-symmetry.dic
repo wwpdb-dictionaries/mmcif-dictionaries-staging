@@ -1,0 +1,691 @@
+#################
+## EM_SYMMETRY ##
+#################
+
+save_em_symmetry
+    _category.description
+;   Data items in the EM_SYMMETRY category and linked categories
+    EM_SYMMETRY_POINT, _HELICAL, _2DX, _3DX
+    describe symmetry imposed in a EM reconstruction.
+;
+    _category.id                  em_symmetry
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          
+                                  '_em_symmetry.id'
+                                  '_em_symmetry.component'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_symmetry'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 -- asymmetric reconstruction of a virus
+;
+;
+   _em_symmetry.id                  1
+   _em_symmetry.component           1
+   _em_symmetry.assembly_cpx_id     1
+   _em_symmetry.type          Asymmetric(C1)
+   _em_symmetry.details       "asymmetric reconstruction allowed portal to be visualized"
+;
+
+;  Example 2 -- based on 1m4x 
+;
+;
+   loop_
+   _em_symmetry.id            
+   _em_symmetry.component           
+   _em_symmetry.assembly_cpx_id
+   _em_symmetry.type         
+   _em_symmetry.details       
+1 1 1 Point "strict icosahedral symmetry"
+1 2 2 Other "pseudo-hexagonal lattice imposed within the icosahedral asymmetric unit"
+;
+
+     save_
+
+save__em_symmetry.id
+    _item_description.description
+;    Unique identifier for each symmetry definition.
+;
+    _item.name                   '_em_symmetry.id'
+    _item.category_id            em_symmetry
+    _item.mandatory_code         yes
+    _item_type.code              code
+  loop_
+    _item_linked.child_name     
+    _item_linked.parent_name    
+    '_em_symmetry_2dx.id'        '_em_symmetry.id'
+    '_em_symmetry_3dx.id'        '_em_symmetry.id'
+    '_em_symmetry_point.id'      '_em_symmetry.id'
+    '_em_symmetry_helical.id'    '_em_symmetry.id'
+      save_
+
+save__em_symmetry.assembly_cpx_id
+    _item_description.description
+;    Assembly component for which this symmetry was applied.
+;
+    _item.name                   '_em_symmetry.assembly_cpx_id'
+    _item.category_id            em_symmetry
+    _item.mandatory_code         no
+    _item_type.code              code
+  loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+    '_em_symmetry.assembly_cpx_id'        '_em_assembly_cpx.id'
+      save_
+
+
+save__em_symmetry.component
+    _item_description.description
+;    Unique identifier for each symmetry component within the symmetry definition.
+;
+    _item.name                   '_em_symmetry.component'
+    _item.category_id            em_symmetry
+    _item.mandatory_code         yes
+    _item_type.code              code
+  loop_
+    _item_linked.child_name      
+    _item_linked.parent_name    
+    '_em_symmetry_2dx.component'        '_em_symmetry.component'
+    '_em_symmetry_3dx.component'        '_em_symmetry.component'
+    '_em_symmetry_point.component'      '_em_symmetry.component'
+    '_em_symmetry_helical.component'    '_em_symmetry.component'
+      save_
+
+
+
+save__em_symmetry.type
+    _item_description.description
+;  Symmetry type.
+;
+    _item.name                   '_em_symmetry.type'
+    _item.category_id             em_symmetry
+    _item.mandatory_code          yes
+    _item_type.code               code
+   loop_
+    _item_enumeration.value
+      Asymmetric(C1)
+      Point
+      Helical
+      2D
+      3D
+      Other
+      save_
+
+save__em_symmetry.details
+    _item_description.description
+;  Text explanation of complex symmetry relationships, masking, and/or unusual circumstances.
+;
+    _item.name                   '_em_symmetry.details'
+    _item.category_id             em_symmetry
+    _item.mandatory_code          no
+    _item_type.code               text
+      save_
+
+
+
+#####################
+## EM_SYMMETRY_2DX ##
+#####################
+# was: EM_2D_CRYSTAL_ENTITY
+
+save_em_symmetry_2dx
+    _category.description
+;          Data items in the EM_SYMMETRY_2DX category record
+           2D crystal symmetry parameters utilized in a 3DEM reconstruction.
+
+;
+    _category.id                  em_symmetry_2dx
+    _category.mandatory_code      no
+    loop_
+    _category_key.name         
+                                '_em_symmetry_2dx.id'
+                                '_em_symmetry_2dx.component'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_symmetry'
+    save_
+
+save__em_symmetry_2dx.id
+    _item_description.description
+;   The value of _em_symmetry_2dx.id is a pointer to _em_symmetry.id 
+     in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_2dx.id'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+save__em_symmetry_2dx.component
+    _item_description.description
+;   The value of _em_symmetry_2dx.component is a pointer to _em_symmetry.component
+     in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_2dx.component'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+
+save__em_symmetry_2dx.length_a
+    _item_description.description
+;      Unit-cell length a in Angstroms.
+;
+    _item.name                  '_em_symmetry_2dx.length_a'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__em_symmetry_2dx.length_b
+    _item_description.description
+;      Unit-cell length b in Angstroms.
+;
+    _item.name                  '_em_symmetry_2dx.length_b'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__em_symmetry_2dx.angle_gamma
+    _item_description.description
+;      Unit-cell angle gamma in degrees.
+;
+    _item.name                  '_em_symmetry_2dx.angle_gamma'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_default.value           90.0
+    _item_range.maximum           180.0
+    _item_range.minimum           0.0  
+    _item_type.code               float
+    _item_units.code              degrees
+     save_
+
+#save__em_symmetry_2dx.details
+#    _item_description.description
+#;   Any other details
+#;
+#    _item.name                   '_em_symmetry_2dx.details'
+#    _item.category_id            em_symmetry_2dx
+#    _item.mandatory_code         no
+#    _item_type.code              text
+#    _item_examples.case          'Additional non-crystallographic symmetry applied'
+#   save_
+
+
+save__em_symmetry_2dx.angle_alpha
+    _item_description.description
+;   Unit-cell angle alpha in degrees.
+;
+    _item.name                  '_em_symmetry_2dx.angle_alpha'
+    _item.category_id           em_symmetry_2dx
+    _item.mandatory_code        no
+    _item_default.value         90.0
+    _item_range.maximum         180.0
+    _item_range.minimum          0.0
+    _item_type.code             float
+    _item_units.code            degrees
+     save_
+
+save__em_symmetry_2dx.angle_beta
+    _item_description.description
+;   Unit-cell angle beta in degrees.
+;
+    _item.name                  '_em_symmetry_2dx.angle_beta'
+    _item.category_id           em_symmetry_2dx
+    _item.mandatory_code        no
+    _item_default.value         90.0
+    _item_range.maximum         180.0
+    _item_range.minimum          0.0
+    _item_type.code             float
+    _item_units.code            degrees
+     save_
+
+save__em_symmetry_2dx.length_c
+    _item_description.description
+;   Unit-cell length c in Angstroms.
+    This value should correspond to the sampling length used
+    for reciprocal lattice line data indexing.
+;
+    _item.name                  '_em_symmetry_2dx.length_c'
+    _item.category_id           em_symmetry_2dx
+    _item.mandatory_code        no
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code             float
+    _item_units.code            angstroms
+     save_
+
+save__em_symmetry_2dx.thickness_c
+    _item_description.description
+;   Thickness perpendicular to the 2D crystal plane, in Angstroms.
+;
+    _item.name                  '_em_symmetry_2dx.thickness_c'
+    _item.category_id           em_symmetry_2dx
+    _item.mandatory_code        no
+    _item_range.maximum          .
+    _item_range.minimum          0.0
+    _item_type.code             float
+    _item_units.code            angstroms
+     save_
+
+save__em_symmetry_2dx.space_group_name_H-M
+    _item_description.description
+;     There are 17 plane groups classified as oblique, rectangular, square, and hexagonal.
+      To describe the symmetry of 2D crystals of biological molecules,
+      plane groups are expanded to equivalent noncentrosymmetric space groups.
+      The 2D crystal plane corresponds to the 'ab' plane of the space group.
+      
+      Enumerated space group descriptions include the plane group number in parentheses,
+      the H-M plane group symbol, and the plane group class.
+;
+    _item.name                  '_em_symmetry_2dx.space_group_name_H-M'
+    _item.category_id             em_symmetry_2dx
+    _item.mandatory_code          yes
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+        'P 1'         '(1) p1,   oblique'
+        'P 2'         '(2) p2,   oblique'
+        'P 1 2'       '(3) pm,   rectangular'
+        'P 1 21'      '(4) pg,   rectangular'
+        'C 1 2'       '(5) cm,   rectangular'
+        'P 2 2 2'     '(6) 2mm,  rectangular'
+        'P 2 2 21'    '(7) p2mg, rectangular'
+        'P 2 21 21'   '(8) p2gg, rectangular'
+        'C 2 2 2'     '(9) c2mm, rectangular'
+        'P 4'         '(10) p4,   square'
+        'P 4 2 2'     '(11) p4mm, square'
+        'P 4 21 2'    '(12) p4gm, square'
+        'P 3'         '(13) p3,   hexagonal'
+        'P 3 1 2'     '(14) p3m1, hexagonal'
+        'P 3 2 1'     '(15) p31m, hexagonal'
+        'P 6'         '(16) p6,   hexagonal'
+        'P 6 2 2'     '(17) p6mm, hexagonal'
+      save_
+
+#######################
+## EM_SYMMETRY_POINT ## 
+#######################
+
+
+save_em_symmetry_point
+    _category.description
+;   Data items in the EM_SYMMETRY_POINT category indicate 
+    point symmetry imposed in a 3DEM reconstruction.
+;
+    _category.id                  em_symmetry_point
+    _category.mandatory_code      no
+    loop_
+    _category_key.name    
+                                  '_em_symmetry_point.id'
+                                  '_em_symmetry_point.component'
+
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_symmetry'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - icosahedral symmetry component for PDB entry 1M4X
+; 
+;
+   _em_symmetry_point.id         1
+   _em_symmetry_point.component  1
+   _em_symmetry_point.type       I
+   _em_symmetry_point.order      .
+;
+     save_
+
+save__em_symmetry_point.id
+    _item_description.description
+;    This data item is a pointer to _em_symmetry.id in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_point.id'
+    _item.category_id            em_symmetry_point
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+save__em_symmetry_point.component
+    _item_description.description
+;    This data item is a pointer to _em_symmetry.component in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_point.component'
+    _item.category_id            em_symmetry_point
+    _item.mandatory_code         yes
+    _item_type.code              code
+      save_
+
+
+save__em_symmetry_point.type
+# if we can create point symmetry type can include order for C and D here
+    _item_description.description
+;    The single particle symmetry type.
+;
+    _item.name                   '_em_symmetry_point.type'
+    _item.category_id            em_symmetry_point
+    _item.mandatory_code         yes
+    _item_type.code              code
+     loop_
+    _item_enumeration.value
+       C
+       D
+       T
+       O
+       I
+      save_
+
+save__em_symmetry_point.order
+    _item_description.description
+;        Order (n) for rotational n-fold C and D point symmetry.
+;
+    _item.name                  '_em_symmetry_point.order'
+    _item.category_id             em_symmetry_point
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_range.maximum           .
+    _item_range.minimum           1
+     save_
+
+
+
+#########################
+## EM_SYMMETRY_HELICAL ## 
+#########################
+
+save_em_symmetry_helical
+    _category.description
+;   Data items in the EM_HELICAL_SYMMETRY category record details
+    for a helical or filament type 3DEM reconstruction.
+;
+    _category.id                  em_symmetry_helical
+    _category.mandatory_code      no
+   loop_
+    _category_key.name           
+                                 '_em_symmetry_helical.id'
+                                 '_em_symmetry_helical.component'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_symmetry'
+     save_
+
+save__em_symmetry_helical.id
+    _item_description.description
+;    _em_symmetry_helical.id is a pointer to _em_symmetry.id in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_helical.id'
+    _item.category_id            em_symmetry_helical
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_symmetry_helical.component
+    _item_description.description
+;    _em_symmetry_helical.component is a pointer to _em_symmetry.component in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_helical.component'
+    _item.category_id            em_symmetry_helical
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+
+
+#save__em_symmetry_helical.details
+#    _item_description.description
+#;    Any other details regarding the helical assembly
+#;
+#    _item.name                   '_em_symmetry_helical.details'
+#    _item.category_id            em_symmetry_helical
+#    _item.mandatory_code         no
+#    _item_type.code              text
+#    _item_examples.case          'Dihedral symmetry'
+#      save_
+
+save__em_symmetry_helical.dyad
+    _item_description.description
+;    Value of YES indicates that the filament has two-fold symmetry perpendicular to the helical axis.
+;
+    _item.name                   '_em_symmetry_helical.dyad'
+    _item.category_id            em_symmetry_helical
+    _item.mandatory_code         yes
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+                YES
+                NO
+      save_
+
+save__em_symmetry_helical.axial_symmetry
+    _item_description.description
+;   n-fold symmetry along the filament helix axis.
+;
+    _item.name                   '_em_symmetry_helical.axial_symmetry'
+    _item.category_id            em_symmetry_helical
+    _item.mandatory_code         yes
+    _item_type.code              text
+    loop_
+    _item_examples.case          '1'
+                                 '5'
+                                 '7'
+      save_
+
+save__em_symmetry_helical.angular_rotation_per_subunit
+    _item_description.description
+;    The angular rotation per helical subunit in degrees.
+;
+    _item.name                   '_em_symmetry_helical.angular_rotation_per_subunit'
+    _item.category_id              em_symmetry_helical
+    _item.mandatory_code           yes
+    _item_type.code               float
+    _item_units.code              degrees
+    _item_examples.case          '-34.616000'
+      save_
+
+save__em_symmetry_helical.axial_rise_per_subunit
+    _item_description.description
+;    The axial rise per subunit in the helical assembly.
+;
+    _item.name                     '_em_symmetry_helical.axial_rise_per_subunit'
+    _item.category_id              em_symmetry_helical
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               'angstroms'
+    _item_examples.case            '17.400000'
+      save_
+
+
+#####################
+## EM_SYMMETRY_3DX ##
+#####################
+
+save_em_symmetry_3dx
+    _category.description
+;          Data items in the EM_SYMMETRY_3DX category record
+           3D crystal symmetry parameters utilized in 3DEM reconstruction averaging.
+
+;
+    _category.id                  em_symmetry_3dx
+    _category.mandatory_code      no
+    loop_
+    _category_key.name         
+                                '_em_symmetry_3dx.id'
+                                '_em_symmetry_3dx.component'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_symmetry'
+    save_
+
+save__em_symmetry_3dx.id
+    _item_description.description
+;   The value of _em_symmetry_3dx.id is a pointer to _em_symmetry.id 
+     in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_3dx.id'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+save__em_symmetry_3dx.component
+    _item_description.description
+;   The value of _em_symmetry_3dx.component is a pointer to _em_symmetry.component
+     in the EM_SYMMETRY category.
+;
+    _item.name                   '_em_symmetry_3dx.component'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+
+save__em_symmetry_3dx.length_a
+    _item_description.description
+;      Unit-cell length a in Angstroms.
+;
+    _item.name                  '_em_symmetry_3dx.length_a'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          yes
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__em_symmetry_3dx.length_b
+    _item_description.description
+;      Unit-cell length b in Angstroms.
+;
+    _item.name                  '_em_symmetry_3dx.length_b'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          yes
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code               float
+    _item_units.code              angstroms
+     save_
+
+save__em_symmetry_3dx.angle_gamma
+    _item_description.description
+;      Unit-cell angle gamma in degrees.
+;
+    _item.name                  '_em_symmetry_3dx.angle_gamma'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          yes
+    _item_default.value           90.0
+    _item_range.maximum           180.0
+    _item_range.minimum           0.0  
+    _item_type.code               float
+    _item_units.code              degrees
+     save_
+
+#save__em_symmetry_3dx.details
+#    _item_description.description
+#;   Any other details
+#;
+#    _item.name                   '_em_symmetry_3dx.details'
+#    _item.category_id            em_symmetry_3dx
+#    _item.mandatory_code         no
+#    _item_type.code              text
+#    _item_examples.case          'Additional non-crystallographic symmetry applied'
+#   save_
+
+
+save__em_symmetry_3dx.angle_alpha
+    _item_description.description
+;   Unit-cell angle alpha in degrees.
+;
+    _item.name                  '_em_symmetry_3dx.angle_alpha'
+    _item.category_id           em_symmetry_3dx
+    _item.mandatory_code        yes
+    _item_default.value         90.0
+    _item_range.maximum         180.0
+    _item_range.minimum          0.0
+    _item_type.code             float
+    _item_units.code            degrees
+     save_
+
+save__em_symmetry_3dx.angle_beta
+    _item_description.description
+;   Unit-cell angle beta in degrees.
+;
+    _item.name                  '_em_symmetry_3dx.angle_beta'
+    _item.category_id           em_symmetry_3dx
+    _item.mandatory_code        yes
+    _item_default.value         90.0
+    _item_range.maximum         180.0
+    _item_range.minimum          0.0
+    _item_type.code             float
+    _item_units.code            degrees
+     save_
+
+save__em_symmetry_3dx.length_c
+    _item_description.description
+;   Unit-cell length c in Angstroms.
+    This value should correspond to the sampling length used
+    for reciprocal lattice line data indexing.
+;
+    _item.name                  '_em_symmetry_3dx.length_c'
+    _item.category_id           em_symmetry_3dx
+    _item.mandatory_code        yes
+    _item_range.maximum            .
+    _item_range.minimum           0.0
+    _item_type.code             float
+    _item_units.code            angstroms
+     save_
+
+save__em_symmetry_3dx.space_group_number
+    _item_description.description
+;   Space group number.
+;
+    _item.name                  '_em_symmetry_3dx.space_group_number'
+    _item.category_id           em_symmetry_3dx
+    _item.mandatory_code        yes
+    _item_range.maximum         230 
+    _item_range.minimum          1
+    _item_type.code             int
+     save_
+
+
+
+save__em_symmetry_3dx.space_group_name
+
+# we may want to enumerate eventually, 
+# for now this should be sufficient as there are
+# not yet many examples with this type of specimen symmetry.
+
+    _item_description.description
+;     Space group name.
+;
+    _item.name                  '_em_symmetry_3dx.space_group_name'
+    _item.category_id             em_symmetry_3dx
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case
+       'P 1'
+       'P 21 21 2'
+       'I 4'
+       'H 3'
+      save_
+

@@ -1,0 +1,1121 @@
+#################
+## EM_SPECIMEN ##
+#################
+# new category
+#
+# em_specimen is the new high-level category for specimen preparation description
+# keys/pointers in related categories have been updated to reflect this
+
+
+save_em_specimen
+    _category.description
+;   Data items in the EM_SPECIMEN category record details
+    about specimens prepared for imaging by electron microscopy.  
+
+    Related categories: EM_VITRIFICATION, EM_SAMPLE_PREPARATION,
+    EM_ARRAY_FORMATION, EM_STAIN, and EM_GRID, 
+    EM_SUPPORT_FILM, EM_IMAGING 
+;
+    _category.id                  em_specimen
+    _category.mandatory_code      no
+    _category_key.name           '_em_specimen.id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 
+; 
+;  _em_specimen.id                   1 
+   _em_specimen.state                particle
+   _em_specimen.cryoprotectant       trehalose
+   _em_specimen.embedding_material   epoxy
+   _em_specimen.details               '15 nm colloidal gold particle fiducial markers'
+;
+     save_
+  
+save__em_specimen.id
+    _item_description.description
+;    The value of _em_specimen.id must uniquely identify a specimen along with
+     its preparation methods.
+;
+    _item.name                   '_em_specimen.id'
+    _item.category_id            em_specimen
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_specimen.state
+    _item_description.description
+;    A description of the specimen aggregation state.
+;
+    _item.name                   '_em_specimen.state'
+    _item.category_id            em_specimen
+    _item.mandatory_code         no
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+    particle
+    filament
+    cell
+    tissue
+    "2D array"
+    "3D array"
+    "helical array"
+    other
+      save_
+
+save__em_specimen.cryoprotectant
+    _item_description.description
+;    Cryoprotectant used in the specimen preparation. 
+;
+    _item.name                   '_em_specimen.cryoprotectant'
+    _item.category_id            em_specimen
+    _item.mandatory_code         no
+    _item_type.code              line
+    _item_examples.case          'trehalose solution'
+      save_
+
+save__em_specimen.embedding_material
+    _item_description.description
+;    The specimen embedding material.
+;
+    _item.name                   '_em_specimen.embedding_material'
+    _item.category_id            em_specimen
+    _item.mandatory_code         no
+    _item_type.code              line
+    _item_examples.case          'epoxy resin'
+      save_
+
+
+save__em_specimen.details
+    _item_description.description
+;    A description of any additional details of the specimen preparation.
+;
+    _item.name                   '_em_specimen.details'
+    _item.category_id            em_specimen
+    _item.mandatory_code         no
+    _item_type.code              text
+     loop_
+    _item_examples.case          
+ 'This sample was monodisperse.'
+ 'Au was deposited at a 30 degree angle to 15 nm thickness.'
+ 'Colloidal gold particles were deposited by dipping into dilute solution.'
+ 'The specimen was frozen at high pressure using the bal-tec hpm 010 instrument.'
+ 'The embedded sample was sectioned at 100 K to 50 nm final thickness.'
+     save_
+
+
+###########################
+## EM_SAMPLE_PREPARATION ##
+###########################
+#              key: .id retained; .entity_assembly_id removed; .specimen_id added
+# data item change: .entity_assembly_id now non-mandatory 
+#    items removed: .2d_crystal_grow_id .support_id
+
+save_em_sample_preparation
+    _category.description
+;   Data items in the EM_SAMPLE_PREPARATION category
+    record details of sample conditions prior to loading
+    onto grid support.
+;
+    _category.id                  em_sample_preparation
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_em_sample_preparation.id'
+                                 '_em_sample_preparation.specimen_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 3IYD
+;
+; 
+  _em_sample_preparation.id                         1
+  _em_sample_preparation.specimen_id                1
+  _em_sample_preparation.ph                         8.0 
+  _em_sample_preparation.buffer_id                  1
+  _em_sample_preparation.sample_concentration       6.18
+  _em_sample_preparation.details             
+  ;All components were mixed and incubated at 37 C for 1 hour
+  ;
+;
+     save_
+
+save__em_sample_preparation.id
+    _item_description.description
+;   The value of _em_sample_preparation.id must
+    uniquely identify the sample preparation.
+;
+    _item.name                  '_em_sample_preparation.id'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          yes
+    _item_type.code               code
+        save_
+
+save__em_sample_preparation.specimen_id
+    _item_description.description
+;   _em_sample_preparation.specimen_id is a pointer to em_specimen.id in
+    the EM_SPECIMEN category.
+;
+    _item.name                  '_em_sample_preparation.specimen_id'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_em_sample_preparation.specimen_id'
+    _item_linked.parent_name    '_em_specimen.id'
+        save_
+
+save__em_sample_preparation.assembly_cpx_id
+   _item_description.description
+;  This data item is a pointer to _em_assembly_cpx.id in the 
+   EM_ASSEMBLY_CPX category.
+;
+    _item.name                   '_em_sample_preparation.assembly_cpx_id'
+    _item.category_id              em_sample_preparation
+    _item.mandatory_code          no 
+    _item_type.code                code
+    _item_linked.child_name     '_em_sample_preparation.assembly_cpx_id'
+    _item_linked.parent_name    '_em_assembly_cpx.id'
+     save_
+
+
+save__em_sample_preparation.ph
+    _item_description.description
+;   The pH of the sample buffer.
+;
+    _item.name                  '_em_sample_preparation.ph'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_examples.case          '5.5'
+     save_
+
+save__em_sample_preparation.buffer_id
+    _item_description.description
+;   This data item is a pointer to _em_buffer.id in the
+    BUFFER category.
+;
+    _item.name                  '_em_sample_preparation.buffer_id'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          no
+    _item_type.code               code
+         save_
+
+
+save__em_sample_preparation.sample_concentration
+    _item_description.description
+;   The concentration (in milligrams per milliliter)
+    of the complex in the sample.
+;
+    _item.name                  '_em_sample_preparation.sample_concentration'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              mg_per_ml
+    _item_examples.case          '1.35'
+     save_
+
+
+save__em_sample_preparation.details
+    _item_description.description
+;   Details on the sample preparation
+;
+    _item.name                  '_em_sample_preparation.details'
+    _item.category_id             em_sample_preparation
+    _item.mandatory_code          no 
+    _item_type.code               text
+     loop_
+    _item_examples.case
+    _item_examples.detail
+    1
+; S. cerevisiae PDC was purified to near homogeneity
+  from baker's yeast by modification of a published procedure. Highly
+  purified E1 was obtained by resolution of PDC with 2 M NaCl at pH 7.3
+  followed by FPLC on a Superdex 200 column. The weight-average molecular
+  weight of the PDC was determined by light scattering measurement to be
+  ~8 x 106. On the basis of the known molecular weight of the complex and
+  its component enzymes and the experimentally determined polypeptide chain
+  ratios of E2/BP/E3, we estimated that the subunit composition of the
+  S. cerevisiae PDC is ~24 E1 tetramers, 60 E2 monomers, 12 BP monomers,
+  and 8 E3 dimers. Sufficient E1 was added to a sample of the PDC
+  preparation to increase the molar ratio of E1/E2 core to 60:1.
+  This product is designated larger PDC or ~60 E1/E2 core PDC
+;
+    2
+; RNAP (11.5 micromolar) and DNA (10.9 micromolar) were incubated for 15 min 
+  at 37 C in 25 mM HEPES-NaOH (pH 8.0), 100 mM KCl, 10 mM MgCl2, 1 mM DTT, 
+  and 0.2 mM cAMP. After removal of unbound RNAP by treatment with 10 mg/mL 
+  heparin-Sepharose CL-6B (Amersham) for 15 min at 37 °C and filtration 
+  (Millex-GV, 0.22 micron; Millipore), CAP (21.8 micromolar) was added, 
+  and samples were incubated 15 min at 37 °C. 
+;
+        save_
+
+#############
+## EM_GRID ##
+#############
+# previously called  :  em_sample_support
+# key:  .id retained;  .specimen_id added
+# data items added:   .model .specimen_id .num_used 
+# data item name changes:  .grid_* changed to .*
+# data items removed: .citation_id  .film_material
+#
+
+save_em_grid
+    _category.description
+;   Data items in the EM_GRID category record details
+    of the electron microscope grid and any pretreatment
+    before the sample is applied.
+;
+    _category.id                  em_grid
+    _category.mandatory_code      no
+    _category_key.name           '_em_grid.specimen_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1
+;
+; 
+   _em_grid.specimen_id      1
+   _em_grid.number_used      1 
+   _em_grid.model           'C-FLAT CF-2/1-2C'
+   _em_grid.material         COPPER
+   _em_grid.mesh_size        400
+   _em_grid.type             MESH
+   _em_grid.pretreatment     'GLOW DISCHARGE'
+   _em_grid.details           .
+;
+     save_
+
+save__em_grid.specimen_id
+    _item_description.description
+;    Pointer to _em_specimen.id in the EM_SPECIMEN category
+;
+    _item.name                  '_em_grid.specimen_id'
+    _item.category_id             em_grid
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_linked.child_name    
+    _item_linked.parent_name   
+      '_em_grid.specimen_id'      '_em_specimen.id'
+     save_
+
+save__em_grid.number_used
+    _item_description.description
+;    Number of specimen grids of this type used in the structure determination. 
+;
+    _item.name                   '_em_grid.number_used'
+    _item.category_id            em_grid
+    _item.mandatory_code         no
+    _item_type.code              int 
+      save_
+
+save__em_grid.model
+    _item_description.description
+;   The manufacturer/model of the em grid.
+;
+    _item.name                  '_em_grid.model'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               text
+   loop_
+    _item_examples.case          
+           'C-FLAT CF-2/1-2C'
+           'Quantifoil Q225-CR2'
+     save_
+
+
+save__em_grid.material
+    _item_description.description
+;   The name of the material from which the grid is made.
+;
+    _item.name                  '_em_grid.material'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+        COPPER
+        COPPER/PALLADIUM
+        COPPER/RHODIUM
+        GOLD
+        NICKEL
+        PLATINUM
+        TUNGSTEN
+        TITANIUM
+        MOLYBDENUM
+     save_
+
+save__em_grid.mesh_size
+    _item_description.description
+;   The number of divisions per inch of the em grid.
+;
+    _item.name                  '_em_grid.mesh_size'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               int
+    _item_examples.case           400
+     save_
+
+save__em_grid.type
+    _item_description.description
+;   A description of the grid type.
+;
+    _item.name                  '_em_grid.type'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+        SLOT
+        APERTURE
+        DIAMOND
+        HEXAGONAL
+     save_
+
+save__em_grid.pretreatment
+    _item_description.description
+;   A description of grid plus support film pretreatment. 
+;
+    _item.name                  '_em_grid.pretreatment'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           'glow-discharged for 30 sec in argon'
+     save_
+
+save__em_grid.details
+    _item_description.description
+;   Any additional details concerning the sample support. 
+;
+    _item.name                  '_em_grid.details'
+    _item.category_id             em_grid
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case          
+     'This grid plus sample was kept at -170 deg C for a month before use'
+     save_
+
+
+#####################
+## EM_SUPPORT_FILM ##
+#####################
+# new category
+# film-related items moved from _em_sample_support
+
+save_em_support_film
+    _category.description
+;   Data items in the EM_SUPPORT_FILM category record details
+    about support films applied to the electron microscope grid.
+;
+    _category.id                  em_support_film
+    _category.mandatory_code      no
+     loop_
+    _category_key.name           '_em_support_film.specimen_id'
+                                 '_em_support_film.id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1
+;
+; 
+   _em_support_film.specimen_id               1
+   _em_support_film.id                        1
+   _em_support_film.material               carbon 
+   _em_support_film.topology               'Hole Array'
+   _em_support_film.thickness               50
+;
+     save_
+
+save__em_support_film.id
+    _item_description.description
+;    The value of _em_support_film.id uniquely identifies
+     a sample support film.
+;
+    _item.name                  '_em_support_film.id'
+    _item.category_id             em_support_film
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_support_film.specimen_id
+    _item_description.description
+;    Pointer to _em_specimen.id in the EM_SPECIMEN category
+;
+    _item.name                  '_em_support_film.specimen_id'
+    _item.category_id             em_support_film
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_linked.child_name    
+    _item_linked.parent_name   
+      '_em_support_film.specimen_id'      '_em_specimen.id'
+     save_
+
+
+save__em_support_film.material
+    _item_description.description
+;   The material used for the support film.
+;
+    _item.name                  '_em_support_film.material'
+    _item.category_id             em_support_film
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case
+         CARBON
+         'FORMVAR PLUS CARBON'
+         'CELLULOSE ACETATE PLUS CARBON'
+         'PARLODION PLUS CARBON'
+     save_
+
+save__em_support_film.topology
+    _item_description.description
+;   The topology of the support film covering the em grid.
+;
+    _item.name                  '_em_support_film.topology'
+    _item.category_id             em_support_film
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+        LACEY
+        HOLEY
+        CONTINUOUS
+     save_
+
+save__em_support_film.thickness
+    _item_description.description
+;   The thickness of the support film covering the em grid, in nanometers (nm).
+;
+    _item.name                  '_em_support_film.thickness'
+    _item.category_id             em_support_film
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code		  nanometres
+     save_
+
+
+########################
+## EM_ARRAY_FORMATION ##
+########################
+# previously called:  em_2d_crystal_grow
+# key:   .id retained; .specimen_id added
+# data items added:   .specimen_id
+# data items changed:  .number_2d-crystals --> .number_arrays
+# data items removed: .citation_id .method (merge with .details)
+ 
+save_em_array_formation
+    _category.description
+;   Data items in the EM_ARRAY_FORMATION category
+    record details of growth conditions for  
+    2D, 3D, and helical crystal samples.
+;
+    _category.id                  em_array_formation
+    _category.mandatory_code      no
+    loop_
+    _category_key.name            '_em_array_formation.id'
+                                  '_em_array_formation.specimen_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1AT9 and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; _em_array_formation.id              1
+  _em_array_formation.specimen_id     1
+  _em_array_formation.apparatus       .
+  _em_array_formation.atmosphere      'room air'
+  _em_array_formation.pH              5.2
+  _em_array_formation.temp            18
+  _em_array_formation.time            .
+  _em_array_formation.buffer_id       2
+  _em_array_formation.details         'on grid'
+;
+     save_
+
+save__em_array_formation.id
+    _item_description.description
+;  The value of _em_array_formation.id
+   must uniquely identify the formation procedure
+   for the 2D, 3D, or helical array.
+   
+;
+    _item.name                  '_em_array_formation.id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_array_formation.specimen_id
+    _item_description.description
+;  The value of _em_array_formation.specimen_id
+   must uniquely identify the sample 2d crystal.
+;
+    _item.name                  '_em_array_formation.specimen_id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_array_formation.apparatus
+    _item_description.description
+;  The type of the apparatus used for growing the crystals. 
+;
+    _item.name                  '_em_array_formation.apparatus'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'Langmuir trough'
+     save_
+
+save__em_array_formation.atmosphere
+    _item_description.description
+;  The type of atmosphere in which crystals were grown. 
+;
+    _item.name                  '_em_array_formation.atmosphere'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'room air'
+     save_
+
+save__em_array_formation.pH
+    _item_description.description
+;   the pH value used for growing the crystals. 
+;
+    _item.name                  '_em_array_formation.pH'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_examples.case           4.7
+     save_
+
+save__em_array_formation.temp
+    _item_description.description
+;  The value of the temperature in degrees Kelvin used for
+   growing the crystals. 
+;
+    _item.name                  '_em_array_formation.temp'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              kelvins
+    _item_examples.case           293
+     save_
+
+save__em_array_formation.time
+    _item_description.description
+;   The length of time required to grow the crystals. 
+;
+    _item.name                  '_em_array_formation.time'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'approximately 2 days'
+     save_
+
+save__em_array_formation.buffer_id
+    _item_description.description
+;   This data item is a pointer to _em_buffer.id in the
+    BUFFER category.
+;
+    _item.name                  '_em_array_formation.buffer_id'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
+
+save__em_array_formation.details
+    _item_description.description
+;   Any additional items concerning the growth of the 2D, 3D, 
+    or helical crystal array. 
+;
+    _item.name                  '_em_array_formation.details'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__em_array_formation.number_arrays
+    _item_description.description
+; The number of arrays (2D, 3D, or helical crystals) imaged.
+;
+    _item.name                  '_em_array_formation.number_arrays'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+save__em_array_formation.mean_array_size
+    _item_description.description
+; The approximate size of the array (2D, 3D, or helical crystals) imaged,
+  provided as a text description.
+;
+    _item.name                  '_em_array_formation.mean_array_size'
+    _item.category_id             em_array_formation
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+
+##############
+## EM_STAIN ##
+##############
+# new category
+
+save_em_stain
+    _category.description
+;   Data items in the EM_STAIN category record details
+    about the staining technique used.
+;
+    _category.id                  em_stain
+    _category.mandatory_code      no 
+    loop_
+    _category_key.name
+                                 '_em_stain.id'
+                                 '_em_stain.specimen_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 -- from PDB entry 3IYD
+;
+;  _em_stain.id                   1
+   _em_stain.specimen_id          1
+   _em_stain.type               'NEGATIVE STAIN'
+   _em_stain.material           'URANYL ACETATE'
+   _em_stain.details            
+   ; Negatively stained EM specimens were prepared using a carbon-sandwich technique and uranyl-formate stain.
+     Ohi et al (2004) Biol Proced Online 6: 23-34.
+   ;
+;
+     save_
+
+save__em_stain.id
+    _item_description.description
+;    The value of _em_stain.id must uniquely identify
+     set of stain parameters
+;
+    _item.name                   '_em_stain.id'
+    _item.category_id            em_stain
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_stain.specimen_id
+    _item_description.description
+;    This data item is a pointer to _em_specimen.id
+     in the EM_SPECIMEN category.
+;
+    _item.name                   '_em_stain.specimen_id'
+    _item.category_id            em_stain
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_stain.specimen_id'
+    _item_linked.parent_name     '_em_specimen.id'
+      save_
+
+save__em_stain.type
+    _item_description.description
+;    The general class or type of the staining technique used.
+;
+    _item.name                   '_em_stain.type'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+    loop_
+    _item_enumeration.value
+     'NEGATIVE STAIN'
+     'POSITIVE STAIN'
+      save_
+
+save__em_stain.material
+    _item_description.description
+;    The staining material used.
+;
+    _item.name                   '_em_stain.material'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+    loop_
+    _item_examples.case
+     'AMMONIUM MOLYBDATE'
+     'SODIUM PHOSPHOTUNGSTATE'
+     'SODIUM SILICOTUNGSTATE'
+     'LEAD CITRATE'
+     'METHYLAMINE TUNGSTATE'
+     'OSMIUM TETROXIDE'
+     'URANYL ACETATE'
+     'URANYL FORMATE'
+      save_
+
+save__em_stain.details
+    _item_description.description
+;    Details about the staining technique.
+;
+    _item.name                   '_em_stain.details'
+    _item.category_id            em_stain
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+
+###############
+## EM_BUFFER ##
+###############
+
+save_em_buffer
+    _category.description
+;   Data items in the BUFFER category
+    record details of the sample buffer. 
+;
+    _category.id                  em_buffer
+    _category.mandatory_code      no
+    _category_key.name           '_em_buffer.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     save_
+
+save__em_buffer.id
+    _item_description.description
+;  The value of _em_buffer.id must
+   uniquely identify the sample buffer.
+;
+    _item.name                  '_em_buffer.id'
+    _item.category_id             em_buffer
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_linked.child_name     
+    _item_linked.parent_name    
+       '_em_array_formation.buffer_id'    '_em_buffer.id'
+       '_em_sample_preparation.buffer_id'   '_em_buffer.id'
+       '_em_buffer_components.buffer_id'  '_em_buffer.id'
+     save_
+
+save__em_buffer.name
+    _item_description.description
+;  The name of the buffer. 
+;
+    _item.name                  '_em_buffer.name'
+    _item.category_id             em_buffer
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'Polymix buffer'
+     save_
+
+save__em_buffer.details
+    _item_description.description
+;   Additional details about the buffer. 
+;
+    _item.name                  '_em_buffer.details'
+    _item.category_id             em_buffer
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case           '20mM NaCl, 10mM Tris-HCL,1mM MgCl2,1mM'
+     save_
+
+##########################
+## EM_BUFFER_COMPONENTS ##
+##########################
+# new data item: .conc_units  (.conc definition generalized for consistency)
+# new data item: .formula
+
+save_em_buffer_components
+    _category.description
+;  Constituents of buffer in sample 
+;
+    _category.id                  em_buffer_components
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           
+                                 '_em_buffer_components.buffer_id'
+                                 '_em_buffer_components.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;   Example 1 - sample storage buffer for PDB entry 1TUB 
+;
+;loop_
+  _em_buffer_components.buffer_id
+  _em_buffer_components.id
+  _em_buffer_components.name
+  _em_buffer_components.conc
+  _em_buffer_components.conc_units
+  _em_buffer_components.details
+  1    1 Pipes   80 mM  .
+  1    2 EGTA     1 mM  .
+  1    3 GTP      1 mM  .
+  1    4 glycerol 10 '%(v/v)' .
+;
+     save_
+
+
+save__em_buffer_components.id
+    _item_description.description
+;   The value of _em_buffer_components.id must 
+    uniquely identify a component of the buffer.
+;
+    _item.name                  '_em_buffer_components.id'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+
+save__em_buffer_components.buffer_id
+   _item_description.description
+;  This data item is a pointer to _em_buffer.id in the BUFFER category.
+;
+    _item.name                   '_em_buffer_components.buffer_id'
+    _item.category_id              em_buffer_components
+    _item.mandatory_code           yes
+    _item_type.code                code
+     save_
+
+save__em_buffer_components.name
+    _item_description.description
+;   The name of the buffer component. 
+;
+    _item.name                  '_em_buffer_components.name'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           'Acetic acid'
+     save_
+
+save__em_buffer_components.conc
+    _item_description.description
+;  The concentration of the buffer component, in units
+   as specified in _em_buffer_components.conc_units. 
+;  
+    _item.name                  '_em_buffer_components.conc'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_examples.case           200
+     save_
+
+save__em_buffer_components.conc_units
+    _item_description.description
+;  The concentration unit type for the buffer component 
+   value specified in _em_buffer_components.conc. 
+;  
+    _item.name                  '_em_buffer_components.conc_units'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           mM
+     loop_
+    _item_enumeration.value
+        mM
+        M
+        mg/ml
+        '% (w/v)'
+        '% (v/v)'
+     save_
+
+save__em_buffer_components.details
+    _item_description.description
+;   Any additional details to do with buffer composition. 
+;
+    _item.name                  '_em_buffer_components.details'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          no
+    _item_type.code               text
+    _item_examples.case          'pH adjusted with NaOH'
+     save_
+
+save__em_buffer_components.formula
+    _item_description.description
+;   The chemical formula of the buffer component.
+;
+    _item.name                  '_em_buffer_components.formula'
+    _item.category_id             em_buffer_components
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'pH adjusted with NaOH'
+     save_
+
+
+
+######################
+## EM_VITRIFICATION ##
+######################
+# key:   .specimen_id added; .entry_id removed
+# data items removed:  .entry_id  .citation_id .sample_preparation_id  .id
+# data items added:   .specimen_id .freezing_technique .ambient_temp
+# .method and .time_resolved_state merged with .details
+
+save_em_vitrification
+    _category.description
+; Data items in the EM_VITRIFICATION category
+  record details about the method and cryogen used in
+  rapid freezing of the sample on the grid prior to its
+  insertion into the electron microscope
+;
+    _category.id                  em_vitrification
+    _category.mandatory_code      no
+    _category_key.name          '_em_vitrification.specimen_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_specimen'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 1DYL 
+;
+; 
+  _em_vitrification.specimen_id            1
+  _em_vitrification.cryogen_name           "ETHANE"
+  _em_vitrification.ambient_humidity          90
+  _em_vitrification.ambient_temp             298
+  _em_vitrification.instrument             VITROBOT
+  _em_vitrification.details                
+  ; SAMPLES WERE PREPARED AS THIN LAYERS OF VITREOUS ICE                 
+  ;
+;
+     save_
+
+
+save__em_vitrification.specimen_id
+    _item_description.description
+; This data item is a pointer to _em_specimen.id in the EM_SPECIMEN category.
+;
+    _item.name                  '_em_vitrification.specimen_id'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_em_vitrification.specimen_id'
+    _item_linked.parent_name    '_em_specimen.id'
+     save_
+
+
+save__em_vitrification.cryogen_name
+    _item_description.description
+; This is the name of the cryogen.
+;
+    _item.name                  '_em_vitrification.cryogen_name'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+         ETHANE
+         HELIUM
+         METHANE
+         NITROGEN
+         PROPANE
+         'FREON 22'
+         'FREON 12'
+         OTHER
+         NONE
+     save_
+
+save__em_vitrification.freezing_technique
+    _item_description.description
+; Technique used to freeze the specimen prior to imaging.
+;
+    _item.name                  '_em_vitrification.freezing_technique'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+         'PLUNGE'
+         'PROPANE JET'
+         'COLD METAL BLOCK'
+         'HIGH PRESSURE'
+         OTHER
+         NONE
+     save_
+
+
+save__em_vitrification.ambient_humidity
+    _item_description.description
+; The humidity (%) of the sample just prior to vitrification. 
+;  
+    _item.name                  '_em_vitrification.ambient_humidity'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case           90
+     save_
+
+save__em_vitrification.ambient_temperature
+    _item_description.description
+;  The temperature (in degrees Kelvin) of the sample just prior to vitrification.
+;
+    _item.name                  '_em_vitrification.ambient_temperature'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code               kelvins
+    _item_examples.case            4.2
+     save_
+
+
+save__em_vitrification.instrument
+    _item_description.description
+; The type of instrument used in the vitrification process. 
+;
+    _item.name                  '_em_vitrification.instrument'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               text 
+    loop_
+    _item_examples.case          
+      'Reichert plunger'
+      'Vitrobot'
+     save_
+
+save__em_vitrification.details
+    _item_description.description
+; The procedure for vitrification. 
+;
+    _item.name                  '_em_vitrification.details'
+    _item.category_id             em_vitrification
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+    _item_examples.case         
+      'blot for 2 seconds before plunging'
+      'Vitrification carried out in argon atmosphere.'
+     save_
+

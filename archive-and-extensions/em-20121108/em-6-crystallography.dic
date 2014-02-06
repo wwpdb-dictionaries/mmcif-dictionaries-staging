@@ -1,0 +1,417 @@
+#################################
+## EM_ELECTRON_CRYSTALLOGRAPHY ##
+#################################
+# 2 prior categories merged:  em_electron_diffraction and em_electron_diffraction_phase
+# 
+# new data items: .num_meas_intensities .r_sym .r_merge  .Fourier_space_coverage
+#
+# renames:   _em_electron_diffraction_phase.overall_error --> .overall_phase_error
+#            _em_electron_diffraction_phase.rejection_criteria_error --> .rejection_criteria_phase_error
+#            _em_electron_diffraction_phase.residual --> .overall_phase_residual
+# removed:        .num_diff_patterns
+#
+# unsure whether this category requires iteration (.id)  ??
+
+save_em_electron_crystallography
+    _category.description
+;   Data items in the EM_ELECTRON_CRYSTALLOGRAPHY category
+    record details about measured electron diffraction intensities,
+    and/or structure factors derived from images in 
+    an electron crystallography experiment.
+;
+    _category.id                  em_electron_crystallography
+    _category.mandatory_code      no
+    _category_key.name           '_em_electron_crystallography.entry_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_crystallography'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1TUB and laboratory records for the
+                structure corresponding to PDB entry 1TUB
+;
+; 
+  _em_electron_crystallography.entry_id                   1TUB
+  _em_electron_crystallography.id                         1
+  _em_electron_crystallography.num_meas_intensities     12000
+  _em_electron_crystallography.num_structure_factors    12000
+  _em_electron_crystallography.r_sym                     0.19 
+  _em_electron_crystallography.r_merge                   0.25 
+  _em_electron_crystallography.d_res_high                3.7  
+  _em_electron_crystallography.details           'ctf correction performed on images' 
+;
+     save_
+
+save__em_electron_crystallography.entry_id
+   _item_description.description
+;  This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_electron_crystallography.entry_id'
+    _item.category_id              em_electron_crystallography
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_electron_crystallography.entry_id'
+    _item_linked.parent_name    '_entry.id'
+     save_
+
+save__em_electron_crystallography.num_meas_intensities
+    _item_description.description
+;    The total number of intensities obtained from electron diffraction measurements.
+;
+    _item.name                   '_em_electron_crystallography.num_meas_intensities'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          '12000'
+      save_
+
+save__em_electron_crystallography.num_structure_factors
+    _item_description.description
+;    The total number of structure factors obtained from electron micrographs.
+;
+    _item.name                   '_em_electron_crystallography.num_structure_factors'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          '12000'
+      save_
+
+save__em_electron_crystallography.details
+    _item_description.description
+;   Details of the electron crystallography experiment
+;
+    _item.name                  '_em_electron_crystallography.details'
+    _item.category_id             em_electron_crystallography
+    _item.mandatory_code          yes
+    _item_type.code               text
+     loop_
+    _item_examples.case     
+    _item_examples.detail
+    1          
+; THE MODEL WAS DERIVED USING ELECTRON DIFFRACTION
+  AND IMAGE DATA FROM TWO DIMENSIONAL CRYSTALS OF TUBULIN
+  INDUCED BY THE PRESENCE OF ZN++ IONS.
+  WHAT FOLLOWS ARE THE COORDINATES FOR THE AB-TUBULIN DIMER
+  BOUND TO TAXOL AS OBTAINED BY ELECTRON CRYSTALLOGRAPHY OF
+  ZINC-INDUCED SHEETS.  THIS IS THE UNREFINED MODEL, BUILT
+  INTO A RAW DENSITY MAP WHERE THE RESOLUTION IN THE PLANE
+  OF THE SHEET WAS 3.7 ANGSTROMS AND THAT PERPENDICULAR TO
+  THE SHEET ABOUT 4.8 ANGSTROMS.  
+;
+        save_
+
+save__em_electron_crystallography.d_res_high
+    _item_description.description
+;    the highest resolution d-value of intensity measurements
+     in the electron diffraction experiment.
+;
+    _item.name                   '_em_electron_crystallography.d_res_high'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             angstroms
+    _item_range.maximum          .
+    _item_range.minimum          0.0
+    _item_examples.case          '5.2'
+      save_
+
+save__em_electron_crystallography.overall_phase_residual
+    _item_description.description
+;    the overall phase residual value for the electron crystallography experiment.
+;
+    _item.name                   '_em_electron_crystallography.overall_phase_residual'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_examples.case         '25.4'
+    _item_units.code             degrees
+    _item_range.maximum          .
+    _item_range.minimum          0.0
+      save_
+
+save__em_electron_crystallography.overall_phase_error
+    _item_description.description
+;    the overall phase error in degrees for the electron crystallography experiment.
+;
+    _item.name                   '_em_electron_crystallography.overall_phase_error'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             degrees
+    _item_range.minimum          0.0
+      save_
+
+save__em_electron_crystallography.rejection_criteria_phase_error
+    _item_description.description
+;    the rejection criteria (phase error) in degrees.
+;
+    _item.name                   '_em_electron_crystallography.rejection_criteria_phase_error'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             degrees
+   loop_
+    _item_range.minimum          
+    _item_range.maximum          
+     0.0  .
+     0.0  0.0
+      save_
+
+save__em_electron_crystallography.Fourier_space_coverage
+    _item_description.description
+;    coverage in Fourier space of the electron crystallography data,
+     expressed in fractional units
+;
+    _item.name                   '_em_electron_crystallography.Fourier_space_coverage'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+   loop_
+    _item_range.minimum          
+    _item_range.maximum          
+     0.0  0.0
+     0.0  1.0
+     1.0  1.0
+      save_
+
+save__em_electron_crystallography.r_merge
+    _item_description.description
+;    Agreement of the reflection amplitudes
+     expressed as a residual, in fractional units.
+;
+    _item.name                   '_em_electron_crystallography.r_merge'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+   loop_
+    _item_range.minimum          
+    _item_range.maximum          
+     0.0  0.0
+     0.0  1.0
+     1.0  1.0
+      save_
+
+save__em_electron_crystallography.r_sym
+    _item_description.description
+;    Agreement of symmetry-related reflection amplitudes
+     expressed as a residual, in fractional units.
+;
+    _item.name                   '_em_electron_crystallography.r_sym'
+    _item.category_id            em_electron_crystallography
+    _item.mandatory_code         no
+    _item_type.code              float
+   loop_
+    _item_range.minimum
+    _item_range.maximum
+     0.0  0.0
+     0.0  1.0
+     1.0  1.0
+      save_
+
+
+#######################################
+## EM_ELECTRON_CRYSTALLOGRAPHY_SHELL ##
+#######################################
+# new category
+
+save_em_electron_crystallography_shell
+    _category.description
+;   data items in the EM_ELECTRON_CRYSTALLOGRAPHY_SHELL category
+    record details about the structure factors and phases
+    from the electron crystallography experiment in resolution shells.
+;
+    _category.id                  em_electron_crystallography_shell
+    _category.mandatory_code      no
+    _category_key.name           '_em_electron_crystallography_shell.id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_crystallography'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  example 1 - based on pdb entry 1tub and laboratory records for the
+                structure corresponding to pdb entry 1tub
+;
+; 
+  loop_
+  _em_electron_crystallography_shell.id                             
+  _em_electron_crystallography_shell.res_low		
+  _em_electron_crystallography_shell.res_high			
+  _em_electron_crystallography_shell.num_meas_intensities                       
+  _em_electron_crystallography_shell.num_structure_factors                       
+  _em_electron_crystallography_shell.phase_residual                        
+  _em_electron_crystallography_shell.Fourier_space_coverage  
+  _em_electron_crystallography_shell.multiplicity                  
+1 5.0 4.0 . 36 . .
+2 4.0 3.7 . 46 . .
+
+;
+     save_
+
+save__em_electron_crystallography_shell.id
+    _item_description.description
+;   the value of _electron_crystallography_shell.id must
+    uniquely identify one resolution shell in Fourier space.
+;
+    _item.name                  '_em_electron_crystallography_shell.id'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               code
+        save_
+
+save__em_electron_crystallography_shell.res_low
+    _item_description.description
+;   the low resolution limit of the resolution shell, in Angstroms
+;
+    _item.name                  '_em_electron_crystallography_shell.res_low'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               float
+    _item_units.code              angstroms
+    _item_range.minimum          0.0
+        save_
+
+save__em_electron_crystallography_shell.res_high
+    _item_description.description
+;   the high resolution limit of the resolution shell, in Angstroms
+;
+    _item.name                  '_em_electron_crystallography_shell.res_high'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               float
+    _item_units.code              angstroms
+    _item_range.minimum          0.0
+        save_
+
+save__em_electron_crystallography_shell.phase_residual
+    _item_description.description
+;   the phase residual of the resolution shell, in degrees
+;
+    _item.name                  '_em_electron_crystallography_shell.phase_residual'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               float
+    _item_units.code              degrees
+    _item_range.minimum          0.0
+        save_
+
+save__em_electron_crystallography_shell.num_structure_factors
+    _item_description.description
+;   the number of structure factors from micrographs in the resolution shell
+;
+    _item.name                  '_em_electron_crystallography_shell.num_structure_factors'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               int
+        save_
+
+save__em_electron_crystallography_shell.num_meas_intensities
+    _item_description.description
+;   the number of intensities from electron diffraction in the resolution shell
+;
+    _item.name                  '_em_electron_crystallography_shell.num_meas_intensities'
+    _item.category_id             em_electron_crystallography_shell
+    _item.mandatory_code          yes
+    _item_type.code               int
+        save_
+
+######################################
+## EM_ELECTRON_CRYSTALLOGRAPHY_TILT ##
+######################################
+# previously called:  em_electron_diffraction_pattern
+# key change:  .entry_id removed; .tilt_angle added
+# item renames:
+#   .num_images_by_tilt_angle --> .num_micrograph_images
+#   .num_patterns_by_tilt_angle --> .num_diffraction_patterns
+
+
+save_em_electron_crystallography_tilt
+    _category.description
+;   data items in the em_electron_crystallography_tilt category
+    record details about the number of electron diffraction patterns 
+    and/or electron micrograph images measured at specific tilt angles
+    in the electron crystallography experiment.
+;
+    _category.id                  em_electron_crystallography_tilt
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           
+                         '_em_electron_crystallography_tilt.id'
+                         '_em_electron_crystallography_tilt.tilt_angle'                  
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_crystallography'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  example 1 - based on pdb entry 1tub and laboratory records for the
+                structure corresponding to pdb entry 1tub
+;
+; 
+loop_
+  _em_electron_crystallography_tilt.id                          
+  _em_electron_crystallography_tilt.tilt_angle                  
+  _em_electron_crystallography_tilt.num_diffraction_patterns  
+  _em_electron_crystallography_tilt.num_micrograph_images    
+1 0 18 12
+2 45 57 51
+3 55 19 0
+4 60 0 86
+;
+     save_
+
+save__em_electron_crystallography_tilt.id
+    _item_description.description
+;   the value of _electron_crystallography_tilt.id must uniquely 
+    identify a tilt angle used to measure diffraction patterns 
+    and/or micrograph images in the electron crystallography experiment.
+;
+    _item.name                  '_em_electron_crystallography_tilt.id'
+    _item.category_id             em_electron_crystallography_tilt
+    _item.mandatory_code          yes
+    _item_type.code               code
+        save_
+
+save__em_electron_crystallography_tilt.tilt_angle
+    _item_description.description
+;    the approximate tilt angle at which the diffraction patterns or images were obtained.
+;
+    _item.name                   '_em_electron_crystallography_tilt.tilt_angle'
+    _item.category_id            em_electron_crystallography_tilt
+    _item.mandatory_code         yes
+    _item_type.code              int
+    _item_examples.case          '20'
+      save_
+
+save__em_electron_crystallography_tilt.num_diffraction_patterns
+    _item_description.description
+;    the number of diffraction pattern images taken at the defined tilt angle.
+;
+    _item.name                   '_em_electron_crystallography_tilt.num_diffraction_patterns'
+    _item.category_id            em_electron_crystallography_tilt
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          '4'
+      save_
+
+save__em_electron_crystallography_tilt.num_micrograph_images
+    _item_description.description
+;    the number of electron micrograph (real) images taken at the defined tilt angle.
+;
+    _item.name                   '_em_electron_crystallography_tilt.num_micrograph_images'
+    _item.category_id            em_electron_crystallography_tilt
+    _item.mandatory_code         no
+    _item_type.code              int
+      save_
+
+

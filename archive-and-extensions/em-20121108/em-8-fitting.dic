@@ -1,0 +1,257 @@
+###################
+## EM_3D_FITTING ##
+###################
+# key:  removed .entry_id
+# removed item:  .entry_id
+
+save_em_3d_fitting
+    _category.description
+;    Data items in the 3D_FITTING category
+     record details of the method of fitting atomic
+     coordinates from a PDB file into a 3d-em
+     volume map file 
+;
+    _category.id                  em_3d_fitting
+    _category.mandatory_code      no
+    _category_key.name           '_em_3d_fitting.id'
+     loop_
+    _category_group.id           
+                                 'em_group'
+                                 'inclusive_group'
+                                 'em_group_da'
+                                 'em_fitting'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; 
+   _em_3d_fitting.id                      1
+   _em_3d_fitting.method                  AUTOMATIC
+   _em_3d_fitting.target_criteria         R-FACTOR
+   _em_3d_fitting.software_name             1
+   _em_3d_fitting.overall_b_value         .
+   _em_3d_fitting.ref_space               REAL
+   _em_3d_fitting.ref_protocol            'RIGID BODY REFINEMENT'
+   _em_3d_fitting.details                 
+   ;   THE CRYSTAL STRUCTURE OF THE CAPSID              
+       PROTEIN FROM CHOI ET AL (1997) PROTEINS 3 27:345-359                
+       (SUBUNIT A OF PDB FILE 1VCQ) WAS PLACED INTO THE CRYO-EM            
+       DENSITY MAP. THE CAPSID PROTEIN WAS FIRST MANUALLY POSITIONED       
+       INTO THE CRYO-EM DENSITY CORRESPONDING TO POSITIONS OF THE          
+       FOUR INDEPENDENT MONOMER DENSITIES BETWEEN THE INNER LEAFLET        
+       OF THE BILAYER AND THE RNA. THESE POSITIONS WERE THEN REFINED       
+       BY RIGID BODY REFINEMENT IN REAL SPACE WITH THE PROGRAM EMFIT       
+       (CHENG ET AL. 1995, CELL 80, 621-630).  
+   ;
+;
+     save_
+
+
+save__em_3d_fitting.id
+    _item_description.description
+;    The value of _em_3d_fitting.id must uniquely identify
+     a fitting procedure of atomic coordinates
+     into 3dem reconstructed volume map.
+;
+
+     loop_
+    _item.name
+    _item.category_id
+    _item.mandatory_code
+            '_em_3d_fitting.id'                   em_3d_fitting      yes
+            '_em_3d_fitting_list.3d_fitting_id'   em_3d_fitting_list yes
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_em_3d_fitting_list.3d_fitting_id'  '_em_3d_fitting.id'
+    _item_type.code               code
+    save_
+
+save__em_3d_fitting.method
+    _item_description.description
+;    The method used to fit atomic coordinates
+     into the 3dem reconstructed map.
+;
+    _item.name                   '_em_3d_fitting.method'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                line
+    _item_examples.case           'Local refinement, Flexible fitting'
+     save_
+
+save__em_3d_fitting.target_criteria
+    _item_description.description
+;    The quality of fit of the atomic coordinates into the 
+     3dem volume map.
+;
+    _item.name                   '_em_3d_fitting.target_criteria'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case           'Cross-correlation coefficient'
+     save_
+
+save__em_3d_fitting.software_name
+    _item_description.description
+;   The software used for fitting atomic coordinates to the map.
+; 
+    _item.name                   '_em_3d_fitting.software_name'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                text 
+#    _item_linked.child_name      '_em_3d_fitting.software_name'
+#    _item_linked.parent_name     '_software.name'
+    _item_examples.case           
+       'Situs, NMFF, YUP.scx, etc.'
+     save_
+
+save__em_3d_fitting.details
+    _item_description.description
+;    Any additional details regarding fitting of atomic
+     coordinates into the 3d-em volume. 
+;
+    _item.name                   '_em_3d_fitting.details'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+;   Initial local fitting was done using Chimera and then NMFF was used for flexible fitting.
+; 
+     save_
+
+save__em_3d_fitting.overall_b_value
+    _item_description.description
+;     The overall B (temperature factor) value for the 3d-em volume. 
+;
+    _item.name                   '_em_3d_fitting.overall_b_value'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_examples.case           '200'
+     save_
+
+save__em_3d_fitting.ref_space
+    _item_description.description
+;    A flag to indicate whether fitting was carried out in real
+     or reciprocal refinement space.
+;  
+    _item.name                   '_em_3d_fitting.ref_space'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                line
+     loop_
+    _item_enumeration.value
+                REAL
+                RECIPROCAL
+    loop_
+    _item_examples.case          
+       'Real'
+       'Reciprocal'
+     save_
+
+save__em_3d_fitting.ref_protocol
+    _item_description.description
+;  The type of protocol used in the refinement. 
+;
+    _item.name                   '_em_3d_fitting.ref_protocol'
+    _item.category_id              em_3d_fitting
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          'rigid body'
+     save_
+
+########################
+## EM_3D_FITTING_LIST ##
+########################
+# new item:  .details
+
+save_em_3d_fitting_list
+    _category.description
+;  Data items in the 3D_FITTING_LIST category
+   lists the methods of fitting atomic coordinates from a PDB file
+   into a 3d-em volume map file 
+;
+    _category.id                  em_3d_fitting_list
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           
+                           '_em_3d_fitting_list.id'
+                           '_em_3d_fitting_list.3d_fitting_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_fitting'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;  
+;  _em_3d_fitting_list.id                       1
+   _em_3d_fitting_list.3d_fitting_id            l
+   _em_3d_fitting_list.pdb_entry_id             1VCQ
+   _em_3d_fitting_list.pdb_chain_id             .
+;               
+    save_
+
+
+save__em_3d_fitting_list.id
+    _item_description.description
+;    This data item is a unique identifier.
+;
+    _item.name                   '_em_3d_fitting_list.id'
+    _item.category_id              em_3d_fitting_list
+    _item.mandatory_code           yes
+    _item_type.code                code
+     save_
+
+
+save__em_3d_fitting_list.3d_fitting_id
+    _item_description.description
+;    The value of _em_3d_fitting_list.3d_fitting_id is a pointer
+     to  _em_3d_fitting.id in the 3d_fitting category
+;
+    _item.name                   '_em_3d_fitting_list.3d_fitting_id'
+    _item.mandatory_code          yes
+     save_
+
+save__em_3d_fitting_list.pdb_entry_id
+    _item_description.description
+;  The PDB code for the entry used in fitting. 
+;
+    _item.name                   '_em_3d_fitting_list.pdb_entry_id'
+    _item.category_id              em_3d_fitting_list
+    _item.mandatory_code           no
+    _item_type.code                line
+    _item_examples.case          'PDB entry 1EHZ'
+     save_
+
+save__em_3d_fitting_list.pdb_chain_id
+    _item_description.description
+;  The chain id, or ids (comma-separated) for the entry used in fitting. 
+;
+    _item.name                   '_em_3d_fitting_list.pdb_chain_id'
+    _item.category_id              em_3d_fitting_list
+    _item.mandatory_code           no
+    _item_type.code                code
+     save_
+
+save__em_3d_fitting_list.details
+    _item_description.description
+;  Details about the model used in fitting.
+;
+    _item.name                   '_em_3d_fitting_list.details'
+    _item.category_id              em_3d_fitting_list
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case           
+;Model consisted of the complete biological assembly for PDB entry 2GTL.
+;
+     save_
+
+
+

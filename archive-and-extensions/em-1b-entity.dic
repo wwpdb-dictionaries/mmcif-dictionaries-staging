@@ -1,0 +1,399 @@
+###############
+## EM_ENTITY ##
+###############
+
+save_em_entity
+    _category.description
+;    Data items in the  EM_ENTITY category record details
+     of macromolecule entities within a 3DEM sample.
+;   
+    _category.id                  em_entity
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          
+                                '_em_entity.id'
+#                            '_em_entity.entity_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_sample'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on entry 3IYD
+; 
+; 
+   loop_
+   _em_entity.id                 #equivalent to macromolecule id in emdb xml
+   _em_entity.entity_id          #pointer to entity.id
+   _em_entity.gen_src_id         #pointer to pdbx_entity_src_gen_depositor_info.src_id
+   _em_entity.assembly_cpx_id    #pointer to em_assembly_cpx.id
+   _em_entity.taxonomy_id        #pointer to em_taxonomy.id
+   _em_entity.model_taxonomy_id  #pointer to em_taxonomy.id
+   _em_entity.type
+   _em_entity.name       
+   _em_entity.mol_wt
+   _em_entity.mol_wt_theoretical_flag
+   _em_entity.mutant_flag
+   _em_entity.chimera_flag
+   _em_entity.engineered_flag
+   _em_entity.details
+    1 1 1 1 1 1 protein CAP 21.5 YES NO YES 'produced using pET expression system'
+;
+     save_
+
+save__em_entity.id 
+    _item_description.description
+;    The value of _em_entity.id must uniquely identify
+     one macromolecule entity (or for a chimera, one entity fragment).
+;
+    _item.name                '_em_entity.id'        
+    _item.category_id             em_entity
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__em_entity.entity_id
+    _item_description.description
+;    This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                   '_em_entity.entity_id'
+    _item.category_id              em_entity
+    _item.mandatory_code           no
+    _item_type.code                code
+    _item_linked.child_name      '_em_entity.entity_id'
+    _item_linked.parent_name     '_entity.id'
+      save_
+
+save__em_entity.gen_src_id
+    _item_description.description
+;    This data item is a pointer to _pdbx_entity_src_gen_depositor_info.src_id 
+;
+    _item.name                   '_em_entity.gen_src_id'
+    _item.category_id              em_entity
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_linked.child_name      '_em_entity.gen_src_id'
+    _item_linked.parent_name     '_pdbx_entity_src_gen_depositor_info.src_id'
+      save_
+
+save__em_entity.taxonomy_id
+    _item_description.description
+;    This data item points to information about the taxonomy of the sample
+     collected in the EM_TAXONOMY category  (points to _em_taxonomy.id).
+;
+    _item.name                   '_em_entity.taxonomy_id'
+    _item.category_id              em_entity
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_linked.child_name      '_em_entity.taxonomy_id'
+    _item_linked.parent_name     '_em_taxonomy.id'
+      save_
+
+save__em_entity.model_taxonomy_id
+    _item_description.description
+;    This data item points to information about the taxonomy of the 
+     coordinate sequence of the model in the case where it differs from the sample,
+     collected in the EM_TAXONOMY category (points to _em_taxonomy.id).
+;
+    _item.name                   '_em_entity.model_taxonomy_id'
+    _item.category_id              em_entity
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_linked.child_name      '_em_entity.model_taxonomy_id'
+    _item_linked.parent_name     '_em_taxonomy.id'
+      save_
+
+
+save__em_entity.type
+    _item_description.description
+;    The assembly type.
+;
+    _item.name                   '_em_entity.type'
+    _item.category_id            em_entity
+    _item.mandatory_code         no
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+        Protein
+        DNA
+        RNA
+        'EM Label'
+        Ligand
+        Saccharide
+        OTHER
+      save_
+
+save__em_entity.name
+    _item_description.description
+;   The name of the assembly component.
+;
+    _item.name                  '_em_entity.name'
+    _item.category_id           em_entity
+    _item.mandatory_code        no
+    _item_type.code             text
+     loop_
+    _item_examples.case
+              'messenger RNA'
+              'antibody Fab fragment heavy chain'
+     save_
+
+save__em_entity.details
+    _item_description.description
+;   Additional details about the component.
+;
+    _item.name                  '_em_entity.details'
+    _item.category_id           em_entity
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_entity.engineered_flag
+    _item_description.description
+;    A flag to indicate whether the component is engineered,
+     i.e., created using recombinant gene expression technology.
+;
+    _item.name                  '_em_entity.engineered_flag'
+    _item.category_id             em_entity
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+                YES
+                NO
+     save_
+
+
+save__em_entity.mutant_flag
+    _item_description.description
+;   Indicates whether this is a mutant assembly or component.
+;
+    _item.name                  '_em_entity.mutant_flag'
+    _item.category_id           em_entity
+    _item.mandatory_code        no
+    _item_type.code             code
+     loop_
+    _item_enumeration.value
+             YES
+             NO
+     save_
+
+save__em_entity.chimera_flag
+    _item_description.description
+;   Indicates whether the assembly or component is a chimera from more than one
+    natural source.
+;
+    _item.name                  '_em_entity.chimera_flag'
+    _item.category_id           em_entity
+    _item.mandatory_code        no
+    _item_type.code             code
+     loop_
+    _item_enumeration.value
+             YES
+             NO
+     save_
+
+save__em_entity.mol_wt
+    _item_description.description
+;    The molecular weight (in kilodaltons) of the macromolecule.
+;
+    _item.name                   '_em_entity.mol_wt'
+    _item.category_id            em_entity
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             kilodaltons
+      save_
+
+save__em_entity.mol_wt_theoretical_flag
+    _item_description.description
+;    Identifies whether the given molecular weight was derived theoretically.
+;
+    _item.name                   '_em_entity.mol_wt_theoretical_flag'
+    _item.category_id             em_entity
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+                YES
+                NO
+      save_
+
+
+#######################
+# EM_SEQUENCE_PROTEIN #
+#######################
+
+save_em_sequence_protein
+    _category.description
+;   Data items in the EM_SEQUENCE_PROTEIN category records details
+    for protein or peptide components.
+;
+    _category.id                  em_sequence_protein
+    _category.mandatory_code      no
+    _category_key.name
+                                  '_em_sequence_protein.em_entity_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+                                  'em_sample'
+
+     save_
+
+
+save__em_sequence_protein.em_entity_id
+    _item_description.description
+;   This data item is a pointer to _em_entity.id in the
+    EM_ENTITY category.
+;
+    _item.name                   '_em_sequence_protein.em_entity_id'
+    _item.category_id            em_sequence_protein
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_sequence_protein.em_entity_id'
+    _item_linked.parent_name     '_em_entity.id'
+      save_
+
+save__em_sequence_protein.sequence
+    _item_description.description
+;   1 letter code sequence of the sample entity (not model).
+;
+      _item.name                  '_em_sequence_protein.sequence'
+      _item.category_id           em_sequence_protein
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_protein.link_n_term_em_entity_id
+    _item_description.description
+;  Chimera entity component covalently linked to the N-terminus. 
+;
+      _item.name                  '_em_sequence_protein.link_n_term_em_entity_id'
+      _item.category_id           em_sequence_protein
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_protein.link_c_term_em_entity_id
+    _item_description.description
+;  Chimera entity component covalently linked to the C-terminus.
+;
+      _item.name                  '_em_sequence_protein.link_c_term_em_entity_id'
+      _item.category_id           em_sequence_protein
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_protein.discrepancy_list
+    _item_description.description
+;  Text description of known discrepancies between provided sequence and sample ???
+;
+      _item.name                  '_em_sequence_protein.discrepancy_list'
+      _item.category_id           em_sequence_protein
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+
+save__em_sequence_protein.ipr_id
+    _item_description.description
+;   InterPro id for the protein sequence.
+;
+      _item.name                  '_em_sequence_protein.ipr_id'
+      _item.category_id           em_sequence_protein
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+
+
+
+
+##################
+# EM_SEQUENCE_NA #
+##################
+
+save_em_sequence_na
+    _category.description
+;   Data items in the EM_SEQUENCE_NA category records details
+    for nucleic-acid components.
+;
+    _category.id                  em_sequence_na
+    _category.mandatory_code      no
+    _category_key.name
+                                  '_em_sequence_na.em_entity_id'
+     loop_
+    _category_group.id            'inclusive_group'
+                                  'em_group'
+                                   'em_sample'
+
+     save_
+
+
+save__em_sequence_na.em_entity_id
+    _item_description.description
+;   This data item is a pointer to _em_entity.id in the
+    EM_ENTITY category.
+;
+    _item.name                   '_em_sequence_na.em_entity_id'
+    _item.category_id            em_sequence_na
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_sequence_na.em_entity_id'
+    _item_linked.parent_name     '_em_entity.id'
+      save_
+
+save__em_sequence_na.sequence
+    _item_description.description
+;   1 letter code sequence of the sample entity (not model).
+;
+      _item.name                  '_em_sequence_na.sequence'
+      _item.category_id           em_sequence_na
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_na.link_5_prime_em_entity_id
+    _item_description.description
+;  Chimera entity component covalently linked to the 5' end. 
+;
+      _item.name                  '_em_sequence_na.link_5_prime_em_entity_id'
+      _item.category_id           em_sequence_na
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_na.link_3_prime_em_entity_id
+    _item_description.description
+;  Chimera entity component covalently linked to the 3' end.
+;
+      _item.name                  '_em_sequence_na.link_3_prime_em_entity_id'
+      _item.category_id           em_sequence_na
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+save__em_sequence_na.discrepancy_list
+    _item_description.description
+;  Text description of known discrepancies between provided sequence and sample ??
+;
+      _item.name                  '_em_sequence_na.discrepancy_list'
+      _item.category_id           em_sequence_na
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+
+save__em_sequence_na.genbank_id
+    _item_description.description
+;   GenBank id for the nucleic acid sequence.
+;
+      _item.name                  '_em_sequence_na.genbank_id'
+      _item.category_id           em_sequence_na
+      _item.mandatory_code        no
+      _item_type.code             text
+       save_
+
+
+
+
+

@@ -1,0 +1,563 @@
+#############################
+## EM_2D_PROJECTION_SELECT ##
+#############################
+# item removed:  .citation_id
+#
+# does .num_particles work for helical?
+
+save_em_2d_projection_select
+    _category.description
+;   Data items in the EM_2D_PROJECTION_SELECT category
+    record details of images from scanned micrographs and the 
+    number of particles selected from a scanned set of micrographs.
+;
+    _category.id                  em_2d_projection_select
+    _category.mandatory_code      no
+    _category_key.name           '_em_2d_projection_select.entry_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_reconstruction'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; 
+   _em_2d_projection_select.entry_id            1
+   _em_2d_projection_select.num_particles       5267
+   _em_2d_projection_select.method              'INTERACTIVE'
+   _em_2d_projection_select.details             .
+;
+     save_
+
+
+save__em_2d_projection_select.entry_id
+   _item_description.description
+;  The value of _em_2d_projection_select.entry_id points to
+   the ENTRY category.
+;
+    _item.name                   '_em_2d_projection_select.entry_id'
+    _item.category_id              em_2d_projection_select
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_2d_projection_select.entry_id'
+    _item_linked.parent_name    '_entry.id'
+     save_
+
+save__em_2d_projection_select.num_particles
+    _item_description.description
+;    The number of particles selected from the projection set of images, or
+     for filamentous specimens the number of selected segments.
+;
+    _item.name                   '_em_2d_projection_select.num_particles'
+    _item.category_id              em_2d_projection_select
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case            840
+     save_
+
+save__em_2d_projection_select.method
+    _item_description.description
+;    The method used for selecting observed assemblies.
+;
+    _item.name                   '_em_2d_projection_select.method'
+    _item.category_id              em_2d_projection_select
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case           'particles picked interactively from monitor'
+     save_
+
+save__em_2d_projection_select.details
+    _item_description.description
+;    Any additional details used for selecting observed assemblies.
+;
+    _item.name                   '_em_2d_projection_select.details'
+    _item.category_id              em_2d_projection_select
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+          'negative contrast facilitated particle picking'
+     save_
+
+save__em_2d_projection_select.reference_model
+    _item_description.description
+;    Description of the reference model used for selecting assembly projections.
+;
+    _item.name                   '_em_2d_projection_select.reference_model'
+    _item.category_id              em_2d_projection_select
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case
+          'average image of 500 hand-picked particles'
+     save_
+
+
+
+##########################
+## EM_3D_RECONSTRUCTION ##
+##########################
+# key:  .entry_id retained; .id removed
+# items removed: .id
+# items added:   .entity_assembly_id (non-mand)
+#              .spatial_filtering  .masking
+#              .ctf_correction_type
+#              .initial_model_type .initial_model_details
+
+
+save_em_3d_reconstruction
+    _category.description
+;  Data items in the EM_3D_RECONSTRUCTION category
+   record details of the 3D reconstruction procedure from 2D projs.
+;
+    _category.id                  em_3d_reconstruction
+    _category.mandatory_code      no
+    _category_key.name           '_em_3d_reconstruction.entry_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_reconstruction'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+;
+  _em_3d_reconstruction.entry_id                 1DYL
+  _em_3d_reconstruction.method                   'CROSS-COMMON LINES'
+  _em_3d_reconstruction.details                  .
+  _em_3d_reconstruction.resolution               9
+  _em_3d_reconstruction.resolution_method        .
+  _em_3d_reconstruction.ctf_correction_method    .
+  _em_3d_reconstruction.nominal_pixel_size       2.64
+  _em_3d_reconstruction.actual_pixel_size        2.52
+;
+     save_
+
+
+save__em_3d_reconstruction.entry_id
+   _item_description.description
+;  This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_3d_reconstruction.entry_id'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_3d_reconstruction.entry_id'
+    _item_linked.parent_name    '_entry.id'
+     save_
+
+save__em_3d_reconstruction.symmetry_id
+   _item_description.description
+;  This data item is a pointer to _em_symmetry.id in the EM_SYMMETRY category.
+   The _em_symmetry.id defines the symmetry applied to the final 3D reconstruction.
+;
+    _item.name                   '_em_3d_reconstruction.symmetry_id'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_3d_reconstruction.symmetry_id'
+    _item_linked.parent_name    '_em_symmetry.id'
+     save_
+
+
+save__em_3d_reconstruction.assembly_cpx_id
+   _item_description.description
+;  This data item is a pointer to _em_assembly_cpx.id in the EM_ASSEMBLY_CPX category.
+   Provides means to indicate sub-assembly represented by the entry map.
+;
+    _item.name                   '_em_3d_reconstruction.assembly_cpx_id'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                code
+    _item_linked.child_name     '_em_3d_reconstruction.assembly_cpx_id'
+    _item_linked.parent_name    '_em_assembly_cpx.id'
+     save_
+
+save__em_3d_reconstruction.method
+    _item_description.description
+;    The algorithm method used for the 3d-reconstruction.
+;
+    _item.name                   '_em_3d_reconstruction.method'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    loop_
+    _item_examples.case          
+       'cross-common lines'
+       'polar Fourier transform (PFT)'
+     save_
+
+save__em_3d_reconstruction.spatial_filtering
+    _item_description.description
+;    Description of any spatial (frequency-based) filtering applied either 
+     during the reconstruction procedure
+     or after the final reconstruction, 
+     e.g., band-pass filtering or weighting (sharpening).
+;
+    _item.name                   '_em_3d_reconstruction.spatial_filtering'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    loop_
+    _item_examples.case
+    'Boxed particles were high-pass filtered'
+    'The final map was smoothed by applying a 20 Angstrom low-pass filter'
+    'The final map was sharpened to improve visualization of side-chains (B=600 Angstroms-squared)'
+      save_
+
+save__em_3d_reconstruction.masking
+    _item_description.description
+;    Description of any masking applied in the reconstruction procedure.
+;
+    _item.name                   '_em_3d_reconstruction.masking'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    loop_
+    _item_examples.case
+    'Particle images were masked to remove component 1'
+    'A soft spherical mask was applied during each reconstruction cycle'
+      save_
+
+
+save__em_3d_reconstruction.details
+    _item_description.description
+;    Any additional details about the 3d reconstruction procedure.
+;
+    _item.name                   '_em_3d_reconstruction.details'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+;    a modified version of SPIDER program was used for the reconstruction
+;
+      save_
+
+save__em_3d_reconstruction.resolution
+    _item_description.description
+;    The final resolution (in angstroms)of the 3d reconstruction.
+;
+    _item.name                   '_em_3d_reconstruction.resolution'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+    loop_
+    _item_examples.case          
+       '8.9'
+       '10.0'
+     save_
+
+save__em_3d_reconstruction.resolution_method
+    _item_description.description
+;    The  method used to determine the final resolution 
+     of the 3d reconstruction.
+     The Fourier Shell Correlation criterion as a measure of
+     resolution is based on the concept of splitting the (2D)
+     data set into two halves; averaging each and comparing them
+     using the Fourier Ring Correlation (FRC) technique.
+;
+    _item.name                   '_em_3d_reconstruction.resolution_method'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          'FSC at 0.5 cut-off'
+     save_
+
+save__em_3d_reconstruction.magnification_calibration
+    _item_description.description
+;    The magnification calibration method for the 3d reconstruction.
+;
+    _item.name       '_em_3d_reconstruction.magnification_calibration'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          'TMV images'
+    save_
+
+
+save__em_3d_reconstruction.ctf_correction_method
+    _item_description.description
+;    The  CTF-correction method. 
+     The Contrast Transfer Function CTF compensation for low contrast
+     specimens (e.g. frozen-hydrated), for which phase contrast is the only
+     significant mechanism, then higher defocus levels must be used to
+     achieve any significant transfer, and several images at different
+     focus levels must be combined to complete the information lost from
+     the transfer gaps of any one image.  The CTF correction can be applied
+     to each extracted particle separately or to the whole micrograph after
+     digitisation. The simplest level of compensation is to reverse phases
+     at the negative lobes of the CTF.
+;
+    _item.name                   '_em_3d_reconstruction.ctf_correction_method'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+;    3D volumes were CTF-corrected in defocus groups, with an average 
+     of approximately 999 individual images per group.
+;
+     save_
+
+save__em_3d_reconstruction.ctf_correction_type
+    _item_description.description
+;    Type of  CTF-correction method used.
+;
+    _item.name                   '_em_3d_reconstruction.ctf_correction_type'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                line
+    loop_
+    _item_enumeration.value
+     NONE
+     'PHASE ONLY'
+     'AMPLITUDE AND PHASE'
+     save_
+
+save__em_3d_reconstruction.astigmatic_ctf_correction_flag
+    _item_description.description
+;    Whether an astigmatism model was included in the CTF correction.
+;
+    _item.name                   '_em_3d_reconstruction.astigmatic_ctf_correction_flag'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no
+    _item_type.code                code
+    loop_
+    _item_enumeration.value
+     YES
+     NO
+     save_
+
+
+
+#save__em_3d_reconstruction.nominal_pixel_size
+#    _item_description.description
+#;    The nominal pixel size of the proj set of images.
+#;
+#    _item.name                   '_em_3d_reconstruction.nominal_pixel_size'
+#    _item.category_id              em_3d_reconstruction
+#    _item.mandatory_code           no
+#    _item_type.code                float
+#    loop_
+#    _item_examples.case          '3.11'
+#                                 '6.78'
+#     save_
+#
+#save__em_3d_reconstruction.actual_pixel_size
+#    _item_description.description
+#;    The actual pixel size of proj set of images.
+#;
+#    _item.name                   '_em_3d_reconstruction.actual_pixel_size'
+#    _item.category_id              em_3d_reconstruction
+#    _item.mandatory_code           no
+#    _item_type.code                float
+#    loop_
+#    _item_examples.case          '2.8'
+#                                 '5.76'
+#     save_
+
+save__em_3d_reconstruction.num_particles
+    _item_description.description
+;    The number of particle images used in the 3d reconstruction
+;
+    _item.name                   '_em_3d_reconstruction.num_particles'
+    _item.category_id              em_3d_reconstruction
+    _item.mandatory_code           no 
+    _item_type.code                int
+     save_
+
+save__em_3d_reconstruction.num_classes
+    _item_description.description
+;   This number of classes used in the final 3d reconstruction
+;
+        _item.name                  '_em_3d_reconstruction.num_classes'
+        _item.category_id           em_3d_reconstruction
+        _item.mandatory_code        no
+        _item_type.code             int
+        save_
+
+save__em_3d_reconstruction.num_images_per_class
+    _item_description.description
+;   The average number of images per classes in the final 3d reconstruction
+;
+        _item.name                  '_em_3d_reconstruction.num_images_per_class'
+        _item.category_id           em_3d_reconstruction
+        _item.mandatory_code        no
+        _item_type.code             int
+        save_
+
+
+
+save__em_3d_reconstruction.initial_model_type
+    _item_description.description
+;   Source of model(s) used to initialize the reconstruction process.
+;
+    _item.name                  '_em_3d_reconstruction.initial_model_type'
+    _item.category_id           em_3d_reconstruction
+    _item.mandatory_code        no
+    _item_type.code             line
+    loop_
+    _item_enumeration.value
+    'angular reconstitution'
+    'random conical tilt'
+    'orthogonal tilt'
+    'EMDB map'
+    'PDB model'
+    'in silico model'
+     other
+     save_
+
+save__em_3d_reconstruction.initial_model_details
+    _item_description.description
+;   Description of model(s) used to initialize the reconstruction process.
+;
+    _item.name                  '_em_3d_reconstruction.initial_model_details'
+    _item.category_id           em_3d_reconstruction
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+
+#########################
+## EM_EULER_ASSIGNMENT ##
+#########################
+# new category
+
+save_em_euler_assignment
+    _category.description
+;   data items in the EM_EULER_ASSIGNMENT category
+    record details about  assignment of euler angles
+    at different steps of a reconstruction.
+;
+    _category.id                  em_euler_assignment
+    _category.mandatory_code      no
+    _category_key.name           '_em_euler_assignment.id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_reconstruction'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  example 1
+;
+;
+     loop_
+     _em_euler_assignment.id  
+     _em_euler_assignment.name 
+     _em_euler_assignment.method 
+     _em_euler_assignment.num_reference_projs
+     _em_euler_assignment.merit_function
+     _em_euler_assignment.angular_sampling 
+     _em_euler_assignment.details
+     1 initial random 5 . . . 
+     2 final "proj matching" .  5000 CC 0.75 .
+
+;
+     save_
+
+save__em_euler_assignment.id
+    _item_description.description
+;   the value of _em_euler_assignment.id must uniquely
+    identify one euler angle assignment step in the reconstruction process.
+;
+    _item.name                  '_em_euler_assignment.id'
+    _item.category_id             em_euler_assignment
+    _item.mandatory_code          yes
+    _item_type.code               code
+        save_
+
+save__em_euler_assignment.name
+    _item_description.description
+;    the name of the step of the reconstruction procedure.
+;
+    _item.name                   '_em_euler_assignment.name'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              line 
+    _item_examples.case          'final'
+      save_
+
+save__em_euler_assignment.method
+    _item_description.description
+;    the method used to assign euler angles.
+;
+    _item.name                   '_em_euler_assignment.method'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              line
+    loop_
+    _item_enumeration.value         
+      random
+      'angular reconstitution'
+      'projection matching'
+      'common lines'
+      save_
+
+save__em_euler_assignment.num_reference_projs
+    _item_description.description
+;    the number of reference projs used to assign euler angles.
+;
+    _item.name                   '_em_euler_assignment.num_reference_projs'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          250
+      save_
+
+save__em_euler_assignment.num_references
+    _item_description.description
+;    Number of references (3D starting models) used to assign euler angles.
+;
+    _item.name                   '_em_euler_assignment.num_references'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          3
+      save_
+
+
+save__em_euler_assignment.merit_function
+    _item_description.description
+;    the merit function used in assignment of euler angles.
+;
+    _item.name                   '_em_euler_assignment.merit_function'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              line
+    _item_examples.case         'correlation coefficient' 
+      save_
+
+
+save__em_euler_assignment.angular_sampling
+    _item_description.description
+;    the angular sampling of the reference projs.
+;
+    _item.name                   '_em_euler_assignment.angular_sampling'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_examples.case          2.5
+    _item_units.code             degrees
+      save_
+
+save__em_euler_assignment.details
+    _item_description.description
+;    Additional details about assignment of euler angles.
+;
+    _item.name                   '_em_euler_assignment.details'
+    _item.category_id            em_euler_assignment
+    _item.mandatory_code         no
+    _item_type.code              text
+    _item_examples.case         'Euler angles were assigned for 200 reference-free class-averages.'
+      save_
+
+
+
+
+
+

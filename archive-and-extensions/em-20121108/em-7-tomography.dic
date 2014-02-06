@@ -1,0 +1,291 @@
+#####################
+### EM_TOMOGRAPHY  ##
+#####################
+# new category -- pulled from iims-6
+# right now some items overlap with _em_imaging
+# may want 2nd tilt axis flag here?
+
+save_em_tomography
+    _category.description
+;   Electron tomography allows the structural organisation of individual
+    cells and organelles and bacterial cells to be studied at nanometre
+    resolution. The samples are unique objects which precludes averaging
+    over many copies so that tomograms are built from images of a tilt
+    series taken from a single copy of the object.
+;
+    _category.id                  em_tomography
+    _category.mandatory_code      no
+    _category_key.name           '_em_tomography.id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                'em_tomography'
+     save_
+
+save__em_tomography.id
+    _item_description.description
+;    The value of _em_tomography.id must uniquely identify
+     a collection of observed complexes.
+;
+    _item.name                   '_em_tomography.id'
+    _item.category_id            em_tomography
+    _item.mandatory_code         yes
+    _item_type.code              code
+     save_
+
+save__em_tomography.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_tomography.entry_id'
+    _item.category_id            em_tomography
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_tomography.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_tomography.tilt_angle_incr
+    _item_description.description
+;     Tilt angle increment in (degrees) used in reconstruction of
+      tomographic map.
+;
+    _item.name                   '_em_tomography.tilt_angle_incr'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__em_tomography.num_raw_images
+    _item_description.description
+;     The total number of raw images used in reconstruction of tomographic map.
+;
+    _item.name                   '_em_tomography.num_raw_images'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                int
+      save_
+
+save__em_tomography.details
+    _item_description.description
+;     General details on the tomographic experiment
+;
+    _item.name                   '_em_tomography.details'
+    _item.category_id              em_tomography
+    _item.mandatory_code           no
+    _item_type.code                text
+      save_
+
+
+
+################################
+## EM_3D_SUBVOLUME_SELECTION ##
+################################
+# new category, based on em_2d_projection_selection
+
+save_em_3d_subvolume_selection
+    _category.description
+;   Data items in the EM_3D_SUBVOLUME_SELECTION category
+    record details of subvolumes extracted from tomograms.
+;
+    _category.id                  em_3d_subvolume_selection
+    _category.mandatory_code      no
+    _category_key.name           '_em_3d_subvolume_selection.entry_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_tomography'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  Example 1 - based on PDB entry 1DYL and laboratory records for the
+                structure corresponding to PDB entry 1DYL
+;
+; 
+   _em_3d_subvolume_selection.entry_id            1
+   _em_3d_subvolume_selection.num_subvolumes       52
+   _em_3d_subvolume_selection.num_tomograms       10
+   _em_3d_subvolume_selection.details             .
+;
+     save_
+
+
+save__em_3d_subvolume_selection.entry_id
+   _item_description.description
+;  The value of _em_3d_subvolume_selection.entry_id points to
+   the ENTRY category.
+;
+    _item.name                   '_em_3d_subvolume_selection.entry_id'
+    _item.category_id              em_3d_subvolume_selection
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name     '_em_3d_subvolume_selection.entry_id'
+    _item_linked.parent_name    '_entry.id'
+     save_
+
+save__em_3d_subvolume_selection.num_subvolumes
+    _item_description.description
+;    The number of subvolumes selected from one or more tomograms for averaging.
+;
+    _item.name                   '_em_3d_subvolume_selection.num_subvolumes'
+    _item.category_id              em_3d_subvolume_selection
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case            20
+     save_
+
+save__em_3d_subvolume_selection.num_tomograms
+    _item_description.description
+;    The number of tomograms from which subvolumes were selected for averaging.
+;
+    _item.name                   '_em_3d_subvolume_selection.num_tomograms'
+    _item.category_id              em_3d_subvolume_selection
+    _item.mandatory_code           no
+    _item_type.code                int
+    _item_examples.case            5
+     save_
+
+
+save__em_3d_subvolume_selection.method
+    _item_description.description
+;    The method used for selecting observed assemblies.
+;
+    _item.name                   '_em_3d_subvolume_selection.method'
+    _item.category_id              em_3d_subvolume_selection
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case           'subvolumes selected interactively using Amira'
+     save_
+
+save__em_3d_subvolume_selection.details
+    _item_description.description
+;    Any additional details about 3D subvolume selection.
+;
+    _item.name                   '_em_3d_subvolume_selection.details'
+    _item.category_id              em_3d_subvolume_selection
+    _item.mandatory_code           no
+    _item_type.code                text
+    _item_examples.case          
+          'negative monitor contrast facilitated particle picking'
+     save_
+
+
+####################################
+## EM_3D_SUBVOLUME_CLASSIFICATION ##
+####################################
+# new category, similar to EM_EULER_ASSIGNMENT but for subtomogram averaging.
+
+save_em_3d_subvolume_classification
+    _category.description
+;   data items in the EM_3D_SUBVOLUME_CLASSIFICATION category
+    record details about  assignment of euler angles
+    at different steps of a reconstruction.
+;
+    _category.id                  em_3d_subvolume_classification
+    _category.mandatory_code      no
+    _category_key.name           '_em_3d_subvolume_classification.id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_tomography'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;  example 1
+;
+;
+     loop_
+     _em_3d_subvolume_classification.id  
+     _em_3d_subvolume_classification.name 
+     _em_3d_subvolume_classification.method 
+     _em_3d_subvolume_classification.num_classes
+     _em_3d_subvolume_classification.merit_function
+     _em_3d_subvolume_classification.angular_sampling 
+     _em_3d_subvolume_classification.details
+     1 initial random 5 . . . 
+     2 final "projection matching" .  5000 CC 0.75 .
+
+;
+     save_
+
+save__em_3d_subvolume_classification.id
+    _item_description.description
+;   the value of _em_3d_subvolume_classification.id must uniquely
+    identify one euler angle assignment step in the reconstruction process.
+;
+    _item.name                  '_em_3d_subvolume_classification.id'
+    _item.category_id             em_3d_subvolume_classification
+    _item.mandatory_code          yes
+    _item_type.code               code
+        save_
+
+save__em_3d_subvolume_classification.name
+    _item_description.description
+;    the name of the classification step.
+;
+    _item.name                   '_em_3d_subvolume_classification.name'
+    _item.category_id            em_3d_subvolume_classification
+    _item.mandatory_code         no
+    _item_type.code              line 
+   loop_
+    _item_examples.case          final initial
+      save_
+
+save__em_3d_subvolume_classification.method
+    _item_description.description
+;    the method used to classify the subvolumes.
+;
+    _item.name                   '_em_3d_subvolume_classification.method'
+    _item.category_id            em_3d_subvolume_classification
+    _item.mandatory_code         no
+    _item_type.code              line
+    loop_
+    _item_examples.case          
+      manual
+      'statistical classifier algorithm'
+      save_
+
+save__em_3d_subvolume_classification.num_classes
+    _item_description.description
+;    the number of classes of extracted subvolumes.
+;
+    _item.name                   '_em_3d_subvolume_classification.num_classes'
+    _item.category_id            em_3d_subvolume_classification
+    _item.mandatory_code         no
+    _item_type.code              int
+    _item_examples.case          25
+      save_
+
+save__em_3d_subvolume_classification.merit_function
+    _item_description.description
+;    the merit function used in class assignment.
+;
+    _item.name                   '_em_3d_subvolume_classification.merit_function'
+    _item.category_id            em_3d_subvolume_classification
+    _item.mandatory_code         no
+    _item_type.code              line
+    _item_examples.case         'correlation coefficient' 
+      save_
+
+
+save__em_3d_subvolume_classification.details
+    _item_description.description
+;    Details about classification.
+;
+    _item.name                   '_em_3d_subvolume_classification.details'
+    _item.category_id            em_3d_subvolume_classification
+    _item.mandatory_code         no
+    _item_type.code              text
+    _item_examples.case         'Ten distinct classes were defined using MSA analysis.'
+      save_
+
+
+
+
+
+

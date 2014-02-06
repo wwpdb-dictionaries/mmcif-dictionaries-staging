@@ -1,0 +1,848 @@
+#################
+## EM_ASSEMBLY ##
+#################
+# changes: .id removed as key/item
+
+save_em_assembly
+    _category.description
+;   Data items in the EM_ASSEMBLY category record details
+    about the nature of the biological assembly studied.
+;
+    _category.id                  em_assembly
+    _category.mandatory_code      no
+    _category_key.name           '_em_assembly.entry_id'
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_sample'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 3J1S 
+; 
+;  _em_assembly.entry_id            3J1S 
+   _em_assembly.name                'Adeno-associated virus-2 in complex with monoclonal antibody A20' 
+   _em_assembly.details             'Infectious DNA-containing particle (DNA not resolved)' 
+   _em_assembly.composition         '60 Fab's bound to one adeno-associated virus particle'
+   _em_assembly.num_components      2 
+   _em_assembly.mol_wt_theo         6.9 
+   _em_assembly.mol_wt_exp          ? 
+   _em_assembly.mol_wt_method       ? 
+;
+     save_
+  
+save__em_assembly.entry_id
+    _item_description.description
+;    This data item is a pointer to _entry.id in the ENTRY category.
+;
+    _item.name                   '_em_assembly.entry_id'
+    _item.category_id            em_assembly
+    _item.mandatory_code         yes
+    _item_type.code              code
+    _item_linked.child_name      '_em_assembly.entry_id'
+    _item_linked.parent_name     '_entry.id'
+      save_
+
+save__em_assembly.name
+    _item_description.description
+;    The name of the biological assembly.
+;
+    _item.name                   '_em_assembly.name'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              text 
+    _item_examples.case          
+       'Fab Fragment of Mab1-Ia monoclonal antibody bound to Human Rhinovirus1h Nim-Ia Site'
+      save_
+
+save__em_assembly.composition
+    _item_description.description
+;    The known composition of the biological assembly.
+;
+    _item.name                   '_em_assembly.composition'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              text 
+      save_
+
+save__em_assembly.num_components
+    _item_description.description
+;    The number of components of the biological assembly.
+     Each component is described in EM_ENTITY_ASSEMBLY category.
+;
+    _item.name                   '_em_assembly.num_components'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              int
+      save_
+
+save__em_assembly.mol_wt_exp
+    _item_description.description
+;    The value (in megadaltons) of the experimentally
+     determined molecular weight of the assembly.
+;
+    _item.name                   '_em_assembly.mol_wt_exp'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             megadaltons
+      save_
+
+save__em_assembly.mol_wt_theo
+    _item_description.description
+;    The value (in megadaltons) of the theoretically
+     determined molecular weight of the assembly.
+;
+    _item.name                   '_em_assembly.mol_wt_theo'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             megadaltons
+      save_
+
+save__em_assembly.mol_wt_method
+    _item_description.description
+;    The method used to determine the molecular weight.
+;
+    _item.name                   '_em_assembly.mol_wt_method'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              text
+      save_
+
+
+save__em_assembly.details
+    _item_description.description
+;    A description of any additional details 
+     describing the observed sample.
+;
+    _item.name                   '_em_assembly.details'
+    _item.category_id            em_assembly
+    _item.mandatory_code         no
+    _item_type.code              text
+     loop_
+    _item_examples.case          
+; This sample was monodisperse.
+;
+     save_
+
+########################
+## EM_ENTITY_ASSEMBLY ##
+########################
+#changes:  
+#".ebi_" prefix removed from multiple items
+# .engineered changed to .engineered_flag
+# .assembly_id removed as key/item
+#new:
+#_em_entity_assembly.ncbi_taxonomy_id
+#_em_entity_assembly.entity_list
+#_em_entity_assembly.mol_wt
+#_em_entity_assembly.mol_wt_method
+
+save_em_entity_assembly
+    _category.description
+;    The EM_ENTITY_ASSEMBLY category records details about defined components 
+     within the imaged biological assembly.
+
+     For example, a virus:Fab complex has two assembly components: 
+     (1) Fab fragment and (2) Virus.
+
+     Defined polymers and non-polymer ligands belonging to the component
+     are listed in em_entity_assembly.entity_id_list.
+;
+    _category.id                  em_entity_assembly
+    _category.mandatory_code      no
+    _category_key.name          '_em_entity_assembly.id'
+
+     loop_
+    _category_group.id           
+                                 'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_sample'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+
+; Example 1 - based on PDB entry 3IYD
+;
+;
+  loop_
+  _em_entity_assembly.id 
+  _em_entity_assembly.type 
+  _em_entity_assembly.name 
+  _em_entity_assembly.synonym 
+  _em_entity_assembly.number_of_copies
+  _em_entity_assembly.oligomeric_details
+  _em_entity_assembly.entity_id_list
+  _em_entity_assembly.organism_common 
+  _em_entity_assembly.organism_scientific 
+  _em_entity_assembly.strain 
+  _em_entity_assembly.ncbi_taxonomy_id
+  _em_entity_assembly.engineered_flag
+  _em_entity_assembly.expression_system 
+  _em_entity_assembly.expression_system_plasmid 
+  _em_entity_assembly.mutant_flag
+  _em_entity_assembly.go_id 
+  _em_entity_assembly.ipr_id 
+  _em_entity_assembly.cell 
+  _em_entity_assembly.cellular_location 
+  _em_entity_assembly.organelle 
+  _em_entity_assembly.tissue 
+  _em_entity_assembly.details 
+
+  1  PROTEIN  'Catabolite Activator Protein' CAP 1 dimer 6,9
+      . 'Escherichia coli' K12 8333 YES BL21(DE3) pET17a NO GO:0006355  IPR001808 
+     'E. coli' cytoplasm  . .  
+     'activated CAP with cyclic-AMP bound'
+  2  'NUCLEIC ACID' 'lac(ICAP)UP-UV5-bubble' .  1 'DNA heteroduplex' 7,8
+      . . . .  YES . . .  . .
+     'E. coli' cytoplasm . .
+     ;DNA heteroduplex promoter frament with transcription bubble 
+      prepared by annealing custom synthesized oligonucleotides 
+     ;
+  3  PROTEIN 'RNA polymerase holoenzyme (sigma70)' RNAP 1 heterohexamer  1,2,3,4,5
+     . 'Escherichia coli' K12 8333 YES BL21(DE3) pET17b YES GO:00006351 .         
+     'E. coli' cytoplasm  . .
+     'E. coli RNA polymerase with C-terminal his-tag on beta prime subunit'
+;
+     save_
+
+save__em_entity_assembly.id
+    _item_description.description
+;    The value of _em_entity_assembly.id must uniquely identify
+     one assembly component within the imaged sample.
+;
+    _item.name                          '_em_entity_assembly.id'
+    _item.category_id                   em_entity_assembly    
+    _item.mandatory_code                yes  
+    _item_type.code                     code
+    _item_linked.child_name              '_em_virus_entity.entity_assembly_id' 
+    _item_linked.parent_name             '_em_entity_assembly.id'
+         save_
+
+save__em_entity_assembly.type
+    _item_description.description
+;    A description of types of components of the
+     assembly of the biological structure.
+;
+    _item.name                   '_em_entity_assembly.type'
+    _item.category_id            em_entity_assembly
+    _item.mandatory_code         no
+    _item_type.code              line
+     loop_
+    _item_enumeration.value
+        PROTEIN
+        'NUCLEIC ACID'
+        LIGAND
+        LABEL 
+        'CELLULAR COMPONENT'
+        VIRUS
+        RIBOSOME 
+        OTHER
+      save_
+
+save__em_entity_assembly.name
+    _item_description.description
+;   The name of the assembly component.
+;
+    _item.name                  '_em_entity_assembly.name'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             text
+     loop_
+    _item_examples.case
+              Ribosome
+              'messenger RNA'
+              'initiation factor 2'
+              GroEL
+              'antibody Fab fragment'
+     save_
+
+save__em_entity_assembly.details
+    _item_description.description
+;   Additional details about the component.
+;
+    _item.name                  '_em_entity_assembly.details'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             text
+    _item_examples.case
+              'Fab fragment generated by proteolytic cleavage of IgG antibody.'
+
+     save_
+
+save__em_entity_assembly.organism_scientific
+    _item_description.description
+;   The species of the natural organism from which the component was obtained.
+;
+    _item.name                  '_em_entity_assembly.organism_scientific'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__em_entity_assembly.organism_common
+    _item_description.description
+;   The common name of the natural organism from which the component was obtained.
+;
+    _item.name                  '_em_entity_assembly.organism_common'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__em_entity_assembly.strain
+    _item_description.description
+;    The strain of the natural organism from which the component was
+      obtained, if relevant.
+;
+    _item.name                  '_em_entity_assembly.strain'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          
+               'DH5a'
+               'BMH 71-18'
+     save_
+
+save__em_entity_assembly.tissue
+    _item_description.description
+;  The tissue of the natural organism from which the component was obtained.
+;
+    _item.name                  '_em_entity_assembly.tissue'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          
+              'heart'
+              'liver'
+              'eye lens'
+     save_
+
+save__em_entity_assembly.cell
+    _item_description.description
+;              The cell type from which the component was obtained.
+;
+    _item.name                  '_em_entity_assembly.cell'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          
+         'CHO'
+         'HELA'
+         '3T3'
+     save_
+
+
+save__em_entity_assembly.organelle
+    _item_description.description
+;   The organelle from which the component was
+    obtained.
+;
+    _item.name                  '_em_entity_assembly.organelle'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          
+               'golgi'
+               'mitochondrion'
+               'cytoskeleton'
+     save_
+
+save__em_entity_assembly.cellular_location
+    _item_description.description
+;   The cellular location of the component.
+;
+    _item.name                  '_em_entity_assembly.cellular_location'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case          
+           'cytoplasm'
+           'endoplasmic reticulum'
+           'plasma membrane'
+     save_
+
+save__em_entity_assembly.engineered_flag
+    _item_description.description
+;    A flag to indicate whether the component is engineered.
+;
+    _item.name                  '_em_entity_assembly.engineered_flag'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_enumeration.value
+                YES
+                NO
+     save_
+
+save__em_entity_assembly.expression_system
+    _item_description.description
+;   The expression system used to produce the component.
+;
+    _item.name                  '_em_entity_assembly.expression_system'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case          
+            'escherichia coli'
+            'saccharomyces cerevisiae'
+     save_
+
+save__em_entity_assembly.expression_system_plasmid
+    _item_description.description
+;   The plasmid used in the expression system used to produce the component.
+;
+    _item.name                  '_em_entity_assembly.expression_system_plasmid'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case          
+           'pBR322'
+           'pMB9'
+     save_
+
+save__em_entity_assembly.go_id
+    _item_description.description
+; Gene Ontology (GO) identifier for the component.
+  The GO id is the appropriate identifier used by the Gene Ontology
+  Consortium. Reference: Nature Genetics vol 25:25-29 (2000).
+;
+    _item.name                  '_em_entity_assembly.go_id'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_examples.case          
+           'GO:0005876'
+           'GO:0015630'
+     save_
+
+save__em_entity_assembly.ipr_id
+    _item_description.description
+;  The  InterPro (IPR) accession id for a protein component.
+   The IPR id (IPRXXXXXX) is the appropriate identifier used by the Interpro Resource.
+   Reference: Nucleic Acid Research vol 29(1):37-40(2001).
+;
+    _item.name                  '_em_entity_assembly.ipr_id'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               code
+     loop_
+    _item_examples.case          
+              'IPR001304'
+              'IPR002353'
+     save_
+
+save__em_entity_assembly.ncbi_taxonomy_id
+    _item_description.description
+;  The NCBI taxonomy id for the natural organism source of the component.
+;
+    _item.name                  '_em_entity_assembly.ncbi_taxonomy_id'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               int
+     loop_
+    _item_examples.case          
+              '10804'
+              '9606'
+     save_
+
+
+save__em_entity_assembly.synonym
+    _item_description.description
+;             Alternative name of the component.
+;
+    _item.name                  '_em_entity_assembly.synonym'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               line
+    _item_examples.case          'FADV-1'
+     save_
+
+save__em_entity_assembly.mutant_flag
+    _item_description.description
+;   mutant flag
+;
+    _item.name                  '_em_entity_assembly.mutant_flag'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             line
+     loop_
+    _item_enumeration.value
+             YES 
+             NO
+     save_
+
+save__em_entity_assembly.number_of_copies
+        _item_description.description
+;   number of copies of the component in the studied biological assembly
+;
+    _item.name                  '_em_entity_assembly.number_of_copies'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             int
+     save_
+
+save__em_entity_assembly.oligomeric_details
+    _item_description.description
+;   oligomeric details
+;
+    _item.name                  '_em_entity_assembly.oligomeric_details'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__em_entity_assembly.entity_list
+    _item_description.description
+;   Defined biopolymers and non-polymer-ligands belonging to this component.
+    This item may be expressed as a comma-separated list.
+    Listed ids point to _entity.id in the ENTITY category.
+;
+    _item.name                  '_em_entity_assembly.entity_list'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+
+save__em_entity_assembly.mol_wt
+    _item_description.description
+;    The molecular weight (in megadaltons) of the assembly component.
+;
+    _item.name                   '_em_entity_assembly.mol_wt'
+    _item.category_id            em_entity_assembly
+    _item.mandatory_code         no
+    _item_type.code              float
+    _item_units.code             megadaltons
+      save_
+
+save__em_entity_assembly.mol_wt_method
+    _item_description.description
+;    Identifies how the molecular weight for the given assembly component 
+     was determined.
+;
+    _item.name                   '_em_entity_assembly.mol_wt_method'
+    _item.category_id             em_entity_assembly
+    _item.mandatory_code          no
+    _item_type.code               text
+      save_
+
+save__em_entity_assembly.entity_parent_id
+        _item_description.description
+;  id of parent assembly, if present/defined.
+   This item is a self-referencing pointer to _em_entity_assembly.id in
+   the EM_ENTITY_ASSEMBLY category.
+   This data item  enables hierarchical descriptions
+   of components in the studied biological assembly.
+;
+    _item.name                  '_em_entity_assembly.entity_parent_id'
+    _item.category_id           em_entity_assembly
+    _item.mandatory_code        no
+    _item_type.code             int
+     save_
+
+
+#####################
+## EM_VIRUS_ENTITY ##
+#####################
+# new:
+# .virus_host_ncbi_taxonomy_id
+
+save_em_virus_entity
+    _category.description
+;   Data items in the EM_VIRUS_ENTITY category record details of a virus entity.
+;   
+    _category.id                  em_virus_entity
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          
+                                '_em_virus_entity.id'
+                                '_em_virus_entity.entity_assembly_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'em_group'
+                                 'em_group_da'
+                                 'em_sample'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 1DYL and laboratory records for the
+             structure corresponding to PDB entry 1DYL
+; 
+;  loop_
+   _em_virus_entity.id
+   _em_virus_entity.entity_assembly_id
+   _em_virus_entity.virus_host_category
+   _em_virus_entity.virus_host_species
+   _em_virus_entity.virus_host_ncbi_taxonomy_id
+   _em_virus_entity.virus_type
+   _em_virus_entity.virus_isolate
+   _em_virus_entity.enveloped
+   _em_virus_entity.empty
+   1 1  'VERTERBRATES' 'HOMO SAPIENS' 'VIRUS' 'STRAIN'  'YES' 'NO'
+;
+     save_
+
+save__em_virus_entity.id
+    _item_description.description
+;   Is the unique identifier for VIRUS_ENTITY category.
+;
+    _item.name                    '_em_virus_entity.id'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          yes
+    _item_type.code               code
+      save_
+
+save__em_virus_entity.virus_host_category
+    _item_description.description
+;   The host category description for the virus.
+;
+    _item.name                  '_em_virus_entity.virus_host_category'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case
+        ALGAE   
+        ARCHAEA  
+        'BACTERIA(EUBACTERIA)'
+        FUNGI
+        INVERTEBRATES
+        'PLANTAE (HIGHER PLANTS)'
+        PROTOZOA
+        VERTEBRATES
+     save_
+
+save__em_virus_entity.virus_host_species
+    _item_description.description
+;  The host species from which the virus was isolated.
+;
+    _item.name                  '_em_virus_entity.virus_host_species'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case          
+          'homo sapiens'
+          'gallus gallus'
+     save_
+
+save__em_virus_entity.virus_host_ncbi_taxonomy_id
+    _item_description.description
+;  The NCBI taxonomy of the host species from which the virus was isolated.
+;
+    _item.name                  '_em_virus_entity.virus_host_ncbi_taxonomy_id'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               int
+     save_
+
+
+save__em_virus_entity.virus_host_growth_cell
+    _item_description.description
+;   The host cell from which the virus was isolated.
+;
+    _item.name                  '_em_virus_entity.virus_host_growth_cell'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case          
+           'HELA'
+           'CHO'
+     save_
+
+
+save__em_virus_entity.virus_type
+    _item_description.description
+;   The type of virus.
+;
+    _item.name                  '_em_virus_entity.virus_type'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_examples.case
+        VIRION
+        SATELLITE 
+        PRION
+        VIROID
+        'VIRUS-LIKE PARTICLE'
+     save_
+
+save__em_virus_entity.virus_isolate
+    _item_description.description
+;   The isolate from which the virus was obtained.
+;
+    _item.name                  '_em_virus_entity.virus_isolate'
+    _item.category_id             em_virus_entity
+    _item.mandatory_code          no
+    _item_type.code               line
+     loop_
+    _item_enumeration.value
+        STRAIN  
+        SEROTYPE 
+        SEROCOMPLEX
+        SUBSPECIES
+        SPECIES
+        OTHER
+     save_
+
+save__em_virus_entity.entity_assembly_id
+    _item_description.description
+;    This data item is a pointer to _em_virus_entity.id in the 
+     ENTITY_ASSEMBLY category.
+;
+    _item.name                   '_em_virus_entity.entity_assembly_id'
+    _item.category_id              em_virus_entity
+    _item.mandatory_code           yes
+    _item_type.code                code
+      save_
+
+save__em_virus_entity.enveloped
+    _item_description.description
+;    Flag to indicate if the virus is enveloped or not.
+;
+    _item.name                   '_em_virus_entity.enveloped'
+    _item.category_id              em_virus_entity
+    _item.mandatory_code           no
+    _item_type.code                code
+     loop_
+    _item_enumeration.value
+        YES
+        NO
+      save_
+
+save__em_virus_entity.empty
+    _item_description.description
+;  Flag to indicate whether the virus interior is empty or not.
+;
+    _item.name                   '_em_virus_entity.empty'
+    _item.category_id              em_virus_entity
+    _item.mandatory_code           no
+    _item_type.code                code
+    loop_
+    _item_enumeration.value
+        YES
+        NO
+      save_
+
+save__em_virus_entity.details
+    _item_description.description
+;    Additional details about this virus entity
+;
+    _item.name                   '_em_virus_entity.details'
+    _item.category_id              em_virus_entity
+    _item.mandatory_code           no
+    _item_type.code                text
+      save_
+
+##########################
+## EM_ICOS_VIRUS_SHELLS ##
+##########################
+# changes: .triangulation_num changed from int to code to allow d/l after integer
+
+save_em_icos_virus_shells
+    _category.description
+;   Data items in the EM_ICOS_VIRUS_SHELLS category record details
+    of the viral shell number, diameter of each shell and triangulation number.
+;
+    _category.id                  em_icos_virus_shells
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          
+                                '_em_icos_virus_shells.virus_entity_id'
+                                '_em_icos_virus_shells.id'
+     loop_
+    _category_group.id           
+                             'inclusive_group'
+                             'em_group'
+                             'em_group_da'
+                             'em_sample'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; Example 1 - based on PDB entry 1DYL and laboratory records for the
+             structure corresponding to PDB entry 1DYL
+; 
+;  loop_
+   _em_icos_virus_shells.virus_entity_id
+   _em_icos_virus_shells.id
+   _em_icos_virus_shells.shell_diameter
+   _em_icos_virus_shells.triangulation_num
+     1 1 400 4
+;
+     save_
+
+save__em_icos_virus_shells.virus_entity_id
+    _item_description.description
+;    The value of _em_icos_virus_shells.virus_entity_id is
+     a pointer to _em_virus_entity.id in the VIRUS_ENTITY
+     category.
+;
+    _item.name                   '_em_icos_virus_shells.virus_entity_id'
+    _item.category_id              em_icos_virus_shells
+    _item.mandatory_code           yes
+    _item_type.code                code
+    _item_linked.child_name       '_em_icos_virus_shells.virus_entity_id'
+    _item_linked.parent_name      '_em_virus_entity.id'
+      save_
+
+
+save__em_icos_virus_shells.id
+    _item_description.description
+;    The value of _em_em_icos_virus_shells.id must uniquely identify
+     the number and diameter of each virus protein shell and its
+     triangulation number.
+;
+    _item.name                   '_em_icos_virus_shells.id'
+    _item.category_id              em_icos_virus_shells
+    _item.mandatory_code           yes
+    _item_type.code                code
+      save_
+
+save__em_icos_virus_shells.shell_diameter
+    _item_description.description
+;   The value of the diameter (in angstroms) for each protein shell of the virus.     
+;
+    _item.name                   '_em_icos_virus_shells.shell_diameter'
+    _item.category_id              em_icos_virus_shells
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_units.code               angstroms
+      save_
+
+save__em_icos_virus_shells.triangulation_num
+    _item_description.description
+;   The triangulation number (T number) is a geometric 
+    concept that refers to the organisation of subunits within the icosahedron.
+    The triangulation number, T is given by the relationship 
+    T= h*2 + hk +k*2,  where h and k are positive integers which define the 
+    position of the five-fold vertex on the original hexagonal net.
+    The absolute hand is indicated by "d" or "l" after the T-number.
+;
+    _item.name                   '_em_icos_virus_shells.triangulation_num'
+    _item.category_id              em_icos_virus_shells
+    _item.mandatory_code           no
+    _item_type.code                code     
+    loop_
+    _item_examples.case            
+         27
+         7d
+         7l
+
+   save_
+
