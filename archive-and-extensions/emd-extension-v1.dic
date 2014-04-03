@@ -1,0 +1,1153 @@
+###########################################################################
+#
+# File:  emd-extension-v1.dic                                             
+# 
+#               PDBx Categories specific for
+#               3-Dimensional Electron Microscopy Map entries (EMD)
+#
+#               for the wwPDB Deposition & Annotation System 
+#                            
+###########################################################################
+# August 23, 2012 draft--CLL
+# August 24, 2012 additional updates by JW and CLL
+
+
+##########
+## EMD  ##
+##########
+
+save_emd
+    _category.description
+;   Data items in the EMD category record the EM experimental map volume entry id 
+    and the title of the map entry
+;
+    _category.id                 emd
+    _category.mandatory_code     no
+    _category_key.name            '_emd.emd_entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'emd_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+; example 1 
+;
+;   _emd.emd_entry_id    EMD-5001
+    _emd.title       'Native unliganded GroEL, D7 symmetrized'
+;
+    save_
+
+save__emd.emd_entry_id
+    _item_description.description
+;   This data item is a pointer to the ENTRY category.
+;
+    _item.name                   '_emd.emd_entry_id'
+    _item.category_id              emd
+    _item.mandatory_code           yes
+    _item_type.code                code
+#    _item_linked.child_name     '_emd.emd_entry_id'
+#    _item_linked.parent_name    '_entry.id'       
+      save_
+
+save__emd.title
+    _item_description.description
+;   Title of the map entry
+;
+    _item.name                  '_emd.title'
+    _item.category_id           emd
+    _item.mandatory_code        yes
+    _item_type.code             line
+     save_
+
+
+##############
+## EMD_MAP  ##
+##############
+
+save_emd_map
+    _category.description
+;   Data items in the EMD_MAP category record parameters of the binary CCP4-format map header  
+    (see ftp://ftp.wwpdb.org/pub/emdb/doc/map_format/EMDB_mapFormat_v1.0.pdf),
+    parameters derived from the map header, and additional basic information about the map. 
+    The map is a three-dimensional array of data-values of the same data-type. 
+    Important parameters are data-type and  array size in three dimensions 
+    (i.e. the number of columns, rows and sections).
+    Columns are the fastest changing, followed by rows and sections. 
+    When a 3DEM map is deposited along with fitted atomic model coordinates, 
+    the map orientation/position, which is encoded in the header parameters,
+    and the models must be deposited in a common coordinate frame.
+;
+    _category.id                  emd_map
+    _category.mandatory_code      no
+    _category_key.name           '_emd_map.emd_entry_id'
+     loop_
+    _category_group.id
+                                 'inclusive_group'
+                                 'emd_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;Example 1 - based on map entry EMD-5001
+;
+;   _emd_map.emd_entry_id         EMD-5001
+    _emd_map.annotation_details   'D7 structure of Groel at 4.2 Angstrom resolution'
+    _emd_map.format               CCP4
+    _emd_map.sizeKb               32002
+    _emd_map.axisOrderFast        X
+    _emd_map.axisOrderMedium      Y
+    _emd_map.axisOrderSlow        Z
+    _emd_map.cell_angle_alpha     90
+    _emd_map.cell_angle_beta      90
+    _emd_map.cell_angle_gamma     90
+    _emd_map.cell_length_a        212.0
+    _emd_map.cell_length_b        212.0
+    _emd_map.cell_length_c        212.0
+    _emd_map.data_type           'Image stored as Reals'
+    _emd_map.num_columns          200
+    _emd_map.num_rows             200
+    _emd_map.num_sections         200
+    _emd_map.origin_column        -100
+    _emd_map.origin_row           -100
+    _emd_map.origin_section       -100
+    _emd_map.pixel_x              1.06
+    _emd_map.pixel_y              1.06
+    _emd_map.pixel_z              1.06
+    _emd_map.spaceGroupNumber     1
+    _emd_map.spacing_x            200
+    _emd_map.spacing_y            200
+    _emd_map.spacing_z            200
+    _emd_map.density_min          -0.965912
+    _emd_map.density_max           2.42436
+    _emd_map.density_mean          0.0668982
+    _emd_map.density_stddev        0.23771
+;
+     save_
+
+save__emd_map.emd_entry_id
+    _item_description.description
+;   This data item is a pointer to the EMD_ENTRY category.
+;
+    _item.name                   '_emd_map.emd_entry_id'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+#    _item_linked.child_name     '_emd_map.emd_entry_id'
+#    _item_linked.parent_name    '_entry.id'
+      save_
+
+save__emd_map.annotation_details
+    _item_description.description
+;   map annotation details
+;
+    _item.name                  '_emd_map.annotation_details'
+    _item.category_id           emd_map
+    _item.mandatory_code        no
+    _item_type.code             text
+     save_
+
+save__emd_map.format
+    _item_description.description
+;   map format
+;
+    _item.name                  '_emd_map.format'
+    _item.category_id           emd_map
+    _item.mandatory_code        yes
+    _item_type.code             text
+     loop_
+    _item_enumeration.value
+         CCP4
+     save_
+
+save__emd_map.sizeKb
+    _item_description.description
+;   map storage size in Kilobytes (before compression)
+;
+    _item.name                  '_emd_map.sizeKb'
+    _item.category_id           emd_map
+    _item.mandatory_code        yes
+    _item_type.code             int
+     save_
+
+save__emd_map.axisOrderFast
+    _item_description.description
+;    The map axis that corresponds to Columns.
+     (CCP4 HEADER WORD 17 MAPC 1=X, 2=Y, 3=Z)
+;
+    _item.name                   '_emd_map.axisOrderFast'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+     loop_
+    _item_enumeration.value
+         X
+         Y
+         Z
+      save_
+
+save__emd_map.axisOrderMedium
+    _item_description.description
+;    The map axis that corresponds to Rows.
+     (CCP4 MAP HEADER WORD 18 MAPR 1=X, 2=Y, 3=Z)
+;
+    _item.name                   '_emd_map.axisOrderMedium'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+     loop_
+    _item_enumeration.value
+         X
+         Y
+         Z
+      save_
+
+save__emd_map.axisOrderSlow
+    _item_description.description
+;    The map axis that corresponds to Sections.
+     (CCP4 MAP HEADER WORD 19 MAPS 1=X, 2=Y, 3=Z)
+;
+    _item.name                   '_emd_map.axisOrderSlow'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                code
+     loop_
+    _item_enumeration.value
+         X
+         Y
+         Z
+      save_
+
+save__emd_map.cell_angle_alpha
+    _item_description.description
+;    Value of map unit cell angle parameter alpha in degrees.
+     (CCP4 MAP HEADER WORD 14)
+;
+    _item.name                   '_emd_map.cell_angle_alpha'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               degrees
+    _item_range.maximum            180.0
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.cell_angle_beta
+    _item_description.description
+;    Value of map unit cell angle parameter beta in degrees.
+     (CCP4 MAP HEADER WORD 15)
+;
+    _item.name                   '_emd_map.cell_angle_beta'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               degrees
+    _item_range.maximum            180.0
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.cell_angle_gamma
+    _item_description.description
+;    Value of map unit cell angle parameter gamma in degrees.
+     (CCP4 MAP HEADER WORD 16)
+;
+    _item.name                   '_emd_map.cell_angle_gamma'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               degrees
+    _item_range.maximum            180.0
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.cell_length_a
+    _item_description.description
+;     Map unit cell length parameter a.
+      (CCP4 MAP HEADER WORD 11)
+;
+    _item.name                   '_emd_map.cell_length_a'
+    _item.category_id              emd_map
+    _item.mandatory_code            yes
+    _item_type.code                float
+    _item_units.code               angstroms
+    _item_range.maximum               .
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.cell_length_b
+    _item_description.description
+;     Map unit cell length parameter b.
+      (CCP4 MAP HEADER WORD 12)
+;
+    _item.name                   '_emd_map.cell_length_b'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               angstroms
+    _item_range.maximum               .
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.cell_length_c
+    _item_description.description
+;     Map unit cell length parameter c.
+      (CCP4 MAP HEADER WORD 13)
+;
+    _item.name                   '_emd_map.cell_length_c'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                float
+    _item_units.code               angstroms
+    _item_range.maximum               .
+    _item_range.minimum              0.0
+      save_
+
+save__emd_map.data_type
+    _item_description.description
+;   The map data_type describes the data structure of the map voxels.
+    (CCP4 MAP HEADER WORD 4 MODE)
+    EMDB currently holds MODE=0,1,and 2 maps; the majority are MODE=2.
+    MAPS with MODES other than 2 and 0 may not work in CCP4 programs.
+    MODE = 0: 8 bits, density stored as a signed byte (-128 to 127, ISO/IEC 10967)
+    MODE = 1: 16 bits, density stored as a signed integer (-32768 to 32767, ISO/IEC 10967)
+    MODE = 2: 32 bits, density stored as a floating point number (IEEE 754)
+
+    additional possible modes (not currently supported):
+    MODE = 3: 32 bits, Fourier transform stored as complex signed integers (ISO/IEC 10967)
+    MODE = 4: 64 bits, Fourier transform stored as complex floating point numbers (IEEE 754)
+;
+    _item.name                   '_emd_map.data_type'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                line
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail
+        'signed byte'           'MODE = 0'
+        'integer (16-bit)'      'MODE = 1'
+        'Image stored as Reals' 'MODE = 2'
+      save_
+
+save__emd_map.details
+    _item_description.description
+;    Annotation details about the map.
+;
+    _item.name                   '_emd_map.details'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                text
+      save_
+
+save__emd_map.num_columns
+    _item_description.description
+;     The number of columns in the map.
+      (CCP4 MAP HEADER WORD 1 NC)
+;
+    _item.name                   '_emd_map.num_columns'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.num_rows
+    _item_description.description
+;     The number of rows in the map.
+      (CCP4 MAP HEADER WORD 2 NR)
+;
+    _item.name                   '_emd_map.num_rows'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.num_sections
+    _item_description.description
+;     The number of sections in the map.
+      (CCP4 MAP HEADER WORD 3 NS)
+;
+    _item.name                   '_emd_map.num_sections'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.origin_column
+    _item_description.description
+;    The position of the first column of the map relative to the
+     Cartesian coordinate origin in voxel grid units.
+     (CCP4 MAP HEADER WORD 5 NCSTART)
+;
+    _item.name                   '_emd_map.origin_column'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int 
+      save_
+
+save__emd_map.origin_row
+    _item_description.description
+;    The position of the first row of the map relative to the
+     Cartesian coordinate origin in voxel grid units.
+     (CCP4 MAP HEADER WORD 6 NRSTART)
+;
+    _item.name                   '_emd_map.origin_row'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.origin_section
+    _item_description.description
+;    The position of the first section of the map relative to the
+     Cartesian coordinate origin in voxel grid units.
+     (CCP4 MAP HEADER WORD 7 NSSTART)
+;
+    _item.name                   '_emd_map.origin_section'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.pixel_x
+    _item_description.description
+;    The length in Angstroms of one voxel along the X axis.
+
+     ***  soft limit maximum  ~5 A.
+;
+    _item.name                   '_emd_map.pixel_x'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_range.maximum            .
+    _item_range.minimum            0.0
+      save_
+
+save__emd_map.pixel_y
+    _item_description.description
+;    The length in Angstroms of one voxel along the Y axis.
+
+     *** soft limit maximum  ~5 A.
+;
+    _item.name                   '_emd_map.pixel_y'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_range.maximum            .
+    _item_range.minimum            0.0
+      save_
+
+save__emd_map.pixel_z
+    _item_description.description
+;    The length in Angstroms of one voxel along the Z axis.
+
+     *** soft limit maximum  ~5 A.
+;
+    _item.name                   '_emd_map.pixel_z'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+    _item_range.maximum            .
+    _item_range.minimum            0.0
+      save_
+
+save__emd_map.spaceGroupNumber
+    _item_description.description
+;    The space group number for the map.
+     The value is 1 unless the sample is crystalline.
+     (CCP4 MAP HEADER WORD 23 ISPG)
+;
+    _item.name                   '_emd_map.spaceGroupNumber'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                line
+      save_
+
+save__emd_map.spacing_x
+    _item_description.description
+;    The number of intervals per cell repeat in X.
+     (CCP4 MAP HEADER WORD 8 NX)
+;
+    _item.name                   '_emd_map.spacing_x'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.spacing_y
+    _item_description.description
+;    The number of intervals per cell repeat in Y.
+     (CCP4 MAP HEADER WORD 9 NY)
+;
+    _item.name                   '_emd_map.spacing_y'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int
+      save_
+
+save__emd_map.spacing_z
+    _item_description.description
+;    The number of intervals per cell repeat in Z.
+     (CCP4 MAP HEADER WORD 9 NZ)
+;
+    _item.name                   '_emd_map.spacing_z'
+    _item.category_id              emd_map
+    _item.mandatory_code           yes
+    _item_type.code                int 
+      save_
+
+save__emd_map.density_min
+    _item_description.description
+;    Minimum density value of the map.
+;
+    _item.name                   '_emd_map.density_min'
+    _item.category_id              emd_map
+    _item.mandatory_code           no 
+    _item_type.code                float
+      save_
+
+save__emd_map.density_max
+    _item_description.description
+;    Maximum density value of the map.
+;
+    _item.name                   '_emd_map.density_max'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__emd_map.density_mean
+    _item_description.description
+;    Mean (average) density value of the map.
+;
+    _item.name                   '_emd_map.density_mean'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+save__emd_map.density_stddev
+    _item_description.description
+;    The standard deviation of the map density values.
+;
+    _item.name                   '_emd_map.density_stddev'
+    _item.category_id              emd_map
+    _item.mandatory_code           no
+    _item_type.code                float
+      save_
+
+
+#################
+## EMD_CONTOUR ##
+#################
+
+save_emd_contour
+    _category.description
+;          Data items in the EMD_CONTOUR category record
+           contour levels for viewing the 3D map of the entry. 
+
+;
+    _category.id                  emd_contour
+    _category.mandatory_code      no
+    _category_key.name         
+                                '_emd_contour.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'emd_group'
+    save_
+
+save__emd_contour.id
+    _item_description.description
+;   _emd_contour.id is a unique identifier for each recorded contour level.
+;
+    _item.name                   '_emd_contour.id'
+    _item.category_id             emd_contour
+    _item.mandatory_code          yes
+    _item_type.code               int
+      save_
+
+save__emd_contour.level
+    _item_description.description
+;    Contour level to be used in the depiction of this map.
+;
+    _item.name                   '_emd_contour.level'
+    _item.category_id              emd_contour
+    _item.mandatory_code           no
+    _item_type.code                float
+    save_
+
+save__emd_contour.source
+    _item_description.description
+;    Information source for the contour level.
+;
+    _item.name                   '_emd_contour.source'
+    _item.category_id              emd_contour
+    _item.mandatory_code           no
+    _item_type.code                line
+    loop_
+    _item_enumeration.value
+            Author
+            EMDB
+            Other
+    save_
+
+save__emd_contour.details
+    _item_description.description
+;    Information source for the contour level.
+;
+    _item.name                   '_emd_contour.details'
+    _item.category_id              emd_contour
+    _item.mandatory_code           no
+    _item_type.code                text
+    save_
+
+
+
+###############
+## EMD_FILES ##
+###############
+
+save_emd_files
+    _category.description
+;  Listing of all files associated with the map entry 
+;
+    _category.id                  emd_files
+    _category.mandatory_code      no
+    _category_key.name           '_emd_files.id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'emd_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+;   Example 1 - entry with FSC and image files. 
+;
+;loop_
+  _emd_files.id
+  _emd_files.type
+  _emd_files.file_name
+  1    Map         emd_1133.map.gz
+  2    'FSC curve' emd_1133_fsc.xml
+  3    Figure      emd_1133.png
+;
+     save_
+
+save__emd_files.id
+   _item_description.description
+;  This data item is the unique identifier for file associated
+   with a deposited 3DEM map volume.
+;
+    _item.name                   '_emd_files.id'
+    _item.category_id              emd_files
+    _item.mandatory_code           yes
+    _item_type.code                code
+     save_
+
+save__emd_files.type
+   _item_description.description
+;  The type of file associated with the map entry
+;
+#In future will want to add segmentation
+
+    _item.name                   '_emd_files.type'
+    _item.category_id              emd_files
+    _item.mandatory_code           yes
+    _item_type.code                line
+    loop_
+    _item_enumeration.value
+      Map
+      Mask
+      Image
+     'Layer Lines'
+     'Structure Factors'
+     'FSC curve'
+      Other
+     save_
+
+save__emd_files.file_name
+   _item_description.description
+;  The type of file associated with the map entry
+;
+    _item.name                   '_emd_files.file_name'
+    _item.category_id              emd_files
+    _item.mandatory_code           yes
+    _item_type.code                line
+     save_
+
+
+####################
+## EMD_STATUS     ##
+####################
+
+save_emd_status
+    _category.description
+;  Entry release dates
+;
+    _category.id                emd_status
+    _category.mandatory_code    no
+    _category_key.name         '_emd_status.emd_entry_id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'emd_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+ _emd_status.emd_entry_id       EMD-5001
+ _emd_status.current_status     REL
+ _emd_status.last_update        2011-05-22
+ _emd_status.deposition_date    2008-12-01
+ _emd_status.map_release_date   2009-12-01
+ _emd_status.details            .
+;
+    save_
+
+save__emd_status.emd_entry_id
+    _item_description.description
+;   This data item is a pointer to _emd_entry.id in the EMD_ENTRY category.
+;
+    _item.name                 '_emd_status.emd_entry_id'
+    _item.category_id          emd_status
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__emd_status.current_status
+    _item_description.description
+;   This data item indicates the current status of the entry. 
+;
+    _item.name                 '_emd_status.current_status'
+    _item.category_id          emd_status
+    _item.mandatory_code       yes
+    _item_type.code            code
+    loop_
+    _item_enumeration.value
+     PROC
+     WAIT
+     AUTH
+     HPUB
+     HOLD1
+     REL
+     WDRN
+     OBS
+    save_
+
+save__emd_status.last_update
+     _item_description.description
+;    date of last update to the file
+;
+     _item.name                  '_emd_status.last_update'
+     _item.category_id           emd_status
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+save__emd_status.deposition_date
+     _item_description.description
+;    date of the entry deposition
+;
+     _item.name                  '_emd_status.deposition_date'
+     _item.category_id           emd_status
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+save__emd_status.header_release_date
+     _item_description.description
+;    date of map header release for this entry
+;
+     _item.name                  '_emd_status.header_release_date'
+     _item.category_id           emd_status
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+save__emd_status.map_release_date
+     _item_description.description
+;    date of map release for this entry
+;
+     _item.name                  '_emd_status.map_release_date'
+     _item.category_id           emd_status
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+save__emd_status.obsoleted_date
+     _item_description.description
+;    date that map entry was obsoleted 
+;
+     _item.name                  '_emd_status.obsoleted_date'
+     _item.category_id           emd_status
+     _item.mandatory_code        no
+     _item_type.code             yyyy-mm-dd
+     save_
+
+
+
+#########################
+## EMD_STATUS_HISTORY  ##
+#########################
+
+save_emd_status_history
+    _category.description
+;  Status history, this category not for public release
+;
+    _category.id                emd_status_history
+    _category.mandatory_code    no
+    _category_key.name         '_emd_status_history.id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'emd_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+ loop_
+ _emd_status_history.id  
+ _emd_status_history.date
+ _emd_status_history.code 
+ _emd_status_history.processing_site  
+ _emd_status_history.annotator_initials
+ _emd_status_history.details
+ 1 2006-05-04 PROC PDBe CJH .
+ 2 2006-05-05 WAIT PDBe CJH .
+ 3 2006-05-06 AUTH PDBe CJH .
+ 4 2006-05-07 HPUB PDBe CJH .
+ 5 2006-05-08 REL PDBe  CJH .
+ 6 2006-05-09 REL PDBe CRL "Pixel size corrected"
+;
+    save_
+
+save__emd_status_history.id
+    _item_description.description
+;   This data item is the unique identifier for each status history update.
+;
+    _item.name                 '_emd_status_history.id'
+    _item.category_id          emd_status_history
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__emd_status_history.date
+        _item_description.description
+;   status history update date.
+;
+        _item.name                  '_emd_status_history.date'
+        _item.category_id           emd_status_history
+        _item.mandatory_code        yes
+        _item_type.code             yyyy-mm-dd
+        save_
+
+save__emd_status_history.code
+    _item_description.description
+;   This data item indicates the updated status of the entry.
+;
+    _item.name                 '_emd_status_history.code'
+    _item.category_id          emd_status_history
+    _item.mandatory_code       yes
+    _item_type.code            code
+    loop_
+    _item_enumeration.value
+     PROC
+     WAIT
+     AUTH
+     HPUB
+     HOLD1
+     HOLD2
+     HOLD4
+     REL
+     OBS
+     WDRN
+    save_
+
+save__emd_status_history.processing_site
+    _item_description.description
+;   This data item indicates the processing site that updated the entry.
+;
+    _item.name                 '_emd_status_history.processing_site'
+    _item.category_id          emd_status_history
+    _item.mandatory_code       no
+    _item_type.code            code
+    loop_
+    _item_enumeration.value
+     PDBe
+     PDBj
+     RCSB
+    save_
+
+save__emd_status_history.annotator_initials
+    _item_description.description
+;   This data item indicates the processing site that updated the entry.
+;
+    _item.name                 '_emd_status_history.annotator_initials'
+    _item.category_id          emd_status_history
+    _item.mandatory_code       no
+    _item_type.code            code
+    save_ 
+
+
+
+save__emd_status_history.details
+    _item_description.description
+;   This data item indicates the processing site that updated the entry.
+;
+    _item.name                 '_emd_status_history.details'
+    _item.category_id          emd_status_history
+    _item.mandatory_code       no
+    _item_type.code            line
+    save_
+
+
+##############################
+## EMD_OBSOLETE_SUPERSEDE   ##
+##############################
+
+save_emd_obsolete_supersede
+    _category.description
+;  Obsolete/Supercede information for this entry.
+;
+    _category.id                emd_obsolete_supersede
+    _category.mandatory_code    no
+    loop_
+    _category_key.name         '_emd_obsolete_supersede.id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'emd_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1-- obsolete/supersede info for example entry'
+;
+ loop_
+ _emd_obsolete_supersede.id 
+ _emd_obsolete_supersede.date  
+ _emd_obsolete_supersede.obsoleted_emd_entry_id 
+ _emd_obsolete_supersede.superseding_emd_entry_id 
+ _emd_obsolete_supersede.details 
+ 1 2006-05-08 EMD-0002 EMD-0133 "author request"
+;
+    save_
+
+save__emd_obsolete_supersede.id
+    _item_description.description
+;   Unique identifier for obsolete and/or supersede information related 
+    to this entry.
+;
+    _item.name                 '_emd_obsolete_supersede.id'
+    _item.category_id          emd_obsolete_supersede
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+save__emd_obsolete_supersede.obsoleted_emd_entry_id
+    _item_description.description
+;   The entry id of the map volume that has been obsoleted.
+;
+    _item.name                 '_emd_obsolete_supersede.obsoleted_emd_entry_id'
+    _item.category_id          emd_obsolete_supersede
+    _item.mandatory_code       no
+    _item_type.code            code
+    save_
+
+save__emd_obsolete_supersede.supersede_emd_entry_id
+    _item_description.description
+;   Entry id of the map volume that supersedes the obsoleted entry,
+    if any.
+;
+    _item.name                 '_emd_obsolete_supersede.supersede_emd_entry_id'
+    _item.category_id          emd_obsolete_supersede
+    _item.mandatory_code       no
+    _item_type.code            code
+    save_
+
+save__emd_obsolete_supersede.date
+    _item_description.description
+;   The date of that the entry was obsoleted or that the
+    entry superseded a previous entry.
+;
+    _item.name                 '_emd_obsolete_supersede.date'
+    _item.category_id          emd_obsolete_supersede
+    _item.mandatory_code       no
+    _item_type.code            code
+    save_
+
+save__emd_obsolete_supersede.details
+    _item_description.description
+;   Reason for the obsolete/supersede.
+;
+    _item.name                 '_emd_obsolete_supersede.details'
+    _item.category_id          emd_obsolete_supersede
+    _item.mandatory_code       no
+    _item_type.code            text
+    save_
+
+
+#####################
+## EMD_AUXILIARY   ##
+#####################
+
+save_emd_auxiliary
+    _category.description
+;  Category holds links to auxiliary data sources for the entry, e.g., raw data files
+   held by a remote server.
+;
+    _category.id                emd_auxiliary
+    _category.mandatory_code    no
+    _category_key.name         '_emd_auxiliary.id'
+    loop_
+    _category_group.id         'inclusive_group'
+                               'emd_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1'
+;
+ loop_
+ _emd_auxiliary.id
+ _emd_auxiliary.link
+ _emd_auxiliary.link_data_type 
+ _emd_auxiliary.details
+ 1 http://www.ebi.ac.uk/pdbe/emdb/singleParticledir/SPIDER_FRANK_data  "raw particle images" .
+;
+    save_
+
+save__emd_auxiliary.id
+    _item_description.description
+;   Unique identifier for a provided link.
+;
+    _item.name                 '_emd_auxiliary.id'
+    _item.category_id          emd_auxiliary
+    _item.mandatory_code       yes
+    _item_type.code            code
+    save_
+
+
+save__emd_auxiliary.link
+    _item_description.description
+;   Hyperlink to the auxiliary data.
+;
+    _item.name                 '_emd_auxiliary.link'
+    _item.category_id          emd_auxiliary
+    _item.mandatory_code       yes
+    _item_type.code            code
+# possible to have a link-specific type? pattern: (https?|ftp)://.*
+    save_
+
+save__emd_auxiliary.link_data_type
+    _item_description.description
+;   Type of auxiliary data stored at the indicated link. 
+;
+    _item.name                 '_emd_auxiliary.link_data_type'
+    _item.category_id          emd_auxiliary
+    _item.mandatory_code       yes
+    _item_type.code            text
+    loop_
+    _item_enumeration.value
+         '2D EM Data'
+         'Correlative Light Microscopy'
+    save_
+
+save__emd_auxiliary.details
+    _item_description.description
+;   Additional details about the auxiliary data.
+;
+    _item.name                 '_emd_auxiliary.details'
+    _item.category_id          emd_auxiliary
+    _item.mandatory_code       no
+    _item_type.code            text
+    save_
+
+############################
+## EMD_DATABASE_RELATED   ##
+############################
+
+save_emd_database_related
+    _category.description
+;  Data items in EMD_DATABASE_RELATED reference entries in
+   other structural databases related to this map entry. 
+   Flags indicate whether the related entry is a fitted coordinate model of the map,
+   and/or whether the related entry is defined in the same coordinate frame as the map.
+;
+    _category.id                emd_database_related
+    _category.mandatory_code    no
+    loop_
+    _category_key.name         '_emd_database_related.db_name'
+                               '_emd_database_related.db_id'
+    
+    loop_
+    _category_group.id         'inclusive_group'
+                               'emd_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+'Example 1 -- related entries for ribosome map EMD-5386'
+;
+loop_  
+ _emd_database_related.db_name 
+ _emd_database_related.db_id
+ _emd_database_related.relationship 
+ _emd_database_related.details 
+ PDB 3J18 'Fitted Model In Frame' 'associated 30S subunit and ligands' 
+ PDB 3J19 'Fitted Model In Frame' '50S subunit'
+;
+    save_
+
+
+save__emd_database_related.db_name
+    _item_description.description
+;    The name of the database containing the related entry.
+;
+    _item.name                  '_emd_database_related.db_name'
+    _item.category_id             emd_database_related
+    _item.mandatory_code          yes
+    _item_type.code               code
+     loop_
+    _item_enumeration.value  
+          PDB 
+          EMDB
+     save_
+
+save__emd_database_related.db_id
+    _item_description.description
+;   Unique identifier for a provided link.
+;
+    _item.name                 '_emd_database_related.db_id'
+    _item.category_id          emd_database_related
+    _item.mandatory_code       yes
+    _item_type.code            code
+    loop_
+    _item_examples.case       
+      1ABC 
+      EMD-5002
+    save_
+
+save__emd_database_related.details
+    _item_description.description
+;              A description of the related entry.
+;
+    _item.name                  '_emd_database_related.details'
+    _item.category_id             emd_database_related
+    _item.mandatory_code          no
+    _item_type.code               text
+     loop_
+    _item_examples.case 
+      'map of same data after D7 symmetry imposed'
+      'model derived from X-ray crystal structure 1ABC'
+     save_
+
+save__emd_database_related.relationship
+    _item_description.description
+;    Indicates relationship of this entry with other entries in PDB and EMDB. 
+;
+    _item.name                  '_emd_database_related.relationship'
+    _item.category_id            emd_database_related
+    _item.mandatory_code         no
+    _item_type.code              line
+   loop_
+    _item_enumeration.value
+    _item_enumeration.detail      
+        'Fitted Model In Frame'  'map-derived fitted model positioned in map'
+        'Fitted Model Alt Frame' 'map-derived fitted model with alternate position'
+        'Other'                  'other relationship'
+     save_
+
+
