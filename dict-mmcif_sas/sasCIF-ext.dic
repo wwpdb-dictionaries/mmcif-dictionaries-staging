@@ -1,0 +1,1601 @@
+#data_sasCIFext
+#
+#_dictionary.title         sasCIF-ext
+#_dictionary.datablock_id  sasCIF-ext
+#_dictionary.version       '0.01'
+##
+#
+#
+#
+save_sas_buffer
+   #
+   _category.description  "Description of the sample buffer components"
+   #
+   _category.id              sas_buffer
+   _category.mandatory_code  no
+   #
+   _category_key.name        "_sas_buffer.id"   
+   _category_group.id  sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case
+; 
+ _sas_buffer.id 1
+ _sas_buffer.name HEPES
+ _sas_buffer.concentration 20
+ _sas_buffer.unit mM
+ _sas_buffer.pK 7.55
+ _sas_buffer.pH 7.5
+ _sas_buffer.composition '10 mM KCl'
+ _sas_buffer.comment 'Prepared on 03.10.14'
+ _sas_buffer.sample_id 1
+;   
+   #
+save_
+#
+save__sas_buffer.id
+   #
+
+   _item_description.description  "Buffer identifier"
+   #
+   _item.name            "_sas_buffer.id"
+   _item.category_id     sas_buffer
+   _item.mandatory_code   yes
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__sas_buffer.composition
+   #
+
+   _item_description.description  "Composition of the buffer"
+   #
+   _item.name            "_sas_buffer.composition"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_buffer.pH
+   #
+
+   _item_description.description  "pH of the buffer"
+   #
+   _item.name            "_sas_buffer.pH"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_buffer.pK
+   #
+
+   _item_description.description  "pK of the buffer"
+   #
+   _item.name            "_sas_buffer.pK"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_buffer.unit
+   #
+
+   _item_description.description  "Units of concentration"
+   #
+   _item.name            "_sas_buffer.unit"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_buffer.comment
+   #
+
+   _item_description.description  "Comments on the buffer"
+   #
+   _item.name            "_sas_buffer.comment"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_buffer.name
+   #
+
+   _item_description.description  "Buffer name"
+   #
+   _item.name            "_sas_buffer.name"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_buffer.concentration
+   #
+
+   _item_description.description  "Concentration of the buffer"
+   #
+   _item.name            "_sas_buffer.concentration"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_buffer.sample_id
+   #
+
+   _item_description.description  "A pointer to _sample.id in the Sample category"
+   #
+   _item.name            "_sas_buffer.sample_id"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__sas_buffer.D2O_content
+   #
+
+   _item_description.description  "Volume fraction of D2O in the buffer in %"
+   #
+   _item.name            "_sas_buffer.D2O_content"
+   _item.category_id     sas_buffer
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+#
+save__sas_beam.instrument_country
+   #
+
+   _item_description.description  "Country where the beamline is located"
+   #
+   _item.name            "_sas_beam.instrument_country"
+   _item.category_id     sas_beam
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Germany"
+   #
+save_
+#
+save__sas_beam.instrument_city
+   #
+
+   _item_description.description  "City where the beamline is located"
+   #
+   _item.name            "_sas_beam.instrument_city"
+   _item.category_id     sas_beam
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Hamburg"
+   #
+save_
+#
+save__sas_beam.type_of_source
+   #
+
+   _item_description.description  "Type of source"
+   #
+   _item.name            "_sas_beam.type_of_source"
+   _item.category_id     sas_beam
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Synchrotron"
+   #
+save_
+#
+save__sas_beam.instrument_name
+   #
+
+   _item_description.description  "Name of the beamline"
+   #
+   _item.name            "_sas_beam.instrument_name"
+   _item.category_id     sas_beam
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "P12"
+   #
+save_
+#
+#
+save__sas_sample.specific_vol
+   #
+
+   _item_description.description  "Specific volume of the sample"
+   #
+   _item.name            "_sas_sample.specific_vol"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  0.724
+   #
+save_
+#
+save__sas_sample.entity_deuteration
+   #
+
+   _item_description.description  "Percentage of non-exchangeable 2H of the entity (molecule)"
+   #
+   _item.name            "_sas_sample.entity_deuteration"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_sample.entity_id
+   #
+
+   _item_description.description  "A pointer to _entity_id (molecule) which the sample contains"
+   #
+   _item.name            "_sas_sample.entity_id"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__sas_sample.ext_coefficient
+   #
+
+   _item_description.description  "Extinction coefficient of the sample"
+   #
+   _item.name            "_sas_sample.ext_coefficient"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  43.824
+   #
+save_
+#
+save__sas_sample.purity_method
+   #
+
+   _item_description.description  "Method of purity determination"
+   #
+   _item.name            "_sas_sample.purity_method"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "DLS"
+   #
+save_
+#
+save__sas_sample.dry_vol
+   #
+
+   _item_description.description  "Dry volume of the sample"
+   #
+   _item.name            "_sas_sample.dry_vol"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  "53"
+   #
+save_
+#
+save__sas_sample.contrast
+   #
+
+   _item_description.description  "Contrast of the sample"
+   #
+   _item.name            "_sas_sample.contrast"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  3.047
+   #
+save_
+#
+save__sas_sample.sample_MW
+   #
+
+   _item_description.description  "Molecular weight of the sample in Da"
+   #
+   _item.name            "_sas_sample.sample_MW"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  "53500"
+   #
+save_
+#
+save__sas_sample.entity_contrast
+   #
+
+   _item_description.description  "Contrast of the entity (molecule)"
+   #
+   _item.name            "_sas_sample.entity_contrast"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_sample.concentration_method
+   #
+
+   _item_description.description  "Method of concentration determination"
+   #
+   _item.name            "_sas_sample.concentration_method"
+   _item.category_id     sas_sample
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Nanodrop"
+   #
+save_
+#
+#
+#
+save__sas_detc.type
+   #
+
+   _item_description.description  "Type of the detector"
+   #
+   _item.name            "_sas_detc.type"
+   _item.category_id     sas_detc
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "2D Photon Counting"
+   #
+save_
+
+#
+save__sas_scan.result_id
+   #
+
+   _item_description.description  "A pointer to _result_id corresponding to the intensity"
+   #
+   _item.name            "_sas_scan.result_id"
+   _item.category_id     sas_scan
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__sas_scan.cell_temperature
+   #
+
+   _item_description.description  "Temperature at which the sample measurement were performed (in C)"
+   #
+   _item.name            "_sas_scan.cell_temperature"
+   _item.category_id     sas_scan
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  20.0
+   #
+save_
+#
+save__sas_scan.storage_temperature
+   #
+
+   _item_description.description  "Temperature at which the sample was stored prior to measurement (in C)"
+   #
+   _item.name            "_sas_scan.storage_temperature"
+   _item.category_id     sas_scan
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  10.0
+   #
+save_
+#
+save__sas_scan.type_of_specimen
+   #
+
+   _item_description.description  "Type of the specimen"
+   #
+   _item.name            "_sas_scan.type_of_specimen"
+   _item.category_id     sas_scan
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Protein"
+   #
+save_
+#
+save__sas_scan.number_of_frames
+   #
+
+   _item_description.description  "Number of frames taken during the exposure"
+   #
+   _item.name            "_sas_scan.number_of_frames"
+   _item.category_id     sas_scan
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  50
+   #
+save_
+#
+save_sas_model
+   #
+   _category.description  "Description of the fitted model"
+   #
+   _category.id              sas_model
+   _category.mandatory_code  no
+   #
+   _category_key.name        "_sas_model.id"
+   _category_group.id        sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case
+;
+ _sas_model.id 1
+ _sas_model.type_of_model 'dummy'
+ _sas_model.software 'DAMMIF'
+ _sas_model.version '6.0'
+ _sas_model.log
+ ;dammif ........................................... : r3695
+ Log opened ....................................... : 12-Jun-2014, 11:03:41
+ Run as:
+ Full command line ................................ : dammif bsa.out -m=slow -s=P1 -u=nanometer --omit-solvent -p=bsa_1
+ Configuration mode ............................... : slow
+ Angular units .................................... : nanometer
+ ;
+ _sas_model.symmetry 'P1'
+ _sas_model.comment 'Clustered'
+ _sas_model.radius 1.3
+ _sas_model.fitting_id 1
+ _sas_model.entity_id 2
+ _sas_model.fitting_units  "1/nm"
+;
+   #
+save_
+#
+save__sas_model.fitting_id
+   #
+
+   _item_description.description  "A pointer to _fitting_id of the model"
+   #
+   _item.name            "_sas_model.fitting_id"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+#
+save__sas_model.fitting_units
+   #
+
+   _item_description.description  "Units of momentum transfer"
+   #
+   _item.name            "_sas_model.fitting_units"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "1/nm"
+   #
+save_
+
+save__sas_model.fitting_chi
+   #
+
+   _item_description.description  "Chi value"
+   #
+   _item.name            "_sas_model.fitting_chi"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+#
+save__sas_model.version
+   #
+
+   _item_description.description  "Version of software used"
+   #
+   _item.name            "_sas_model.version"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "6.0"
+   #
+save_
+#
+save__sas_model.entity_id
+   #
+
+   _item_description.description  "A pointer of _entity_id description of the model"
+   #
+   _item.name            "_sas_model.entity_id"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  2
+   #
+save_
+#
+save__sas_model.comment
+   #
+
+   _item_description.description  "Comments on the model"
+   #
+   _item.name            "_sas_model.comment"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Clustered"
+   #
+save_
+#
+save__sas_model.type_of_model
+   #
+
+   _item_description.description  "Type of the model"
+   #
+   _item.name            "_sas_model.type_of_model"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "dummy"
+   #
+save_
+#
+save__sas_model.log
+   #
+
+   _item_description.description  "Log generated by software during model calculation"
+   #
+   _item.name            "_sas_model.log"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_model.symmetry
+   #
+
+   _item_description.description  "Symmetry of the model"
+   #
+   _item.name            "_sas_model.symmetry"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "P1"
+   #
+save_
+#
+save__sas_model.id
+   #
+
+   _item_description.description  "Model identifier"
+   #
+   _item.name            "_sas_model.id"
+   _item.category_id     sas_model
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__sas_model.radius
+   #
+
+   _item_description.description  "Radius of dummy atoms in Angstroms (for ab initio models)"
+   #
+   _item.name            "_sas_model.radius"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_examples.case  1.3
+   #
+save_
+#
+save__sas_model.software
+   #
+
+   _item_description.description  "Software used to create the model"
+   #
+   _item.name            "_sas_model.software"
+   _item.category_id     sas_model
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "DAMMIF"
+   #
+save_
+#
+#
+save__sas_scan_intensity.qmin
+   #
+
+   _item_description.description  "Minimal momentum transfer value"
+   #
+   _item.name            "_sas_scan_intensity.qmin"
+   _item.category_id     sas_scan_intensity
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_scan_intensity.qmax
+   #
+   _item_description.description  "Mmaximal momentum transfer value"
+   #
+   _item.name            "_sas_scan_intensity.qmax"
+   _item.category_id     sas_scan_intensity
+   _item.mandatory_code  no
+   #
+   _item_type.code   float
+   #
+save_
+
+#
+save__sas_scan_intensity.unit
+   #
+
+   _item_description.description  "Units of momentum transfer"
+   #
+   _item.name            "_sas_scan_intensity.unit"
+   _item.category_id     sas_scan_intensity
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "1/nm"
+   #
+save_
+#
+save__sas_scan_intensity.result_id
+   #
+
+   _item_description.description  "A pointer to _result_id corresponding to the intensity"
+   #
+   _item.name            "_sas_scan_intensity.result_id"
+   _item.category_id     sas_scan_intensity
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_sas_result
+   #
+
+   _category.description  "text of description"
+   #
+   _category.id              sas_result
+   _category.mandatory_code  no
+   _category_key.name        "_sas_result.id"
+   #
+   _category_group.id  sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case
+;
+ _sas_result.id 1
+ _sas_result.experimental_MW 55000
+ _sas_result.experimental_MW_error 1000
+ _sas_result.MW_Porod 49000
+ _sas_result.MW_Porod_error 3000
+ _sas_result.I0_from_PR 10203
+ _sas_result.I0_from_PR_error 195
+ _sas_result.I0_from_Guinier 10128
+ _sas_result.I0_from_Guinier_error 184
+ _sas_result.Rg_from_PR 3.5
+ _sas_result.Rg_from_PR_error 0.3
+ _sas_result.Rg_from_Guinier 3.4
+ _sas_result.Rg_from_Guinier_error 0.2
+ _sas_result.Dmax 10.3
+ _sas_result.Dmax_error 0.2
+ _sas_result.Porod_volume 82
+ _sas_result.Porod_volume_error 7
+ _sas_result.estimated_volume 74
+ _sas_result.estimated_volume_error 5
+ _sas_result.estimated_volume_method 'Ab initio model'
+ _sas_result.Guinier_point_min 5
+ _sas_result.Guinier_point_max 23
+ _sas_result.type_of_curve Merged
+ _sas_result.standard BSA
+ _sas_result.MW_standard 72
+ _sas_result.comments 'No signs of aggregation'
+;
+   #
+save_
+#
+save__sas_result.I0_from_PR
+   #
+
+   _item_description.description  "Forward scattering determined from distance distribution function"
+   #
+   _item.name            "_sas_result.I0_from_PR"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Dmax
+   #
+
+   _item_description.description  "Maximum dimension of the particle (in nm)"
+   #
+   _item.name            "_sas_result.Dmax"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.type_of_curve
+   #
+
+   _item_description.description  "Type of the curve used in analysis (e.g. “Merged”)"
+   #
+   _item.name            "_sas_result.type_of_curve"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_result.Dmax_error
+   #
+
+   _item_description.description  "Error of Dmax"
+   #
+   _item.name            "_sas_result.Dmax_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Rg_from_PR
+   #
+
+   _item_description.description  "Radius of gyration determined from distance distribution function (in nm)"
+   #
+   _item.name            "_sas_result.Rg_from_PR"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.I0_from_Guinier
+   #
+
+   _item_description.description  "Forward scattering determined with Guinier approximation"
+   #
+   _item.name            "_sas_result.I0_from_Guinier"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Guinier_point_min
+   #
+
+   _item_description.description  "Number of the first point of the guinier region"
+   #
+   _item.name            "_sas_result.Guinier_point_min"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code int
+   #
+save_
+
+save__sas_result.Guinier_point_max
+   #
+
+   _item_description.description  "Number of the last point of the guinier region"
+   #
+   _item.name            "_sas_result.Guinier_point_max"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code int
+   #
+save_
+
+#
+save__sas_result.I0_from_PR_error
+   #
+
+   _item_description.description  "Error of p(R) forward scattering"
+   #
+   _item.name            "_sas_result.I0_from_PR_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Porod_volume
+   #
+
+   _item_description.description  "Porod volume (excluded volume of the hydrated particle) (in nm3)"
+   #
+   _item.name            "_sas_result.Porod_volume"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Porod_volume_error
+   #
+
+   _item_description.description  "Error of Porod volume"
+   #
+   _item.name            "_sas_result.Porod_volume_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Rg_from_Guinier_error
+   #
+
+   _item_description.description  "Error of Guinier approximation radius of gyration"
+   #
+   _item.name            "_sas_result.Rg_from_Guinier_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Rg_from_PR_error
+   #
+
+   _item_description.description  "Error of p(R) radius of gyration"
+   #
+   _item.name            "_sas_result.Rg_from_PR_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.I0_from_Guinier_error
+   #
+
+   _item_description.description  "Error of Guinier approximation forward scattering"
+   #
+   _item.name            "_sas_result.I0_from_Guinier_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.MW_standard
+   #
+
+   _item_description.description  "Molecular weight of the standard protein (in Da)"
+   #
+   _item.name            "_sas_result.MW_standard"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.Rg_from_Guinier
+   #
+
+   _item_description.description  "Radius of gyration determined with Guinier approximation (in nm)"
+   #
+   _item.name            "_sas_result.Rg_from_Guinier"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.id
+   #
+
+   _item_description.description  "Result identifier"
+   #
+   _item.name            "_sas_result.id"
+   _item.category_id     sas_result
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__sas_result.experimental_MW_error
+   #
+
+   _item_description.description  "Error of experimental molecular weight"
+   #
+   _item.name            "_sas_result.experimental_MW_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.MW_Porod
+   #
+
+   _item_description.description  "Molecular weight derived from the Porod volume (in Da)"
+   #
+   _item.name            "_sas_result.MW_Porod"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.experimental_MW
+   #
+
+   _item_description.description  "Molecular weight of the sample determined by comparison to the sample forward scattering with that from a standard (in Da)"
+   #
+   _item.name            "_sas_result.experimental_MW"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.MW_Porod_error
+   #
+
+   _item_description.description  "Error of Porod molecular weight"
+   #
+   _item.name            "_sas_result.MW_Porod_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.standard
+   #
+
+   _item_description.description  "Name of the substance used as a standard"
+   #
+   _item.name            "_sas_result.standard"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_result.estimated_volume_error
+   #
+
+   _item_description.description  "Error of estimated volume"
+   #
+   _item.name            "_sas_result.estimated_volume_error"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.comments
+   #
+
+   _item_description.description  "Comments on the results"
+   #
+   _item.name            "_sas_result.comments"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_result.estimated_volume
+   #
+
+   _item_description.description  "Volume estimated from scattering curve using any other method than Porod volume calculation (in nm3)"
+   #
+   _item.name            "_sas_result.estimated_volume"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_result.estimated_volume_method
+   #
+
+   _item_description.description  "Method used to estimate volume"
+   #
+   _item.name            "_sas_result.estimated_volume_method"
+   _item.category_id     sas_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+##
+##
+save_sas_p_of_R_details
+   #
+   _category.description  "Description of the distance distribution function p(r)"
+   #
+   _category.id              sas_p_of_R_details
+   _category.mandatory_code  no
+   _category_key.name        "_sas_p_of_R_details.id"
+   #
+   _category_group.id  sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;
+ _sas_p_of_R_details.id 1
+ _sas_p_of_R_details.intensity_id 1
+ _sas_p_of_R_details.software_p_of_R GNOM
+ _sas_p_of_R_details.p_of_R_point_min 5
+ _sas_p_of_R_details.p_of_R_point_max 1100
+ _sas_p_of_R_details.number_of_points 1096
+ _sas_p_of_R_details.qmin 0.04
+ _sas_p_of_R_details.qmax 4.2
+ _sas_p_of_R_details.Rmin 0
+ _sas_p_of_R_details.Rmax 10.2
+;
+#
+save_
+#
+save__sas_p_of_R_details.p_of_R_point_min
+   #
+
+   _item_description.description  "Number of the first point of intensity used to calculate p(R)"
+   #
+   _item.name            "_sas_p_of_R_details.p_of_R_point_min"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__sas_p_of_R_details.p_of_R_point_max
+   #
+
+   _item_description.description  "Number of the last point of intensity used to calculate p(R)"
+   #
+   _item.name            "_sas_p_of_R_details.p_of_R_point_max"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+
+#
+#
+save__sas_p_of_R_details.id
+   #
+
+   _item_description.description  "p(R) identifier"
+   #
+   _item.name            "_sas_p_of_R_details.id"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__sas_p_of_R_details.intensity_id
+   #
+
+   _item_description.description  "A pointer to _intensity.id used for p(R) calculation"
+   #
+   _item.name            "_sas_p_of_R_details.intensity_id"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R_details.P
+   #
+
+   _item_description.description  "Values of distance distribution function p(R)"
+   #
+   _item.name            "_sas_p_of_R_details.P"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R_details.r
+   #
+
+   _item_description.description  "Values of intramolecular distances R"
+   #
+   _item.name            "_sas_p_of_R_details.r"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R_details.software_p_of_R
+   #
+
+   _item_description.description  "Software used for the calculation of"
+   #
+   _item.name            "_sas_p_of_R_details.software_p_of_R"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__sas_p_of_R_details.P_error
+   #
+
+   _item_description.description  "Errors of p(R) values"
+   #
+   _item.name            "_sas_p_of_R_details.P_error"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R_details.number_of_points
+   #
+
+   _item_description.description  "Number of intensity points used in p(R) calculation"
+   #
+   _item.name            "_sas_p_of_R_details.number_of_points"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__sas_p_of_R_details.Rmin
+   #
+
+   _item_description.description  "Minimal value of intramolecular distances r"
+   #
+   _item.name            "_sas_p_of_R_details.Rmin"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+save__sas_p_of_R_details.Rmax
+   #
+
+   _item_description.description  "Maximal value of intramolecular distances r"
+   #
+   _item.name            "_sas_p_of_R_details.Rmax"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+#
+save__sas_p_of_R_details.qmin
+   #
+
+   _item_description.description  "Minimal value of momentum transfer used for calculation of p(r)"
+   #
+   _item.name            "_sas_p_of_R_details.qmin"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+#
+save__sas_p_of_R_details.qmax
+   #
+
+   _item_description.description  "Maximal value of momentum transfer used for calculation of p(r)"
+   #
+   _item.name            "_sas_p_of_R_details.qmax"
+   _item.category_id     sas_p_of_R_details
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+
+#
+save_sas_p_of_R
+   #
+   _category.description  "The distance distribution function p(r)"
+   #
+   _category.id              sas_p_of_R
+   _category.mandatory_code  no
+   #
+   _category_key.name        "_sas_p_of_R.ordinal"
+   _category_group.id        sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;
+ loop_
+  _sas_p_of_R.id 
+  _sas_p_of_R.ordinal
+  _sas_p_of_R.r 
+  _sas_p_of_R.P
+  _sas_p_of_R.P_error
+  1 1 0.0000E+00  0.0000E+00  0.0000E+00
+  1 2 0.1034E+00  0.2276E+01  0.5545E-01
+  1 3 0.2068E+00  0.5953E+01  0.8992E-01
+  #     .... Rows omitted for brevity ...
+  1 1010  0.1024E+02  0.2941E+01  0.1673E+00
+  1 1011  0.1034E+02  0.0000E+00  0.0000E+00
+;
+#
+save_
+#
+
+
+save__sas_p_of_R.id
+   #
+
+   _item_description.description  "p(R) identifier"
+   #
+   _item.name            "_sas_p_of_R.id"
+   _item.category_id     sas_p_of_R
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+save_
+
+save__sas_p_of_R.ordinal
+   #
+
+   _item_description.description  "Ordinal index for the p(R) function"
+   #
+   _item.name            "_sas_p_of_R.ordinal"
+   _item.category_id     sas_p_of_R
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+
+#
+save__sas_p_of_R.P
+   #
+
+   _item_description.description  "Values of distance distribution function p(R)"
+   #
+   _item.name            "_sas_p_of_R.P"
+   _item.category_id     sas_p_of_R
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R.r
+   #
+
+   _item_description.description  "Values of intramolecular distances R"
+   #
+   _item.name            "_sas_p_of_R.r"
+   _item.category_id     sas_p_of_R
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__sas_p_of_R.P_error
+   #
+
+   _item_description.description  "Errors of p(R) values"
+   #
+   _item.name            "_sas_p_of_R.P_error"
+   _item.category_id     sas_p_of_R
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+##
+save_sas_p_of_R_extrapolated
+   #
+   _category.description  "The extrapolated quantities backcalculated from the p(R) using inverse Fourier transformation"
+   #
+   _category.id              sas_p_of_R_extrapolated
+   _category.mandatory_code  no
+   #
+   _category_key.name         "_sas_p_of_R.ordinal"
+   _category_group.id         sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;
+ loop_
+  _sas_p_of_R.id 
+  _sas_p_of_R.ordinal
+  _sas_p_of_R_extrapolated.momentum_transfer
+  _sas_p_of_R.extrapolated.reg
+   1 1  0.0000E+00 0.9616E+04
+   1 2  0.8705E-02 0.9614E+04
+   1 3  0.1741E-01 0.9607E+04
+   1 4  0.2611E-01 0.9596E+04
+   1 5  0.3482E-01 0.9581E+04
+   #    --- abbreviated ---
+;
+#
+save_
+#
+#
+save__sas_p_of_R_extrapolated.id
+   #
+
+   _item_description.description  "p(R) identifier"
+   #
+   _item.name            "_sas_p_of_R_extrapolated.id"
+   _item.category_id     sas_p_of_R_extrapolated
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__sas_p_of_R_extrapolated.ordinal
+   #
+
+   _item_description.description  "Ordinal index for extrapoated value list"
+   #
+   _item.name            "_sas_p_of_R_extrapolated.ordinal"
+   _item.category_id     sas_p_of_R_extrapolated
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+
+save__sas_p_of_R_extrapolated.momentum_transfer
+   #
+
+   _item_description.description  "Extrapolated momentum transfer values for calculation of extrapolated intensity"
+   #
+   _item.name            "_sas_p_of_R_extrapolated.momentum_transfer"
+   _item.category_id     sas_p_of_R_extrapolated
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+
+save__sas_p_of_R_extrapolated.intensity_reg
+   #
+   _item_description.description  "Extrapolated regularized arized intensity backcalculated from p(R) using inverse Fourier transformation"
+   #
+   _item.name            "_sas_p_of_R_extrapolated.intensity_reg"
+   _item.category_id     sas_p_of_R_extrapolated
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+##
+##
+save_sas_model_fitting
+   #
+   _category.description  "Model fitting data"
+   #
+   _category.id              sas_model_fitting
+   _category.mandatory_code  no
+   #
+   _category_key.name        '_sas_model_fitting.ordinal'
+   _category_group.id        sas_group
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case
+;
+ loop_
+ _sas_model_fitting.id
+ _sas_model_fitting.ordinal 
+ _sas_model_fitting.momentum_transfer 
+ _sas_model_fitting.intensity
+ _sas_model_fitting.fit
+ 1 1 0.685743E-01  0.101886E+05  0.276659E+05
+ 1 2 0.712083E-01  0.102757E+05  0.259131E+05
+ 1 3 0.738423E-01  0.102851E+05  0.243100E+05
+ 1 4 0.764763E-01  0.100294E+05  0.227069E+05
+;   
+   #
+save_
+#
+save__sas_model_fitting.intensity
+   #
+
+   _item_description.description  "The scattering intensity used for fitting theoretical scattering"
+   #
+   _item.name            "_sas_model_fitting.intensity"
+   _item.category_id     sas_model_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+#
+save__sas_model_fitting.fit
+   #
+
+   _item_description.description  "The theoretical scattering intensity"
+   #
+   _item.name            "_sas_model_fitting.fit"
+   _item.category_id     sas_model_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+
+#
+save__sas_model_fitting.id
+   #
+
+   _item_description.description  "Fit identifier"
+   #
+   _item.name            "_sas_model_fitting.id"
+   _item.category_id     sas_model_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__sas_model_fitting.ordinal
+   #
+
+   _item_description.description  "Fit ordinal identifier"
+   #
+   _item.name            "_sas_model_fitting.ordinal"
+   _item.category_id     sas_model_fitting
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+
+#
+save__sas_model_fitting.momentum_transfer
+   #
+
+   _item_description.description  "Momentum transfer values"
+   #
+   _item.name            "_sas_model_fitting.momentum_transfer"
+   _item.category_id     sas_model_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
