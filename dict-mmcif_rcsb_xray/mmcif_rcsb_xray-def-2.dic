@@ -16219,7 +16219,7 @@ save__rcsb_version.revision_type
          'Flag nonstandard coordinate frame'      .
          'Flag residual B-value'                  .
          'Initial release'                        .
-         'Other '                                 .
+         'Other'                                  .
      save_
 
 ##
