@@ -1,6 +1,6 @@
 #data_NEFext
 #
-
+#
 #_dictionary.title         NEF-ext
 #_dictionary.datablock_id  NEF-ext
 #_dictionary.version       latest
@@ -515,6 +515,9 @@ save__nef_distance_restraint.restraint_combination_id
    #
    _item_examples.case  1
    #
+   _item_linked.parent_name  "_nef_distance_restraint.restraint_id"
+   _item_linked.child_name   "_nef_distance_restraint.restraint_combination_id"
+   #
 save_
 #
 save__nef_distance_restraint.restraint_id
@@ -695,6 +698,9 @@ save__nef_spectrum_dimension_transfer.dimension_1
    #
    _item_examples.case  1
    #
+   _item_linked.parent_name  "_nef_spectrum_dimension.dimension_id"
+   _item_linked.child_name   "_nef_spectrum_dimension_transfer.dimension_1"
+   #
 save_
 #
 save__nef_spectrum_dimension_transfer.dimension_2
@@ -709,6 +715,9 @@ save__nef_spectrum_dimension_transfer.dimension_2
    _item_type.code  int
    #
    _item_examples.case  1
+   #
+   _item_linked.parent_name  "_nef_spectrum_dimension.dimension_id"
+   _item_linked.child_name   "_nef_spectrum_dimension_transfer.dimension_2"
    #
 save_
 #
@@ -730,7 +739,16 @@ save_
 save__nef_spectrum_dimension_transfer.transfer_type
    #
 
-   _item_description.description  "An identifier for "
+   _item_description.description  
+;The type of magnetism transfer.  Transfer types include:
+onebond           : atoms directly bound, whatever the transfer mechanism
+Jcoupling         : J coupling over one or more bonds
+Jmultibond        : J coupling over more than one bond
+relayed           : relayed through multiple J couplings (multistep transfer, TOCSY, ...)
+relayed-alternate : a solid state TOCSY transfer type with alternating peak sign
+through-space     : Through-space transfer (NOESY, ROESY,.. but also J coupling across H-bonds)
+;
+
    #
    _item.name            "_nef_spectrum_dimension_transfer.transfer_type"
    _item.category_id     nef_spectrum_dimension_transfer
@@ -739,6 +757,15 @@ save__nef_spectrum_dimension_transfer.transfer_type
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_enumeration.value
+     onebond            
+     Jcoupling          
+     Jmultibond         
+     relayed            
+     relayed-alternate  
+     through-space      
    #
 save_
 #
@@ -1133,6 +1160,9 @@ save__nef_dihedral_restraint.restraint_combination_id
    #
    _item_examples.case  1
    #
+   _item_linked.parent_name  "_nef_dihedral_restraint.restraint_id"
+   _item_linked.child_name   "_nef_dihedral_restraint.restraint_combination_id"
+   #
 save_
 #
 save__nef_dihedral_restraint.restraint_id
@@ -1312,7 +1342,35 @@ save_
 save__nef_distance_restraint_list.potential_type
    #
 
-   _item_description.description  "The potential type used to model the distance restraints."
+   _item_description.description  
+;The potential type used to model the distance restraints.
+The potential type used to model the dihedral restraints.
+The current draft supports the potential types:
+'log-harmonic'
+Parameters: target_value, target_value_error
+'parabolic'
+Parameters: target_value, target_value_error
+Formula: E = k(r-target_value)**2
+'square-well-parabolic'
+Parameters: upper_limit, lower_limit (optionally: target_value, target_value_error)
+Formula:
+E = k(r-upper_limit)**\2 for r > upper_limit
+E = k(r-lower_limit)**2 for r < lower_limit
+'square-well-parabolic-linear'
+Parameters: upper_limit, lower_limit, upper_linear_limit, lower_linear_limit, (optional: target_value, target_value_error)
+Formula:
+If upper_limit = u, upper_linear_limit = u2, lower_limit = l, lower_linear_limit = l2:
+E = 2k(u2-u)(r - (u2+u)/2) for r > u2
+E = k(r-u)**2 for u < r < u2
+E = k(r-l)**2 for l > r > l2
+E = 2k(l2-l)(r - (l2+l)/2) for r < l2
+Additional potential types include:
+'upper-bound-parabolic'
+'lower-bound-parabolic'
+'upper-bound-parabolic-linear'
+'lower-bound-parabolic-linear'
+;
+
    #
    _item.name            "_nef_distance_restraint_list.potential_type"
    _item.category_id     nef_distance_restraint_list
@@ -1321,6 +1379,17 @@ save__nef_distance_restraint_list.potential_type
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_enumeration.value
+     log-harmonic                  
+     parabolic                     
+     square-well-parabolic         
+     square-well-parabolic-linear  
+     upper-bound-parabolic         
+     lower-bound-parabolic         
+     upper-bound-parabolic-linear  
+     lower-bound-parabolic-linear  
    #
 save_
 #
@@ -1976,7 +2045,35 @@ save_
 save__nef_rdc_restraint_list.potential_type
    #
 
-   _item_description.description  "The potential type used to model the residual dipolar coupling restraints."
+   _item_description.description  
+;The potential type used to model the residual dipolar coupling restraints.
+The potential type used to model the dihedral restraints.
+The current draft supports the potential types:
+'log-harmonic'
+Parameters: target_value, target_value_error
+'parabolic'
+Parameters: target_value, target_value_error
+Formula: E = k(r-target_value)**2
+'square-well-parabolic'
+Parameters: upper_limit, lower_limit (optionally: target_value, target_value_error)
+Formula:
+E = k(r-upper_limit)**\2 for r > upper_limit
+E = k(r-lower_limit)**2 for r < lower_limit
+'square-well-parabolic-linear'
+Parameters: upper_limit, lower_limit, upper_linear_limit, lower_linear_limit, (optional: target_value, target_value_error)
+Formula:
+If upper_limit = u, upper_linear_limit = u2, lower_limit = l, lower_linear_limit = l2:
+E = 2k(u2-u)(r - (u2+u)/2) for r > u2
+E = k(r-u)**2 for u < r < u2
+E = k(r-l)**2 for l > r > l2
+E = 2k(l2-l)(r - (l2+l)/2) for r < l2
+Additional potential types include:
+'upper-bound-parabolic'
+'lower-bound-parabolic'
+'upper-bound-parabolic-linear'
+'lower-bound-parabolic-linear'
+;
+
    #
    _item.name            "_nef_rdc_restraint_list.potential_type"
    _item.category_id     nef_rdc_restraint_list
@@ -1985,6 +2082,17 @@ save__nef_rdc_restraint_list.potential_type
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_enumeration.value
+     log-harmonic                  
+     parabolic                     
+     square-well-parabolic         
+     square-well-parabolic-linear  
+     upper-bound-parabolic         
+     lower-bound-parabolic         
+     upper-bound-parabolic-linear  
+     lower-bound-parabolic-linear  
    #
 save_
 #
@@ -2209,6 +2317,9 @@ save__nef_peak_restraint_link.nmr_spectrum_id
    #
    _item_examples.case  1
    #
+   _item_linked.parent_name  "_nef_nmr_spectrum.sf_framecode"
+   _item_linked.child_name   "_nef_peak_restraint_link.nmr_spectrum_id"
+   #
 save_
 #
 save__nef_peak_restraint_link.peak_id
@@ -2224,6 +2335,9 @@ save__nef_peak_restraint_link.peak_id
    #
    _item_examples.case  1
    #
+   _item_linked.parent_name  "_nef_peak.peak_id"
+   _item_linked.child_name   "_nef_peak_restraint_link.peak_id"
+   #
 save_
 #
 save__nef_peak_restraint_link.restraint_id
@@ -2238,6 +2352,13 @@ save__nef_peak_restraint_link.restraint_id
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_linked.parent_name
+   _item_linked.child_name
+     "_nef_dihedral_restraint.restraint_id"  "_nef_peak_restraint_link.restraint_id"  
+     "_nef_distance_restraint.restraint_id"  "_nef_peak_restraint_link.restraint_id"  
+     "_nef_rdc_restraint.restraint_id"       "_nef_peak_restraint_link.restraint_id"  
    #
 save_
 #
@@ -2253,6 +2374,13 @@ save__nef_peak_restraint_link.restraint_list_id
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_linked.parent_name
+   _item_linked.child_name
+     "_nef_dihedral_restraint_list.sf_framecode"  "_nef_peak_restraint_link.restraint_list_id"  
+     "_nef_distance_restraint_list.sf_framecode"  "_nef_peak_restraint_link.restraint_list_id"  
+     "_nef_rdc_restraint_list.sf_framecode"       "_nef_peak_restraint_link.restraint_list_id"  
    #
 save_
 #
@@ -2676,7 +2804,34 @@ save_
 save__nef_dihedral_restraint_list.potential_type
    #
 
-   _item_description.description  "The potential type used to model the dihedral restraints."
+   _item_description.description  
+;The potential type used to model the dihedral restraints.
+The current draft supports the potential types:
+'log-harmonic'
+Parameters: target_value, target_value_error
+'parabolic'
+Parameters: target_value, target_value_error
+Formula: E = k(r-target_value)**2
+'square-well-parabolic'
+Parameters: upper_limit, lower_limit (optionally: target_value, target_value_error)
+Formula:
+E = k(r-upper_limit)**\2 for r > upper_limit
+E = k(r-lower_limit)**2 for r < lower_limit
+'square-well-parabolic-linear'
+Parameters: upper_limit, lower_limit, upper_linear_limit, lower_linear_limit, (optional: target_value, target_value_error)
+Formula:
+If upper_limit = u, upper_linear_limit = u2, lower_limit = l, lower_linear_limit = l2:
+E = 2k(u2-u)(r - (u2+u)/2) for r > u2
+E = k(r-u)**2 for u < r < u2
+E = k(r-l)**2 for l > r > l2
+E = 2k(l2-l)(r - (l2+l)/2) for r < l2
+Additional potential types include:
+'upper-bound-parabolic'
+'lower-bound-parabolic'
+'upper-bound-parabolic-linear'
+'lower-bound-parabolic-linear'
+;
+
    #
    _item.name            "_nef_dihedral_restraint_list.potential_type"
    _item.category_id     nef_dihedral_restraint_list
@@ -2685,6 +2840,17 @@ save__nef_dihedral_restraint_list.potential_type
    _item_type.code  int
    #
    _item_examples.case  1
+   #   #
+   loop_
+   _item_enumeration.value
+     log-harmonic                  
+     parabolic                     
+     square-well-parabolic         
+     square-well-parabolic-linear  
+     upper-bound-parabolic         
+     lower-bound-parabolic         
+     upper-bound-parabolic-linear  
+     lower-bound-parabolic-linear  
    #
 save_
 #
