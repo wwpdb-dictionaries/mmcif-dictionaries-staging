@@ -1,0 +1,3217 @@
+#data_NEFext
+#
+
+#_dictionary.title         NEF-ext
+#_dictionary.datablock_id  NEF-ext
+#_dictionary.version       latest
+##
+save_nef_covalent_links
+   #
+
+   _category.description     "The data items in the NEF_COVALENT_LINKS category provide the list of covalent linkages among the components of the molecular system."
+   _category.id              nef_covalent_links
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_covalent_links.atom_name_1"  
+     "_nef_covalent_links.atom_name_2"  
+     "_nef_covalent_links.chain_code_1"  
+     "_nef_covalent_links.chain_code_2"  
+     "_nef_covalent_links.residue_type_1"  
+     "_nef_covalent_links.residue_type_2"  
+     "_nef_covalent_links.sequence_code_1"  
+     "_nef_covalent_links.sequence_code_2"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+     _nef_covalent_links.chain_code_1
+     _nef_covalent_links.sequence_code_1
+     _nef_covalent_links.residue_type_1
+     _nef_covalent_links.atom_name_1
+     _nef_covalent_links.chain_code_2
+     _nef_covalent_links.sequence_code_2
+     _nef_covalent_links.residue_type_2
+     _nef_covalent_links.atom_name_2
+     B   3   CYS   SG   B   6   CYS   SG
+     B   5   THR   OG1  B   9   GLN   C
+;
+
+   #
+save_
+#
+save__nef_covalent_links.atom_name_1
+   #
+
+   _item_description.description  "The author provided name for the first partner atom."
+   #
+   _item.name            "_nef_covalent_links.atom_name_1"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_covalent_links.atom_name_2
+   #
+
+   _item_description.description  "The author provided name for the second partner atom."
+   #
+   _item.name            "_nef_covalent_links.atom_name_2"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_covalent_links.chain_code_1
+   #
+
+   _item_description.description  "The author provided name for the first polymer chain or ligand instance."
+   #
+   _item.name            "_nef_covalent_links.chain_code_1"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_covalent_links.chain_code_2
+   #
+
+   _item_description.description  "The author provided name for the second polymer chain or ligand instance."
+   #
+   _item.name            "_nef_covalent_links.chain_code_2"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_covalent_links.residue_type_1
+   #
+
+   _item_description.description  "The author provided name for the first partner residue."
+   #
+   _item.name            "_nef_covalent_links.residue_type_1"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_covalent_links.residue_type_2
+   #
+
+   _item_description.description  "The author provided name for the second partner residue."
+   #
+   _item.name            "_nef_covalent_links.residue_type_2"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_covalent_links.sequence_code_1
+   #
+
+   _item_description.description  "The author provided position for the first residue in the sequence."
+   #
+   _item.name            "_nef_covalent_links.sequence_code_1"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_covalent_links.sequence_code_2
+   #
+
+   _item_description.description  "The author provided position for the second residue in the sequence."
+   #
+   _item.name            "_nef_covalent_links.sequence_code_2"
+   _item.category_id     nef_covalent_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save_nef_related_entries
+   #
+
+   _category.description     "The data items in the NEF_RELATED_ENTRIES category provide the list of database names and accession codes related to this data set."
+   _category.id              nef_related_entries
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_related_entries.database_accession_code"  
+     "_nef_related_entries.database_name"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;      _nef_related_entries.database_name                PDB
+      _nef_related_entries.database_accession_code      1ABC
+;
+
+   #
+save_
+#
+save__nef_related_entries.database_accession_code
+   #
+
+   _item_description.description  "The database accession code for a related data set."
+   #
+   _item.name            "_nef_related_entries.database_accession_code"
+   _item.category_id     nef_related_entries
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_related_entries.database_name
+   #
+
+   _item_description.description  "The database name for the related data set."
+   #
+   _item.name            "_nef_related_entries.database_name"
+   _item.category_id     nef_related_entries
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_run_history
+   #
+
+   _category.description     "The data items in the NEF_RELATED_ENTRIES category enumerate the program steps related to the current data set."
+   _category.id              nef_run_history
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #
+   _category_key.name  "_nef_run_history.run_ordinal"
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_run_history.run_ordinal
+      _nef_run_history.program_name
+      _nef_run_history.program_version
+      _nef_run_history.script_name
+      _nef_run_history.script
+     1   'CcpNmr Analysis' 2.4.1   autoSetupRun   .                                                    
+     2   Cyana             3.0     init.cya       
+ ;
+ rmsdrange:=1-93
+ cyanalib
+ read seq protein.seq
+ ;
+;
+
+   #
+save_
+#
+save__nef_run_history.program_name
+   #
+
+   _item_description.description  "The program name associated with the current step. "
+   #
+   _item.name            "_nef_run_history.program_name"
+   _item.category_id     nef_run_history
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_run_history.program_version
+   #
+
+   _item_description.description  "The program version associated with the current step. "
+   #
+   _item.name            "_nef_run_history.program_version"
+   _item.category_id     nef_run_history
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_run_history.run_ordinal
+   #
+
+   _item_description.description  "A unique and ordered identifier for program steps related to this data set."
+   #
+   _item.name            "_nef_run_history.run_ordinal"
+   _item.category_id     nef_run_history
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_run_history.script
+   #
+
+   _item_description.description  "The program script associated with the current step. "
+   #
+   _item.name            "_nef_run_history.script"
+   _item.category_id     nef_run_history
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_run_history.script_name
+   #
+
+   _item_description.description  "The program script name associated with the current step. "
+   #
+   _item.name            "_nef_run_history.script_name"
+   _item.category_id     nef_run_history
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_distance_restraint
+   #
+
+   _category.description     "The data items in the NEF_DISTANCE_RESTRAINT category enumerates the list of distance restraints."
+   _category.id              nef_distance_restraint
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_distance_restraint.restraint_id"  
+     "_nef_distance_restraint.atom_name_1"  
+     "_nef_distance_restraint.atom_name_2"  
+     "_nef_distance_restraint.chain_code_1"  
+     "_nef_distance_restraint.chain_code_2"  
+     "_nef_distance_restraint.residue_type_1"  
+     "_nef_distance_restraint.residue_type_2"  
+     "_nef_distance_restraint.sequence_code_1"  
+     "_nef_distance_restraint.sequence_code_2"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_distance_restraint.restraint_id
+      _nef_distance_restraint.restraint_combination_id
+      _nef_distance_restraint.chain_code_1
+      _nef_distance_restraint.sequence_code_1
+      _nef_distance_restraint.residue_type_1
+      _nef_distance_restraint.atom_name_1
+      _nef_distance_restraint.chain_code_2
+      _nef_distance_restraint.sequence_code_2
+      _nef_distance_restraint.residue_type_2
+      _nef_distance_restraint.atom_name_2
+      _nef_distance_restraint.weight
+      _nef_distance_restraint.target_value
+      _nef_distance_restraint.target_value_uncertainty
+      _nef_distance_restraint.lower_linear_limit
+      _nef_distance_restraint.lower_limit
+      _nef_distance_restraint.upper_limit
+      _nef_distance_restraint.upper_linear_limit
+     1      .      A   1     MET   HA     A   1     MET   HGX    1.0   4.0   .      .      1.79   5.0   .       
+     1      .      A   1     MET   HA     A   1     MET   HGY    1.0   4.0   .      .      1.79   5.0   .       
+     2      .      A   1     MET   HA     A   51    PHE   HA     1.0   5.0   .      .      1.79   6.0   .       
+     3      .      A   1     MET   HA     A   76    TYR   HD%    1.0   4.0   .      .      1.79   5.0   .       
+     4      .      A   1     MET   HA     A   76    TYR   HE%    1.0   4.0   .      .      1.79   5.0   .       
+     5      .      A   1     MET   HBX    A   3     ILE   HD1%   1.0   4.0   .      .      1.79   5.0   .       
+     5      .      A   1     MET   HBY    A   3     ILE   HD1%   1.0   4.0   .      .      1.79   5.0   .       
+     6      .      A   1     MET   HBX    A   51    PHE   HA     1.0   4.0   .      .      1.79   5.0   .       
+     6      .      A   1     MET   HBY    A   51    PHE   HA     1.0   4.0   .      .      1.79   5.0   .       
+     7      .      A   1     MET   HBX    A   51    PHE   HD%    1.0   4.0   .      .      1.79   5.0   .       
+     7      .      A   1     MET   HBY    A   51    PHE   HD%    1.0   4.0   .      .      1.79   5.0   .       
+     8      .      A   1     MET   HGX    A   3     ILE   HD1%   1.0   4.0   .      .      1.79   5.0   .       
+     8      .      A   1     MET   HGY    A   3     ILE   HD1%   1.0   4.0   .      .      1.79   5.0   .       
+     #    --------   abbreviated -------------
+;
+
+   #
+save_
+#
+save__nef_distance_restraint.atom_name_1
+   #
+
+   _item_description.description  "The author provided name for the first partner atom."
+   #
+   _item.name            "_nef_distance_restraint.atom_name_1"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_distance_restraint.atom_name_2
+   #
+
+   _item_description.description  "The author provided name for the second partner atom."
+   #
+   _item.name            "_nef_distance_restraint.atom_name_2"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_distance_restraint.chain_code_1
+   #
+
+   _item_description.description  "The author provided name for the first polymer chain or ligand instance."
+   #
+   _item.name            "_nef_distance_restraint.chain_code_1"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_distance_restraint.chain_code_2
+   #
+
+   _item_description.description  "The author provided name for the second polymer chain or ligand instance."
+   #
+   _item.name            "_nef_distance_restraint.chain_code_2"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_distance_restraint.lower_limit
+   #
+
+   _item_description.description  "The lower limit for the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.lower_limit"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.lower_linear_limit
+   #
+
+   _item_description.description  "The lower limit for the linear distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.lower_linear_limit"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.residue_type_1
+   #
+
+   _item_description.description  "The author provided name for the first partner residue."
+   #
+   _item.name            "_nef_distance_restraint.residue_type_1"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_distance_restraint.residue_type_2
+   #
+
+   _item_description.description  "The author provided name for the second partner residue."
+   #
+   _item.name            "_nef_distance_restraint.residue_type_2"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_distance_restraint.restraint_combination_id
+   #
+
+   _item_description.description  "An identifier for a restraint used in combination with this distance restraint."
+   #
+   _item.name            "_nef_distance_restraint.restraint_combination_id"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.restraint_id
+   #
+
+   _item_description.description  "An identifier used for this distance restraint."
+   #
+   _item.name            "_nef_distance_restraint.restraint_id"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.sequence_code_1
+   #
+
+   _item_description.description  "The author provided position for the first residue in the sequence."
+   #
+   _item.name            "_nef_distance_restraint.sequence_code_1"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_distance_restraint.sequence_code_2
+   #
+
+   _item_description.description  "The author provided position for the second residue in the sequence."
+   #
+   _item.name            "_nef_distance_restraint.sequence_code_2"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_distance_restraint.target_value
+   #
+
+   _item_description.description  "The target value for the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.target_value"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.target_value_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in the target value for the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.target_value_uncertainty"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.upper_limit
+   #
+
+   _item_description.description  "The upper limit for the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.upper_limit"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.upper_linear_limit
+   #
+
+   _item_description.description  "The upper limit for the linear distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.upper_linear_limit"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.weight
+   #
+
+   _item_description.description  "The weighting value applied to the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.weight"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint.weightsave
+   #
+
+   _item_description.description  "The saved weighting value applied to the distance restraint value."
+   #
+   _item.name            "_nef_distance_restraint.weightsave"
+   _item.category_id     nef_distance_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_spectrum_dimension_transfer
+   #
+
+   _category.description     "The data items in the NEF_SPECTRUM_DIMENSION_TRANSFER category describe the magnetisation transfer between dimensions."
+   _category.id              nef_spectrum_dimension_transfer
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_spectrum_dimension_transfer.dimension_1"  
+     "_nef_spectrum_dimension_transfer.dimension_2"  
+     "_nef_spectrum_dimension_transfer.is_indirect"  
+     "_nef_spectrum_dimension_transfer.transfer_type"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_spectrum_dimension_transfer.dimension_1
+      _nef_spectrum_dimension_transfer.dimension_2
+      _nef_spectrum_dimension_transfer.transfer_type
+      _nef_spectrum_dimension_transfer.is_indirect
+     1   2   onebond         false    
+     1   3   through-space   false    
+;
+
+   #
+save_
+#
+save__nef_spectrum_dimension_transfer.dimension_1
+   #
+
+   _item_description.description  "The identifier for the first dimension in the transfer pair."
+   #
+   _item.name            "_nef_spectrum_dimension_transfer.dimension_1"
+   _item.category_id     nef_spectrum_dimension_transfer
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension_transfer.dimension_2
+   #
+
+   _item_description.description  "The identifier for the second dimension in the transfer pair."
+   #
+   _item.name            "_nef_spectrum_dimension_transfer.dimension_2"
+   _item.category_id     nef_spectrum_dimension_transfer
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension_transfer.is_indirect
+   #
+
+   _item_description.description  "A flag for indirect magnetism transfer."
+   #
+   _item.name            "_nef_spectrum_dimension_transfer.is_indirect"
+   _item.category_id     nef_spectrum_dimension_transfer
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension_transfer.transfer_type
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_spectrum_dimension_transfer.transfer_type"
+   _item.category_id     nef_spectrum_dimension_transfer
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_nmr_spectrum
+   #
+
+   _category.description     "The data items in the NEF_NMR_SPECTRUM category describe the details of spectrum including the associated shift list, dimensionality, and experiment type."
+   _category.id              nef_nmr_spectrum
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_nmr_spectrum.sf_category"  
+     "_nef_nmr_spectrum.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_nmr_spectrum.sf_category                nef_nmr_spectrum
+   _nef_nmr_spectrum.sf_framecode               alinoe_raw
+   _nef_nmr_spectrum.num_dimensions             3
+   _nef_nmr_spectrum.chemical_shift_list        $bmrb21_str
+   _nef_nmr_spectrum.experiment_classification  H_H[C].through-space
+   _nef_nmr_spectrum.expriment_type             '13C NOESY-HSQC'
+;
+
+   #
+save_
+#
+save__nef_nmr_spectrum.chemical_shift_list
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_nmr_spectrum.chemical_shift_list"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_spectrum.experiment_classification
+   #
+
+   _item_description.description  "The NMR experiment classification string related to this data set."
+   #
+   _item.name            "_nef_nmr_spectrum.experiment_classification"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_spectrum.expriment_type
+   #
+
+   _item_description.description  "The NMR experiment type related to this data set."
+   #
+   _item.name            "_nef_nmr_spectrum.expriment_type"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_spectrum.num_dimensions
+   #
+
+   _item_description.description  "The dimensionality of the NMR experiment related to this data set."
+   #
+   _item.name            "_nef_nmr_spectrum.num_dimensions"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_spectrum.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_nmr_spectrum.sf_category"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_spectrum.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_nmr_spectrum.sf_framecode"
+   _item.category_id     nef_nmr_spectrum
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_dihedral_restraint
+   #
+
+   _category.description     "The data items in the NEF_DIHEDRAL_RESTRAINT category records the list of dihedral restraints."
+   _category.id              nef_dihedral_restraint
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #
+   _category_key.name  "_nef_dihedral_restraint.restraint_id"
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_dihedral_restraint.restraint_id
+      _nef_dihedral_restraint.restraint_combination_id
+      _nef_dihedral_restraint.chain_code_1
+      _nef_dihedral_restraint.sequence_code_1
+      _nef_dihedral_restraint.residue_type_1
+      _nef_dihedral_restraint.atom_name_1
+      _nef_dihedral_restraint.chain_code_2
+      _nef_dihedral_restraint.sequence_code_2
+      _nef_dihedral_restraint.residue_type_2
+      _nef_dihedral_restraint.atom_name_2
+      _nef_dihedral_restraint.chain_code_3
+      _nef_dihedral_restraint.sequence_code_3
+      _nef_dihedral_restraint.residue_type_3
+      _nef_dihedral_restraint.atom_name_3
+      _nef_dihedral_restraint.chain_code_4
+      _nef_dihedral_restraint.sequence_code_4
+      _nef_dihedral_restraint.residue_type_4
+      _nef_dihedral_restraint.atom_name_4
+      _nef_dihedral_restraint.weight
+      _nef_dihedral_restraint.target_value
+      _nef_dihedral_restraint.target_value_uncertainty
+      _nef_dihedral_restraint.lower_linear_limit
+      _nef_dihedral_restraint.lower_limit
+      _nef_dihedral_restraint.upper_limit
+      _nef_dihedral_restraint.upper_linear_limit
+     1     .  A   1     MET   C   A   2     LYS   N    A   2     LYS   CA   A   2     LYS   C   1.0   -113.6   63.8    .  -177.4   -49.8   .       
+     2     .  A   2     LYS   N   A   2     LYS   CA   A   2     LYS   C    A   3     ILE   N   1.0   145.2    35.0    .   110.2    180.2  .       
+     3     .  A   2     LYS   C   A   3     ILE   N    A   3     ILE   CA   A   3     ILE   C   1.0   -118.3   20.0    .  -138.3    -98.3  .       
+     4     .  A   3     ILE   N   A   3     ILE   CA   A   3     ILE   C    A   4     LEU   N   1.0   130.8    20.0    .   110.8    150.8  .       
+     5     .  A   3     ILE   C   A   4     LEU   N    A   4     LEU   CA   A   4     LEU   C   1.0   -115.6   20.0    .  -135.6    -95.6  .       
+     6     .  A   4     LEU   N   A   4     LEU   CA   A   4     LEU   C    A   5     ILE   N   1.0   132.1    20.0    .   112.1    152.0  .
+     #   ---- abbreviated ----
+;
+
+   #
+save_
+#
+save__nef_dihedral_restraint.atom_name_1
+   #
+
+   _item_description.description  "The author provided name for the first partner atom."
+   #
+   _item.name            "_nef_dihedral_restraint.atom_name_1"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_dihedral_restraint.atom_name_2
+   #
+
+   _item_description.description  "The author provided name for the second partner atom."
+   #
+   _item.name            "_nef_dihedral_restraint.atom_name_2"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_dihedral_restraint.atom_name_3
+   #
+
+   _item_description.description  "The author provided name for the third partner atom."
+   #
+   _item.name            "_nef_dihedral_restraint.atom_name_3"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_dihedral_restraint.atom_name_4
+   #
+
+   _item_description.description  "The author provided name for the fourth partner atom."
+   #
+   _item.name            "_nef_dihedral_restraint.atom_name_4"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_dihedral_restraint.chain_code_1
+   #
+
+   _item_description.description  "The author provided name for the first polymer chain or ligand instance."
+   #
+   _item.name            "_nef_dihedral_restraint.chain_code_1"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_dihedral_restraint.chain_code_2
+   #
+
+   _item_description.description  "The author provided name for the second polymer chain or ligand instance."
+   #
+   _item.name            "_nef_dihedral_restraint.chain_code_2"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_dihedral_restraint.chain_code_3
+   #
+
+   _item_description.description  "The author provided name for the third polymer chain or ligand instance."
+   #
+   _item.name            "_nef_dihedral_restraint.chain_code_3"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_dihedral_restraint.chain_code_4
+   #
+
+   _item_description.description  "The author provided name for the fourth polymer chain or ligand instance."
+   #
+   _item.name            "_nef_dihedral_restraint.chain_code_4"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_dihedral_restraint.lower_limit
+   #
+
+   _item_description.description  "The lower limit for the dihedral restraint value."
+   #
+   _item.name            "_nef_dihedral_restraint.lower_limit"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.lower_linear_limit
+   #
+
+   _item_description.description  "The lower limit for the linear dihedral restraint value."
+   #
+   _item.name            "_nef_dihedral_restraint.lower_linear_limit"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.residue_type_1
+   #
+
+   _item_description.description  "The author provided name for the first partner residue."
+   #
+   _item.name            "_nef_dihedral_restraint.residue_type_1"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_dihedral_restraint.residue_type_2
+   #
+
+   _item_description.description  "The author provided name for the second partner residue."
+   #
+   _item.name            "_nef_dihedral_restraint.residue_type_2"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_dihedral_restraint.residue_type_3
+   #
+
+   _item_description.description  "The author provided name for the third partner residue."
+   #
+   _item.name            "_nef_dihedral_restraint.residue_type_3"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_dihedral_restraint.residue_type_4
+   #
+
+   _item_description.description  "The author provided name for the fourth partner residue."
+   #
+   _item.name            "_nef_dihedral_restraint.residue_type_4"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_dihedral_restraint.restraint_combination_id
+   #
+
+   _item_description.description  "An identifier for a restraint used in combination with this dihedral restraint."
+   #
+   _item.name            "_nef_dihedral_restraint.restraint_combination_id"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.restraint_id
+   #
+
+   _item_description.description  "The unique identifier for the dihedral restraint."
+   #
+   _item.name            "_nef_dihedral_restraint.restraint_id"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.sequence_code_1
+   #
+
+   _item_description.description  "The author provided position for the first residue in the sequence."
+   #
+   _item.name            "_nef_dihedral_restraint.sequence_code_1"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_dihedral_restraint.sequence_code_2
+   #
+
+   _item_description.description  "The author provided position for the second residue in the sequence."
+   #
+   _item.name            "_nef_dihedral_restraint.sequence_code_2"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_dihedral_restraint.sequence_code_3
+   #
+
+   _item_description.description  "The author provided position for the third residue in the sequence."
+   #
+   _item.name            "_nef_dihedral_restraint.sequence_code_3"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_dihedral_restraint.sequence_code_4
+   #
+
+   _item_description.description  "The author provided position for the fourth residue in the sequence."
+   #
+   _item.name            "_nef_dihedral_restraint.sequence_code_4"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_dihedral_restraint.target_value
+   #
+
+   _item_description.description  "The target value for this dihedral restraint."
+   #
+   _item.name            "_nef_dihedral_restraint.target_value"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.target_value_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in the target value for this dihedral restraint."
+   #
+   _item.name            "_nef_dihedral_restraint.target_value_uncertainty"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.upper_limit
+   #
+
+   _item_description.description  "The upper limit for the dihedral restraint value."
+   #
+   _item.name            "_nef_dihedral_restraint.upper_limit"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.upper_linear_limit
+   #
+
+   _item_description.description  "The upper limit for the linear dihedral restraint value."
+   #
+   _item.name            "_nef_dihedral_restraint.upper_linear_limit"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint.weight
+   #
+
+   _item_description.description  "The weighting value applied to this dihedral restraint."
+   #
+   _item.name            "_nef_dihedral_restraint.weight"
+   _item.category_id     nef_dihedral_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_distance_restraint_list
+   #
+
+   _category.description     "The data items in the NEF_DISTANCE_RESTRAINT_LIST category provides additional details about the list of distance of restraints."
+   _category.id              nef_distance_restraint_list
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_distance_restraint_list.sf_category"  
+     "_nef_distance_restraint_list.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_dihedral_restraint_list.sf_category     nef_dihedral_restraint_list
+   _nef_dihedral_restraint_list.sf_framecode    dihedral_constraint_list
+   _nef_dihedral_restraint_list.potential_type  unknown
+;
+
+   #
+save_
+#
+save__nef_distance_restraint_list.potential_type
+   #
+
+   _item_description.description  "The potential type used to model the distance restraints."
+   #
+   _item.name            "_nef_distance_restraint_list.potential_type"
+   _item.category_id     nef_distance_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint_list.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_distance_restraint_list.sf_category"
+   _item.category_id     nef_distance_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_distance_restraint_list.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_distance_restraint_list.sf_framecode"
+   _item.category_id     nef_distance_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_rdc_restraint
+   #
+
+   _category.description     "The data items in the NEF_RDC_RESTRAINT category records the list of residual dipolar coupling restraints."
+   _category.id              nef_rdc_restraint
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #
+   _category_key.name  "_nef_rdc_restraint.restraint_id"
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_rdc_restraint.restraint_id
+      _nef_rdc_restraint.restraint_combination_id
+      _nef_rdc_restraint.chain_code_1
+      _nef_rdc_restraint.sequence_code_1
+      _nef_rdc_restraint.residue_type_1
+      _nef_rdc_restraint.atom_name_1
+      _nef_rdc_restraint.chain_code_2
+      _nef_rdc_restraint.sequence_code_2
+      _nef_rdc_restraint.residue_type_2
+      _nef_rdc_restraint.atom_name_2
+      _nef_rdc_restraint.weight
+      _nef_rdc_restraint.target_value
+      _nef_rdc_restraint.target_value_uncertainty
+      _nef_rdc_restraint.lower_linear_limit
+      _nef_rdc_restraint.lower_limit
+      _nef_rdc_restraint.upper_limit
+      _nef_rdc_restraint.upper_linear_limit
+     1    .      A   4     LEU   H   A   4     LEU   N   1.0   -11.754   2.5   .      .      .      .       
+     2    .      A   6     LEU   H   A   6     LEU   N   1.0   -8.853    2.5   .      .      .      .       
+     3    .      A   7     ILE   H   A   7     ILE   N   1.0   -3.09     2.5   .      .      .      .       
+     4    .      A   8     ASN   H   A   8     ASN   N   1.0   -4.637    2.5   .      .      .      .       
+     5    .      A   10    ASN   H   A   10    ASN   N   1.0   2.338     2.5   .      .      .      .       
+     6    .      A   11    ASN   H   A   11    ASN   N   1.0   -3.007    2.5   .      .      .      .       
+     7    .      A   12    ASP   H   A   12    ASP   N   1.0   10.756    2.5   .      .      .      .       
+     8    .      A   13    GLU   H   A   13    GLU   N   1.0   10.181    2.5   .      .      .      .       
+     9    .      A   14    LEU   H   A   14    LEU   N   1.0   6.155     2.5   .      .      .      .       
+     10   .      A   17    LYS   H   A   17    LYS   N   1.0   7.846     2.5   .      .      .      .       
+     # ----  abbreviated ----
+;
+
+   #
+save_
+#
+save__nef_rdc_restraint.atom_name_1
+   #
+
+   _item_description.description  "The author provided name for the first partner atom."
+   #
+   _item.name            "_nef_rdc_restraint.atom_name_1"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_rdc_restraint.atom_name_2
+   #
+
+   _item_description.description  "The author provided name for the second partner atom."
+   #
+   _item.name            "_nef_rdc_restraint.atom_name_2"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_rdc_restraint.chain_code_1
+   #
+
+   _item_description.description  "The author provided name for the first polymer chain or ligand instance."
+   #
+   _item.name            "_nef_rdc_restraint.chain_code_1"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_rdc_restraint.chain_code_2
+   #
+
+   _item_description.description  "The author provided name for the second polymer chain or ligand instance."
+   #
+   _item.name            "_nef_rdc_restraint.chain_code_2"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_rdc_restraint.lower_limit
+   #
+
+   _item_description.description  "The lower limit for the residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.lower_limit"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.lower_linear_limit
+   #
+
+   _item_description.description  "The lower limit for the linear residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.lower_linear_limit"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.residue_type_1
+   #
+
+   _item_description.description  "The author provided name for the first partner residue."
+   #
+   _item.name            "_nef_rdc_restraint.residue_type_1"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_rdc_restraint.residue_type_2
+   #
+
+   _item_description.description  "The author provided name for the second partner residue."
+   #
+   _item.name            "_nef_rdc_restraint.residue_type_2"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_rdc_restraint.restraint_combination_id
+   #
+
+   _item_description.description  "An identifier for a restraint used in combination with this residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.restraint_combination_id"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.restraint_id
+   #
+
+   _item_description.description  "A unique identifier for the residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.restraint_id"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.scale
+   #
+
+   _item_description.description  "The scale value applied to this residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.scale"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.sequence_code_1
+   #
+
+   _item_description.description  "The author provided position for the first residue in the sequence."
+   #
+   _item.name            "_nef_rdc_restraint.sequence_code_1"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_rdc_restraint.sequence_code_2
+   #
+
+   _item_description.description  "The author provided position for the second residue in the sequence."
+   #
+   _item.name            "_nef_rdc_restraint.sequence_code_2"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_rdc_restraint.target_value
+   #
+
+   _item_description.description  "The target value applied for this residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.target_value"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.target_value_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in the target value applied for this residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.target_value_uncertainty"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.upper_limit
+   #
+
+   _item_description.description  "The upper limit for the residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.upper_limit"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.upper_linear_limit
+   #
+
+   _item_description.description  "The upper limit for the linear residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.upper_linear_limit"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint.weight
+   #
+
+   _item_description.description  "The weighting value applied to the  residual dipolar coupling restraint."
+   #
+   _item.name            "_nef_rdc_restraint.weight"
+   _item.category_id     nef_rdc_restraint
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_sequence
+   #
+
+   _category.description     "The data items in the NEF_SEQUENCE category enumerates the sequences of the polymer components of the molecular system."
+   _category.id              nef_sequence
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_sequence.chain_code"  
+     "_nef_sequence.residue_type"  
+     "_nef_sequence.sequence_code"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_sequence.chain_code
+      _nef_sequence.sequence_code
+      _nef_sequence.residue_type
+      _nef_sequence.residue_variant
+      _nef_sequence.linking
+      _nef_sequence.cross_linking
+     A   1     MET   .      start   .       
+     A   2     LYS   .      .       .       
+     A   3     ILE   .      .       .       
+     A   4     LEU   .      .       .       
+     A   5     ILE   .      .       .       
+     A   6     LEU   .      .       .       
+     A   7     ILE   .      .       .       
+     A   8     ASN   .      .       .       
+     A   9     THR   .      .       .       
+     # ---  abbreviated ---
+;
+
+   #
+save_
+#
+save__nef_sequence.chain_code
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain identifier for this sequence."
+   #
+   _item.name            "_nef_sequence.chain_code"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_sequence.cross_linking
+   #
+
+   _item_description.description  "A flag for residue with an internal cross link."
+   #
+   _item.name            "_nef_sequence.cross_linking"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_sequence.linking
+   #
+
+   _item_description.description  "A flag for residue with a covalent attachment."
+   #
+   _item.name            "_nef_sequence.linking"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_sequence.residue_type
+   #
+
+   _item_description.description  "The author provided residue name."
+   #
+   _item.name            "_nef_sequence.residue_type"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_sequence.residue_variant
+   #
+
+   _item_description.description  "A flag for a non-standard residue feature."
+   #
+   _item.name            "_nef_sequence.residue_variant"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_sequence.sequence_code
+   #
+
+   _item_description.description  "The author provided position for the residue in the sequence."
+   #
+   _item.name            "_nef_sequence.sequence_code"
+   _item.category_id     nef_sequence
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save_nef_nmr_meta_data
+   #
+
+   _category.description     "The data items in the NEF_NMR_META_DATA category records the format version and creator program details."
+   _category.id              nef_nmr_meta_data
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_nmr_meta_data.sf_category"  
+     "_nef_nmr_meta_data.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_nmr_meta_data.sf_category           nef_nmr_meta_data
+   _nef_nmr_meta_data.sf_framecode          nef_nmr_meta_data
+   _nef_nmr_meta_data.format_name           nmr_exchange_format
+   _nef_nmr_meta_data.format_version        0.7
+   _nef_nmr_meta_data.program_name          CCPN
+   _nef_nmr_meta_data.program_version       2.4.1
+   _nef_nmr_meta_data.creation_date         2014-10-10T12:17:50.122945
+   _nef_nmr_meta_data.coordinate_file_name  .
+;
+
+   #
+save_
+#
+save__nef_nmr_meta_data.coordinate_file_name
+   #
+
+   _item_description.description  "The coordinate data file name associated with this restraint data set."
+   #
+   _item.name            "_nef_nmr_meta_data.coordinate_file_name"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.creation_date
+   #
+
+   _item_description.description  "The creation date for this data set."
+   #
+   _item.name            "_nef_nmr_meta_data.creation_date"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.format_name
+   #
+
+   _item_description.description  "The format identifier for this data set."
+   #
+   _item.name            "_nef_nmr_meta_data.format_name"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.format_version
+   #
+
+   _item_description.description  "The format version for this data set."
+   #
+   _item.name            "_nef_nmr_meta_data.format_version"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.program_name
+   #
+
+   _item_description.description  "The creator program name for this data file."
+   #
+   _item.name            "_nef_nmr_meta_data.program_name"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.program_version
+   #
+
+   _item_description.description  "The creator program version for this data file."
+   #
+   _item.name            "_nef_nmr_meta_data.program_version"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_nmr_meta_data.sf_category"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_nmr_meta_data.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_nmr_meta_data.sf_framecode"
+   _item.category_id     nef_nmr_meta_data
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_rdc_restraint_list
+   #
+
+   _category.description     "The data items in the NEF_RDC_RESTRAINT_LIST category records additional details for the list of residual dipolar coupling restraints."
+   _category.id              nef_rdc_restraint_list
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_rdc_restraint_list.sf_category"  
+     "_nef_rdc_restraint_list.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_rdc_restraint_list.sf_category           nef_rdc_restraint_list
+   _nef_rdc_restraint_list.sf_framecode          RestraintList:1.Rdc,4
+   _nef_rdc_restraint_list.potential_type        unknown
+;
+
+   #
+save_
+#
+save__nef_rdc_restraint_list.potential_type
+   #
+
+   _item_description.description  "The potential type used to model the residual dipolar coupling restraints."
+   #
+   _item.name            "_nef_rdc_restraint_list.potential_type"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_rdc_restraint_list.sf_category"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_rdc_restraint_list.sf_framecode"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.tensor_chain_code
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain or ligand instance for a dummy residue specifying the location and orientation of the tensor."
+   #
+   _item.name            "_nef_rdc_restraint_list.tensor_chain_code"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.tensor_magnitude
+   #
+
+   _item_description.description  "The magnitude orientational parameter for the tensor."
+   #
+   _item.name            "_nef_rdc_restraint_list.tensor_magnitude"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.tensor_residue_type
+   #
+
+   _item_description.description  "The author provided residue code for a dummy residue specifying the location and orientation of the tensor."
+   #
+   _item.name            "_nef_rdc_restraint_list.tensor_residue_type"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.tensor_rhombicity
+   #
+
+   _item_description.description  "The rhombicity orientational parameter for the tensor."
+   #
+   _item.name            "_nef_rdc_restraint_list.tensor_rhombicity"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_rdc_restraint_list.tensor_sequence_code
+   #
+
+   _item_description.description  "The author provided position in polymer sequence for a dummy residue specifying the location and orientation of the tensor."
+   #
+   _item.name            "_nef_rdc_restraint_list.tensor_sequence_code"
+   _item.category_id     nef_rdc_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_chemical_shift_list
+   #
+
+   _category.description     "The data items in the NEF_CHEMICAL_SHIFT_LIST category provides additional details about the list of chemical shifts."
+   _category.id              nef_chemical_shift_list
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_chemical_shift_list.sf_category"  
+     "_nef_chemical_shift_list.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_chemical_shift_list.sf_category                nef_chemical_shift_list
+   _nef_chemical_shift_list.sf_framecode               bmrb21_str
+   _nef_chemical_shift_list.atom_chemical_shift_units  ppm
+;
+
+   #
+save_
+#
+save__nef_chemical_shift_list.atom_chemical_shift_units
+   #
+
+   _item_description.description  "The units of chemical shift values in the NEF_CHEMICAL_SHIFT category."
+   #
+   _item.name            "_nef_chemical_shift_list.atom_chemical_shift_units"
+   _item.category_id     nef_chemical_shift_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_chemical_shift_list.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_chemical_shift_list.sf_category"
+   _item.category_id     nef_chemical_shift_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_chemical_shift_list.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_chemical_shift_list.sf_framecode"
+   _item.category_id     nef_chemical_shift_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_peak_restraint_link
+   #
+
+   _category.description     "The data items in the NEF_PEAK_RESTRAINT_LINK category record the correspondences between peaks and restraints."
+   _category.id              nef_peak_restraint_link
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_peak_restraint_link.nmr_spectrum_id"  
+     "_nef_peak_restraint_link.peak_id"  
+     "_nef_peak_restraint_link.restraint_id"  
+     "_nef_peak_restraint_link.restraint_list_id"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_peak_restraint_link.nmr_spectrum_id
+      _nef_peak_restraint_link.peak_id
+      _nef_peak_restraint_link.restraint_list_id
+      _nef_peak_restraint_link.restraint_id
+     $nmr_spectrum_C-NOESY_1_1   193    $distance_restraint_list_2   1       
+     $nmr_spectrum_C-NOESY_1_1   2611   $distance_restraint_list_2   2       
+     $nmr_spectrum_C-NOESY_1_1   1187   $distance_restraint_list_2   3       
+     $nmr_spectrum_C-NOESY_1_1   2277   $distance_restraint_list_2   4       
+     $nmr_spectrum_C-NOESY_1_1   1011   $distance_restraint_list_2   5       
+     $nmr_spectrum_C-NOESY_1_1   2666   $distance_restraint_list_2   6       
+;
+
+   #
+save_
+#
+save__nef_peak_restraint_link.nmr_spectrum_id
+   #
+
+   _item_description.description  "The identifier for the NMR spectrum in this link relationship."
+   #
+   _item.name            "_nef_peak_restraint_link.nmr_spectrum_id"
+   _item.category_id     nef_peak_restraint_link
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak_restraint_link.peak_id
+   #
+
+   _item_description.description  "The identifier for the peak in this link relationship."
+   #
+   _item.name            "_nef_peak_restraint_link.peak_id"
+   _item.category_id     nef_peak_restraint_link
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak_restraint_link.restraint_id
+   #
+
+   _item_description.description  "The identifier for the restraint in this link relationship."
+   #
+   _item.name            "_nef_peak_restraint_link.restraint_id"
+   _item.category_id     nef_peak_restraint_link
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak_restraint_link.restraint_list_id
+   #
+
+   _item_description.description  "The identifier for the restraint list this link relationship."
+   #
+   _item.name            "_nef_peak_restraint_link.restraint_list_id"
+   _item.category_id     nef_peak_restraint_link
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_peak
+   #
+
+   _category.description     "The data items in the NEF_PEAK category enumerates the list of spectrum peaks and associated assignments."
+   _category.id              nef_peak
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #
+   _category_key.name  "_nef_peak.peak_id"
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_peak.peak_id
+      _nef_peak.volume
+      _nef_peak.volume_uncertainty
+      _nef_peak.height
+      _nef_peak.height_uncertainty
+      _nef_peak.position_1
+      _nef_peak.position_uncertainty_1
+      _nef_peak.position_2
+      _nef_peak.position_uncertainty_2
+      _nef_peak.position_3
+      _nef_peak.position_uncertainty_3
+      _nef_peak.chain_code_1
+      _nef_peak.sequence_code_1
+      _nef_peak.residue_type_1
+      _nef_peak.atom_name_1
+      _nef_peak.chain_code_2
+      _nef_peak.sequence_code_2
+      _nef_peak.residue_type_2
+      _nef_peak.atom_name_2
+      _nef_peak.chain_code_3
+      _nef_peak.sequence_code_3
+      _nef_peak.residue_type_3
+      _nef_peak.atom_name_3
+     1       666000.0      0.0   .  .  4.847   .  59.545   .  11.737   .  .  .  .  .  . . . . . . . .       
+     2       474000.0      0.0   .  .  4.839   .  59.503   .  10.497   .  .  .  .  .  . . . . . . . .       
+     3       400000.0      0.0   .  .  4.836   .  59.565   .  8.887    .  .  .  .  .  . . . . . . . .       
+     4       872000.0      0.0   .  .  4.845   .  59.687   .  8.693    .  .  .  .  .  . . . . . . . .       
+     5       525000.0      0.0   .  .  4.848   .  59.556   .  8.13     .  .  .  .  .  . . . . . . . .       
+     # --- abbreviated ---
+;
+
+   #
+save_
+#
+save__nef_peak.atom_name_1
+   #
+
+   _item_description.description  "The atom name for the nuclear assignment  associated with the first dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.atom_name_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_peak.atom_name_2
+   #
+
+   _item_description.description  "The atom name for the nuclear assignment  associated with the second dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.atom_name_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_peak.atom_name_3
+   #
+
+   _item_description.description  "The atom name for the nuclear assignment  associated with the third dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.atom_name_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_peak.chain_code_1
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain or ligand instance for the nuclear assignment associated with the first dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.chain_code_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_peak.chain_code_2
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain or ligand instance for the nuclear assignment associated with the second dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.chain_code_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_peak.chain_code_3
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain or ligand instance for the nuclear assignment associated with the third dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.chain_code_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_peak.height
+   #
+
+   _item_description.description  "The peak height. "
+   #
+   _item.name            "_nef_peak.height"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.height_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in the peak height. "
+   #
+   _item.name            "_nef_peak.height_uncertainty"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.peak_id
+   #
+
+   _item_description.description  "The unique identifier for the peak."
+   #
+   _item.name            "_nef_peak.peak_id"
+   _item.category_id     nef_peak
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_1
+   #
+
+   _item_description.description  "The peak position along the first dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_2
+   #
+
+   _item_description.description  "The peak position along the second dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_3
+   #
+
+   _item_description.description  "The peak position along the third dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_uncertainty_1
+   #
+
+   _item_description.description  "The uncertainty in the peak position along the first dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_uncertainty_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_uncertainty_2
+   #
+
+   _item_description.description  "The uncertainty in the peak position along the second dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_uncertainty_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.position_uncertainty_3
+   #
+
+   _item_description.description  "The uncertainty in the peak position along the third dimension of the NMR spectrum."
+   #
+   _item.name            "_nef_peak.position_uncertainty_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.residue_type_1
+   #
+
+   _item_description.description  "The author provided identifier for the residue code for the nuclear assignment associated with the first dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.residue_type_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_peak.residue_type_2
+   #
+
+   _item_description.description  "The author provided identifier for the residue code for the nuclear assignment associated with the second dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.residue_type_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_peak.residue_type_3
+   #
+
+   _item_description.description  "The author provided identifier for the residue code for the nuclear assignment associated with the third dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.residue_type_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_peak.sequence_code_1
+   #
+
+   _item_description.description  "The author provided identifier for the position in polymer sequence for the nuclear assignment associated with the first dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.sequence_code_1"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_peak.sequence_code_2
+   #
+
+   _item_description.description  "The author provided identifier for the position in polymer sequence for the nuclear assignment associated with the second dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.sequence_code_2"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_peak.sequence_code_3
+   #
+
+   _item_description.description  "The author provided identifier for the position in polymer sequence for the nuclear assignment associated with the third dimension of the spectrum."
+   #
+   _item.name            "_nef_peak.sequence_code_3"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_peak.volume
+   #
+
+   _item_description.description  "The peak volume. "
+   #
+   _item.name            "_nef_peak.volume"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak.volume_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in peak volume. "
+   #
+   _item.name            "_nef_peak.volume_uncertainty"
+   _item.category_id     nef_peak
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_dihedral_restraint_list
+   #
+
+   _category.description     "The data items in the NEF_DIHEDRAL_RESTRAINT_LIST category provide additional details about the dihedral restraint list."
+   _category.id              nef_dihedral_restraint_list
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_dihedral_restraint_list.sf_category"  
+     "_nef_dihedral_restraint_list.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_dihedral_restraint_list.sf_category     nef_dihedral_restraint_list
+   _nef_dihedral_restraint_list.sf_framecode    dihedral_constraint_list
+   _nef_dihedral_restraint_list.potential_type  unknown
+;
+
+   #
+save_
+#
+save__nef_dihedral_restraint_list.potential_type
+   #
+
+   _item_description.description  "The potential type used to model the dihedral restraints."
+   #
+   _item.name            "_nef_dihedral_restraint_list.potential_type"
+   _item.category_id     nef_dihedral_restraint_list
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint_list.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_dihedral_restraint_list.sf_category"
+   _item.category_id     nef_dihedral_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_dihedral_restraint_list.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_dihedral_restraint_list.sf_framecode"
+   _item.category_id     nef_dihedral_restraint_list
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_program_script
+   #
+
+   _category.description     "The data items in the NEF_PROGRAM_SCRIPT category records the list of programs and scripts used in producing this data set."
+   _category.id              nef_program_script
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_program_script.program_name"  
+     "_nef_program_script.script_name"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_program_script.program_name
+      _nef_program_script.script_name
+      _nef_program_script.script
+      _nef_program_script.ccpn_special_par
+     'CcpNmr Analysis' dummy      'Try  something, then say 'Booh!'' 42
+;
+
+   #
+save_
+#
+save__nef_program_script.ccpn_special_par
+   #
+
+   _item_description.description  "A special parameter used by the CCPN program system."
+   #
+   _item.name            "_nef_program_script.ccpn_special_par"
+   _item.category_id     nef_program_script
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_program_script.program_name
+   #
+
+   _item_description.description  "The program name invoked by this script."
+   #
+   _item.name            "_nef_program_script.program_name"
+   _item.category_id     nef_program_script
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_program_script.script
+   #
+
+   _item_description.description  "The text of the script."
+   #
+   _item.name            "_nef_program_script.script"
+   _item.category_id     nef_program_script
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_program_script.script_name
+   #
+
+   _item_description.description  "The name for the script."
+   #
+   _item.name            "_nef_program_script.script_name"
+   _item.category_id     nef_program_script
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_molecular_system
+   #
+
+   _category.description     "The data items in the NEF_MOLECULAR_SYSTEM category provides details describing the molecular system."
+   _category.id              nef_molecular_system
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_molecular_system.sf_category"  
+     "_nef_molecular_system.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_molecular_system.sf_category   nef_molecular_system
+   _nef_molecular_system.sf_framecode  nef_molecular_system
+;
+
+   #
+save_
+#
+save__nef_molecular_system.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_molecular_system.sf_category"
+   _item.category_id     nef_molecular_system
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_molecular_system.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_molecular_system.sf_framecode"
+   _item.category_id     nef_molecular_system
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_peak_restraint_links
+   #
+
+   _category.description     "The data items in the NEF_PEAK_RESTRAINT_LINKS category records the details of the particular list of peak-restraint correspondences used."
+   _category.id              nef_peak_restraint_links
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_peak_restraint_links.sf_category"  
+     "_nef_peak_restraint_links.sf_framecode"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   _nef_peak_restraint_links.sf_category   nef_peak_restraint_links
+   _nef_peak_restraint_links.sf_framecode  nef_peak_restraint_links
+;
+
+   #
+save_
+#
+save__nef_peak_restraint_links.sf_category
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_peak_restraint_links.sf_category"
+   _item.category_id     nef_peak_restraint_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_peak_restraint_links.sf_framecode
+   #
+
+   _item_description.description  "An identifier for "
+   #
+   _item.name            "_nef_peak_restraint_links.sf_framecode"
+   _item.category_id     nef_peak_restraint_links
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_spectrum_dimension
+   #
+
+   _category.description     "The data items in the NEF_SPECTRUM_DIMENSION category the details labeling and data collection for each dimension of the spectrum."
+   _category.id              nef_spectrum_dimension
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #
+   _category_key.name  "_nef_spectrum_dimension.dimension_id"
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_spectrum_dimension.dimension_id
+      _nef_spectrum_dimension.axis_unit
+      _nef_spectrum_dimension.axis_code
+      _nef_spectrum_dimension.spectrometer_frequency
+      _nef_spectrum_dimension.spectral_width
+      _nef_spectrum_dimension.value_first_point
+      _nef_spectrum_dimension.folding
+      _nef_spectrum_dimension.absolute_peak_positions
+      _nef_spectrum_dimension.is_acquisition
+     1   ppm   1H    500.0         13.312               11.428   circular   true   true     
+     2   ppm   13C   125.7367377   203.600              201.80   circular   true   false    
+     3   ppm   1H    500.0         13.312               11.428   circular   true   false
+;
+
+   #
+save_
+#
+save__nef_spectrum_dimension.absolute_peak_positions
+   #
+
+   _item_description.description  "A flag for assigning absolute peak positions."
+   #
+   _item.name            "_nef_spectrum_dimension.absolute_peak_positions"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.axis_code
+   #
+
+   _item_description.description  "A code identifying this axis. "
+   #
+   _item.name            "_nef_spectrum_dimension.axis_code"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.axis_unit
+   #
+
+   _item_description.description  "The units for data collection."
+   #
+   _item.name            "_nef_spectrum_dimension.axis_unit"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.dimension_id
+   #
+
+   _item_description.description  "The index for the dimension. "
+   #
+   _item.name            "_nef_spectrum_dimension.dimension_id"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.folding
+   #
+
+   _item_description.description  "A flag for the folding applied to this data collection."
+   #
+   _item.name            "_nef_spectrum_dimension.folding"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.is_acquisition
+   #
+
+   _item_description.description  "The spectral width for data collection."
+   #
+   _item.name            "_nef_spectrum_dimension.is_acquisition"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.spectral_width
+   #
+
+   _item_description.description  "The spectral width for data collection."
+   #
+   _item.name            "_nef_spectrum_dimension.spectral_width"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.spectrometer_frequency
+   #
+
+   _item_description.description  "The spectrometer frequency for data collection."
+   #
+   _item.name            "_nef_spectrum_dimension.spectrometer_frequency"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_spectrum_dimension.value_first_point
+   #
+
+   _item_description.description  "The value of the first point collected along this dimension."
+   #
+   _item.name            "_nef_spectrum_dimension.value_first_point"
+   _item.category_id     nef_spectrum_dimension
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save_nef_chemical_shift
+   #
+
+   _category.description     "The data items in the NEF_CHEMICAL_SHIFT category enumerate the list of chemical shifts."
+   _category.id              nef_chemical_shift
+   _category.mandatory_code  no
+   #
+   _category_group.id  nef_group
+   #   #
+   loop_
+   _category_key.name
+     "_nef_chemical_shift.atom_name"  
+     "_nef_chemical_shift.chain_code"  
+     "_nef_chemical_shift.residue_type"  
+     "_nef_chemical_shift.sequence_code"  
+   #
+   _category_examples.detail  "Example 1"
+   _category_examples.case    
+;   loop_
+      _nef_chemical_shift.chain_code
+      _nef_chemical_shift.sequence_code
+      _nef_chemical_shift.residue_type
+      _nef_chemical_shift.atom_name
+      _nef_chemical_shift.value
+      _nef_chemical_shift.value_uncertainty
+     A   1     MET   CA     54.5      0.4     
+     A   1     MET   CB     33.173    0.4     
+     A   1     MET   CG     30.985    0.4     
+     A   1     MET   HA     4.118     0.02    
+     A   1     MET   HBX    2.03      0.02    
+     A   1     MET   HBY    2.198     0.02    
+     A   1     MET   HGX    2.429     0.02    
+     A   1     MET   HGY    2.602     0.02    
+     A   2     LYS   CD     28.798    0.4     
+     A   2     LYS   CE     42.469    0.4     
+     A   2     LYS   CG     25.517    0.4     
+     A   2     LYS   HDX    0.96      0.02    
+     A   2     LYS   HDY    1.261     0.02    
+     A   2     LYS   HEX    2.758     0.02    
+     A   2     LYS   HEY    2.881     0.02    
+     A   2     LYS   HGX    1.035     0.02    
+     A   2     LYS   HGY    1.068     0.02    
+     # -- abbreviated -- 
+;
+
+   #
+save_
+#
+save__nef_chemical_shift.atom_name
+   #
+
+   _item_description.description  "The author provided atom name."
+   #
+   _item.name            "_nef_chemical_shift.atom_name"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  yes
+   #
+   _item_type.code  atcode
+   #
+   _item_examples.case  HB1
+   #
+save_
+#
+save__nef_chemical_shift.chain_code
+   #
+
+   _item_description.description  "The author provided identifier for a polymer chain or ligand instance."
+   #
+   _item.name            "_nef_chemical_shift.chain_code"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  B
+   #
+save_
+#
+save__nef_chemical_shift.residue_type
+   #
+
+   _item_description.description  "The author provided residue name."
+   #
+   _item.name            "_nef_chemical_shift.residue_type"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  ALA
+   #
+save_
+#
+save__nef_chemical_shift.sequence_code
+   #
+
+   _item_description.description  "The author provided residue position in sequence."
+   #
+   _item.name            "_nef_chemical_shift.sequence_code"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  20
+   #
+save_
+#
+save__nef_chemical_shift.value
+   #
+
+   _item_description.description  "The chemical shift value."
+   #
+   _item.name            "_nef_chemical_shift.value"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__nef_chemical_shift.value_uncertainty
+   #
+
+   _item_description.description  "The uncertainty in the chemical shift value."
+   #
+   _item.name            "_nef_chemical_shift.value_uncertainty"
+   _item.category_id     nef_chemical_shift
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#

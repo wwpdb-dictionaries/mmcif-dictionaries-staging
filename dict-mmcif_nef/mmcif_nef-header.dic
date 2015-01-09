@@ -1,0 +1,30 @@
+###########################################################################
+# 
+#        NMR Exchange Format Data Dictionary (NEF)
+#                                                                           
+###########################################################################
+
+data_mmcif_nef.dic
+
+    _datablock.id                          mmcif_nef.dic
+    _datablock.description
+;
+     This data block holds the NMR Exchange Format Data Dictionary.
+ 
+;
+
+    _dictionary.title           mmcif_nef.dic
+    _dictionary.datablock_id    mmcif_nef.dic
+    _dictionary.version         .100
+#
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+  .100   2015-01-08
+;
+  Changes (NEF Working Group):  
+  + Preliminary version 
+;
+##
+
