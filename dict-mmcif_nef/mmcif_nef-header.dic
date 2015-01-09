@@ -10,6 +10,11 @@ data_mmcif_nef.dic
     _datablock.description
 ;
      This data block holds the NMR Exchange Format Data Dictionary.
+
+     NMR Exchange Format Working:     Geerten Vuister (chair), Rasmus Fogh, Peter Güntert,
+     Charles Schwieters, Michael Nilges,T.J. Ragan,Torsten Herrmann, David A Case
+     Gaetano Montelione, David Wishart, Wim F. Vranken, Paul Adams, Roberto Tejero, Eldon Ulrich,
+     Naohiro Kobayashi, John Markley, Sameer Velankar, Aleksandras Gutmanas, John Westbrook
  
 ;
 
@@ -21,10 +26,13 @@ data_mmcif_nef.dic
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-  .100   2015-01-08
-;
-  Changes (NEF Working Group):  
-  + Preliminary version 
+  .100   2015-01-09
+; Changes (NEF Working Group):  Preliminary version release 
+
+     NMR Exchange Format Working:     Geerten Vuister (chair), Rasmus Fogh, Peter Güntert,
+     Charles Schwieters, Michael Nilges,T.J. Ragan,Torsten Herrmann, David A Case
+     Gaetano Montelione, David Wishart, Wim F. Vranken, Paul Adams, Roberto Tejero, Eldon Ulrich,
+     Naohiro Kobayashi, John Markley, Sameer Velankar, Aleksandras Gutmanas, John Westbrook
 ;
 ##
 
