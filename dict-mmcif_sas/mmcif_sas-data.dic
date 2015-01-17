@@ -1,0 +1,97 @@
+##################
+## SUB_CATEGORY ##
+##################
+     loop_
+    _sub_category.id
+    _sub_category.description
+              'vector'
+;              The collection of elements of a vector.
+;
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+
+#
+#
+#  The regular expressions defined here are not compliant
+#  with the POSIX 1003.2 standard as they include the
+#  '\n' and '\t' special characters. These regular expressions
+#  have been tested using the version 0.12 of Richard Stallman's
+#  GNU regular expression libary in POSIX mode.
+#
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               code      char
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words ...
+;
+               ucode      uchar
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words  (case insensitive) ...
+;
+
+               line      char
+               '[][ \t_(),.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              char item types / multi-word items ...
+;
+             text      char
+               '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              text item types / multi-line text ...
+;
+               int       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative
+               or positive integers.
+;
+               float     numb
+        
+       '-?(([0-9]+)|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+
+;             float item types are the subset of numbers that are the floating
+               numbers.
+;
+              yyyy-mm-dd  char
+                '[0-9]?[0-9]?[0-9][0-9]-[0-9]?[0-9]-[0-9][0-9]'
+;
+               Standard format for CIF dates.
+;
+
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+#IDB
+# I have added metres (correct SI spelling) and rpm and have corrected the
+# spelling of litres.
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+#
+     'metres'                 'metres'
+     'angstroms'              'Angstroms   (metres * 10^(-10)^)'
+#
+     'millimetres'            'millimetres (meters * 10^( -3)^)'
+#
+#IDB
+# I have added another level of parentheses to correct the next line.
+#
+     'reciprocal_angstroms'   'reciprocal angstroms ((metres * 10^(-10))^^-1^)'
+#
+     'seconds'                'seconds'
+     'reciprocal_seconds'     'seconds^-1^'
+#
+     'degrees'                'degrees (of arc)'
+     'radians'             'radians'
+#
+  'mg_per_ml'              'milligram per milliliter'
+#
+     'rpm'                   'revolutions per minute'
+     'pixels'               'element of detector'
+# 
+

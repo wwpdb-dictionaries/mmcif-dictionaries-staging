@@ -1,0 +1,125 @@
+##############################################################################
+#                                                                            #
+#                               SAS CIF Dictionary                           #
+#                                                                            #
+#                       Marc Malfois, Dmitri Svergun                         #
+#                                                                            #
+# Details of revisions are given in dictionary_history at end of the file    #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#        This dictionary built with DDL v2.1. format                         #
+#        CIF data definitions for small-angle scattering applications        #
+#                                                                            #
+############################################################################## 
+#IDB
+# OVERVIEW
+#
+# This dictionary describe a additional CIF items needed for a sas experiment 
+#
+# This version of the sasCIF dictionary is organized on the following principles:
+#
+# 1. It assumes that a sasCIF will report the intensity measurements as a function 
+# of momentum transfer from one or more scans.  
+# Each scan will report scattering from either the sample, the matrix, etc. or the 
+# processed intensities.  The intensities will be recorded  
+# in the sas_scan_intensity category.  Any number of scans may be reported in a 
+# single datablock, but different scans may be reported in different datablocks
+# if so desired.
+#
+# 2. The properties of each scan, e.g., the sample, beam and detector used, whether 
+# the scattering is from the sample or the matrix, is indentified in the sas_scan 
+# category.  
+# The properties of the beam, detector and sample are reported in their own 
+# categories, but the sas_scan category has pointers to these, allowing each scan 
+# to reference any of the reported samples, beams and detectors. 
+# If more than one scan is being reported in the CIF, the items in sas_scan will be 
+# looped.  
+#
+# 3. CIF defines a Standard Laboratory Reference System (SLRS) of axes against 
+# which the axis systems of the SAS experiment can be defined, using the 
+# sas_axis category. 
+
+# DSV: OK but I would suggest to direct Z outwards the source, which 
+# may appear more logical.
+#
+## IDB: The imgCIF definition is only a reference system.  The user is free to 
+## define any alternative axis system using the items in the sas_axis category 
+## which relates the operational axis systems back to the CIF 
+## standard.  Reversing the direction of z is achieved using the sas_axis items.  
+##
+## At any given installation where the same axis system is used for all
+## experiments, the items in the sas_axis category would remain unchanged and could 
+## be imported into any experimental CIF.
+##
+
+
+###################################################################
+#
+#   DRAFT SAS DICTIONARY FOLLOWS
+#
+###################################################################
+
+data_mmcif_sas.dic
+    _datablock.id                          mmcif_sas.dic
+    _datablock.description
+;
+     This data block holds the draft version of SAS dictionary.
+ 
+;
+    _dictionary.title           mmcif_sas.dic
+    _dictionary.version         0.5
+    _dictionary.datablock_id    mmcif_sas.dic
+
+## IDB: It is normal in dictionaries for the definitions to be arranged 
+## alphabetically.  I have tried to ensure that here.
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision    
+0.1   1998-11-09
+;
+   Initial definitions
+;
+0.1.1 1998-11-23
+;
+   Initial definitions corrected according to the DDL2 format.
+;
+0.1.2 1999-03-12
+;
+    Corrections including keywords defined in the core dictionary.
+;
+0.1.3 1999-06-02
+;
+    Corrections with better definitions of the items.
+;
+0.2  2000-12-19
+;   Corrections made by I.D.Brown together with questions raised in comments
+;
+0.3 2001-05-05
+;   Corrections made made by M. Malfois according the questions and comments of I.D.Brown
+;
+0.4.01  2007-10-23
+;   I.D.Brown: Introduced the standard CIF axis system defined in imgCIF and reorganized sas_intensity into sas_scan and sas_scan_intensity.  Moved .beam_id and .detc_id from sas_sample to sas_scan.  Changed some names and improved definitions etc.  Inserted a number of queries.
+;
+0.4.02  2010-01-05
+;   IDB: Further changes in response to DSV's suggestions
+;
+0.4.03  2010-01-26
+;   IDB: set up the sas_axis category and changed all the references to the axis system to conform to the use of a local set of laboratory axes defined in sas_axis in terms of the Standard Laboratory Refrence System.
+Rearranged items in alphabetic order (excetpt .id items come first)
+;
+0.4.04  2013-10-17
+;   jdw: Format and syntax updates based on software checks.  
+;
+0.5  2015-01-17
+;   Incorporate extensions for SASDB provided by Michael Kachala and Dmitri Svergun.
+;
+#--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof
+
+         

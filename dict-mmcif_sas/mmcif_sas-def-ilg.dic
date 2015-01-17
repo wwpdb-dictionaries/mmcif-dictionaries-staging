@@ -1,0 +1,29 @@
+# 
+loop_
+_pdbx_item_linked_group.category_id 
+_pdbx_item_linked_group.link_group_id 
+_pdbx_item_linked_group.label 
+_pdbx_item_linked_group.context 
+_pdbx_item_linked_group.condition_id 
+sas_beam           1 sas_beam:sas_axis:1           . . 
+sas_detc           1 sas_detc:sas_axis:1           . . 
+sas_sample         1 sas_sample:sas_axis:1         . . 
+sas_scan           1 sas_scan:sas_axis:1           . . 
+sas_scan           2 sas_scan:sas_beam:2           . . 
+sas_scan           3 sas_scan:sas_detc:3           . . 
+sas_scan_intensity 1 sas_scan_intensity:sas_scan:1 . . 
+# 
+loop_
+_pdbx_item_linked_group_list.child_category_id 
+_pdbx_item_linked_group_list.link_group_id 
+_pdbx_item_linked_group_list.child_name 
+_pdbx_item_linked_group_list.parent_name 
+_pdbx_item_linked_group_list.parent_category_id 
+sas_beam           1 '_sas_beam.axis_id'           '_sas_axis.id' sas_axis 
+sas_detc           1 '_sas_detc.axis_id'           '_sas_axis.id' sas_axis 
+sas_sample         1 '_sas_sample.axis_id'         '_sas_axis.id' sas_axis 
+sas_scan           1 '_sas_scan.axis_id'           '_sas_axis.id' sas_axis 
+sas_scan           2 '_sas_scan.beam_id'           '_sas_beam.id' sas_beam 
+sas_scan           3 '_sas_scan.detc_id'           '_sas_detc.id' sas_detc 
+sas_scan_intensity 1 '_sas_scan_intensity.scan_id' '_sas_scan.id' sas_scan 
+# 
