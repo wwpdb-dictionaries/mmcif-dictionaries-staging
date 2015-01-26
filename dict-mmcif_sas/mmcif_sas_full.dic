@@ -1,4 +1,3 @@
-
 #########################
 ## CATEGORY_GROUP_LIST ##
 #########################
@@ -38,6 +37,18 @@
               'intensity_group'
               'sas_group'
 ;              Categories that describe the intensities
+;
+              'result_group'
+              'sas_group'
+;              Categories that describe the results of the measurement
+;
+              'fitting_group'
+              'sas_group'
+;              Categories that describe the fitting of theoretical models' scattering to the experimental data  
+;
+              'model_group'
+              'sas_group'
+;              Categories that describe the models  
 ;
 
 ############
@@ -1466,7 +1477,13 @@ save__sas_sample.id
 ;
     _item.name                   '_sas_sample.id'
     _item.category_id             sas_sample
-    _item.mandatory_code          yes
+    _item.mandatory_code          yes    
+    loop_
+    _item_linked.child_name       
+    _item_linked.parent_name
+        '_sas_scan.sample_id'      '_sas_sample.id'
+        '_sas_buffer.sample_id'    '_sas_sample.id'      
+
     _item_type.code               code
 save_
 
@@ -2146,4 +2163,4 @@ save__sas_scan_intensity.resolution_width
     _item.mandatory_code          no
     _item_type.code               float
     save_  
-
+#

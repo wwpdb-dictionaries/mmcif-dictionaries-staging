@@ -5,8 +5,6 @@
 #_dictionary.version       '0.01'
 ##
 #
-#
-#
 save_sas_buffer
    #
    _category.description  "Description of the buffer used in the sample"
@@ -15,7 +13,8 @@ save_sas_buffer
    _category.mandatory_code  no
    #
    _category_key.name        "_sas_buffer.id"   
-   _category_group.id  sas_group
+   loop_
+   _category_group.id          'sas_group' 'sample_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case
@@ -518,7 +517,8 @@ save_sas_model
    _category.mandatory_code  no
    #
    _category_key.name        "_sas_model.id"
-   _category_group.id        sas_group
+    loop_
+   _category_group.id          'sas_group' 'model_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case
@@ -659,13 +659,14 @@ save_
 save_sas_result
    #
 
-   _category.description  "text of description"
+   _category.description  "Results of small-angle scattering measurement"
    #
    _category.id              sas_result
    _category.mandatory_code  no
    _category_key.name        "_sas_result.id"
    #
-   _category_group.id  sas_group
+   loop_
+   _category_group.id          'sas_group' 'result_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case
@@ -932,7 +933,12 @@ save__sas_result.id
    _item.name            "_sas_result.id"
    _item.category_id     sas_result
    _item.mandatory_code  yes
-   #
+   loop_
+   _item_linked.child_name
+   _item_linked.parent_name
+      '_sas_scan.result_id'                    '_sas_result.id'
+      '_sas_p_of_R_details.result_id'          '_sas_result.id'
+      '_sas_model_fitting_details.result_id'   '_sas_result.id'
    _item_type.code  code
    #
 save_
@@ -1064,7 +1070,8 @@ save_sas_p_of_R_details
    _category.mandatory_code  no
    _category_key.name        "_sas_p_of_R_details.id"
    #
-   _category_group.id  sas_group
+   loop_
+   _category_group.id          'sas_group' 'result_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case    
@@ -1116,7 +1123,13 @@ save__sas_p_of_R_details.id
    #
    _item.name            "_sas_p_of_R_details.id"
    _item.category_id     sas_p_of_R_details
-   _item.mandatory_code  yes
+   _item.mandatory_code  yes   
+   loop_
+   _item_linked.child_name       
+   _item_linked.parent_name      
+        '_sas_p_of_R.id'                 '_sas_p_of_R_details.id'
+        '_sas_p_of_R_extrapolated.id'    '_sas_p_of_R_details.id'    
+
    #
    _item_type.code  code
    #
@@ -1131,7 +1144,7 @@ save__sas_p_of_R_details.result_id
    _item.category_id     sas_p_of_R_details
    _item.mandatory_code  no
    #
-   _item_type.code  float
+   _item_type.code  code
    #
 save_
 #
@@ -1223,7 +1236,8 @@ save_sas_p_of_R
    _category.mandatory_code  no
    #
    _category_key.name        "_sas_p_of_R.ordinal"
-   _category_group.id        sas_group
+   loop_
+   _category_group.id          'sas_group' 'result_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case    
@@ -1318,7 +1332,8 @@ save_sas_p_of_R_extrapolated
    _category.mandatory_code  no
    #
    _category_key.name         "_sas_p_of_R.ordinal"
-   _category_group.id         sas_group
+   loop_
+   _category_group.id          'sas_group' 'result_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case    
@@ -1399,7 +1414,8 @@ save_sas_model_fitting_details
    _category.mandatory_code  no
    #
    _category_key.name        '_sas_model_fitting_details.id'
-   _category_group.id        sas_group
+   loop_
+   _category_group.id          'sas_group' 'fitting_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case
@@ -1420,7 +1436,13 @@ save__sas_model_fitting_details.id
    #
    _item.name            "_sas_model_fitting_details.id"
    _item.category_id     sas_model_fitting_details
-   _item.mandatory_code  yes
+   _item.mandatory_code  yes   
+   loop_
+   _item_linked.child_name       
+   _item_linked.parent_name
+       '_sas_model_fitting.id'    '_sas_model_fitting_details.id'
+       '_sas_model.fitting_id'    '_sas_model_fitting_details.id' 
+
    #
    _item_type.code  code
    #
@@ -1483,7 +1505,8 @@ save_sas_model_fitting
    _category.mandatory_code  no
    #
    _category_key.name        '_sas_model_fitting.ordinal'
-   _category_group.id        sas_group
+   loop_
+   _category_group.id          'sas_group' 'fitting_group'
    #
    _category_examples.detail  "Example 1"
    _category_examples.case
