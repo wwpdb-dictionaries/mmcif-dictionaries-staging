@@ -68,11 +68,9 @@ data_mmcif_sas.dic
  
 ;
     _dictionary.title           mmcif_sas.dic
-    _dictionary.version         0.5
+    _dictionary.version         0.51
     _dictionary.datablock_id    mmcif_sas.dic
 
-## IDB: It is normal in dictionaries for the definitions to be arranged 
-## alphabetically.  I have tried to ensure that here.
 
 ########################
 ## DICTIONARY_HISTORY ##
@@ -118,7 +116,12 @@ Rearranged items in alphabetic order (excetpt .id items come first)
 ;   jdw: Format and syntax updates based on software checks.  
 ;
 0.5  2015-01-17
-;   Incorporate extensions for SASDB provided by Michael Kachala and Dmitri Svergun.
+;  Updates: (jdw)
+   + Incorporate extensions for SASDB provided by Michael Kachala and Dmitri Svergun.
+;
+0.51  2015-01-26
+;  Updates: (jdw)
+   + Refined parent-child relationships ( Michael Kachala and Dmitri Svergun).
 ;
 #--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof--eof
 
