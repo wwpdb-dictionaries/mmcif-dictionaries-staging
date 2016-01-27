@@ -1,14 +1,14 @@
 
 ###########################################################################
 #
-# File:  mmcif_iims-def-2.dic                                             
-# 
+# File:  mmcif_iims-def-2.dic
+#
 #               PDB Extension Dictionary for 3-Dimensional
-#                          Electron Microscopy                
+#                          Electron Microscopy
 #
 #                           Definition Section 2
-#                            
-#                                                                        
+#
+#
 ###########################################################################
 
 
@@ -17,7 +17,7 @@
 
 ##
 ###
-# Please note the data items listed below are not for the PDB 
+# Please note the data items listed below are not for the PDB
 #            but are intended solely for the EM database
 #  _em_entity_assembly.ebi_organism_scientific
 #  _em_entity_assembly.ebi_organism_common
@@ -35,7 +35,7 @@
 
 #
 # categories
-#    
+#
 #   EM_ASSEMBLY
 #   _em_assembly.id
 #   _em_assembly.entry_id
@@ -60,7 +60,7 @@
 #   _em_entity_assembly.number_of_copies
 #   _em_entity_assembly.oligomeric_details
 #   EM_ENTITY_ASSEMBLY_LIST
-#   _em_entity_assembly_list.id 
+#   _em_entity_assembly_list.id
 #   _em_entity_assembly_list.entity_id
 #   _em_entity_assembly_list.entity_assembly_id
 #   _em_entity_assembly_list.oligomeric_details
@@ -231,25 +231,25 @@
 #   _em_3d_fitting_list.pdb_entry_id
 #   _em_3d_fitting_list.pdb_chain_id
 #   EM_2D_CRYSTAL_ENTITY
-#   _em_2d_crystal_entity.angle_alpha 	
-#   _em_2d_crystal_entity.angle_beta 	
-#   _em_2d_crystal_entity.angle_gamma 	
-#   _em_2d_crystal_entity.details 	
-#   _em_2d_crystal_entity.entity_assembly_id 	
-#   _em_2d_crystal_entity.id 	
-#   _em_2d_crystal_entity.length_a 	
-#   _em_2d_crystal_entity.length_b 	
-#   _em_2d_crystal_entity.length_c 	
+#   _em_2d_crystal_entity.angle_alpha
+#   _em_2d_crystal_entity.angle_beta
+#   _em_2d_crystal_entity.angle_gamma
+#   _em_2d_crystal_entity.details
+#   _em_2d_crystal_entity.entity_assembly_id
+#   _em_2d_crystal_entity.id
+#   _em_2d_crystal_entity.length_a
+#   _em_2d_crystal_entity.length_b
+#   _em_2d_crystal_entity.length_c
 #   _em_2d_crystal_entity.space_group_name_H-M
 #   EM_HELICAL_ENTITY
-#   _em_helical_entity.angular_rotation_per_subunit 	
-#   _em_helical_entity.axial_rise_per_subunit 
-#   _em_helical_entity.axial_symmetry 
-#   _em_helical_entity.details 	
-#   _em_helical_entity.dyad 	
-#   _em_helical_entity.entity_assembly_id 	
-#   _em_helical_entity.hand 	
-#   _em_helical_entity.id 	 
+#   _em_helical_entity.angular_rotation_per_subunit
+#   _em_helical_entity.axial_rise_per_subunit
+#   _em_helical_entity.axial_symmetry
+#   _em_helical_entity.details
+#   _em_helical_entity.dyad
+#   _em_helical_entity.entity_assembly_id
+#   _em_helical_entity.hand
+#   _em_helical_entity.id
 
 
 #################
@@ -259,17 +259,17 @@
 save_em_assembly
     _category.description
 ;   Data items in the EM_ASSEMBLY category record details
-    about the type of complex assembly that describes the 
+    about the type of complex assembly that describes the
     nature of the sample studied.
 ;
     _category.id                  em_assembly
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                                  '_em_assembly.id'
                                  '_em_assembly.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -277,20 +277,20 @@ save_em_assembly
     _category_examples.case
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
-; 
-; _em_assembly.id                   1 
+;
+; _em_assembly.id                   1
   _em_assembly.entry_id             1DYL
   _em_assembly.name                 virus
   _em_assembly.aggregation_state    PARTICLE
   _em_assembly.composition          virus
-  _em_assembly.num_components       1  
+  _em_assembly.num_components       1
   _em_assembly.mol_wt_exp           .
   _em_assembly.mol_wt_theo          .
   _em_assembly.mol_wt_method        .
   _em_assembly.details              .
 ;
      save_
-  
+
 save__em_assembly.id
     _item_description.description
 ;    The value of _em_assembly.id must uniquely identify
@@ -298,7 +298,7 @@ save__em_assembly.id
 ;
     _item.name                   '_em_assembly.id'
     _item.category_id            em_assembly
-    _item.mandatory_code         yes 
+    _item.mandatory_code         yes
     _item_type.code              code
     _item_linked.child_name      '_em_entity_assembly.assembly_id'
     _item_linked.parent_name     '_em_assembly.id'
@@ -323,8 +323,8 @@ save__em_assembly.name
     _item.name                   '_em_assembly.name'
     _item.category_id            em_assembly
     _item.mandatory_code         no
-    _item_type.code              text 
-    _item_examples.case          
+    _item_type.code              text
+    _item_examples.case
        'Fab Fragment of Mab1-Ia monoclonal antibody bound to Human Rhinovirus1h Nim-Ia Site'
       save_
 
@@ -364,7 +364,7 @@ save__em_assembly.composition
     _item.name                   '_em_assembly.composition'
     _item.category_id            em_assembly
     _item.mandatory_code         no
-    _item_type.code              text 
+    _item_type.code              text
       save_
 
 save__em_assembly.num_components
@@ -415,7 +415,7 @@ save__em_assembly.mol_wt_method
 
 save__em_assembly.details
     _item_description.description
-;    A description of any additional details 
+;    A description of any additional details
      describing the observed sample.
 ;
     _item.name                   '_em_assembly.details'
@@ -423,7 +423,7 @@ save__em_assembly.details
     _item.mandatory_code         no
     _item_type.code              text
      loop_
-    _item_examples.case          
+    _item_examples.case
 ; This sample was monodisperse.
 ;
      save_
@@ -441,12 +441,12 @@ save_em_entity_assembly
     _category.id                  em_entity_assembly
     _category.mandatory_code      no
      loop_
-    _category_key.name          
+    _category_key.name
                                 '_em_entity_assembly.id'
                                 '_em_entity_assembly.assembly_id'
 
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -454,7 +454,7 @@ save_em_entity_assembly
     _category_examples.case
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
               structure corresponding to PDB entry 1DYL
-; 
+;
 ; _em_entity_assembly.id                  1
   _em_entity_assembly.assembly_id         1
   _em_entity_assembly.type                VIRUS
@@ -467,8 +467,8 @@ save__em_entity_assembly.id
      each of the components of the complex.
 ;
     _item.name                          '_em_entity_assembly.id'
-    _item.category_id                   em_entity_assembly    
-    _item.mandatory_code                yes  
+    _item.category_id                   em_entity_assembly
+    _item.mandatory_code                yes
     _item_type.code                     code
      loop_
     _item_linked.child_name
@@ -504,11 +504,14 @@ save__em_entity_assembly.type
         PROTEIN
         'NUCLEIC ACID'
         LIGAND
-        LABEL 
+        LABEL
         'CELLULAR COMPONENT'
-        RIBOSOME 
-      save_
-
+        RIBOSOME
+        TISSUE
+        CELL
+        'ORGANELLE OR CELLULAR COMPONENT'
+        COMPLEX
+    save_
 
 save__em_entity_assembly.name
     _item_description.description
@@ -552,7 +555,7 @@ save__em_entity_assembly.ebi_organism_scientific
 
 save__em_entity_assembly.ebi_organism_common
     _item_description.description
-;   The common name of the species of the natural organism from which 
+;   The common name of the species of the natural organism from which
     the component was obtained.
 ;
     _item.name                  '_em_entity_assembly.ebi_organism_common'
@@ -571,7 +574,7 @@ save__em_entity_assembly.ebi_strain
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
                'DH5a'
                'BMH 71-18'
      save_
@@ -586,7 +589,7 @@ save__em_entity_assembly.ebi_tissue
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
               'heart'
               'liver'
               'eye lens'
@@ -602,7 +605,7 @@ save__em_entity_assembly.ebi_cell
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
          'CHO'
          'HELA'
          '3T3'
@@ -619,7 +622,7 @@ save__em_entity_assembly.ebi_organelle
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
                'golgi'
                'mitochondrion'
                'cytoskeleton'
@@ -634,7 +637,7 @@ save__em_entity_assembly.ebi_cellular_location
     _item.mandatory_code          no
     _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
            'cytoplasm'
            'endoplasmic reticulum'
            'plasma membrane'
@@ -661,9 +664,9 @@ save__em_entity_assembly.ebi_expression_system
     _item.name                  '_em_entity_assembly.ebi_expression_system'
     _item.category_id             em_entity_assembly
     _item.mandatory_code          no
-    _item_type.code               text 
+    _item_type.code               text
      loop_
-    _item_examples.case          
+    _item_examples.case
             'eschericia coli'
             'saccharomyces cerevisiae'
      save_
@@ -677,7 +680,7 @@ save__em_entity_assembly.ebi_expression_system_plasmid
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          
+    _item_examples.case
            'pBR322'
            'pMB9'
      save_
@@ -693,7 +696,7 @@ save__em_entity_assembly.go_id
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          
+    _item_examples.case
            'GO:0005876'
            'GO:0015630'
      save_
@@ -709,7 +712,7 @@ save__em_entity_assembly.ipr_id
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          
+    _item_examples.case
               '001304'
               '002353'
      save_
@@ -736,7 +739,7 @@ save__em_entity_assembly.mutant_flag
     _item_type.code             line
      loop_
     _item_enumeration.value
-             YES 
+             YES
              NO
      save_
 
@@ -772,11 +775,11 @@ save_em_entity_assembly_list
     _category.description
 ;    Data items in the  EM_ENTITY_ASSEMBLY_LIST category record details
      of the structural elements in each component.
-;   
+;
     _category.id                  em_entity_assembly_list
     _category.mandatory_code      no
      loop_
-    _category_key.name          
+    _category_key.name
                                 '_em_entity_assembly_list.entity_assembly_id'
                                 '_em_entity_assembly_list.id'
                                 '_em_entity_assembly_list.entity_id'
@@ -787,8 +790,8 @@ save_em_entity_assembly_list
     _category_examples.detail
     _category_examples.case
 ;  Example 1 - microtubule
-; 
-; 
+;
+;
    loop_
    _em_entity_assembly_list.entity_assembly_id
    _em_entity_assembly_list.id
@@ -800,12 +803,12 @@ save_em_entity_assembly_list
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
 
-save__em_entity_assembly_list.id 
+save__em_entity_assembly_list.id
     _item_description.description
 ;    The value of _em_entity_assembly_list.id must uniquely identify
      the component.
 ;
-    _item.name                '_em_entity_assembly_list.id'        
+    _item.name                '_em_entity_assembly_list.id'
     _item.category_id             em_entity_assembly_list
     _item.mandatory_code          yes
     _item_type.code               code
@@ -815,7 +818,7 @@ save__em_entity_assembly_list.entity_id
     _item_description.description
 ;    A pointer to entity id.
 ;
-    _item.name                   '_em_entity_assembly_list.entity_id'  
+    _item.name                   '_em_entity_assembly_list.entity_id'
     _item.category_id            em_entity_assembly_list
     _item.mandatory_code         yes
     _item_type.code              code
@@ -863,11 +866,11 @@ save_em_virus_entity
     _category.description
 ;   Data items in the EM_VIRUS_ENTITY category record details
     of the icosahedral virus.
-;   
+;
     _category.id                  em_virus_entity
     _category.mandatory_code      no
      loop_
-    _category_key.name          
+    _category_key.name
                                 '_em_virus_entity.id'
                                 '_em_virus_entity.entity_assembly_id'
      loop_
@@ -878,7 +881,7 @@ save_em_virus_entity
     _category_examples.case
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
              structure corresponding to PDB entry 1DYL
-; 
+;
 ;  loop_
    _em_virus_entity.id
    _em_virus_entity.virus_host_category
@@ -913,8 +916,8 @@ save__em_virus_entity.virus_host_category
     _item_type.code               line
      loop_
     _item_examples.case
-        ALGAE   
-        ARCHAEA  
+        ALGAE
+        ARCHAEA
         'BACTERIA(EUBACTERIA)'
         FUNGI
         INVERTEBRATES
@@ -932,7 +935,7 @@ save__em_virus_entity.virus_host_species
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          
+    _item_examples.case
           'homo sapiens'
           'gallus gallus'
      save_
@@ -946,7 +949,7 @@ save__em_virus_entity.virus_host_growth_cell
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_examples.case          
+    _item_examples.case
            'HELA'
            'CHO'
      save_
@@ -963,7 +966,7 @@ save__em_virus_entity.virus_type
      loop_
     _item_examples.case
         VIRION
-        SATELLITE 
+        SATELLITE
         PRION
         VIROID
         'VIRUS-LIKE PARTICLE'
@@ -979,8 +982,8 @@ save__em_virus_entity.virus_isolate
     _item_type.code               line
      loop_
     _item_enumeration.value
-        STRAIN  
-        SEROTYPE 
+        STRAIN
+        SEROTYPE
         SEROCOMPLEX
         SUBSPECIES
         SPECIES
@@ -1000,13 +1003,13 @@ save__em_virus_entity.ictvdb_id
     _item.category_id             em_virus_entity
     _item.mandatory_code          no
     _item_type.code               line
-    _item_examples.case          
+    _item_examples.case
            'NL-54'
      save_
 
 save__em_virus_entity.entity_assembly_id
     _item_description.description
-;    This data item is a pointer to _em_virus_entity.id in the 
+;    This data item is a pointer to _em_virus_entity.id in the
      ENTITY_ASSEMBLY category.
 ;
     _item.name                   '_em_virus_entity.entity_assembly_id'
@@ -1065,11 +1068,11 @@ save_em_icos_virus_shells
     _category.id                  em_icos_virus_shells
     _category.mandatory_code      no
      loop_
-    _category_key.name          
+    _category_key.name
                                 '_em_icos_virus_shells.virus_entity_id'
                                 '_em_icos_virus_shells.id'
      loop_
-    _category_group.id           
+    _category_group.id
                              'inclusive_group'
                              'em_group'
      loop_
@@ -1077,7 +1080,7 @@ save_em_icos_virus_shells
     _category_examples.case
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
              structure corresponding to PDB entry 1DYL
-; 
+;
 ;  loop_
    _em_icos_virus_shells.virus_entity_id
    _em_icos_virus_shells.id
@@ -1117,7 +1120,7 @@ save__em_icos_virus_shells.id
 save__em_icos_virus_shells.shell_diameter
     _item_description.description
 ;   The value of the diameter (in angstroms) for each
-    protein shell of the virus.     
+    protein shell of the virus.
 ;
     _item.name                   '_em_icos_virus_shells.shell_diameter'
     _item.category_id              em_icos_virus_shells
@@ -1133,7 +1136,7 @@ save__em_icos_virus_shells.triangulation_num
     an individul virus.
     It refers to the organisation of the geometric figure.
     The triangulation number, T is given by the following relationship:
-    T= h*2 + hk +k*2,  where h and k are positive integers which define the 
+    T= h*2 + hk +k*2,  where h and k are positive integers which define the
     position of the five-fold vertex on the original hexagonal net.
 ;
     _item.name                   '_em_icos_virus_shells.triangulation_num'
@@ -1158,11 +1161,11 @@ save_em_sample_preparation
     _category.id                  em_sample_preparation
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                          '_em_sample_preparation.id'
                          '_em_sample_preparation.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -1171,7 +1174,7 @@ save_em_sample_preparation
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
   _em_sample_preparation.entry_id                   1DYL
   _em_sample_preparation.id                         1
   _em_sample_preparation.ph                         7.6
@@ -1253,7 +1256,7 @@ save__em_sample_preparation.2d_crystal_grow_id
     _item.mandatory_code          no
     _item_type.code               code
      save_
-   
+
 
 
 save__em_sample_preparation.support_id
@@ -1286,7 +1289,7 @@ save__em_sample_preparation.details
 ;
     _item.name                  '_em_sample_preparation.details'
     _item.category_id             em_sample_preparation
-    _item.mandatory_code          no 
+    _item.mandatory_code          no
     _item_type.code               text
      loop_
     _item_examples.case
@@ -1341,7 +1344,7 @@ save_em_sample_support
     _category.mandatory_code      no
     _category_key.name           '_em_sample_support.id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -1350,7 +1353,7 @@ save_em_sample_support
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
    _em_sample_support.id               1
    _em_sample_support.film_material    'HOLEY CARBON'
    _em_sample_support.method           .
@@ -1374,8 +1377,8 @@ save__em_sample_support.id
     _item.mandatory_code          yes
     _item_type.code               code
     loop_
-    _item_linked.child_name     
-    _item_linked.parent_name    
+    _item_linked.child_name
+    _item_linked.parent_name
       '_em_imaging.sample_support_id'      '_em_sample_support.id'
       '_em_sample_preparation.support_id'  '_em_sample_support.id'
      save_
@@ -1449,7 +1452,7 @@ save__em_sample_support.grid_type
     _item.mandatory_code          no
     _item_type.code               line
      loop_
-    _item_enumeration.value
+    _item_examples.case
         SLOT
         APERTURE
         DIAMOND
@@ -1458,7 +1461,7 @@ save__em_sample_support.grid_type
 
 save__em_sample_support.pretreatment
     _item_description.description
-;   A description of the grid plus support film pretreatment. 
+;   A description of the grid plus support film pretreatment.
 ;
     _item.name                  '_em_sample_support.pretreatment'
     _item.category_id             em_sample_support
@@ -1469,13 +1472,13 @@ save__em_sample_support.pretreatment
 
 save__em_sample_support.details
     _item_description.description
-;   A description of any additional details concerning the sample support. 
+;   A description of any additional details concerning the sample support.
 ;
     _item.name                  '_em_sample_support.details'
     _item.category_id             em_sample_support
     _item.mandatory_code          no
     _item_type.code               text
-    _item_examples.case          
+    _item_examples.case
      'This grid plus sample was kept at -170 deg C for a month before use'
      save_
 
@@ -1505,7 +1508,7 @@ save_em_2d_crystal_grow
     _category.mandatory_code      no
     _category_key.name            '_em_2d_crystal_grow.id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -1543,7 +1546,7 @@ save__em_2d_crystal_grow.id
 
 save__em_2d_crystal_grow.method
     _item_description.description
-;   The method used for growing the crystals. 
+;   The method used for growing the crystals.
 ;
     _item.name                  '_em_2d_crystal_grow.method'
     _item.category_id             em_2d_crystal_grow
@@ -1554,7 +1557,7 @@ save__em_2d_crystal_grow.method
 
 save__em_2d_crystal_grow.apparatus
     _item_description.description
-;  The type of the apparatus used for growing the crystals. 
+;  The type of the apparatus used for growing the crystals.
 ;
     _item.name                  '_em_2d_crystal_grow.apparatus'
     _item.category_id             em_2d_crystal_grow
@@ -1565,7 +1568,7 @@ save__em_2d_crystal_grow.apparatus
 
 save__em_2d_crystal_grow.atmosphere
     _item_description.description
-;  The type of atmosphere in which crystals were grown. 
+;  The type of atmosphere in which crystals were grown.
 ;
     _item.name                  '_em_2d_crystal_grow.atmosphere'
     _item.category_id             em_2d_crystal_grow
@@ -1576,7 +1579,7 @@ save__em_2d_crystal_grow.atmosphere
 
 save__em_2d_crystal_grow.pH
     _item_description.description
-;   the pH value used for growing the crystals. 
+;   the pH value used for growing the crystals.
 ;
     _item.name                  '_em_2d_crystal_grow.pH'
     _item.category_id             em_2d_crystal_grow
@@ -1588,7 +1591,7 @@ save__em_2d_crystal_grow.pH
 save__em_2d_crystal_grow.temp
     _item_description.description
 ;  The value of the temperature in degrees Kelvin used for
-   growing the crystals. 
+   growing the crystals.
 ;
     _item.name                  '_em_2d_crystal_grow.temp'
     _item.category_id             em_2d_crystal_grow
@@ -1600,7 +1603,7 @@ save__em_2d_crystal_grow.temp
 
 save__em_2d_crystal_grow.time
     _item_description.description
-;   The length of time required to grow the crystals. 
+;   The length of time required to grow the crystals.
 ;
     _item.name                  '_em_2d_crystal_grow.time'
     _item.category_id             em_2d_crystal_grow
@@ -1622,7 +1625,7 @@ save__em_2d_crystal_grow.buffer_id
 
 save__em_2d_crystal_grow.details
     _item_description.description
-;   Any additional items concerning 2d crystal growth. 
+;   Any additional items concerning 2d crystal growth.
 ;
     _item.name                  '_em_2d_crystal_grow.details'
     _item.category_id             em_2d_crystal_grow
@@ -1632,7 +1635,7 @@ save__em_2d_crystal_grow.details
 
 save__em_2d_crystal_grow.number_2d_crystals
     _item_description.description
-; The number of 2d crystals imaged. 
+; The number of 2d crystals imaged.
 ;
     _item.name                  '_em_2d_crystal_grow.number_2d_crystals'
     _item.category_id             em_2d_crystal_grow
@@ -1642,7 +1645,7 @@ save__em_2d_crystal_grow.number_2d_crystals
 
 save__em_2d_crystal_grow.mean_2d_crystal_size
     _item_description.description
-; The approximate size (microns squared) of 2d crystals imaged. 
+; The approximate size (microns squared) of 2d crystals imaged.
 ;
     _item.name                  '_em_2d_crystal_grow.mean_2d_crystal_size'
     _item.category_id             em_2d_crystal_grow
@@ -1670,7 +1673,7 @@ save__em_2d_crystal_grow.citation_id
 save_em_buffer
     _category.description
 ;   Data items in the BUFFER category
-    record details of the sample buffer. 
+    record details of the sample buffer.
 ;
     _category.id                  em_buffer
     _category.mandatory_code      no
@@ -1690,8 +1693,8 @@ save__em_buffer.id
     _item.mandatory_code          yes
     _item_type.code               code
     loop_
-    _item_linked.child_name     
-    _item_linked.parent_name    
+    _item_linked.child_name
+    _item_linked.parent_name
        '_em_2d_crystal_grow.buffer_id'    '_em_buffer.id'
        '_em_sample_preparation.buffer_id'   '_em_buffer.id'
        '_em_buffer_components.buffer_id'  '_em_buffer.id'
@@ -1699,7 +1702,7 @@ save__em_buffer.id
 
 save__em_buffer.name
     _item_description.description
-;  The name of the buffer. 
+;  The name of the buffer.
 ;
     _item.name                  '_em_buffer.name'
     _item.category_id             em_buffer
@@ -1710,7 +1713,7 @@ save__em_buffer.name
 
 save__em_buffer.details
     _item_description.description
-;   Additional details about the buffer. 
+;   Additional details about the buffer.
 ;
     _item.name                  '_em_buffer.details'
     _item.category_id             em_buffer
@@ -1725,12 +1728,12 @@ save__em_buffer.details
 
 save_em_buffer_components
     _category.description
-;  Constituents of buffer in sample 
+;  Constituents of buffer in sample
 ;
     _category.id                  em_buffer_components
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                                  '_em_buffer_components.buffer_id'
                                  '_em_buffer_components.id'
      loop_
@@ -1758,7 +1761,7 @@ save_em_buffer_components
 
 save__em_buffer_components.id
     _item_description.description
-;   The value of _em_buffer_components.id must 
+;   The value of _em_buffer_components.id must
     uniquely identify a component of the buffer.
 ;
     _item.name                  '_em_buffer_components.id'
@@ -1780,7 +1783,7 @@ save__em_buffer_components.buffer_id
 
 save__em_buffer_components.name
     _item_description.description
-;   The name of each buffer component. 
+;   The name of each buffer component.
 ;
     _item.name                  '_em_buffer_components.name'
     _item.category_id             em_buffer_components
@@ -1791,7 +1794,7 @@ save__em_buffer_components.name
 
 save__em_buffer_components.volume
     _item_description.description
-;  The volume of buffer component. 
+;  The volume of buffer component.
 ;
     _item.name                  '_em_buffer_components.volume'
     _item.category_id             em_buffer_components
@@ -1802,18 +1805,18 @@ save__em_buffer_components.volume
 
 save__em_buffer_components.conc
     _item_description.description
-;  The millimolar concentration of buffer component. 
-;  
+;  The millimolar concentration of buffer component.
+;
     _item.name                  '_em_buffer_components.conc'
     _item.category_id             em_buffer_components
     _item.mandatory_code          no
     _item_type.code               code
-    _item_examples.case           200 
+    _item_examples.case           200
      save_
 
 save__em_buffer_components.details
     _item_description.description
-;   Any additional details to do with buffer composition. 
+;   Any additional details to do with buffer composition.
 ;
     _item.name                  '_em_buffer_components.details'
     _item.category_id             em_buffer_components
@@ -1836,7 +1839,7 @@ save_em_vitrification
     _category.id                  em_vitrification
     _category.mandatory_code      no
      loop_
-    _category_key.name          
+    _category_key.name
               '_em_vitrification.id'
               '_em_vitrification.entry_id'
      loop_
@@ -1848,7 +1851,7 @@ save_em_vitrification
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
   _em_vitrification.entry_id               1DYL
   _em_vitrification.id                     1
   _em_vitrification.sample_preparation_id  1
@@ -1859,13 +1862,13 @@ save_em_vitrification
   _em_vitrification.method                 "PLUNGE VITRIFICATION"
   _em_vitrification.time_resolved_state    .
   _em_vitrification.citation_id            1
-  _em_vitrification.details                
-  ; SAMPLES WERE PREPARED AS THIN             
-    LAYERS OF VITREOUS ICE AND                
-    MAINTAINED AT NEAR LIQUID NITROGEN        
-    TEMPERATURE IN THE ELECTRON MICROSCOPE    
-    WITH A GATAN 626-0300 CRYOTRANSFER        
-    HOLDER.                            
+  _em_vitrification.details
+  ; SAMPLES WERE PREPARED AS THIN
+    LAYERS OF VITREOUS ICE AND
+    MAINTAINED AT NEAR LIQUID NITROGEN
+    TEMPERATURE IN THE ELECTRON MICROSCOPE
+    WITH A GATAN 626-0300 CRYOTRANSFER
+    HOLDER.
   ;
 ;
      save_
@@ -1885,7 +1888,7 @@ save__em_vitrification.entry_id
 save__em_vitrification.id
     _item_description.description
 ;  The value of _em_vitrification.id must uniquely identify
-   the vitrification procedure. 
+   the vitrification procedure.
 ;
     _item.name                  '_em_vitrification.id'
     _item.category_id             em_vitrification
@@ -1929,8 +1932,8 @@ save__em_vitrification.cryogen_name
 
 save__em_vitrification.humidity
     _item_description.description
-; The humidity (%) in the vicinity of the vitrification process. 
-;  
+; The humidity (%) in the vicinity of the vitrification process.
+;
     _item.name                  '_em_vitrification.humidity'
     _item.category_id             em_vitrification
     _item.mandatory_code          no
@@ -1940,7 +1943,7 @@ save__em_vitrification.humidity
 
 save__em_vitrification.temp
     _item_description.description
-;  The temperature (in degrees Kelvin) at which vitrification took place. 
+;  The temperature (in degrees Kelvin) at which vitrification took place.
 ;
     _item.name                  '_em_vitrification.temp'
     _item.category_id             em_vitrification
@@ -1952,18 +1955,18 @@ save__em_vitrification.temp
 
 save__em_vitrification.instrument
     _item_description.description
-; The type of instrument used in the vitrification process. 
+; The type of instrument used in the vitrification process.
 ;
     _item.name                  '_em_vitrification.instrument'
     _item.category_id             em_vitrification
     _item.mandatory_code          no
-    _item_type.code               text 
+    _item_type.code               text
     _item_examples.case          'Reichert plunger'
      save_
 
 save__em_vitrification.method
     _item_description.description
-; The procedure for vitrification. 
+; The procedure for vitrification.
 ;
     _item.name                  '_em_vitrification.method'
     _item.category_id             em_vitrification
@@ -1975,7 +1978,7 @@ save__em_vitrification.method
 save__em_vitrification.time_resolved_state
     _item_description.description
 ; The length of time after an event effecting the sample that
-  vitrification was induced and a description of the event. 
+  vitrification was induced and a description of the event.
 ;
     _item.name                  '_em_vitrification.time_resolved_state'
     _item.category_id             em_vitrification
@@ -1988,7 +1991,7 @@ save__em_vitrification.citation_id
     _item_description.description
 ; This data item is a pointer to _citation.id in the
   CITATION category.
-; 
+;
     _item.name                  '_em_vitrification.citation_id'
     _item.category_id             em_vitrification
     _item.mandatory_code          no
@@ -2015,13 +2018,13 @@ save__em_vitrification.details
 
 save_em_imaging
     _category.description
-;  Data items in the EM_IMAGING category record details about 
+;  Data items in the EM_IMAGING category record details about
    the parameters used in imaging the sample in the electron microscope.
 ;
     _category.id                  em_imaging
     _category.mandatory_code      no
     loop_
-    _category_key.name          
+    _category_key.name
                                 '_em_imaging.entry_id'
                                 '_em_imaging.id'
      loop_
@@ -2033,7 +2036,7 @@ save_em_imaging
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-;  
+;
    _em_imaging.entry_id               1DYL
    _em_imaging.id                     1
    _em_imaging.sample_support_id      1
@@ -2079,7 +2082,7 @@ save__em_imaging.entry_id
 save__em_imaging.id
     _item_description.description
 ; The value of _em_imaging.id must uniquely identify
-  each imaging experiment. 
+  each imaging experiment.
 ;
     _item.name                  '_em_imaging.id'
     _item.category_id             em_imaging
@@ -2122,7 +2125,7 @@ save__em_imaging.sample_support_id
 save__em_imaging.detector_id
     _item_description.description
 ;   The value of _em_imaging.detector_id must uniquely identify
-    the type of detector used in the experiment. 
+    the type of detector used in the experiment.
 ;
     _item.name                  '_em_imaging.detector_id'
     _item.category_id             em_imaging
@@ -2133,7 +2136,7 @@ save__em_imaging.detector_id
 save__em_imaging.scans_id
     _item_description.description
 ; The value of _em_imaging.scans_id must uniquely identify
-  the image_scans used in the experiment. 
+  the image_scans used in the experiment.
 ;
     _item.name                  '_em_imaging.scans_id'
     _item.category_id             em_imaging
@@ -2154,7 +2157,7 @@ save__em_imaging.microscope_id
 
 save__em_imaging.microscope_model
     _item_description.description
-;  The name of the model of microscope. 
+;  The name of the model of microscope.
 ;
     _item.name                  '_em_imaging.microscope_model'
     _item.category_id             em_imaging
@@ -2162,62 +2165,62 @@ save__em_imaging.microscope_model
     _item_type.code               line
      loop_
     _item_examples.case
-         'HITACHI H8100' 
-         'HITACHI HF2000' 
-         'HITACHI HF2000-UHR' 
-         'HITACHI H9000-UHR' 
-         'HITACHI H9000-NAR' 
-         'HITACHI 300KEV FEG' 
-         'HITACHI HU1250' 
-         'HITACHI H-1500' 
-         'JEOL 2000EX' 
-         'JEOL 2010HT' 
-         'JEOL 2010UHR' 
-         'JEOL 2010F' 
-         'JEOL 3010HT' 
-         'JEOL 3010UHR' 
-         'JEOL KYOTO-3000SFF' 
-         'JEOL 4000EX' 
-         'JEOL HAREM' 
-         'JEOL ARM-1000' 
-         'JEOL KYOTO-1000' 
-         'JEOL ARM-1250' 
-         'FEI/PHILIPS CM120T'  
-         'FEI/PHILIPS CM200T' 
-         'FEI/PHILIPS CM20/ST' 
-         'FEI/PHILIPS CM20/SOPHIE' 
-         'FEI/PHILIPS CM200FEG/ST' 
-         'FEI/PHILIPS CM20/UT' 
-         'FEI/PHILIPS CM200FEG/UT' 
-         'FEI/PHILIPS CM30/T' 
-         'FEI/PHILIPS CM300FEG/T' 
-         'FEI/PHILIPS CM300FEG/HE'  
-         'FEI/PHILIPS CM30/ST' 
-         'FEI/PHILIPS CM300FEG/ST' 
-         'FEI/PHILIPS CM300FEG/UT' 
-         'FEI TECNAI 12' 
-         'FEI TECNAI 20' 
-         'FEI TECNAI F20' 
-         'FEI TECNAI F30' 
-         'FEI MORGAGNI' 
+         'HITACHI H8100'
+         'HITACHI HF2000'
+         'HITACHI HF2000-UHR'
+         'HITACHI H9000-UHR'
+         'HITACHI H9000-NAR'
+         'HITACHI 300KEV FEG'
+         'HITACHI HU1250'
+         'HITACHI H-1500'
+         'JEOL 2000EX'
+         'JEOL 2010HT'
+         'JEOL 2010UHR'
+         'JEOL 2010F'
+         'JEOL 3010HT'
+         'JEOL 3010UHR'
+         'JEOL KYOTO-3000SFF'
+         'JEOL 4000EX'
+         'JEOL HAREM'
+         'JEOL ARM-1000'
+         'JEOL KYOTO-1000'
+         'JEOL ARM-1250'
+         'FEI/PHILIPS CM120T'
+         'FEI/PHILIPS CM200T'
+         'FEI/PHILIPS CM20/ST'
+         'FEI/PHILIPS CM20/SOPHIE'
+         'FEI/PHILIPS CM200FEG/ST'
+         'FEI/PHILIPS CM20/UT'
+         'FEI/PHILIPS CM200FEG/UT'
+         'FEI/PHILIPS CM30/T'
+         'FEI/PHILIPS CM300FEG/T'
+         'FEI/PHILIPS CM300FEG/HE'
+         'FEI/PHILIPS CM30/ST'
+         'FEI/PHILIPS CM300FEG/ST'
+         'FEI/PHILIPS CM300FEG/UT'
+         'FEI TECNAI 12'
+         'FEI TECNAI 20'
+         'FEI TECNAI F20'
+         'FEI TECNAI F30'
+         'FEI MORGAGNI'
      save_
 
 
 save__em_imaging.specimen_holder_type
     _item_description.description
-; The type of specimen holder used during imaging. 
+; The type of specimen holder used during imaging.
 ;
     _item.name                  '_em_imaging.specimen_holder_type'
     _item.category_id             em_imaging
     _item.mandatory_code          no
-    _item_type.code               text 
+    _item_type.code               text
     _item_examples.case          'cryo'
      save_
 
 
 save__em_imaging.specimen_holder_model
     _item_description.description
-; The name of the model of specimen holder used during imaging. 
+; The name of the model of specimen holder used during imaging.
 ;
     _item.name                  '_em_imaging.specimen_holder_model'
     _item.category_id             em_imaging
@@ -2231,7 +2234,7 @@ save__em_imaging.specimen_holder_model
             'PHILIPS ROTATION HOLDER'
             'HOME BUILD'
             'JEOL'
-            "JEOL 3200FSC CRYOHOLDER"  
+            "JEOL 3200FSC CRYOHOLDER"
             'SIDE ENTRY, EUCENTRIC'
 	    'FEI TITAN KRIOS AUTOGRID HOLDER'
             OTHER
@@ -2239,31 +2242,31 @@ save__em_imaging.specimen_holder_model
 
 save__em_imaging.details
     _item_description.description
-; Any additional imaging details. 
+; Any additional imaging details.
 ;
     _item.name                  '_em_imaging.details'
     _item.category_id             em_imaging
     _item.mandatory_code          no
     _item_type.code               text
-    _item_examples.case          'weak beam illumination'     
+    _item_examples.case          'weak beam illumination'
      save_
 
 save__em_imaging.date
     _item_description.description
 ; Date (YYYY-MM-DD) of imaging experiment or the date at which
-  a series of experiments began. 
+  a series of experiments began.
 ;
     _item.name                  '_em_imaging.date'
     _item.category_id             em_imaging
     _item.mandatory_code          no
 #    _item_type.code               yyyy-mm-dd
     _item_type.code               line
-    _item_examples.case          '2001-05-08'     
+    _item_examples.case          '2001-05-08'
      save_
 
 save__em_imaging.accelerating_voltage
     _item_description.description
-;  A value of accelerating voltage (in kV) used for imaging. 
+;  A value of accelerating voltage (in kV) used for imaging.
 ;
     _item.name                  '_em_imaging.accelerating_voltage'
     _item.category_id             em_imaging
@@ -2275,7 +2278,7 @@ save__em_imaging.accelerating_voltage
 
 save__em_imaging.illumination_mode
     _item_description.description
-; The mode of illumination. 
+; The mode of illumination.
 ;
     _item.name                  '_em_imaging.illumination_mode'
     _item.category_id             em_imaging
@@ -2291,7 +2294,7 @@ save__em_imaging.illumination_mode
 
 save__em_imaging.mode
     _item_description.description
-;  The mode of imaging. 
+;  The mode of imaging.
 ;
     _item.name                  '_em_imaging.mode'
     _item.category_id             em_imaging
@@ -2308,7 +2311,7 @@ save__em_imaging.mode
 save__em_imaging.nominal_cs
     _item_description.description
 ; The spherical aberration coefficient (Cs) in millimetres,
-  of the objective lens. 
+  of the objective lens.
 ;
     _item.name                  '_em_imaging.nominal_cs'
     _item.category_id             em_imaging
@@ -2321,27 +2324,27 @@ save__em_imaging.nominal_cs
 save__em_imaging.nominal_defocus_min
     _item_description.description
 ;   The minimum defocus value of the objective lens (in nanometres) used
-    to obtain the recorded images. 
+    to obtain the recorded images.
 ;
     _item.name                  '_em_imaging.nominal_defocus_min'
     _item.category_id             em_imaging
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code             nanometres
-    _item_examples.case           1200 
+    _item_examples.case           1200
      save_
 
 save__em_imaging.nominal_defocus_max
     _item_description.description
 ;   The maximum defocus value of the objective lens (in nanometres) used
-    to obtain the recorded images. 
+    to obtain the recorded images.
 ;
     _item.name                  '_em_imaging.nominal_defocus_max'
     _item.category_id             em_imaging
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code             nanometres
-    _item_examples.case           5000 
+    _item_examples.case           5000
      save_
 
 save__em_imaging.tilt_angle_min
@@ -2367,12 +2370,12 @@ save__em_imaging.tilt_angle_max
     _item.mandatory_code          no
     _item_type.code               float
     _item_units.code              degrees
-    _item_examples.case          70 
+    _item_examples.case          70
      save_
 
 save__em_imaging.nominal_magnification
     _item_description.description
-;  The magnification indicated by the microscope readout. 
+;  The magnification indicated by the microscope readout.
 ;
     _item.name                  '_em_imaging.nominal_magnification'
     _item.category_id             em_imaging
@@ -2384,7 +2387,7 @@ save__em_imaging.nominal_magnification
 save__em_imaging.calibrated_magnification
     _item_description.description
 ;  The magnification value obtained for a known standard just
-   prior to, during or just after the imaging experiment. 
+   prior to, during or just after the imaging experiment.
 ;
     _item.name                  '_em_imaging.calibrated_magnification'
     _item.category_id             em_imaging
@@ -2412,7 +2415,7 @@ save__em_imaging.electron_source
 
 save__em_imaging.electron_dose
     _item_description.description
-; The electron dose received by the specimen (electrons per square angstrom). 
+; The electron dose received by the specimen (electrons per square angstrom).
 ;
     _item.name                  '_em_imaging.electron_dose'
     _item.category_id             em_imaging
@@ -2424,7 +2427,7 @@ save__em_imaging.electron_dose
 
 save__em_imaging.energy_filter
     _item_description.description
-;   The type of energy filter spectrometer apparatus. 
+;   The type of energy filter spectrometer apparatus.
 ;
     _item.name                  '_em_imaging.energy_filter'
     _item.category_id             em_imaging
@@ -2435,7 +2438,7 @@ save__em_imaging.energy_filter
 
 save__em_imaging.energy_window
     _item_description.description
-;   The energy filter range in electron volts (eV)set by spectrometer. 
+;   The energy filter range in electron volts (eV)set by spectrometer.
 ;
     _item.name                  '_em_imaging.energy_window'
     _item.category_id             em_imaging
@@ -2462,7 +2465,7 @@ save__em_imaging.citation_id
 save__em_imaging.temperature
     _item_description.description
 ;    The mean specimen stage temperature (degrees Kelvin) during imaging
-     in the microscope. 
+     in the microscope.
 ;
     _item.name                  '_em_imaging.temperature'
     _item.category_id             em_imaging
@@ -2474,10 +2477,10 @@ save__em_imaging.temperature
 
 save__em_imaging.detector_distance
     _item_description.description
-;    The camera length (in millimetres). The camera length is the 
+;    The camera length (in millimetres). The camera length is the
      product of the objective focal length and the combined magnification
      of the intermediate and projector lenses when the microscope is
-     operated in the diffraction mode. 
+     operated in the diffraction mode.
 ;
     _item.name                  '_em_imaging.detector_distance'
     _item.category_id             em_imaging
@@ -2489,7 +2492,7 @@ save__em_imaging.detector_distance
 save__em_imaging.recording_temperature_minimum
     _item_description.description
 ;    The specimen temperature minimum (degrees Kelvin) for the duration
-     of imaging. 
+     of imaging.
 ;
     _item.name                  '_em_imaging.recording_temperature_minimum'
     _item.category_id             em_imaging
@@ -2501,7 +2504,7 @@ save__em_imaging.recording_temperature_minimum
 save__em_imaging.recording_temperature_maximum
     _item_description.description
 ;    The specimen temperature maximum (degrees Kelvin) for the duration
-     of imaging. 
+     of imaging.
 ;
     _item.name                  '_em_imaging.recording_temperature_maximum'
     _item.category_id             em_imaging
@@ -2524,7 +2527,7 @@ save_em_detector
     _category.id                  em_detector
     _category.mandatory_code      no
     loop_
-    _category_key.name          
+    _category_key.name
                      '_em_detector.entry_id'
                      '_em_detector.id'
      loop_
@@ -2536,7 +2539,7 @@ save_em_detector
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
   _em_detector.entry_id                        1DYL
   _em_detector.id                             1
   _em_detector.details                        .
@@ -2561,34 +2564,34 @@ save__em_detector.entry_id
 save__em_detector.id
     _item_description.description
 ;    The value of _em_detector.id must uniquely identify
-     the detector used for imaging.     
+     the detector used for imaging.
 ;
     _item.name                   '_em_detector.id'
     _item.category_id              em_detector
     _item.mandatory_code           yes
     _item_type.code                code
     loop_
-    _item_linked.child_name     
-    _item_linked.parent_name    
+    _item_linked.child_name
+    _item_linked.parent_name
        '_em_imaging.detector_id'  '_em_detector.id'
     save_
 
 save__em_detector.details
     _item_description.description
-;    Any additional information about the detection system. 
+;    Any additional information about the detection system.
 ;
     _item.name                   '_em_detector.details'
     _item.category_id              em_detector
     _item.mandatory_code           no
     _item_type.code                text
-    _item_examples.case          
+    _item_examples.case
        'Any other details regarding the detector.'
      save_
 
 save__em_detector.type
     _item_description.description
-;    The detector type used for recording images. 
-     Usually film or CCD camera.  
+;    The detector type used for recording images.
+     Usually film or CCD camera.
 ;
     _item.name                   '_em_detector.type'
     _item.category_id              em_detector
@@ -2597,12 +2600,12 @@ save__em_detector.type
      loop_
     _item_examples.case
           'KODAK SO163 FILM'
-          'GATAN 673' 
-          'GATAN 676' 
-          'GATAN 692' 
-          'GATAN 794' 
-          'GATAN 1000' 
-          'GATAN 4000' 
+          'GATAN 673'
+          'GATAN 676'
+          'GATAN 692'
+          'GATAN 794'
+          'GATAN 1000'
+          'GATAN 4000'
           'TVIPS BIOCAM'
           'TVIPS TEMCAM F214'
           'TVIPS TEMCAM F224'
@@ -2613,16 +2616,16 @@ save__em_detector.type
 
 save__em_detector.detective_quantum_efficiency
     _item_description.description
-;    The detective_quantum_efficiency (DQE)is defined as the 
+;    The detective_quantum_efficiency (DQE)is defined as the
      square of the signal-to-noise ratio in the recording device
      divided by the square of the signal-to-ratio in the electron beam:
             (SIGNAL/NOISE)2 recording device
    DQE =    -------------------------------
             (SIGNAL/NOISE)2 electron beam
    A DQE value of 1 indicates a perfect recorder. "DQE = 0.25" menas
-   that the signal-to-noise ratio is reduced by half in the 
-   recording step. 
-        (0.5)**2  
+   that the signal-to-noise ratio is reduced by half in the
+   recording step.
+        (0.5)**2
   DQE = --------- = 0.25.
          (1.0)**2
 ;
@@ -2647,7 +2650,7 @@ save_em_image_scans
     _category.id                  em_image_scans
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                  '_em_image_scans.entry_id'
                  '_em_image_scans.id'
      loop_
@@ -2659,7 +2662,7 @@ save_em_image_scans
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-;  
+;
    _em_image_scans.entry_id                      1DYL
    _em_image_scans.id                            2
    _em_image_scans.number_digital_images         48
@@ -2689,22 +2692,22 @@ save__em_image_scans.entry_id
 save__em_image_scans.id
     _item_description.description
 ;    The value of _em_image_scans.id must uniquely identify
-     the images scanned.     
+     the images scanned.
 ;
     _item.name                   '_em_image_scans.id'
     _item.category_id              em_image_scans
     _item.mandatory_code           yes
     _item_type.code                code
     loop_
-    _item_linked.child_name     
-    _item_linked.parent_name    
+    _item_linked.child_name
+    _item_linked.parent_name
        '_em_imaging.scans_id'    '_em_image_scans.id'
      save_
 
 
 save__em_image_scans.number_digital_images
     _item_description.description
-;    The number of images scanned and digitised.     
+;    The number of images scanned and digitised.
 ;
     _item.name                   '_em_image_scans.number_digital_images'
     _item.category_id              em_image_scans
@@ -2714,7 +2717,7 @@ save__em_image_scans.number_digital_images
 
 save__em_image_scans.details
     _item_description.description
-;    Any additional details about scanning images.     
+;    Any additional details about scanning images.
 ;
     _item.name                   '_em_image_scans.details'
     _item.category_id              em_image_scans
@@ -2725,7 +2728,7 @@ save__em_image_scans.details
 
 save__em_image_scans.scanner_model
     _item_description.description
-;    The scanner model.     
+;    The scanner model.
 ;
     _item.name                   '_em_image_scans.scanner_model'
     _item.category_id              em_image_scans
@@ -2742,14 +2745,14 @@ save__em_image_scans.scanner_model
           'NIKON COOLSCAN'
           'NIKON SUPER COOLSCAN 9000'
           'IMAGE SCIENCE PATCHWORK DENSITOMETER'
-          "PATCHWORK DENSITOMETER" 
+          "PATCHWORK DENSITOMETER"
           PRIMESCAN
           OTHER
      save_
 
 save__em_image_scans.sampling_size
     _item_description.description
-;    The sampling step size (microns) set on the scanner.     
+;    The sampling step size (microns) set on the scanner.
 ;
     _item.name                   '_em_image_scans.sampling_size'
     _item.category_id              em_image_scans
@@ -2760,7 +2763,7 @@ save__em_image_scans.sampling_size
 
 save__em_image_scans.od_range
     _item_description.description
-;    The optical density range (OD=-log 10 transmission).     
+;    The optical density range (OD=-log 10 transmission).
      To the eye OD=1 appears light grey and OD=3 is opaque.
 ;
     _item.name                   '_em_image_scans.od_range'
@@ -2802,7 +2805,7 @@ save__em_image_scans.citation_id
 save_em_2d_projection_selection
     _category.description
 ;   Data items in the EM_2D_PROJECTION_SELECTION category
-    record details of images from scanned micrographs and the 
+    record details of images from scanned micrographs and the
     number of particles selected from a scanned set of micrographs.
 ;
     _category.id                  em_2d_projection_selection
@@ -2817,7 +2820,7 @@ save_em_2d_projection_selection
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
    _em_2d_projection_selection.entry_id            1
    _em_2d_projection_selection.num_particles       5267
    _em_2d_projection_selection.software_name         1
@@ -2857,7 +2860,7 @@ save__em_2d_projection_selection.software_name
     _item_description.description
 ;   This data item is a pointer to _software.name in the
     SOFTWARE category.
-;  
+;
     _item.name                   '_em_2d_projection_selection.software_name'
     _item.category_id              em_2d_projection_selection
     _item.mandatory_code           no
@@ -2885,7 +2888,7 @@ save__em_2d_projection_selection.details
     _item.category_id              em_2d_projection_selection
     _item.mandatory_code           no
     _item_type.code                text
-    _item_examples.case          
+    _item_examples.case
           'negative monitor contrast facilitated particle picking'
      save_
 
@@ -2915,7 +2918,7 @@ save_em_euler_angle_distribution
     _category.id                  em_euler_angle_distribution
     _category.mandatory_code      no
      loop_
-    _category_key.name           
+    _category_key.name
          '_em_euler_angle_distribution.id'
          '_em_euler_angle_distribution.entry_id'
      loop_
@@ -2927,14 +2930,14 @@ save_em_euler_angle_distribution
 ; Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
   _em_euler_angle_distribution.entry_id                          1DYL
   _em_euler_angle_distribution.id                                1
   _em_euler_angle_distribution.details                           .
   _em_euler_angle_distribution.alpha                             .
   _em_euler_angle_distribution.beta                              .
   _em_euler_angle_distribution.gamma                             .
-; 
+;
      save_
 
 save__em_euler_angle_distribution.id
@@ -3022,7 +3025,7 @@ save_em_3d_reconstruction
     _category.id                  em_3d_reconstruction
     _category.mandatory_code      no
      loop_
-    _category_key.name           
+    _category_key.name
                  '_em_3d_reconstruction.entry_id'
                  '_em_3d_reconstruction.id'
      loop_
@@ -3082,7 +3085,7 @@ save__em_3d_reconstruction.method
     _item.mandatory_code           no
     _item_type.code                text
     loop_
-    _item_examples.case          
+    _item_examples.case
        'cross-common lines'
        'polar Fourier transform (PFT)'
      save_
@@ -3108,7 +3111,7 @@ save__em_3d_reconstruction.details
     _item.category_id              em_3d_reconstruction
     _item.mandatory_code           no
     _item_type.code                text
-    _item_examples.case          
+    _item_examples.case
 ;    a modified version of SPIDER program was used for the reconstruction
 ;
       save_
@@ -3123,14 +3126,14 @@ save__em_3d_reconstruction.resolution
     _item_type.code                float
     _item_units.code               angstroms
     loop_
-    _item_examples.case          
+    _item_examples.case
        '8.9'
        '10.0'
      save_
 
 save__em_3d_reconstruction.resolution_method
     _item_description.description
-;    The  method used to determine the final resolution 
+;    The  method used to determine the final resolution
      of the 3d reconstruction.
      The Fourier Shell Correlation criterion as a measure of
      resolution is based on the concept of splitting the (2D)
@@ -3158,7 +3161,7 @@ save__em_3d_reconstruction.magnification_calibration
 
 save__em_3d_reconstruction.ctf_correction_method
     _item_description.description
-;    The  CTF-correction method. 
+;    The  CTF-correction method.
      The Contrast Transfer Function CTF compensation for low contrast
      specimens (e.g. frozen-hydrated), for which phase contrast is the only
      significant mechanism, then higher defocus levels must be used to
@@ -3173,7 +3176,7 @@ save__em_3d_reconstruction.ctf_correction_method
     _item.category_id              em_3d_reconstruction
     _item.mandatory_code           no
     _item_type.code                text
-    _item_examples.case          
+    _item_examples.case
 ;    The volumes were CTF-corrected in defocus groups, with an average of approximately 999 individual images per group
 ;
      save_
@@ -3210,7 +3213,7 @@ save__em_3d_reconstruction.num_particles
 ;
     _item.name                   '_em_3d_reconstruction.num_particles'
     _item.category_id              em_3d_reconstruction
-    _item.mandatory_code           no 
+    _item.mandatory_code           no
     _item_type.code                int
      save_
 
@@ -3259,16 +3262,16 @@ save_em_3d_fitting
 ;    Data items in the 3D_FITTING category
      record details of the method of fitting atomic
      coordinates from a PDB file into a 3d-em
-     volume map file 
+     volume map file
 ;
     _category.id                  em_3d_fitting
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                            '_em_3d_fitting.id'
                            '_em_3d_fitting.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'em_group'
                                  'inclusive_group'
      loop_
@@ -3277,7 +3280,7 @@ save_em_3d_fitting
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
 ;
-; 
+;
    _em_3d_fitting.id                      1
    _em_3d_fitting.entry_id                1DYL
    _em_3d_fitting.method                  AUTOMATIC
@@ -3286,30 +3289,30 @@ save_em_3d_fitting
    _em_3d_fitting.overall_b_value         .
    _em_3d_fitting.ref_space               REAL
    _em_3d_fitting.ref_protocol            'RIGID BODY REFINEMENT'
-   _em_3d_fitting.details                 
-   ;   THE CRYSTAL STRUCTURE OF THE CAPSID              
-       PROTEIN FROM CHOI ET AL (1997) PROTEINS 3 27:345-359                
-       (SUBUNIT A OF PDB FILE 1VCQ) WAS PLACED INTO THE CRYO-EM            
-       DENSITY MAP. THE CAPSID PROTEIN WAS FIRST MANUALLY POSITIONED       
-       INTO THE CRYO-EM DENSITY CORRESPONDING TO POSITIONS OF THE          
-       FOUR INDEPENDENT MONOMER DENSITIES BETWEEN THE INNER LEAFLET        
-       OF THE BILAYER AND THE RNA. THESE POSITIONS WERE THEN REFINED       
-       BY RIGID BODY REFINEMENT IN REAL SPACE WITH THE PROGRAM EMFIT       
-       (CHENG ET AL. 1995, CELL 80, 621-630).  THE QUALITY OF THE FIT      
-       CAN BE SEEN FROM THE MAP DENSITY WITHIN THE PROTEIN. ALL 4563       
-       ATOMS ARE IN DENSITY OF AT LEAST 4 SIGMA (96.73) ABOVE THE          
-       AVERAGE (512.04), 1167 ATOMS ARE IN DENSITY BETWEEN 4 AND 5         
-       SIGMA, 3174 ATOMS ARE IN DENSITY BETWEEN 5 AND 6 SIGMA, AND 222     
-       ATOMS ARE IN DENSTY OF 6 SIGMA OR ABOVE. THE VARIATION IN           
-       DENSITY OVER THE FITTED PROTEIN CAN BE VISUALIZED WITH THE          
-       PSEUDO TEMPERATURE FACTOR. THE DENSITY VALUE AT EACH ATOM IS        
-       GIVEN IN THE 8TH COLUM (USUALLY THE OCCUPANCY) AS THE NUMBER        
-       OF STANDARD DEVIATION ABOVE BACKGROUND. COLUMN NINE (USUALLY        
-       THE TEMPERATURE FACTOR) CONTAINS THE VALUE OF THE RELATIVE          
-       DENSITY WITHIN THE FITTED PROTEIN SCALED LINEARLY SO THAT THE       
-       MINIMUM DENSITY IS 100.0 AND THE MAXIMUM DENSITY IS 1.0.  THE       
-       ATOMS THAT LIE IN THE LOWER DENSITY REGIONS WILL HAVE THE           
-       HIGHEST PSEUDO TEMPERATURE FACTORS.                                 
+   _em_3d_fitting.details
+   ;   THE CRYSTAL STRUCTURE OF THE CAPSID
+       PROTEIN FROM CHOI ET AL (1997) PROTEINS 3 27:345-359
+       (SUBUNIT A OF PDB FILE 1VCQ) WAS PLACED INTO THE CRYO-EM
+       DENSITY MAP. THE CAPSID PROTEIN WAS FIRST MANUALLY POSITIONED
+       INTO THE CRYO-EM DENSITY CORRESPONDING TO POSITIONS OF THE
+       FOUR INDEPENDENT MONOMER DENSITIES BETWEEN THE INNER LEAFLET
+       OF THE BILAYER AND THE RNA. THESE POSITIONS WERE THEN REFINED
+       BY RIGID BODY REFINEMENT IN REAL SPACE WITH THE PROGRAM EMFIT
+       (CHENG ET AL. 1995, CELL 80, 621-630).  THE QUALITY OF THE FIT
+       CAN BE SEEN FROM THE MAP DENSITY WITHIN THE PROTEIN. ALL 4563
+       ATOMS ARE IN DENSITY OF AT LEAST 4 SIGMA (96.73) ABOVE THE
+       AVERAGE (512.04), 1167 ATOMS ARE IN DENSITY BETWEEN 4 AND 5
+       SIGMA, 3174 ATOMS ARE IN DENSITY BETWEEN 5 AND 6 SIGMA, AND 222
+       ATOMS ARE IN DENSTY OF 6 SIGMA OR ABOVE. THE VARIATION IN
+       DENSITY OVER THE FITTED PROTEIN CAN BE VISUALIZED WITH THE
+       PSEUDO TEMPERATURE FACTOR. THE DENSITY VALUE AT EACH ATOM IS
+       GIVEN IN THE 8TH COLUM (USUALLY THE OCCUPANCY) AS THE NUMBER
+       OF STANDARD DEVIATION ABOVE BACKGROUND. COLUMN NINE (USUALLY
+       THE TEMPERATURE FACTOR) CONTAINS THE VALUE OF THE RELATIVE
+       DENSITY WITHIN THE FITTED PROTEIN SCALED LINEARLY SO THAT THE
+       MINIMUM DENSITY IS 100.0 AND THE MAXIMUM DENSITY IS 1.0.  THE
+       ATOMS THAT LIE IN THE LOWER DENSITY REGIONS WILL HAVE THE
+       HIGHEST PSEUDO TEMPERATURE FACTORS.
    ;
 ;
      save_
@@ -3363,7 +3366,7 @@ save__em_3d_fitting.method
 
 save__em_3d_fitting.target_criteria
     _item_description.description
-;    The quality of fit of the atomic coordinates into the 
+;    The quality of fit of the atomic coordinates into the
      3dem volume map.
 ;
     _item.name                   '_em_3d_fitting.target_criteria'
@@ -3376,34 +3379,34 @@ save__em_3d_fitting.target_criteria
 save__em_3d_fitting.software_name
     _item_description.description
 ;   The software used for fitting atomic coordinates to the map.
-; 
+;
     _item.name                   '_em_3d_fitting.software_name'
     _item.category_id              em_3d_fitting
     _item.mandatory_code           no
-    _item_type.code                text 
+    _item_type.code                text
 #    _item_linked.child_name      '_em_3d_fitting.software_name'
 #    _item_linked.parent_name     '_software.name'
-    _item_examples.case           
+    _item_examples.case
        'Situs, NMFF, YUP.scx, etc.'
      save_
 
 save__em_3d_fitting.details
     _item_description.description
 ;    Any additional details regarding fitting of atomic
-     coordinates into the 3d-em volume. 
+     coordinates into the 3d-em volume.
 ;
     _item.name                   '_em_3d_fitting.details'
     _item.category_id              em_3d_fitting
     _item.mandatory_code           no
     _item_type.code                text
-    _item_examples.case          
+    _item_examples.case
 ;   Initial local fitting was done using Chimera and then NMFF was used for flexible fitting.
-; 
+;
      save_
 
 save__em_3d_fitting.overall_b_value
     _item_description.description
-;     The overall B (temperature factor) value for the 3d-em volume. 
+;     The overall B (temperature factor) value for the 3d-em volume.
 ;
     _item.name                   '_em_3d_fitting.overall_b_value'
     _item.category_id              em_3d_fitting
@@ -3416,7 +3419,7 @@ save__em_3d_fitting.ref_space
     _item_description.description
 ;    A flag to indicate whether fitting was carried out in real
      or reciprocal refinement space.
-;  
+;
     _item.name                   '_em_3d_fitting.ref_space'
     _item.category_id              em_3d_fitting
     _item.mandatory_code           no
@@ -3426,14 +3429,14 @@ save__em_3d_fitting.ref_space
                 REAL
                 RECIPROCAL
     loop_
-    _item_examples.case          
+    _item_examples.case
        'Real'
        'Reciprocal'
      save_
 
 save__em_3d_fitting.ref_protocol
     _item_description.description
-;  The type of protocol used in the refinement. 
+;  The type of protocol used in the refinement.
 ;
     _item.name                   '_em_3d_fitting.ref_protocol'
     _item.category_id              em_3d_fitting
@@ -3450,16 +3453,16 @@ save_em_3d_fitting_list
     _category.description
 ;  Data items in the 3D_FITTING_LIST category
    lists the methods of fitting atomic coordinates from a PDB file
-   into a 3d-em volume map file 
+   into a 3d-em volume map file
 ;
     _category.id                  em_3d_fitting_list
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                            '_em_3d_fitting_list.id'
                            '_em_3d_fitting_list.3d_fitting_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -3467,12 +3470,12 @@ save_em_3d_fitting_list
     _category_examples.case
 ;  Example 1 - based on PDB entry 1DYL and laboratory records for the
                 structure corresponding to PDB entry 1DYL
-;  
+;
 ;  _em_3d_fitting_list.id                       1
    _em_3d_fitting_list.3d_fitting_id            l
    _em_3d_fitting_list.pdb_entry_id             1VCQ
    _em_3d_fitting_list.pdb_chain_id             .
-;               
+;
     save_
 
 
@@ -3498,7 +3501,7 @@ save__em_3d_fitting_list.3d_fitting_id
 
 save__em_3d_fitting_list.pdb_entry_id
     _item_description.description
-;  The PDB code for the entry used in fitting. 
+;  The PDB code for the entry used in fitting.
 ;
     _item.name                   '_em_3d_fitting_list.pdb_entry_id'
     _item.category_id              em_3d_fitting_list
@@ -3509,7 +3512,7 @@ save__em_3d_fitting_list.pdb_entry_id
 
 save__em_3d_fitting_list.pdb_chain_id
     _item_description.description
-;  The chain id for the entry used in fitting. 
+;  The chain id for the entry used in fitting.
 ;
     _item.name                   '_em_3d_fitting_list.pdb_chain_id'
     _item.category_id              em_3d_fitting_list
@@ -3892,11 +3895,11 @@ save_em_electron_diffraction
     _category.id                  em_electron_diffraction
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                          '_em_electron_diffraction.id'
                          '_em_electron_diffraction.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -3905,7 +3908,7 @@ save_em_electron_diffraction
 ;  Example 1 - based on PDB entry 1TUB and laboratory records for the
                 structure corresponding to PDB entry 1TUB
 ;
-; 
+;
   _em_electron_diffraction.entry_id                   1TUB
   _em_electron_diffraction.id                         1
   _em_electron_diffraction.num_structure_factors  12000
@@ -3950,7 +3953,7 @@ save__em_electron_diffraction.num_structure_factors
 
 save__em_electron_diffraction.num_diff_patterns
     _item_description.description
-;    The number of diffraction patterns used from the electron 
+;    The number of diffraction patterns used from the electron
      diffraction experiment.
 ;
     _item.name                   '_em_electron_diffraction.num_diff_patterns'
@@ -3968,9 +3971,9 @@ save__em_electron_diffraction.details
     _item.mandatory_code          yes
     _item_type.code               text
      loop_
-    _item_examples.case     
+    _item_examples.case
     _item_examples.detail
-    1          
+    1
 ; THE MODEL WAS DERIVED USING ELECTRON DIFFRACTION
   AND IMAGE DATA FROM TWO DIMENSIONAL CRYSTALS OF TUBULIN
   INDUCED BY THE PRESENCE OF ZN++ IONS.
@@ -4014,11 +4017,11 @@ save_em_electron_diffraction_phase
     _category.id                  em_electron_diffraction_phase
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                          '_em_electron_diffraction_phase.id'
                          '_em_electron_diffraction_phase.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -4027,7 +4030,7 @@ save_em_electron_diffraction_phase
 ;  example 1 - based on pdb entry 1tub and laboratory records for the
                 structure corresponding to pdb entry 1tub
 ;
-; 
+;
   _em_electron_diffraction_phase.entry_id                       1TUB
   _em_electron_diffraction_phase.id                             1
   _em_electron_diffraction_phase.d_res_high			4
@@ -4128,11 +4131,11 @@ save_em_electron_diffraction_pattern
     _category.id                  em_electron_diffraction_pattern
     _category.mandatory_code      no
     loop_
-    _category_key.name           
+    _category_key.name
                          '_em_electron_diffraction_pattern.id'
                          '_em_electron_diffraction_pattern.entry_id'
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
@@ -4141,7 +4144,7 @@ save_em_electron_diffraction_pattern
 ;  example 1 - based on pdb entry 1tub and laboratory records for the
                 structure corresponding to pdb entry 1tub
 ;
-; 
+;
   _em_electron_diffraction_pattern.entry_id                   1TUB
   _em_electron_diffraction_pattern.id                         1
   _em_electron_diffraction_pattern.num_patterns_by_tilt_angle 1
@@ -4219,21 +4222,21 @@ save_em_experiment
     _category_key.name           '_em_experiment.entry_id'
 
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
     _category_examples.detail
     _category_examples.case
-;  Example 1 - based on PDB entry 1EG0 
-; 
+;  Example 1 - based on PDB entry 1EG0
+;
 ;
    _em_experiment.entry_id                1EG0
    _em_experiment.reconstruction_method   "SINGLE PARTICLE"
    _em_experiment.specimen_type           "VITREOUS ICE (CRYO EM)"
 ;
      save_
-  
+
 save__em_experiment.entry_id
     _item_description.description
 ;    This data item is a pointer to _entry.id in the ENTRY category.
@@ -4272,7 +4275,7 @@ save__em_experiment.specimen_type
     _item.mandatory_code         no
     _item_type.code              text
      loop_
-    _item_examples.case          
+    _item_examples.case
      "VITREOUS ICE (CRYO EM)"
      "NEGATIVE STAIN"
      "FREEZE SUBSTITUTION"
@@ -4288,20 +4291,20 @@ save_em_single_particle_entity
     _category_key.name           '_em_single_particle_entity.entry_id'
 
      loop_
-    _category_group.id           
+    _category_group.id
                                  'inclusive_group'
                                  'em_group'
      loop_
     _category_examples.detail
     _category_examples.case
-;  Example 1 - based on PDB entry 1EG0 
-; 
+;  Example 1 - based on PDB entry 1EG0
+;
 ;
    _em_single_particle_entity.entry_id 1EG0
    _em_single_particle_entity.symmetry_type "ASYMMETRIC"
 ;
 ;  Example 2 - based on PDB entry 2ZLE
-; 
+;
 ;
    _em_single_particle_entity.entry_id 2ZLE
    _em_single_particle_entity.symmetry_type "MIXED SYMMETRY"
