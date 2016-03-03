@@ -1923,6 +1923,7 @@ save__em_vitrification.cryogen_name
          NITROGEN
          PROPANE
          ETHANE
+         'ETHANE-PROPANE'
          METHANE
          'FREON 22'
          'FREON 12'
