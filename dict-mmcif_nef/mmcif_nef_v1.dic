@@ -366,7 +366,7 @@ save__nef_nmr_meta_data.format_name
    #
    _item.name            "_nef_nmr_meta_data.format_name"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  word
    #
@@ -381,7 +381,7 @@ save__nef_nmr_meta_data.format_version
    #
    _item.name            "_nef_nmr_meta_data.format_version"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  word
    #
@@ -396,7 +396,7 @@ save__nef_nmr_meta_data.program_name
    #
    _item.name            "_nef_nmr_meta_data.program_name"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  singleline
    #
@@ -411,7 +411,7 @@ save__nef_nmr_meta_data.program_version
    #
    _item.name            "_nef_nmr_meta_data.program_version"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  singleline
    #
@@ -426,7 +426,7 @@ save__nef_nmr_meta_data.creation_date
    #
    _item.name            "_nef_nmr_meta_data.creation_date"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  timestamp
    #
@@ -441,7 +441,7 @@ save__nef_nmr_meta_data.uuid
    #
    _item.name            "_nef_nmr_meta_data.uuid"
    _item.category_id     nef_nmr_meta_data
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  uuid
    #
@@ -472,7 +472,7 @@ save_nef_related_entries
 
    _category.description          "The data items in the NEF_RELATED_ENTRIES category provide the list of database names and accession codes related to this data set."
    _category.id                   nef_related_entries
-   _category.parent_category_id   nef_nmr_meta_data
+   # _category.parent_category_id   nef_nmr_meta_data
    _category.mandatory_code       no
    #
    _category_group.id  nef_group
@@ -531,7 +531,7 @@ save_nef_program_script
 
    _category.description     "The data items in the NEF_PROGRAM_SCRIPT category records the list of programs and scripts used in producing this data set."
    _category.id              nef_program_script
-   _category.parent_category_id   nef_nmr_meta_data
+   # _category.parent_category_id   nef_nmr_meta_data
    _category.mandatory_code  no
    #
    _category_group.id  nef_group
@@ -575,7 +575,7 @@ save__nef_program_script.script_name
    #
    _item.name            "_nef_program_script.script_name"
    _item.category_id     nef_program_script
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  singleline
    #
@@ -610,7 +610,7 @@ save_nef_run_history
 
    _category.description          "The data items in the NEF_RELATED_ENTRIES category enumerate the program steps related to the current data set."
    _category.id                   nef_run_history
-   _category.parent_category_id   nef_nmr_meta_data
+   # _category.parent_category_id    nef_nmr_meta_data
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -780,7 +780,7 @@ save_nef_sequence
 
    _category.description          "The data items in the NEF_SEQUENCE category enumerates the sequences of the polymer components of the molecular system."
    _category.id                   nef_sequence
-   _category.parent_category_id   nef_molecular_system
+   # _category.parent_category_id    nef_molecular_system
    _category.mandatory_code       yes
    #
    _category_group.id  nef_group
@@ -894,7 +894,7 @@ save__nef_sequence.sequence_code
    _item_examples.case
    20
    233B
-   # stop_
+   stop_
    #
 save_
 #
@@ -936,7 +936,7 @@ save__nef_sequence.linking
        single
        nonlinear
        dummy
-    # stop_
+    stop_
 save_
 #
 save__nef_sequence.residue_variant
@@ -959,7 +959,7 @@ these codes are not defined.
    _item_examples.case
      CYS_LL
      ARG_LSN3_DHH12
-   # stop_
+   stop_
    #
 save_
 #
@@ -970,7 +970,7 @@ save_nef_covalent_links
 
    _category.description          "The data items in the NEF_COVALENT_LINKS category provide the list of covalent linkages among the components of the molecular system."
    _category.id                   nef_covalent_links
-   _category.parent_category_id   nef_molecular_system
+   # _category.parent_category_id    nef_molecular_system
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -1202,7 +1202,7 @@ save_nef_chemical_shift
 
    _category.description     "The data items in the NEF_CHEMICAL_SHIFT category enumerate the list of chemical shifts."
    _category.id              nef_chemical_shift
-   _category.parent_category_id   nef_chemical_shift_list
+   # _category.parent_category_id    nef_chemical_shift_list
    _category.mandatory_code  yes
    #
    _category_group.id  nef_group
@@ -1244,7 +1244,7 @@ save_nef_chemical_shift
       A 23      LYS     N      123.45   0.4
      @1 SS@231  GLX?    CAi-1   48.2     .
      @1 SS@12      .    CAi-1   39.2     .
-  stop_
+  # stop_
 
 
 # The atom_name by itself serves to distinguish between real atoms ('HA'),
@@ -1415,7 +1415,7 @@ save__nef_distance_restraint_list.sf_framecode
    _item.category_id     nef_distance_restraint_list
    _item.mandatory_code  yes
    #
-   _item_type.code  int
+   _item_type.code  nef_framecode
    #
    _item_examples.case  1
    #
@@ -1458,7 +1458,7 @@ save_nef_distance_restraint
 
    _category.description          "The data items in the NEF_DISTANCE_RESTRAINT category enumerates the list of distance restraint contributions."
    _category.id                   nef_distance_restraint
-   _category.parent_category_id   nef_distance_restraint_list
+   # _category.parent_category_id    nef_distance_restraint_list
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -1494,7 +1494,7 @@ save_nef_distance_restraint
     5  5  .   A 18   PHE  HB2  A 24  ASP  HBX 1.00 2.8  0.4   1.5  2.0  3.2  3.7
     6  8  .   A 18   PHE  HB2  A 24  ASP  HBY 1.00 4.4  0.4   3.6  4.1  5.2  5.7
     6  8  .   E 6B   SER  HB2  A 24  ASP  HBY 1.00 4.4  0.4   3.6  4.1  5.2  5.7
-  stop_
+  # stop_
 
   # The first column (ordinal) is a consecutive line number that does not persist
   # when data are re-exported
@@ -1884,7 +1884,7 @@ save_nef_dihedral_restraint
 
    _category.description     "The data items in the NEF_DIHEDRAL_RESTRAINT category records the list of dihedral restraints."
    _category.id              nef_dihedral_restraint
-   _category.parent_category_id   nef_dihedral_restraint_list
+   # _category.parent_category_id    nef_dihedral_restraint_list
    _category.mandatory_code  no
    #
    _category_group.id  nef_group
@@ -1931,7 +1931,7 @@ save_nef_dihedral_restraint
 7  4  2  A 16 ASN N  A 16 ASN CA  A 16 ASN  C  A 17 CYS N 1.00 105.0 5.0 .   90.0 120.0  . PSI
 8  4  3  A 15 GLY C  A 16 ASN N   A 16 ASN CA  A 16 ASN C 1.00 -80.0 5.0 .  -90.0 -70.0  . PHI
 9  4  3  A 16 ASN N  A 16 ASN CA  A 16 ASN  C  A 17 CYS N 1.00 155.0 5.0 .  140.0 170.0  . PSI
-stop_
+# stop_
 ;
    #
 save_
@@ -2519,7 +2519,7 @@ save_nef_rdc_restraint
 
    _category.description          "The data items in the NEF_RDC_RESTRAINT category records the list of residual dipolar coupling restraints."
    _category.id                   nef_rdc_restraint
-   _category.parent_category_id   nef_rdc_restraint_list
+   # _category.parent_category_id    nef_rdc_restraint_list
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -2553,7 +2553,7 @@ save_nef_rdc_restraint
 
     1  1 .  A  21  ALA  H  A  21  ALA  N  1.00 -5.2  0.33  .  .  .  .  1.0  false
     2  2 .  A  22  THR  H  A  22  THR  N  1.00  3.1  0.40  .  .  .  .  1.0  false
-  stop_
+  # stop_
 ;
 
    #
@@ -2886,7 +2886,7 @@ save_nef_nmr_spectrum
    _nef_nmr_spectrum.num_dimensions             3
    _nef_nmr_spectrum.chemical_shift_list        nef_chemical_shift_list_1
    _nef_nmr_spectrum.experiment_classification  H_H[C].through-space
-   _nef_nmr_spectrum.expriment_type             '13C NOESY-HSQC'
+   _nef_nmr_spectrum.experiment_type             '13C NOESY-HSQC'
 ;
 
    #
@@ -2988,7 +2988,7 @@ save_nef_spectrum_dimension
 
    _category.description          "The data items in the NEF_SPECTRUM_DIMENSION category the details labeling and data collection for each dimension of the spectrum."
    _category.id                   nef_spectrum_dimension
-   _category.parent_category_id   nef_nmr_spectrum
+   # _category.parent_category_id    nef_nmr_spectrum
    _category.mandatory_code       yes
    #
    _category_group.id             nef_group
@@ -3172,7 +3172,7 @@ save_nef_spectrum_dimension_transfer
 
    _category.description          "The data items in the NEF_SPECTRUM_DIMENSION_TRANSFER category describe the magnetisation transfer between dimensions."
    _category.id                   nef_spectrum_dimension_transfer
-   _category.parent_category_id   nef_nmr_spectrum
+   # _category.parent_category_id    nef_nmr_spectrum
    _category.mandatory_code       true
    #
    _category_group.id             nef_group
@@ -3290,7 +3290,7 @@ save_nef_peak
 
    _category.description          "The data items in the NEF_PEAK category enumerates the list of spectrum peaks and associated assignments."
    _category.id                   nef_peak
-   _category.parent_category_id   nef_nmr_spectrum
+   # _category.parent_category_id    nef_nmr_spectrum
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -3341,7 +3341,7 @@ save_nef_peak
  8  5 8.8E7 1.3E7 5.8E7 2.3E7  3.4 0.05 135.6 0.5 9.9 0.03 A 14 TRP HB2 A 14 TRP NE1 A 14 TRP HE1
  9  5 8.8E7 1.3E7 5.8E7 2.3E7  3.4 0.05 135.6 0.5 9.9 0.03 A 24 ASP HBY A 14 TRP NE1 A 14 TRP HE1
 10  7 5.9E7 7.1E6 2.9E7 6.1E6  1.7 0.05 118.3 0.5 9.1 0.03 E 6B SER   . X @5 GLX N   X @5 GLX H
-  stop_
+  # stop_
 ;
        "Example 2"
 ;   loop_
@@ -3446,7 +3446,7 @@ save_nef_peak
  1  1 7.3E7 5.1E6 3.3E7 1.1E6
  7.2 0.05 119.5 0.4 28.3 0.3 172.2 0.5 58.5 0.4 32.3 0.4 22.2 0.5 58.5 0.4 32.3 0.4 22.2 0.5 58.5 0.4 32.3 0.4 22.2 0.5 58.5 0.4 32.3 0.4
  A 19 LEU HN A 19 LEU N A 18 GLN C  A 19 LEU CA A 19 LEU CB A 19 LEU CG  A 19 LEU CD1 A 19 LEU CD2 A 19 LEU CG A 19 LEU CA A 19 LEU CB A 19 LEU CG A 18 GLN CA A 18 GLN CB A 18 GLN CG
-  stop_
+  # stop_
 ;
 
    #
@@ -4966,7 +4966,7 @@ save_nef_peak_restraint_link
 
    _category.description          "The data items in the NEF_PEAK_RESTRAINT_LINK category record the correspondences between peaks and restraints."
    _category.id                   nef_peak_restraint_link
-   _category.parent_category_id   nef_peak_restraint_links
+   # _category.parent_category_id    nef_peak_restraint_links
    _category.mandatory_code       no
    #
    _category_group.id             nef_group
@@ -4990,7 +4990,7 @@ save_nef_peak_restraint_link
       nef_nmr_spectrum_cnoesy1   577   nef_distance_restraint_list_L2     12
       nef_nmr_spectrum_cnoesy1   316   nef_distance_restraint_list_L4   2755
       nef_nmr_spectrum_cnoesy2   917   nef_distance_restraint_list_L4   2755
-stop_
+# stop_
 ;
 
    #
@@ -5075,4 +5075,3 @@ save__nef_peak_restraint_link.restraint_id
      "_nef_rdc_restraint.restraint_id"       "_nef_peak_restraint_link.restraint_id"
    #
 save_
-
