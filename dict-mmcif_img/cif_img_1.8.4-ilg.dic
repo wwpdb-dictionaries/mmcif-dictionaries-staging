@@ -1,0 +1,124 @@
+# 
+loop_
+_pdbx_item_linked_group.category_id 
+_pdbx_item_linked_group.link_group_id 
+_pdbx_item_linked_group.label 
+_pdbx_item_linked_group.context 
+_pdbx_item_linked_group.condition_id 
+array_data                   1 array_data:array_structure:1                        . . 
+array_data                   2 array_data:variant:2                                . . 
+array_element_size           1 array_element_size:array_structure_list:1           . . 
+array_element_size           2 array_element_size:variant:2                        . . 
+array_intensities            1 array_intensities:array_data:1                      . . 
+array_intensities            2 array_intensities:array_structure:2                 . . 
+array_intensities            3 array_intensities:variant:3                         . . 
+array_structure              1 array_structure:variant:1                           . . 
+array_structure_list         1 array_structure_list:array_structure:1              . . 
+array_structure_list         2 array_structure_list:variant:2                      . . 
+array_structure_list_axis    1 array_structure_list_axis:array_structure_list:1    . . 
+array_structure_list_axis    2 array_structure_list_axis:axis:2                    . . 
+array_structure_list_axis    3 array_structure_list_axis:variant:3                 . . 
+array_structure_list_section 1 array_structure_list_section:array_structure:1      . . 
+array_structure_list_section 2 array_structure_list_section:array_structure_list:2 . . 
+axis                         1 axis:axis:1                                         . . 
+axis                         2 axis:variant:2                                      . . 
+diffrn_data_frame            1 diffrn_data_frame:array_data:1                      . . 
+diffrn_data_frame            2 diffrn_data_frame:array_structure:2                 . . 
+diffrn_data_frame            3 diffrn_data_frame:array_structure_list_section:3    . . 
+diffrn_data_frame            4 diffrn_data_frame:diffrn_detector_element:4         . . 
+diffrn_data_frame            5 diffrn_data_frame:variant:5                         . . 
+diffrn_detector              1 diffrn_detector:variant:1                           . . 
+diffrn_detector_axis         1 diffrn_detector_axis:axis:1                         . . 
+diffrn_detector_axis         2 diffrn_detector_axis:diffrn_detector:2              . . 
+diffrn_detector_axis         3 diffrn_detector_axis:variant:3                      . . 
+diffrn_detector_element      1 diffrn_detector_element:variant:1                   . . 
+diffrn_measurement           1 diffrn_measurement:variant:1                        . . 
+diffrn_measurement_axis      1 diffrn_measurement_axis:axis:1                      . . 
+diffrn_measurement_axis      2 diffrn_measurement_axis:diffrn_measurement:2        . . 
+diffrn_measurement_axis      3 diffrn_measurement_axis:variant:3                   . . 
+diffrn_radiation             1 diffrn_radiation:variant:1                          . . 
+diffrn_refln                 1 diffrn_refln:diffrn_data_frame:1                    . . 
+diffrn_refln                 2 diffrn_refln:variant:2                              . . 
+diffrn_scan                  1 diffrn_scan:diffrn_data_frame:1                     . . 
+diffrn_scan                  2 diffrn_scan:diffrn_data_frame:2                     . . 
+diffrn_scan                  3 diffrn_scan:variant:3                               . . 
+diffrn_scan_axis             1 diffrn_scan_axis:axis:1                             . . 
+diffrn_scan_axis             2 diffrn_scan_axis:diffrn_scan:2                      . . 
+diffrn_scan_axis             3 diffrn_scan_axis:variant:3                          . . 
+diffrn_scan_collection       1 diffrn_scan_collection:variant:1                    . .
+diffrn_scan_frame            1 diffrn_scan_frame:diffrn_data_frame:1               . . 
+diffrn_scan_frame            2 diffrn_scan_frame:diffrn_scan:2                     . . 
+diffrn_scan_frame            3 diffrn_scan_frame:variant:3                         . . 
+diffrn_scan_frame_axis       1 diffrn_scan_frame_axis:axis:1                       . . 
+diffrn_scan_frame_axis       2 diffrn_scan_frame_axis:diffrn_data_frame:2          . . 
+diffrn_scan_frame_axis       3 diffrn_scan_frame_axis:variant:3                    . . 
+diffrn_scan_frame_monitor    1 diffrn_scan_frame_monitor:diffrn_data_frame:1       . . 
+diffrn_scan_frame_monitor    2 diffrn_scan_frame_monitor:diffrn_detector:2         . . 
+diffrn_scan_frame_monitor    3 diffrn_scan_frame_monitor:variant:3                 . . 
+map                          1 map:variant:1                                       . . 
+map_segment                  1 map_segment:array_structure_list_section:1          . . 
+map_segment                  2 map_segment:map:2                                   . . 
+map_segment                  3 map_segment:variant:3                               . . 
+# 
+loop_
+_pdbx_item_linked_group_list.child_category_id 
+_pdbx_item_linked_group_list.link_group_id 
+_pdbx_item_linked_group_list.child_name 
+_pdbx_item_linked_group_list.parent_name 
+_pdbx_item_linked_group_list.parent_category_id 
+array_data                   1 '_array_data.array_id'                        '_array_structure.id'               array_structure              
+array_data                   2 '_array_data.variant'                         '_variant.variant'                  variant                      
+array_element_size           1 '_array_element_size.index'                   '_array_structure_list.index'       array_structure_list         
+array_element_size           2 '_array_element_size.variant'                 '_variant.variant'                  variant                      
+array_intensities            1 '_array_intensities.binary_id'                '_array_data.binary_id'             array_data                   
+array_intensities            2 '_array_intensities.array_id'                 '_array_structure.id'               array_structure              
+array_intensities            3 '_array_intensities.variant'                  '_variant.variant'                  variant                      
+array_structure              1 '_array_structure.variant'                    '_variant.variant'                  variant                      
+array_structure_list         1 '_array_structure_list.array_id'              '_array_structure.id'               array_structure              
+array_structure_list         2 '_array_structure_list.variant'               '_variant.variant'                  variant                      
+array_structure_list_axis    1 '_array_structure_list_axis.axis_set_id'      '_array_structure_list.axis_set_id' array_structure_list         
+array_structure_list_axis    2 '_array_structure_list_axis.axis_id'          '_axis.id'                          axis                         
+array_structure_list_axis    3 '_array_structure_list_axis.variant'          '_variant.variant'                  variant                      
+array_structure_list_section 1 '_array_structure_list_section.array_id'      '_array_structure.id'               array_structure              
+array_structure_list_section 2 '_array_structure_list_section.index'         '_array_structure_list.index'       array_structure_list         
+axis                         1 '_axis.depends_on'                            '_axis.id'                          axis                         
+axis                         2 '_axis.variant'                               '_variant.variant'                  variant                      
+diffrn_data_frame            1 '_diffrn_data_frame.binary_id'                '_array_data.binary_id'             array_data                   
+diffrn_data_frame            2 '_diffrn_data_frame.array_id'                 '_array_structure.id'               array_structure              
+diffrn_data_frame            3 '_diffrn_data_frame.array_section_id'         '_array_structure_list_section.id'  array_structure_list_section 
+diffrn_data_frame            4 '_diffrn_data_frame.detector_element_id'      '_diffrn_detector_element.id'       diffrn_detector_element      
+diffrn_data_frame            5 '_diffrn_data_frame.variant'                  '_variant.variant'                  variant                      
+diffrn_detector              1 '_diffrn_detector.variant'                    '_variant.variant'                  variant                      
+diffrn_detector_axis         1 '_diffrn_detector_axis.axis_id'               '_axis.id'                          axis                         
+diffrn_detector_axis         2 '_diffrn_detector_axis.detector_id'           '_diffrn_detector.id'               diffrn_detector              
+diffrn_detector_axis         3 '_diffrn_detector_axis.variant'               '_variant.variant'                  variant                      
+diffrn_detector_element      1 '_diffrn_detector_element.variant'            '_variant.variant'                  variant                      
+diffrn_measurement           1 '_diffrn_measurement.variant'                 '_variant.variant'                  variant                      
+diffrn_measurement_axis      1 '_diffrn_measurement_axis.axis_id'            '_axis.id'                          axis                         
+diffrn_measurement_axis      2 '_diffrn_measurement_axis.measurement_device' '_diffrn_measurement.device'        diffrn_measurement           
+diffrn_measurement_axis      2 '_diffrn_measurement_axis.measurement_id'     '_diffrn_measurement.id'            diffrn_measurement           
+diffrn_measurement_axis      3 '_diffrn_measurement_axis.variant'            '_variant.variant'                  variant                      
+diffrn_radiation             1 '_diffrn_radiation.variant'                   '_variant.variant'                  variant                      
+diffrn_refln                 1 '_diffrn_refln.frame_id'                      '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_refln                 2 '_diffrn_refln.variant'                       '_variant.variant'                  variant                      
+diffrn_scan                  1 '_diffrn_scan.frame_id_start'                 '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan                  2 '_diffrn_scan.frame_id_end'                   '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan                  3 '_diffrn_scan.variant'                        '_variant.variant'                  variant                      
+diffrn_scan_axis             1 '_diffrn_scan_axis.axis_id'                   '_axis.id'                          axis                         
+diffrn_scan_axis             2 '_diffrn_scan_axis.scan_id'                   '_diffrn_scan.id'                   diffrn_scan                  
+diffrn_scan_axis             3 '_diffrn_scan_axis.variant'                   '_variant.variant'                  variant                      
+diffrn_scan_collection       1 '_diffrn_scan_collection.variant'             '_variant.variant'                  variant
+diffrn_scan_frame            1 '_diffrn_scan_frame.frame_id'                 '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame            2 '_diffrn_scan_frame.scan_id'                  '_diffrn_scan.id'                   diffrn_scan                  
+diffrn_scan_frame            3 '_diffrn_scan_frame.variant'                  '_variant.variant'                  variant                      
+diffrn_scan_frame_axis       1 '_diffrn_scan_frame_axis.axis_id'             '_axis.id'                          axis                         
+diffrn_scan_frame_axis       2 '_diffrn_scan_frame_axis.frame_id'            '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame_axis       3 '_diffrn_scan_frame_axis.variant'             '_variant.variant'                  variant                      
+diffrn_scan_frame_monitor    1 '_diffrn_scan_frame_monitor.frame_id'         '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame_monitor    2 '_diffrn_scan_frame_monitor.detector_id'      '_diffrn_detector.id'               diffrn_detector              
+diffrn_scan_frame_monitor    3 '_diffrn_scan_frame_monitor.variant'          '_variant.variant'                  variant                      
+map                          1 '_map.variant'                                '_variant.variant'                  variant                      
+map_segment                  1 '_map_segment.array_section_id'               '_array_structure_list_section.id'  array_structure_list_section 
+map_segment                  2 '_map_segment.id'                             '_map.id'                           map                          
+map_segment                  3 '_map_segment.variant'                        '_variant.variant'                  variant                      
+# 
