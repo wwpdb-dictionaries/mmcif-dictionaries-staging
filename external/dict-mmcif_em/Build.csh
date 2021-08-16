@@ -1,4 +1,4 @@
-#!/bin/csh -f
+#!/bin/csh
 #
 # File:  Build.csh
 # Date:  12-April-2004
@@ -46,5 +46,5 @@ set n = `wc -l $dict`
 echo "$dict created - text lines  =  $n"
 echo ""
 
-cp $dict ../dist
+cp $dict ../../dist
 #

@@ -9,7 +9,7 @@ install: compile
 build:  compile
 
 compile: mmcif_ndb_ntc.dic
-	@cp mmcif_ndb_ntc.dic ../dist
+	@cp mmcif_ndb_ntc.dic ../../dist
 
 clean:
 
