@@ -1,4 +1,4 @@
-DATADIRS = mmcif_nmr-star mmcif_sas mmcif_biosync mmcif_ccp4 mmcif_img mmcif_rcsb_nmr mmcif_rcsb_xray mmcif_sym  mmcif_nef mmcif_ndb_ntc
+SUBDIRS=wwpdb_internal external
 
 all:	compile 
 
@@ -6,16 +6,16 @@ clean_build: clean
 
 compile:
 	@mkdir -p dist
-	@for datadir in $(DATADIRS); do \
+	@for subdir in $(SUBDIRS); do \
 		echo " "; \
 		echo "------------------------------------------------------------"; \
-		echo "**** Making $$datadir ****"; \
+		echo "**** Making in $$subdir ****"; \
 		echo "------------------------------------------------------------"; \
-		(cd dict-$$datadir && make ) || exit 1; \
+		(cd $$subdir && make ) || exit 1; \
 	done
 
 clean:
-	@for datadir in $(DATADIRS); do \
-		echo cleaning $$datadir; \
-		(cd dict-$$datadir && make clean) || exit 1; \
+	@for subdir in $(SUBDIRS); do \
+		echo cleaning $$subdir; \
+		(cd $$subdir && make clean) || exit 1; \
 	done
